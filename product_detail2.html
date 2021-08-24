@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>view product</title>
+    <style>
+        #details{
+            width:70%;
+            margin:auto;
+            display: grid;
+            grid-template-columns: 48% 42%;
+            gap:20px
+        }
+        h2{
+            font-weight: 100px;
+        }
+        h4{
+            text-align: left;
+            margin-bottom: 0px;
+            width: 50;
+        }
+        
+        #details+div{
+            /*display: flex;*/
+            margin: auto;
+            /*text-align: center;*/
+            
+           
+        }
+        img{
+            width: 60%;
+            margin-left: 30px;
+        }
+        div+div{
+            display: flex;
+            flex-direction: column;
+        }
+        button{
+            background-color: black;
+            color: white;
+            height: 25px;
+            border-radius: 5px;
+
+        }
+        p{
+            font-size: 13px;
+            float: left;
+        }
+
+        h3{
+            margin-bottom: 0px;
+        }
+        h3+p{
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+        #discription_list{
+            float: left;
+            text-align: left;
+            width: 35%;
+            
+            
+        }
+        .hower{
+            width: 90%;
+           
+            overflow: hidden;
+        }
+       
+       
+    </style>
+    <div id="details">
+        <div id="image_product"></div>
+        <div id="discription_product"></div>
+    </div>
+    <br>
+    <br>
+    <div id="discription_list"></div>
+</head>
+<body>
+    <script>
+        var parent=document.getElementById("product_1")
+        var image_div=document.getElementById("image_product")
+        var discription_div=document.getElementById("discription_product")
+        var discription_list=document.getElementById("discription_list")
+        var a=localStorage.getItem("view")
+        console.log(a[0])
+        let view_data=JSON.parse(localStorage.getItem("artproduct1"))
+        console.log(view_data)
+      
+        view_data.forEach(function(product){
+           
+            var name=document.createElement("h2")
+            name.textContent=product.name
+            console.log(product.name)
+
+            var image=document.createElement("img")
+            image.src=product.image
+            image.onmouseover=function(){
+                image.setAttribute("class","hower")
+            }
+            image.onmouseleave=function(){
+                image.removeAttribute("class")
+            }
+           
+
+            var color=document.createElement("p")
+            color.textContent=product.color
+            //console.log(color)
+
+            var price=document.createElement("h3")
+            price.textContent="INR "+product.price
+
+            var text=document.createElement("p")
+            text.textContent="Price varies with currency exchange rates and may be different than in store."
+
+            var about=document.createElement("p")
+            about.textContent=product.about
+
+            var about1=document.createElement("p")
+            about1.textContent=product.about
+
+            var itemcode=document.createElement("p")
+            itemcode.textContent=product.itemcode
+
+            var button=document.createElement("button")
+            button.textContent="Add To Bag"
+
+            var made=document.createElement("p")
+            made.textContent=product.made
+
+            var size=document.createElement("p")
+            size.textContent=product.size
+
+            var add_to_cart=document.createElement("a")
+            
+
+            var second_header=document.createElement("h4")
+            second_header.textContent="DETAILS & CARE"
+
+            var list=document.createElement("li")
+            var list1=document.createElement("li")
+            var list2=document.createElement("li")
+            
+            list.textContent= product.size
+            list1.textContent= "Item"+product.itemcode
+            list2.textContent= "Made in "+product.made
+            
+            image_div.append(image)
+            discription_div.append(name,price,text,about1,color,button)
+            discription_list.append(second_header,about,list,list1,list2)
+            //div.append(div1,div2)
+            //parent.append(image_div,discription_div)
+
+            
+        });
+    
+    </script>
+</body>
+</html>
