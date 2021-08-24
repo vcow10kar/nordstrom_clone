@@ -4,9 +4,203 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wall Decor & Mirrors | Nordstorm</title>
+    <title>Decor & Mirrors | Nordstorm</title>
+    <style>
+        body {
+            font-family: "Brandon Text",Arial,sans-serif;
+        }
+        #container {
+            display: grid;
+            grid-template-columns: 20% 75%;
+            gap: 30px;
+            padding: 30px;
+        }
+
+        #data {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        #data img {
+            width: 100%;
+        }
+
+        #sorting {
+            display: flex;
+            flex-direction: row-reverse;
+        }
+
+        #sorting > select {
+            font-size: 16px;
+            padding: 5px;
+        }
+    </style>
 </head>
 <body>
+
+    <div id = "header"></div>
+
+    <div id = container>
+        <div id = "filter"></div>
+        
+        <div id = "data-div">
+            <h3>Art, Wall Decor & Mirrors</h3>
+            <p id = "itemCount"></p>
+            <div id = "sorting">
+                <select onchange = "sortBy(this)">
+                    <option value = "newest">Sort by newest</option>
+                    <option value = "lowToHigh">Sort by price: low to high</option>
+                    <option value = "highToLow">Sort by price: high to low</option>
+                </select>
+            </div>
+
+            <div id = 'data'></div>
+        </div>
+    </div>
     
 </body>
 </html>
+<script>
+    var products = [
+        {
+            name: "Stay Home No. 5 Unframed Wall Art",
+            brand: "DENY DESIGNS",
+            price: 1604.70,
+            image1: "https://n.nordstrommedia.com/id/sr3/27b60e77-02e6-429a-8ded-f0d98a503bfb.jpeg?h=365&w=240&dpr=2",
+        },
+        
+        {
+            name: "Ingrid Beddos - Beach Summer of Love Framed Wall Art",
+            brand: "DENY DESIGNS",
+            price: 3129.17,
+            image1: "https://n.nordstrommedia.com/id/sr3/05f24a3b-808b-4ea5-b2f2-54acb5a74ab8.jpeg?h=365&w=240&dpr=2",
+            rating: 4,
+        },
+        
+        {
+            name: "Koyuki Art Print",
+            brand: "DENY DESIGNS",
+            price: "1604.70",
+            image1: "https://n.nordstrommedia.com/id/sr3/6f574bc6-31b9-49a8-b0f8-4125c7615534.jpeg?h=365&w=240&dpr=2",
+        },
+        
+        {
+            name: "Pink Tower Art Print",
+            brand: "DENY DESIGNS",
+            price: 7943.28,
+            image1: "https://n.nordstrommedia.com/id/sr3/7e33ebe8-caa9-42c7-893f-950773c40801.jpeg?h=365&w=240&dpr=2",
+            rating: 3,
+        },
+        
+        {
+            name: "3-Piece Wall Décor Set",
+            brand: "CHOPVALUE",
+            price: 4573.41,
+            image1: "https://n.nordstrommedia.com/id/sr3/cf564738-8bf4-4581-8247-6b00192e438c.jpeg?h=365&w=240&dpr=2",
+            rating: 5,
+        },
+        
+        {
+            name: "3-Piece Wall Décor Set",
+            brand: "CHOPVALUE",
+            price: 4573.41,
+            image1: "https://n.nordstrommedia.com/id/sr3/0b0cb8b1-97e0-434f-8431-8ce0fd5e7b45.jpeg?h=365&w=240&dpr=2",
+        }
+    ]
+
+    var data_div = document.getElementById('data');
+
+    function createProductCatalogue(products) {
+        products.forEach(function(product) {
+            var div = document.createElement('div');
+
+            var p_name = document.createElement('p');
+            p_name.innerText = product.name;
+
+            var p_price = document.createElement('p');
+            p_price.innerText = "INR " + product.price;
+
+            var p_brand = document.createElement('p');
+            p_brand.innerText = product.brand;
+
+            var image = document.createElement('img');
+            image.src = product.image1;
+
+            var description = document.createElement('a');
+            description.setAttribute('href', 'product_details.html');
+            description.style.color = 'black';
+            description.innerText = product.brand + " " + product.name;
+
+            if(product.rating) {
+                var rating = document.createElement('p');
+                for(let i = 1; i <= product.rating; i++) {
+                    var star = document.createElement('span');
+                    star.innerHTML = '<span>&#9733;</span>';
+                    rating.appendChild(star);
+                }
+
+                var rating_count = document.createElement('span');
+                rating_count.innerText = ` (${product.rating})`; 
+                rating.appendChild(rating_count);
+
+                div.append(image, description, p_price, rating);
+            } else {
+                div.append(image, description, p_price);
+            }
+            
+            data_div.appendChild(div);
+
+        })
+    }
+
+    function sortBy(element) {
+        var sortValue = element.value;
+
+        if(sortValue === 'lowToHigh') {
+            priceLowToHigh();
+        } else if(sortValue === 'highToLow') {
+            priceHighToLow();
+        }
+
+    }
+
+    function priceLowToHigh() {
+        for(let i = 0; i < products.length; i++) {
+            for(let j = 0; j < products.length; j++) {
+                if(products[i].price < products[j].price) {
+                    var temp = products[i];
+                    products[i] = products[j];
+                    products[j] = temp;
+                }
+            }
+        }
+
+        console.log(products);
+
+        data_div.innerHTML = "";
+        createProductCatalogue(products);
+    }
+
+    function priceHighToLow() {
+        for(let i = 0; i < products.length; i++) {
+            for(let j = 0; j < products.length; j++) {
+                if(products[i].price > products[j].price) {
+                    var temp = products[i];
+                    products[i] = products[j];
+                    products[j] = temp;
+                }
+            }
+        }
+
+        console.log(products);
+
+        data_div.innerHTML = "";
+        createProductCatalogue(products);
+    }
+
+    var itemCount = document.getElementById('itemCount');
+    itemCount.innerText = `${products.length} items`;
+
+    createProductCatalogue(products);
+
+</script>
