@@ -83,7 +83,7 @@
             <h3>Art, Wall Decor & Mirrors</h3>
             <p id = "itemCount"></p>
             <div id = "sorting">
-                <select onchange = "sortBy(this)">
+                <select onchange = "sortBy(value)">
                     <option value = "newest">Sort by newest</option>
                     <option value = "lowToHigh">Sort by price: low to high</option>
                     <option value = "highToLow">Sort by price: high to low</option>
@@ -103,6 +103,8 @@
             brand: "Deny Designs",
             price: 1604.70,
             image1: "https://n.nordstrommedia.com/id/sr3/27b60e77-02e6-429a-8ded-f0d98a503bfb.jpeg?h=365&w=240&dpr=2",
+            about: "Create a relaxing mood in your home with the evocative graphic on this framed wall art printed with archival, fade-resistant inks for lasting quality.",
+            details:"<ul><li>Art by Domonique Brown</li><li>Hanging hardware included</li><li>Acid- and lignin-free archival paper/wood</li><li>Made in the USA</li><li>Item #6289066</li></ul>"
         },
         
         {
@@ -111,6 +113,8 @@
             price: 3129.17,
             image1: "https://n.nordstrommedia.com/id/sr3/05f24a3b-808b-4ea5-b2f2-54acb5a74ab8.jpeg?h=365&w=240&dpr=2",
             rating: 4,
+            about: "A dreamy beach scene from artist Ingrid Beddoes takes center stage on ready-to-hang wall art featuring a satin finish and a rustic bamboo frame.",
+            details:"<ul><li>11\" x 13\"</li><li>2 lb.</li><li>Fiberboard/bamboo</li><li>Made in the USA</li><li>Item #5664127</li></ul>"
         },
         
         {
@@ -118,6 +122,8 @@
             brand: "Deny Designs",
             price: "1604.70",
             image1: "https://n.nordstrommedia.com/id/sr3/6f574bc6-31b9-49a8-b0f8-4125c7615534.jpeg?h=365&w=240&dpr=2",
+            about: "Printed on matte paper with gallery-quality archival ink, this print from Elodie Bachelier depicts a woman's profile in chaotic lines and splatters. The print has enough weight to be hung on its own but will look even more stunning in a frame of your choice.",
+            details: "<ul><li>Paper</li><li>Made in the USA</li><li>Item #6288618</li></ul>"
         },
         
         {
@@ -126,6 +132,8 @@
             price: 7943.28,
             image1: "https://n.nordstrommedia.com/id/sr3/7e33ebe8-caa9-42c7-893f-950773c40801.jpeg?h=365&w=240&dpr=2",
             rating: 3,
+            about: "Bring the serenity of the beach into your home with a matte-finish art print available on its own or in a ready-to-hang frame.",
+            details: "<ul><li>Art by Bree Madden</li><li>Framed version includes wood frame and hanging hardware</li><li>Acid- and lignin-free archival paper/wood</li><li>Made in the USA</li><li>Item #5868604</li></ul>"
         },
         
         {
@@ -266,8 +274,8 @@
         })
     }
 
-    function sortBy(element) {
-        var sortValue = element.value;
+    function sortBy(sortValue) {
+        // var sortValue = element.value;
 
         if(sortValue === 'lowToHigh') {
             priceLowToHigh();
@@ -317,7 +325,39 @@
     createProductCatalogue(products);
 
     function createBrandFilters() {
-        var brands = [];
+        var brands_div = document.getElementById('brand');
+
+        var brands = {};
+
+        products.forEach(function(product) {
+            if(brands[product.brand] === undefined) {
+                brands[product.brand] = 1;
+                var div = document.createElement('div');
+
+                var checkbox = document.createElement('input');
+                checkbox.setAttribute('id', `${product.brand}`);
+                checkbox.setAttribute('type', 'checkbox');
+                checkbox.checked = function() {
+                    addToFilter(product.brand);
+                }
+
+                var label = document.createElement('label');
+                label.setAttribute('for', `${product.brand}`);
+                label.innerText = `${product.brand}`;
+
+                div.append(checkbox, label);
+                brands_div.appendChild(div);
+            }  
+        })
     }
+
+    var filters = [];
+
+    function addToFilter(brand) {
+
+        console.log(brand);
+    }
+
+    window.onload = createBrandFilters;
 
 </script>
