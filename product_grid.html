@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Decor & Mirrors | Nordstorm</title>
+    <title>Wall Decor & Mirrors | Nordstorm</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <style>
         body {
             font-family: "Brandon Text",Arial,sans-serif;
@@ -19,6 +21,7 @@
         #data {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
         }
 
         #data img {
@@ -34,6 +37,32 @@
             font-size: 16px;
             padding: 5px;
         }
+
+        #description {
+            text-decoration: none;
+            line-height: 24.17px;
+        }
+
+        #description:hover {
+            text-decoration: underline;
+        }
+
+        #brand {
+            width: 80%;
+            /* border: 1px solid grey; */
+            padding: 5px;
+        }
+
+        #search-brand {
+            max-width: 100%;
+            border: 0px;
+            margin-bottom: 5px;
+            padding: 5px;
+        }
+
+        #search-icon {
+            padding: 10px;
+        }
     </style>
 </head>
 <body>
@@ -41,13 +70,20 @@
     <div id = "header"></div>
 
     <div id = container>
-        <div id = "filter"></div>
+        <div id = "filter">
+            
+            <div id = "brand" onload = "createBrandFilters()">
+                <p>Brand</p>
+                <!-- <span class="material-icons" id = "search-icon">search<input id = "search-brand" placeholder = "Find a brand"/></span> -->
+
+            </div>
+        </div>
         
         <div id = "data-div">
             <h3>Art, Wall Decor & Mirrors</h3>
             <p id = "itemCount"></p>
             <div id = "sorting">
-                <select onchange = "sortBy(this)">
+                <select onchange = "sortBy(value)">
                     <option value = "newest">Sort by newest</option>
                     <option value = "lowToHigh">Sort by price: low to high</option>
                     <option value = "highToLow">Sort by price: high to low</option>
@@ -64,37 +100,45 @@
     var products = [
         {
             name: "Stay Home No. 5 Unframed Wall Art",
-            brand: "DENY DESIGNS",
+            brand: "Deny Designs",
             price: 1604.70,
             image1: "https://n.nordstrommedia.com/id/sr3/27b60e77-02e6-429a-8ded-f0d98a503bfb.jpeg?h=365&w=240&dpr=2",
+            about: "Create a relaxing mood in your home with the evocative graphic on this framed wall art printed with archival, fade-resistant inks for lasting quality.",
+            details:"<ul><li>Art by Domonique Brown</li><li>Hanging hardware included</li><li>Acid- and lignin-free archival paper/wood</li><li>Made in the USA</li><li>Item #6289066</li></ul>"
         },
         
         {
             name: "Ingrid Beddos - Beach Summer of Love Framed Wall Art",
-            brand: "DENY DESIGNS",
+            brand: "Deny Designs",
             price: 3129.17,
             image1: "https://n.nordstrommedia.com/id/sr3/05f24a3b-808b-4ea5-b2f2-54acb5a74ab8.jpeg?h=365&w=240&dpr=2",
             rating: 4,
+            about: "A dreamy beach scene from artist Ingrid Beddoes takes center stage on ready-to-hang wall art featuring a satin finish and a rustic bamboo frame.",
+            details:"<ul><li>11\" x 13\"</li><li>2 lb.</li><li>Fiberboard/bamboo</li><li>Made in the USA</li><li>Item #5664127</li></ul>"
         },
         
         {
             name: "Koyuki Art Print",
-            brand: "DENY DESIGNS",
+            brand: "Deny Designs",
             price: "1604.70",
             image1: "https://n.nordstrommedia.com/id/sr3/6f574bc6-31b9-49a8-b0f8-4125c7615534.jpeg?h=365&w=240&dpr=2",
+            about: "Printed on matte paper with gallery-quality archival ink, this print from Elodie Bachelier depicts a woman's profile in chaotic lines and splatters. The print has enough weight to be hung on its own but will look even more stunning in a frame of your choice.",
+            details: "<ul><li>Paper</li><li>Made in the USA</li><li>Item #6288618</li></ul>"
         },
         
         {
             name: "Pink Tower Art Print",
-            brand: "DENY DESIGNS",
+            brand: "Deny Designs",
             price: 7943.28,
             image1: "https://n.nordstrommedia.com/id/sr3/7e33ebe8-caa9-42c7-893f-950773c40801.jpeg?h=365&w=240&dpr=2",
             rating: 3,
+            about: "Bring the serenity of the beach into your home with a matte-finish art print available on its own or in a ready-to-hang frame.",
+            details: "<ul><li>Art by Bree Madden</li><li>Framed version includes wood frame and hanging hardware</li><li>Acid- and lignin-free archival paper/wood</li><li>Made in the USA</li><li>Item #5868604</li></ul>"
         },
         
         {
             name: "3-Piece Wall Décor Set",
-            brand: "CHOPVALUE",
+            brand: "Chopvalue",
             price: 4573.41,
             image1: "https://n.nordstrommedia.com/id/sr3/cf564738-8bf4-4581-8247-6b00192e438c.jpeg?h=365&w=240&dpr=2",
             rating: 5,
@@ -102,10 +146,85 @@
         
         {
             name: "3-Piece Wall Décor Set",
-            brand: "CHOPVALUE",
+            brand: "Chopvalue",
             price: 4573.41,
             image1: "https://n.nordstrommedia.com/id/sr3/0b0cb8b1-97e0-434f-8431-8ce0fd5e7b45.jpeg?h=365&w=240&dpr=2",
-        }
+        },
+
+        {
+            name: "Golden Leaves Canvas Wall Art",
+            brand: "Oliver Gal",
+            price: 3931.52,
+            image1: "https://n.nordstrommedia.com/id/sr3/92e9b7d7-999c-471e-ac4e-e4db4decba04.jpeg?h=365&w=240&dpr=2",
+            rating: 5
+        },
+
+        {
+            name: "Virginia by Night Art Print",
+            brand: "Deny Designs",
+            price: 1604.70,
+            image1: "https://n.nordstrommedia.com/id/sr3/22ea804f-68d4-4404-a82f-427953ffadb8.jpeg?h=365&w=240&dpr=2",
+        },
+
+        {
+            name: "Cool Mouth Framed Wall Art",
+            brand: "Deny Designs",
+            price: 3129.17,
+            image1: "https://n.nordstrommedia.com/id/sr3/7137091b-5869-437b-9a33-5b9fc463ca4d.jpeg?h=365&w=240&dpr=2",
+            rating: 4
+        },
+
+        {
+            name: "Pineapples Blue Framed Wall Art",
+            brand: "Deny Designs",
+            price: 3209.41,
+            image1: "https://n.nordstrommedia.com/id/sr3/0ed98a33-1ee3-4fb2-a982-3e111b518773.jpeg?h=365&w=240&dpr=2",
+            rating: 4
+        },
+
+        {
+            name: "Another World Art Print",
+            brand: "Deny Designs",
+            price: 2326.82,
+            image1: "https://n.nordstrommedia.com/id/sr3/fd58d20b-7f7f-42e3-8dfe-ef31b3b594bb.jpeg?h=365&w=240&dpr=2",
+        },
+
+        {
+            name: "Marikylä Art Print",
+            brand: "Marimekko",
+            price: 3048.94,
+            image1: "https://n.nordstrommedia.com/id/sr3/4c92af52-e0b7-42f0-8125-bb05ec94ce3a.jpeg?h=365&w=240&dpr=2",
+        },
+
+        {
+            name: "Last Days of Summer Art Print",
+            brand: "Deny Designs",
+            price: 3931.52,
+            image1: "https://n.nordstrommedia.com/id/sr3/82d654c2-de88-417f-a51c-a0b9b464cee9.jpeg?h=365&w=240&dpr=2",
+        },
+
+        {
+            name: "Amsterdam Framed Wall Art",
+            brand: "Deny Designs",
+            price: 3129.17,
+            image1: "https://n.nordstrommedia.com/id/sr3/84ca9eeb-9d9e-4af3-9197-071580fa7da6.jpeg?h=365&w=240&dpr=2",
+        },
+
+        {
+            name: "Animals in the Wild Framed Wall Art",
+            brand: "Deny Designs",
+            price: 3209.41,
+            image1: "https://n.nordstrommedia.com/id/sr3/3d031716-b6b0-4cb6-85ca-9a66c1976471.jpeg?h=365&w=240&dpr=2",
+            rating: 4,
+        },
+
+        {
+            name: "You Are My Sun Moon & Stars Framed Wall Art",
+            brand: "Deny Designs",
+            price: 3129.17,
+            image1: "https://n.nordstrommedia.com/id/sr3/aefb1479-0493-44e9-99e6-feb2afca0227.jpeg?h=365&w=240&dpr=2",
+            rating: 2,
+        },
     ]
 
     var data_div = document.getElementById('data');
@@ -118,6 +237,7 @@
             p_name.innerText = product.name;
 
             var p_price = document.createElement('p');
+            p_price.style.fontWeight = '600';
             p_price.innerText = "INR " + product.price;
 
             var p_brand = document.createElement('p');
@@ -127,6 +247,7 @@
             image.src = product.image1;
 
             var description = document.createElement('a');
+            description.setAttribute('id', 'description');
             description.setAttribute('href', 'product_details.html');
             description.style.color = 'black';
             description.innerText = product.brand + " " + product.name;
@@ -153,8 +274,8 @@
         })
     }
 
-    function sortBy(element) {
-        var sortValue = element.value;
+    function sortBy(sortValue) {
+        // var sortValue = element.value;
 
         if(sortValue === 'lowToHigh') {
             priceLowToHigh();
@@ -202,5 +323,41 @@
     itemCount.innerText = `${products.length} items`;
 
     createProductCatalogue(products);
+
+    function createBrandFilters() {
+        var brands_div = document.getElementById('brand');
+
+        var brands = {};
+
+        products.forEach(function(product) {
+            if(brands[product.brand] === undefined) {
+                brands[product.brand] = 1;
+                var div = document.createElement('div');
+
+                var checkbox = document.createElement('input');
+                checkbox.setAttribute('id', `${product.brand}`);
+                checkbox.setAttribute('type', 'checkbox');
+                checkbox.checked = function() {
+                    addToFilter(product.brand);
+                }
+
+                var label = document.createElement('label');
+                label.setAttribute('for', `${product.brand}`);
+                label.innerText = `${product.brand}`;
+
+                div.append(checkbox, label);
+                brands_div.appendChild(div);
+            }  
+        })
+    }
+
+    var filters = [];
+
+    function addToFilter(brand) {
+
+        console.log(brand);
+    }
+
+    window.onload = createBrandFilters;
 
 </script>
