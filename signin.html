@@ -5,10 +5,95 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NordStorm Online & Indoor : Shoes,Jewlery,Clothing,Makeup,Dresses</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+       
     
+
+    <style>
+
+        *{
+            margin:10px;
+            font-family: 'Lato', sans-serif;
+        }
+        h2{
+            font-weight: 400;
+        }
+        .container {
+            width:30%;
+            margin:auto;
+            background-color: whitesmoke;
+            border-radius: 10px;
+            padding:20px;
+         
+        }
+
+        button {
+            background-color:black;
+            border: none;
+            color:white;
+            margin-left:10px;
+            padding:10px;
+            width:95%;
+            font-weight: 700;
             
+        }
+
+        button:hover {
+            background-color:rgb(36, 36, 36);   
+        }
+        label{
+            font-weight: bold;
+            font-size:16px;
+            margin:10px;
+        }
+
+        input{
+            padding:10px;
+            margin-left:10px;
+            width:90%;            
+            border:1px solid #bbb
+        }
+
+
+        input:focus{
+            
+            border-bottom: 3px solid black;
+            border-left: none;
+            border-right: none;
+            border-top: none;
+            
+        }
+        a{
+            text-decoration: underline;
+            color:black;
+        }
+    </style>
 </head>
 <body>
+
     
+    <div class="header"></div>
+
+
+    <div class="container">
+        <h2>Sign In | Create Account</h2>
+        <p>Enter your email to get started</p>
+
+        <label for="email">Email</label>
+        <br>
+        <input type="text" id="email"/>
+        <br>
+        <button>Next</button>
+
+        <p>By tapping Next, you agree to our<a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms & Conditions</a>.</p>
+    </div>
+
+
+    <div class="footer"></div>
+
+
 </body>
 </html>  
