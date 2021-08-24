@@ -86,7 +86,7 @@
         <br>
         <input type="text" id="email"/>
         <br>
-        <button>Next</button>
+        <button onclick="checkUser(event)">Next</button>
 
         <p>By tapping Next, you agree to our<a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms & Conditions</a>.</p>
     </div>
@@ -95,5 +95,89 @@
     <div class="footer"></div>
 
 
+
+    <script>
+
+
+        if(localStorage.getItem('users')==null) {
+            localStorage.setItem('users',JSON.stringify([]));
+        }
+
+
+        //below is code for setting users in localstorage for acess
+        /**var user ={
+            name : "akhil",
+            email : "akhilkamsala@gmail.com",
+            age: 25,
+            phone : '8790856040',
+            pic_url : "",
+
+        }
+
+        var storage = JSON.parse(localStorage.getItem('users'));
+        console.log(storage);
+        storage.push(user);
+        localStorage.setItem('users',JSON.stringify(storage));
+
+        **/
+
+
+        function isRegisteredUser(email)
+        {
+
+            var users = JSON.parse(localStorage.getItem('users'));
+
+            var userDetails=users.filter(function(user){
+                console.log(user);
+                return user.email==email;
+            });
+
+            console.log(userDetails);
+
+
+            if(userDetails.length==0)
+                return false;
+            else
+                return true;
+
+
+        }
+
+
+
+
+        //this method is called every time next is clicked and the email address parameter is passed dynamically
+        function checkUser(event){
+
+                var email = document.getElementById('email').value;
+                if(email==''||email==null)
+                    alert("please enter a email id !");
+                 else{
+
+                    if(isRegisteredUser(email))
+                        {
+                            //renderLogin();
+                        }
+                        else{
+                            window.location="signup.html";
+                        }
+
+                 }   
+
+
+        }
+
+
+
+
+        
+
+
+
+
+
+
+
+    </script>
 </body>
 </html>  
