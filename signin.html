@@ -122,11 +122,14 @@
         <p id="login_user_email"> </p>         
         <br>
         
-        <label for="email">Password</label>
+        <label for="password">Password<span class="material-icons" style="font-size:20px;color:gray">help</span></label>
         <br>
-        <input type="password" id="email"/>
+        <input type="password" id="password"/>
         <br>
-        <a href="forgot.html">Forgot password ?</a>
+        <a href="forgot.html" style="font-size:10px;color:black;margin-left: 25px;">Forgot password ? </a>
+
+        <div style="display:grid;grid-template-columns:auto 100%;"><input type="checkbox" id="keep_me_signed"/><label for="keep_me_signed" style="text-align:left;margin-bottom: 5px;font-size: 10px;font-weight: 100;">Keep me signed In. <a href="details.html">Details</a></label></div>
+        
         <button onclick="login(event)">Sign In</button>
 
 
@@ -234,6 +237,20 @@
         function login(event)
         {
             console.log(event);
+
+            var email=localStorage.getItem('tried_login_user');
+            var password =123456;
+            var user_pass =document.getElementById('password').value;
+            if(password==123456);
+                alert("Login success");
+
+             var userDetails = JSON.parse(localStorage.getItem('users'));   
+             var arr = userDetails.filter(function(el){
+                 return el.email===email;
+             });
+
+             localStorage.setItem('logeduser',JSON.stringify(arr[0]));   
+
 
 
         }
