@@ -10,6 +10,8 @@
     <style>
          body {
             font-family: "Brandon Text",Arial,sans-serif;
+            margin-left: 10px;
+            margin-left: 10px;
         }
         .material-icons{
             text-align: center;
@@ -19,7 +21,7 @@
             width:70%;
             margin:auto;
             display: grid;
-            grid-template-columns:50% 600px;
+            grid-template-columns:50% 400px;
             gap:20px
         }
         h2{
@@ -42,7 +44,8 @@
         }
         img{
             width: 50%;
-            margin-left: 30px;
+           
+            
         }
         div+div{
             display: flex;
@@ -60,6 +63,15 @@
                 line-height: 24px;
             border-radius: 5px;
 
+        }
+        #discription_product>button+p{
+           
+            font-size: 13px;
+           width:110px;
+            color: black;
+            padding-top: 10px;
+           
+            
         }
         p{
             font-size: 13px;
@@ -85,14 +97,17 @@
            
         
             
-            background-color: white;
+           
             color: black;
             padding: 20px;
             width:120px
         }
         .hower{
             width: 80%;
+            transition-timing-function: cubic-bezier(0.6, 0.04, 0.98, 0.335);
             display: flex;
+            max-height: 450px;
+            
             
             
            
@@ -109,8 +124,32 @@
         li+p{
             margin-top: 20px;
         }
+        #discription_list{
+            padding: 20px;
+        }
+       #have_questions{
+           padding: 20px;
+       }
+       .hower1{
        
-       
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+
+
+       }
+       input{
+           width:30px;
+           height: 30px;
+           text-align: center;
+
+       }
+       a{
+           color: black;
+       }
+       .hower2{
+           border: none;
+           background-color: rgb(198, 196, 201);
+       }
     </style>
     <div id="details">
         <div id="image_product"></div>
@@ -122,6 +161,7 @@
     <div id="flex">
     <div id="discription_list"></div>
     <div id="have_questions"></div>
+    <div id="ratings"></div>
     </div>
 </head>
 <body>
@@ -141,7 +181,7 @@
             var name=document.createElement("h2")
             name.textContent=product.name
             console.log(product.name)
-
+//hower through image
             var image=document.createElement("img")
             image.src=product.image
             image.onmouseover=function(){
@@ -196,14 +236,29 @@
 
             //3rd div for have questions
             var have_que=document.createElement("h4")
-            have_que.textContent="HAVE QUESTIONS?"
+            var span=document.createElement("span")
+            span.setAttribute("class","material-icons")
+            span.innerText="forum"
+            have_que.append(span)
+            console.log(have_que.innerHTML);
+            console.log(have_que.innerHTML+="HAVE QUESTIONS?" );
+            have_que.innerHTML+="HAVE QUESTIONS?" // innerhtml = innerhtml+"aHve a question""
 
             var para=document.createElement("p")
             para.textContent="Connect with us to get free style advice, product recommendations or customer service help."
 
             var chat_now_button=document.createElement("button")
             chat_now_button.textContent="Chat Now"
+//hower throgh button
+            chat_now_button.onmouseover=function(){
+                chat_now_button.setAttribute("class","hower2")
+            }
+            chat_now_button.onmouseleave=function(){
+                chat_now_button.removeAttribute("class")
+            }
 
+
+            // color : [{variantname:"pink",urls:[]},{variantname:"black",urls:[]}]
            
 
             
@@ -211,6 +266,9 @@
             var second_header=document.createElement("h4")
             second_header.textContent="DETAILS & CARE"
 
+
+            //var ul = document.createElement("ul");
+            //ul.innerHTML = 
             var list=document.createElement("li")
             var list1=document.createElement("li")
             var list2=document.createElement("li")
@@ -218,6 +276,44 @@
             var link=document.createElement("a");
             link.setAttribute("href","http://www.google.com");
             link.textContent="See more";
+//seemore mouse hower
+            link.onmouseover=function(){
+                link.setAttribute("class","hower1")
+
+            }
+            link.onmouseleave=function(){
+                link.removeAttribute("class")
+            }
+
+// quantity element 
+            var quantity = document.createElement("input");
+             quantity.setAttribute("type", "text");
+             quantity.setAttribute("id","quantity");
+           quantity.setAttribute("value","1")
+
+
+
+
+// wishlist content
+            var wishlist=document.createElement("p")
+            var wish_list_link=document.createElement("a")
+           // wish_list_link.setAttribute("href","http://www.google.com");
+
+//dialogue box creation
+            wishlist.setAttribute("click",function(element){
+                show_dialogue_box(product)
+            })
+            
+            wish_list_link.textContent="+  Add To Wish List"
+            wishlist.append(wish_list_link)
+            wishlist.onmouseover=function(){
+                wishlist.setAttribute("class","hower1")
+
+            }
+            wishlist.onmouseleave=function(){
+                wishlist.removeAttribute("class")
+            }
+
 
             seemore.textContent="Free Shipping & Returns \t";
             seemore.append(link)
@@ -240,10 +336,10 @@
                 rating.appendChild(rating_count);
 
                // div.append(image, description, p_price, rating);
-                discription_div.append(rating,name,price,text,about1,color,document.createElement("br"),button);
+                discription_div.append(rating,name,price,text,about1,color,quantity,document.createElement("br"),button,wishlist);
             } else {
                // div.append(image, description, p_price);
-               discription_div.append(name,price,text,about1,color,document.createElement("br"),button);
+               discription_div.append(name,price,text,about1,color,quantity,document.createElement("br"),button,wishlist);
             }
            // discription_div.append(name,price,text,about1,color,button)
             discription_list.append(second_header,about,list,list1,list2,seemore)
@@ -263,19 +359,47 @@
 
         function updateCart(product)
         {
-            var bag1=JSON.parse( localStorage.getItem("bag"))
-            bag1.push(product);
-            console.log(bag1);
-            localStorage.setItem("bag",JSON.stringify(bag1));
+            var bag1=JSON.parse( localStorage.getItem("bag"));
+
+            var filter=bag1.filter(function(ele){
+                //console.log(ele);
+                return  ele.productDetails.name == product.name;
+            });
+
+            //console.log(filter);
+
+            if(filter.length>0)
+            {
+
+                        var quantityInBag=bag1[0].quantity;
+                        quantityInBag+=Number(document.getElementById("quantity").value);
+                        bag1.pop();
+                        localStorage.setItem("bag",JSON.stringify(bag1));
+                        //console.log(bag1);
+                        var orderDetials = { productDetails :product ,quantity:quantityInBag}
+                        //console.log(orderDetials);
+                        bag1.push(orderDetials);
+                        console.log(bag1);
+                        localStorage.setItem("bag",JSON.stringify(bag1));
+
+            }
+
+            
+
         }
         {} 
                function add_to_bag(product){
            // var bag=JSON.stringify(product)
+           
            var bag1=JSON.parse( localStorage.getItem("bag"))
             console.log(bag1.length)
             if(bag1.length===0)
             {   
-                bag1.push(product);
+                //bag1.push(product);
+                //console.log(bag1);
+                var orderDetials = { productDetails :product ,quantity:1}
+                console.log("OD"+orderDetials);
+                bag1.push(orderDetials);
                 console.log(bag1);
                 localStorage.setItem("bag",JSON.stringify(bag1));
 
@@ -285,7 +409,24 @@
             }
             else{
                 updateCart(product);
-            }   
+            } 
+            function show_dialogue_box(product) {
+        if(localStorage.getItem('wish_list') === null) {
+            localStorage.setItem('wish_list', JSON.stringify([]));
+        }
+
+        console.log(product);
+        var wish_list1 = JSON.parse(localStorage.getItem('wishlist'));
+        wish_list1.push(product);
+
+        console.log(wish_list1)
+
+        localStorage.setItem('wish_list', JSON.stringify(wish_list1));
+    } 
+            
+           
+
+          
 
         }
     
