@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wall Decor & Mirrors | Nordstorm</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+    <link rel="icon" href="https://n.nordstrommedia.com/id/c4fb2a09-3657-4161-9b79-6412897d9399.png" type = "image/x-icon">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         body {
-            font-family: "Brandon Text",Arial,sans-serif;
+            font-family: Brandon Text,Arial,sans-serif;
         }
         #container {
             display: grid;
@@ -34,13 +34,20 @@
         }
 
         #sorting > select {
-            font-size: 16px;
-            padding: 5px;
+            font-size: 13px;
+            padding: 10px;
+            border: 1px solid rgb(189, 189, 189);
+            background-color: white;
+            width: 250px;
+            color: rgb(80, 80, 80);
         }
 
         #description {
             text-decoration: none;
             line-height: 24.17px;
+            color: grey;
+            font-size: 15px;
+            font-weight: 100;
         }
 
         #description:hover {
@@ -63,6 +70,21 @@
         #search-icon {
             padding: 10px;
         }
+
+        #filter {
+            margin-left: 40px;
+        }
+
+        .filter-div {
+            display: grid;
+            grid-template-columns: 80% 20%;
+        }
+
+        .plus-icon {
+            padding: auto;
+            margin: auto;
+        }
+
     </style>
 </head>
 <body>
@@ -72,10 +94,26 @@
     <div id = container>
         <div id = "filter">
             
-            <div id = "brand" onload = "createBrandFilters()">
-                <p>Brand</p>
+            <div id = "brand">
+                <div class = "filter-div">
+                    <p>Brand</p>
+                    <span class = "material-icons plus-icon" onclick = "toggleDisplay('brand-content')">add</span>  
+                </div>
+                
                 <!-- <span class="material-icons" id = "search-icon">search<input id = "search-brand" placeholder = "Find a brand"/></span> -->
 
+                <div id = "brand-content"></div>
+            </div>
+
+            <div id = "color">
+                <div class = "filter-div">
+                    <p>Color</p>
+                    <span class = "material-icons plus-icon" onclick = "toggleDisplay('color-content')">add</span>  
+                </div>
+                
+                <!-- <span class="material-icons" id = "search-icon">search<input id = "search-brand" placeholder = "Find a brand"/></span> -->
+
+                <div id = "color-content"></div>
             </div>
         </div>
         
@@ -104,7 +142,8 @@
             price: 1604.70,
             image1: "https://n.nordstrommedia.com/id/sr3/27b60e77-02e6-429a-8ded-f0d98a503bfb.jpeg?h=365&w=240&dpr=2",
             about: "Create a relaxing mood in your home with the evocative graphic on this framed wall art printed with archival, fade-resistant inks for lasting quality.",
-            details:"<ul><li>Art by Domonique Brown</li><li>Hanging hardware included</li><li>Acid- and lignin-free archival paper/wood</li><li>Made in the USA</li><li>Item #6289066</li></ul>"
+            details:"<ul><li>Art by Domonique Brown</li><li>Hanging hardware included</li><li>Acid- and lignin-free archival paper/wood</li><li>Made in the USA</li><li>Item #6289066</li></ul>",
+            color: "green"
         },
         
         {
@@ -114,7 +153,8 @@
             image1: "https://n.nordstrommedia.com/id/sr3/05f24a3b-808b-4ea5-b2f2-54acb5a74ab8.jpeg?h=365&w=240&dpr=2",
             rating: 4,
             about: "A dreamy beach scene from artist Ingrid Beddoes takes center stage on ready-to-hang wall art featuring a satin finish and a rustic bamboo frame.",
-            details:"<ul><li>11\" x 13\"</li><li>2 lb.</li><li>Fiberboard/bamboo</li><li>Made in the USA</li><li>Item #5664127</li></ul>"
+            details:"<ul><li>11\" x 13\"</li><li>2 lb.</li><li>Fiberboard/bamboo</li><li>Made in the USA</li><li>Item #5664127</li></ul>",
+            color: "pink"
         },
         
         {
@@ -123,7 +163,8 @@
             price: "1604.70",
             image1: "https://n.nordstrommedia.com/id/sr3/6f574bc6-31b9-49a8-b0f8-4125c7615534.jpeg?h=365&w=240&dpr=2",
             about: "Printed on matte paper with gallery-quality archival ink, this print from Elodie Bachelier depicts a woman's profile in chaotic lines and splatters. The print has enough weight to be hung on its own but will look even more stunning in a frame of your choice.",
-            details: "<ul><li>Paper</li><li>Made in the USA</li><li>Item #6288618</li></ul>"
+            details: "<ul><li>Paper</li><li>Made in the USA</li><li>Item #6288618</li></ul>",
+            color: "white"
         },
         
         {
@@ -133,7 +174,8 @@
             image1: "https://n.nordstrommedia.com/id/sr3/7e33ebe8-caa9-42c7-893f-950773c40801.jpeg?h=365&w=240&dpr=2",
             rating: 3,
             about: "Bring the serenity of the beach into your home with a matte-finish art print available on its own or in a ready-to-hang frame.",
-            details: "<ul><li>Art by Bree Madden</li><li>Framed version includes wood frame and hanging hardware</li><li>Acid- and lignin-free archival paper/wood</li><li>Made in the USA</li><li>Item #5868604</li></ul>"
+            details: "<ul><li>Art by Bree Madden</li><li>Framed version includes wood frame and hanging hardware</li><li>Acid- and lignin-free archival paper/wood</li><li>Made in the USA</li><li>Item #5868604</li></ul>",
+            color: "pink"
         },
         
         {
@@ -142,13 +184,15 @@
             price: 4573.41,
             image1: "https://n.nordstrommedia.com/id/sr3/cf564738-8bf4-4581-8247-6b00192e438c.jpeg?h=365&w=240&dpr=2",
             rating: 5,
+            color: "brown"
         },
         
         {
-            name: "3-Piece Wall Décor Set",
-            brand: "Chopvalue",
-            price: 4573.41,
+            name: "Love Letter Art Print",
+            brand: "Deny Designs",
+            price: 10350.41,
             image1: "https://n.nordstrommedia.com/id/sr3/0b0cb8b1-97e0-434f-8431-8ce0fd5e7b45.jpeg?h=365&w=240&dpr=2",
+            color: 'pink'
         },
 
         {
@@ -164,6 +208,7 @@
             brand: "Deny Designs",
             price: 1604.70,
             image1: "https://n.nordstrommedia.com/id/sr3/22ea804f-68d4-4404-a82f-427953ffadb8.jpeg?h=365&w=240&dpr=2",
+            color: 'black'
         },
 
         {
@@ -171,7 +216,8 @@
             brand: "Deny Designs",
             price: 3129.17,
             image1: "https://n.nordstrommedia.com/id/sr3/7137091b-5869-437b-9a33-5b9fc463ca4d.jpeg?h=365&w=240&dpr=2",
-            rating: 4
+            rating: 4,
+            color: 'red'
         },
 
         {
@@ -179,7 +225,8 @@
             brand: "Deny Designs",
             price: 3209.41,
             image1: "https://n.nordstrommedia.com/id/sr3/0ed98a33-1ee3-4fb2-a982-3e111b518773.jpeg?h=365&w=240&dpr=2",
-            rating: 4
+            rating: 4,
+            color: 'blue'
         },
 
         {
@@ -187,6 +234,7 @@
             brand: "Deny Designs",
             price: 2326.82,
             image1: "https://n.nordstrommedia.com/id/sr3/fd58d20b-7f7f-42e3-8dfe-ef31b3b594bb.jpeg?h=365&w=240&dpr=2",
+            color: 'black'
         },
 
         {
@@ -194,6 +242,7 @@
             brand: "Marimekko",
             price: 3048.94,
             image1: "https://n.nordstrommedia.com/id/sr3/4c92af52-e0b7-42f0-8125-bb05ec94ce3a.jpeg?h=365&w=240&dpr=2",
+            color: 'yellow'
         },
 
         {
@@ -201,6 +250,7 @@
             brand: "Deny Designs",
             price: 3931.52,
             image1: "https://n.nordstrommedia.com/id/sr3/82d654c2-de88-417f-a51c-a0b9b464cee9.jpeg?h=365&w=240&dpr=2",
+            color: 'orange'
         },
 
         {
@@ -325,7 +375,7 @@
     createProductCatalogue(products);
 
     function createBrandFilters() {
-        var brands_div = document.getElementById('brand');
+        var brands_div = document.getElementById('brand-content');
 
         var brands = {};
 
@@ -351,6 +401,38 @@
         })
     }
 
+    function createColorFilters() {
+        var colors_div = document.getElementById('color-content');
+
+        var colors = {};
+
+        products.forEach(function(product) {
+
+            if(product.color) {
+                if(colors[product.color] === undefined) {
+                colors[product.color] = 1;
+                var div = document.createElement('div');
+
+                var checkbox = document.createElement('input');
+                checkbox.setAttribute('id', `${product.color}`);
+                checkbox.setAttribute('type', 'checkbox');
+                checkbox.setAttribute('checked', 'checked');
+                checkbox.checked = function() {
+                    addToFilter(product.color);
+                }
+
+                var label = document.createElement('label');
+                label.setAttribute('for', `${product.color}`);
+                label.innerText = `${product.color}`;
+
+                div.append(checkbox, label);
+                colors_div.appendChild(div);
+            }
+            }
+              
+        })
+    }
+
     var filters = [];
 
     function addToFilter(brand) {
@@ -358,6 +440,21 @@
         console.log(brand);
     }
 
-    window.onload = createBrandFilters;
+
+    function toggleDisplay(divID) {
+        var div = document.getElementById(divID);
+        if (div.style.display === "none") {
+            div.style.display = "block";
+        } else {
+            div.style.display = "none";
+        }
+    } 
+
+    function functionStart() {
+        createBrandFilters();
+        createColorFilters();
+    }
+
+    window.onload = functionStart;
 
 </script>
