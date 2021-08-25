@@ -95,15 +95,28 @@
             display: none;
         }
 
-        .checkmark {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 25px;
-            width: 25px;
-            background-color: #eee;
+        .checkbox-div {
+            display: grid;
+            grid-template-columns: 10% 90%;
         }
 
+        .checkbox-div p {
+            font-size: 14px;
+            margin: 5px;
+            padding-bottom: 5px;
+            display: inline;
+        }
+
+        .checkbox-div p:hover {
+            text-decoration: underline;
+        }
+
+        .checkmark {
+            width: 22px;
+            height: 22px;
+            border-radius: 0px;
+            border: 1px solid rgb(189, 189, 189);
+        }
     </style>
 </head>
 <body>
@@ -467,6 +480,7 @@
             if(brands[product.brand] === undefined) {
                 brands[product.brand] = 1;
                 var div = document.createElement('div');
+                div.setAttribute('class', 'checkbox-div');
 
                 var checkbox = document.createElement('input');
                 checkbox.setAttribute('class', `brand checkmark`);
@@ -474,7 +488,7 @@
                 checkbox.value = `${product.brand}`;
                 checkbox.onchange = addFilter;
 
-                var label = document.createElement('label');
+                var label = document.createElement('p');
                 label.setAttribute('for', `${product.brand}`);
                 label.innerText = `${product.brand}`;
 
@@ -495,14 +509,15 @@
                 if(colors[product.color] === undefined) {
                 colors[product.color] = 1;
                 var div = document.createElement('div');
+                div.setAttribute('class', 'checkbox-div');
 
                 var checkbox = document.createElement('input');
-                checkbox.setAttribute('class', `color`);
+                checkbox.setAttribute('class', `color checkmark`);
                 checkbox.setAttribute('type', 'checkbox');
                 checkbox.value = `${product.color}`;
                 checkbox.onchange = addFilter;
 
-                var label = document.createElement('label');
+                var label = document.createElement('p');
                 label.setAttribute('for', `${product.color}`);
                 label.innerText = `${product.color}`;
 
@@ -525,14 +540,15 @@
                 if(types[product.type] === undefined) {
                 types[product.type] = 1;
                 var div = document.createElement('div');
+                div.setAttribute('class', 'checkbox-div');
 
                 var checkbox = document.createElement('input');
-                checkbox.setAttribute('class', `type`);
+                checkbox.setAttribute('class', `type checkmark`);
                 checkbox.setAttribute('type', 'checkbox');
                 checkbox.value = `${product.color}`;
                 checkbox.onchange = addFilter;
 
-                var label = document.createElement('label');
+                var label = document.createElement('p');
                 label.setAttribute('for', `${product.type}`);
                 label.innerText = `${product.type}`;
 
@@ -560,18 +576,13 @@
         createBrandFilters();
         createColorFilters();
         createProductTypeFilters();
-        addFilter();
     }
 
     window.onload = functionStart;
 
     var filters = [];
     function addFilter() {
-        var checkbox = document.querySelectorAll(`input[type = 'checkbox']:checked`);
-        var filterName = checkbox.className;
-        var value = checkbox.value;
-        console.log(filterName, value);
-        console.log(checkbox);
+        var checkbox = document.querySelectorAll(`input[type = 'checkbox']:checked`).value;
     }
 
     function addProductDetails(product) {
@@ -588,8 +599,6 @@
         localStorage.setItem('productDetails', JSON.stringify(details));
     }
 
-    // var interval = setInterval(addFilter, 1000);
-
-    // window.onclose = clearInterval(interval);
+    
 
 </script>
