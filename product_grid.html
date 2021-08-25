@@ -38,7 +38,7 @@
             padding: 10px;
             border: 1px solid rgb(189, 189, 189);
             background-color: white;
-            width: 250px;
+            width: 350px;
             color: rgb(80, 80, 80);
         }
 
@@ -54,17 +54,15 @@
             text-decoration: underline;
         }
 
-        #brand {
+        #filter > hr {
+            width: 100%;
+        }
+
+        #brand, #color, #type {
             width: 80%;
             /* border: 1px solid grey; */
             padding: 5px;
-        }
-
-        #search-brand {
-            max-width: 100%;
-            border: 0px;
-            margin-bottom: 5px;
-            padding: 5px;
+            font-size: 12px;
         }
 
         #search-icon {
@@ -77,12 +75,33 @@
 
         .filter-div {
             display: grid;
-            grid-template-columns: 80% 20%;
+            grid-template-columns: 90% 10%;
+            padding: 2px;
+        }
+
+        .filter-div > p {
+            font-weight: 600;
         }
 
         .plus-icon {
             padding: auto;
+            text-align: right;
             margin: auto;
+            size: 18dp;
+        }
+
+
+        #brand-content, #color-content, #type-content {
+            display: none;
+        }
+
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 25px;
+            width: 25px;
+            background-color: #eee;
         }
 
     </style>
@@ -95,26 +114,46 @@
         <div id = "filter">
             
             <div id = "brand">
+                <hr/>
                 <div class = "filter-div">
                     <p>Brand</p>
-                    <span class = "material-icons plus-icon" onclick = "toggleDisplay('brand-content')">add</span>  
+                    <span class = "material-icons plus-icon" id = "brand-icon" onclick = "toggleDisplay('brand-content', 'brand-icon')">add</span>  
                 </div>
                 
                 <!-- <span class="material-icons" id = "search-icon">search<input id = "search-brand" placeholder = "Find a brand"/></span> -->
 
                 <div id = "brand-content"></div>
+
+                <hr/>
             </div>
+
+            
 
             <div id = "color">
                 <div class = "filter-div">
                     <p>Color</p>
-                    <span class = "material-icons plus-icon" onclick = "toggleDisplay('color-content')">add</span>  
+                    <span class = "material-icons plus-icon" id = "color-icon" onclick = "toggleDisplay('color-content', 'color-icon')">add</span>  
                 </div>
                 
                 <!-- <span class="material-icons" id = "search-icon">search<input id = "search-brand" placeholder = "Find a brand"/></span> -->
 
                 <div id = "color-content"></div>
+                <hr/>
             </div>
+
+            <div id = "type">
+                <div class = "filter-div">
+                    <p>Product Type</p>
+                    <span class = "material-icons plus-icon" id = "type-icon" onclick = "toggleDisplay('type-content', 'type-icon')">add</span>  
+                </div>
+                
+                <!-- <span class="material-icons" id = "search-icon">search<input id = "search-brand" placeholder = "Find a brand"/></span> -->
+
+                <div id = "type-content"></div>
+
+                <hr/>
+            </div>
+
         </div>
         
         <div id = "data-div">
@@ -136,146 +175,188 @@
 </html>
 <script>
     var products = [
-        {
-            name: "Stay Home No. 5 Unframed Wall Art",
-            brand: "Deny Designs",
-            price: 1604.70,
-            image1: "https://n.nordstrommedia.com/id/sr3/27b60e77-02e6-429a-8ded-f0d98a503bfb.jpeg?h=365&w=240&dpr=2",
-            about: "Create a relaxing mood in your home with the evocative graphic on this framed wall art printed with archival, fade-resistant inks for lasting quality.",
-            details:"<ul><li>Art by Domonique Brown</li><li>Hanging hardware included</li><li>Acid- and lignin-free archival paper/wood</li><li>Made in the USA</li><li>Item #6289066</li></ul>",
-            color: "green"
-        },
-        
-        {
-            name: "Ingrid Beddos - Beach Summer of Love Framed Wall Art",
-            brand: "Deny Designs",
-            price: 3129.17,
-            image1: "https://n.nordstrommedia.com/id/sr3/05f24a3b-808b-4ea5-b2f2-54acb5a74ab8.jpeg?h=365&w=240&dpr=2",
-            rating: 4,
-            about: "A dreamy beach scene from artist Ingrid Beddoes takes center stage on ready-to-hang wall art featuring a satin finish and a rustic bamboo frame.",
-            details:"<ul><li>11\" x 13\"</li><li>2 lb.</li><li>Fiberboard/bamboo</li><li>Made in the USA</li><li>Item #5664127</li></ul>",
-            color: "pink"
-        },
-        
-        {
-            name: "Koyuki Art Print",
-            brand: "Deny Designs",
-            price: "1604.70",
-            image1: "https://n.nordstrommedia.com/id/sr3/6f574bc6-31b9-49a8-b0f8-4125c7615534.jpeg?h=365&w=240&dpr=2",
-            about: "Printed on matte paper with gallery-quality archival ink, this print from Elodie Bachelier depicts a woman's profile in chaotic lines and splatters. The print has enough weight to be hung on its own but will look even more stunning in a frame of your choice.",
-            details: "<ul><li>Paper</li><li>Made in the USA</li><li>Item #6288618</li></ul>",
-            color: "white"
-        },
-        
-        {
-            name: "Pink Tower Art Print",
-            brand: "Deny Designs",
-            price: 7943.28,
-            image1: "https://n.nordstrommedia.com/id/sr3/7e33ebe8-caa9-42c7-893f-950773c40801.jpeg?h=365&w=240&dpr=2",
-            rating: 3,
-            about: "Bring the serenity of the beach into your home with a matte-finish art print available on its own or in a ready-to-hang frame.",
-            details: "<ul><li>Art by Bree Madden</li><li>Framed version includes wood frame and hanging hardware</li><li>Acid- and lignin-free archival paper/wood</li><li>Made in the USA</li><li>Item #5868604</li></ul>",
-            color: "pink"
-        },
-        
-        {
-            name: "3-Piece Wall Décor Set",
-            brand: "Chopvalue",
-            price: 4573.41,
-            image1: "https://n.nordstrommedia.com/id/sr3/cf564738-8bf4-4581-8247-6b00192e438c.jpeg?h=365&w=240&dpr=2",
-            rating: 5,
-            color: "brown"
-        },
-        
-        {
-            name: "Love Letter Art Print",
-            brand: "Deny Designs",
-            price: 10350.41,
-            image1: "https://n.nordstrommedia.com/id/sr3/0b0cb8b1-97e0-434f-8431-8ce0fd5e7b45.jpeg?h=365&w=240&dpr=2",
-            color: 'pink'
-        },
+    {
+        name: "Stay Home No. 5 Unframed Wall Art",
+        brand: "Deny Designs",
+        price: 1604.70,
+        image1: "https://n.nordstrommedia.com/id/sr3/27b60e77-02e6-429a-8ded-f0d98a503bfb.jpeg?h=365&w=240&dpr=2",
+        about: "Create a relaxing mood in your home with the evocative graphic on this framed wall art printed with archival, fade-resistant inks for lasting quality.",
+        details:"<ul><li>Art by Domonique Brown</li><li>Hanging hardware included</li><li>Acid- and lignin-free archival paper/wood</li><li>Made in the USA</li><li>Item #6289066</li></ul>",
+        color: "Green",
+        type: "Decorative Accents"
+    },
+    
+    {
+        name: "Ingrid Beddos - Beach Summer of Love Framed Wall Art",
+        brand: "Deny Designs",
+        price: 3129.17,
+        image1: "https://n.nordstrommedia.com/id/sr3/05f24a3b-808b-4ea5-b2f2-54acb5a74ab8.jpeg?h=365&w=240&dpr=2",
+        rating: 4,
+        about: "A dreamy beach scene from artist Ingrid Beddoes takes center stage on ready-to-hang wall art featuring a satin finish and a rustic bamboo frame.",
+        details:"<ul><li>11\" x 13\"</li><li>2 lb.</li><li>Fiberboard/bamboo</li><li>Made in the USA</li><li>Item #5664127</li></ul>",
+        color: "Pink",
+        type: "Framed Art"
+    },
+    
+    {
+        name: "Koyuki Art Print",
+        brand: "Deny Designs",
+        price: "1604.70",
+        image1: "https://n.nordstrommedia.com/id/sr3/6f574bc6-31b9-49a8-b0f8-4125c7615534.jpeg?h=365&w=240&dpr=2",
+        about: "Printed on matte paper with gallery-quality archival ink, this print from Elodie Bachelier depicts a woman's profile in chaotic lines and splatters. The print has enough weight to be hung on its own but will look even more stunning in a frame of your choice.",
+        details: "<ul><li>Paper</li><li>Made in the USA</li><li>Item #6288618</li></ul>",
+        color: "White",
+        type: "Decorative Accents"
+    },
+    
+    {
+        name: "Pink Tower Art Print",
+        brand: "Deny Designs",
+        price: 7943.28,
+        image1: "https://n.nordstrommedia.com/id/sr3/7e33ebe8-caa9-42c7-893f-950773c40801.jpeg?h=365&w=240&dpr=2",
+        rating: 3,
+        about: "Bring the serenity of the beach into your home with a matte-finish art print available on its own or in a ready-to-hang frame.",
+        details: "<ul><li>Art by Cassia Beck</li><li>Framed version includes wood frame and hanging hardware</li><li>Acid- and lignin-free archival paper/wood</li><li>Made in the USA</li><li>Item #5867301</li></ul>",
+        color: "Pink",
+        type: "Decorative Accents"
+    },
+    
+    {
+        name: "3-Piece Wall Décor Set",
+        brand: "Chopvalue",
+        price: 4573.41,
+        image1: "https://n.nordstrommedia.com/id/sr3/cf564738-8bf4-4581-8247-6b00192e438c.jpeg?h=365&w=240&dpr=2",
+        rating: 5,
+        color: "Brown",
+        type: "Wall Hanging"
+    },
+    
+    {
+        name: "Love Letter Art Print",
+        brand: "Deny Designs",
+        price: 10350.41,
+        image1: "https://n.nordstrommedia.com/id/sr3/0b0cb8b1-97e0-434f-8431-8ce0fd5e7b45.jpeg?h=365&w=240&dpr=2",
+        color: 'Pink',
+        about: 'Bring a sweet message of love to your space with this satin-finish art print available on its own or in a ready-to-hang frame.',
+        details: "<ul><li>Art by Bree Madden</li><li>Framed version includes wood frame and hanging hardware</li><li>Acid- and lignin-free archival paper/wood</li><li>Made in the USA</li><li>Item #5868604</li></ul>",
+        type: "Decorative Accents"
+    },
 
-        {
-            name: "Golden Leaves Canvas Wall Art",
-            brand: "Oliver Gal",
-            price: 3931.52,
-            image1: "https://n.nordstrommedia.com/id/sr3/92e9b7d7-999c-471e-ac4e-e4db4decba04.jpeg?h=365&w=240&dpr=2",
-            rating: 5
-        },
+    {
+        name: "Golden Leaves Canvas Wall Art",
+        brand: "Oliver Gal",
+        price: 3931.52,
+        image1: "https://n.nordstrommedia.com/id/sr3/92e9b7d7-999c-471e-ac4e-e4db4decba04.jpeg?h=365&w=240&dpr=2",
+        rating: 5,
+        type: "Decorative Accents",
+        about: "Bring a little nature indoors with this giclée print presented on a hand-stretched canvas and mounted on a sustainably harvested, FSC-certified wood frame.",
+        details: "<ul><li>Hanging hardware included</li><li>Canvas/wood</li><li>Made in the USA</li><li>Item #5520384</li></ul>",
+        color: 'Gold'
+    },
 
-        {
-            name: "Virginia by Night Art Print",
-            brand: "Deny Designs",
-            price: 1604.70,
-            image1: "https://n.nordstrommedia.com/id/sr3/22ea804f-68d4-4404-a82f-427953ffadb8.jpeg?h=365&w=240&dpr=2",
-            color: 'black'
-        },
+    {
+        name: "Virginia by Night Art Print",
+        brand: "Deny Designs",
+        price: 1604.70,
+        image1: "https://n.nordstrommedia.com/id/sr3/22ea804f-68d4-4404-a82f-427953ffadb8.jpeg?h=365&w=240&dpr=2",
+        color: 'Black',
+        type: "Decorative Accents",
+        about: "A simple yet stunning figure drawing is the focal point of this gallery-quality art print that elevates any space.",
+        details: "<ul><li>Art by Elodie Bachelier</li><li>Frame not included</li><li>Acid- and lignin-free archival paper/wood</li><li>Made in the USA</li><li>Item #6288613</li></ul>"
+    },
 
-        {
-            name: "Cool Mouth Framed Wall Art",
-            brand: "Deny Designs",
-            price: 3129.17,
-            image1: "https://n.nordstrommedia.com/id/sr3/7137091b-5869-437b-9a33-5b9fc463ca4d.jpeg?h=365&w=240&dpr=2",
-            rating: 4,
-            color: 'red'
-        },
+    {
+        name: "Cool Mouth Framed Wall Art",
+        brand: "Deny Designs",
+        price: 3129.17,
+        image1: "https://n.nordstrommedia.com/id/sr3/7137091b-5869-437b-9a33-5b9fc463ca4d.jpeg?h=365&w=240&dpr=2",
+        rating: 4,
+        color: 'Red',
+        type: "Framed Art",
+        about: "A cool pop art mouth by artist Nick Nelson takes center stage on ready-to-hang wall art featuring a satin finish and a rustic bamboo frame.",
+        details: "<ul><li>11\" x 13\"</li><li>2 lb.</li><li>Art by Nick Nelson</li><li>Hanging hardware included</li><li>Fiberboard/bamboo</li><li>Made in the USA</li><li>Item #5636409</li></ul>"
+    },
 
-        {
-            name: "Pineapples Blue Framed Wall Art",
-            brand: "Deny Designs",
-            price: 3209.41,
-            image1: "https://n.nordstrommedia.com/id/sr3/0ed98a33-1ee3-4fb2-a982-3e111b518773.jpeg?h=365&w=240&dpr=2",
-            rating: 4,
-            color: 'blue'
-        },
+    {
+        name: "Pineapples Blue Framed Wall Art",
+        brand: "Deny Designs",
+        price: 3209.41,
+        image1: "https://n.nordstrommedia.com/id/sr3/0ed98a33-1ee3-4fb2-a982-3e111b518773.jpeg?h=365&w=240&dpr=2",
+        rating: 4,
+        color: 'Blue',
+        type: "Framed Art",
+        about: "A cool pop art mouth by artist Nick Nelson takes center stage on ready-to-hang wall art featuring a satin finish and a rustic bamboo frame.",
+        details: "<ul><li>11\" x 13\"</li><li>2 lb.</li><li>Art by Nick Nelson</li><li>Hanging hardware included</li><li>Fiberboard/bamboo</li><li>Made in the USA</li><li>Item #5636409</li></ul>"
+    },
 
-        {
-            name: "Another World Art Print",
-            brand: "Deny Designs",
-            price: 2326.82,
-            image1: "https://n.nordstrommedia.com/id/sr3/fd58d20b-7f7f-42e3-8dfe-ef31b3b594bb.jpeg?h=365&w=240&dpr=2",
-            color: 'black'
-        },
+    {
+        name: "Another World Art Print",
+        brand: "Deny Designs",
+        price: 2326.82,
+        image1: "https://n.nordstrommedia.com/id/sr3/fd58d20b-7f7f-42e3-8dfe-ef31b3b594bb.jpeg?h=365&w=240&dpr=2",
+        color: 'Black',
+        type: "Decorative Accents",
+        about: "A cool pop art mouth by artist Nick Nelson takes center stage on ready-to-hang wall art featuring a satin finish and a rustic bamboo frame.",
+        details: "<ul><li>11\" x 13\"</li><li>2 lb.</li><li>Art by Nick Nelson</li><li>Hanging hardware included</li><li>Fiberboard/bamboo</li><li>Made in the USA</li><li>Item #5636409</li></ul>"
+    },
 
-        {
-            name: "Marikylä Art Print",
-            brand: "Marimekko",
-            price: 3048.94,
-            image1: "https://n.nordstrommedia.com/id/sr3/4c92af52-e0b7-42f0-8125-bb05ec94ce3a.jpeg?h=365&w=240&dpr=2",
-            color: 'yellow'
-        },
+    {
+        name: "Marikylä Art Print",
+        brand: "Marimekko",
+        price: 3048.94,
+        image1: "https://n.nordstrommedia.com/id/sr3/4c92af52-e0b7-42f0-8125-bb05ec94ce3a.jpeg?h=365&w=240&dpr=2",
+        color: 'Yellow',
+        type: "Decorative Accents",
+        about: "A cool pop art mouth by artist Nick Nelson takes center stage on ready-to-hang wall art featuring a satin finish and a rustic bamboo frame.",
+        details: "<ul><li>11\" x 13\"</li><li>2 lb.</li><li>Art by Nick Nelson</li><li>Hanging hardware included</li><li>Fiberboard/bamboo</li><li>Made in the USA</li><li>Item #5636409</li></ul>"
+    },
 
-        {
-            name: "Last Days of Summer Art Print",
-            brand: "Deny Designs",
-            price: 3931.52,
-            image1: "https://n.nordstrommedia.com/id/sr3/82d654c2-de88-417f-a51c-a0b9b464cee9.jpeg?h=365&w=240&dpr=2",
-            color: 'orange'
-        },
+    {
+        name: "Last Days of Summer Art Print",
+        brand: "Deny Designs",
+        price: 3931.52,
+        image1: "https://n.nordstrommedia.com/id/sr3/82d654c2-de88-417f-a51c-a0b9b464cee9.jpeg?h=365&w=240&dpr=2",
+        color: 'Orange',
+        type: "Decorative Accents",
+        about: "A cool pop art mouth by artist Nick Nelson takes center stage on ready-to-hang wall art featuring a satin finish and a rustic bamboo frame.",
+        details: "<ul><li>11\" x 13\"</li><li>2 lb.</li><li>Art by Nick Nelson</li><li>Hanging hardware included</li><li>Fiberboard/bamboo</li><li>Made in the USA</li><li>Item #5636409</li></ul>"
+    },
 
-        {
-            name: "Amsterdam Framed Wall Art",
-            brand: "Deny Designs",
-            price: 3129.17,
-            image1: "https://n.nordstrommedia.com/id/sr3/84ca9eeb-9d9e-4af3-9197-071580fa7da6.jpeg?h=365&w=240&dpr=2",
-        },
+    {
+        name: "Amsterdam Framed Wall Art",
+        brand: "Deny Designs",
+        price: 3129.17,
+        image1: "https://n.nordstrommedia.com/id/sr3/84ca9eeb-9d9e-4af3-9197-071580fa7da6.jpeg?h=365&w=240&dpr=2",
+        color: 'Brown',
+        type: "Framed Art",
+        about: "A cool pop art mouth by artist Nick Nelson takes center stage on ready-to-hang wall art featuring a satin finish and a rustic bamboo frame.",
+        details: "<ul><li>11\" x 13\"</li><li>2 lb.</li><li>Art by Nick Nelson</li><li>Hanging hardware included</li><li>Fiberboard/bamboo</li><li>Made in the USA</li><li>Item #5636409</li></ul>"
+    },
 
-        {
-            name: "Animals in the Wild Framed Wall Art",
-            brand: "Deny Designs",
-            price: 3209.41,
-            image1: "https://n.nordstrommedia.com/id/sr3/3d031716-b6b0-4cb6-85ca-9a66c1976471.jpeg?h=365&w=240&dpr=2",
-            rating: 4,
-        },
+    {
+        name: "Animals in the Wild Framed Wall Art",
+        brand: "Deny Designs",
+        price: 3209.41,
+        image1: "https://n.nordstrommedia.com/id/sr3/3d031716-b6b0-4cb6-85ca-9a66c1976471.jpeg?h=365&w=240&dpr=2",
+        rating: 4,
+        type: "Framed Art",
+        color: 'Yellow',
+        about: "A cool pop art mouth by artist Nick Nelson takes center stage on ready-to-hang wall art featuring a satin finish and a rustic bamboo frame.",
+        details: "<ul><li>11\" x 13\"</li><li>2 lb.</li><li>Art by Nick Nelson</li><li>Hanging hardware included</li><li>Fiberboard/bamboo</li><li>Made in the USA</li><li>Item #5636409</li></ul>"
+    },
 
-        {
-            name: "You Are My Sun Moon & Stars Framed Wall Art",
-            brand: "Deny Designs",
-            price: 3129.17,
-            image1: "https://n.nordstrommedia.com/id/sr3/aefb1479-0493-44e9-99e6-feb2afca0227.jpeg?h=365&w=240&dpr=2",
-            rating: 2,
-        },
-    ]
+    {
+        name: "You Are My Sun Moon & Stars Framed Wall Art",
+        brand: "Deny Designs",
+        price: 3129.17,
+        image1: "https://n.nordstrommedia.com/id/sr3/aefb1479-0493-44e9-99e6-feb2afca0227.jpeg?h=365&w=240&dpr=2",
+        rating: 2,
+        color: 'Teal',
+        type: "Framed Art",
+        about: "A cool pop art mouth by artist Nick Nelson takes center stage on ready-to-hang wall art featuring a satin finish and a rustic bamboo frame.",
+        details: "<ul><li>11\" x 13\"</li><li>2 lb.</li><li>Art by Nick Nelson</li><li>Hanging hardware included</li><li>Fiberboard/bamboo</li><li>Made in the USA</li><li>Item #5636409</li></ul>"
+    },
+]
 
     var data_div = document.getElementById('data');
 
@@ -298,9 +379,12 @@
 
             var description = document.createElement('a');
             description.setAttribute('id', 'description');
-            description.setAttribute('href', 'product_details.html');
             description.style.color = 'black';
             description.innerText = product.brand + " " + product.name;
+            description.onclick = function() {
+                addProductDetails(product);
+                
+            }
 
             if(product.rating) {
                 var rating = document.createElement('p');
@@ -385,11 +469,10 @@
                 var div = document.createElement('div');
 
                 var checkbox = document.createElement('input');
-                checkbox.setAttribute('id', `${product.brand}`);
+                checkbox.setAttribute('class', `brand checkmark`);
                 checkbox.setAttribute('type', 'checkbox');
-                checkbox.checked = function() {
-                    addToFilter(product.brand);
-                }
+                checkbox.value = `${product.brand}`;
+                checkbox.onchange = addFilter;
 
                 var label = document.createElement('label');
                 label.setAttribute('for', `${product.brand}`);
@@ -414,12 +497,10 @@
                 var div = document.createElement('div');
 
                 var checkbox = document.createElement('input');
-                checkbox.setAttribute('id', `${product.color}`);
+                checkbox.setAttribute('class', `color`);
                 checkbox.setAttribute('type', 'checkbox');
-                checkbox.setAttribute('checked', 'checked');
-                checkbox.checked = function() {
-                    addToFilter(product.color);
-                }
+                checkbox.value = `${product.color}`;
+                checkbox.onchange = addFilter;
 
                 var label = document.createElement('label');
                 label.setAttribute('for', `${product.color}`);
@@ -433,28 +514,82 @@
         })
     }
 
-    var filters = [];
+    function createProductTypeFilters() {
+        var types_div = document.getElementById('type-content');
 
-    function addToFilter(brand) {
+        var types = {};
 
-        console.log(brand);
+        products.forEach(function(product) {
+
+            if(product.color) {
+                if(types[product.type] === undefined) {
+                types[product.type] = 1;
+                var div = document.createElement('div');
+
+                var checkbox = document.createElement('input');
+                checkbox.setAttribute('class', `type`);
+                checkbox.setAttribute('type', 'checkbox');
+                checkbox.value = `${product.color}`;
+                checkbox.onchange = addFilter;
+
+                var label = document.createElement('label');
+                label.setAttribute('for', `${product.type}`);
+                label.innerText = `${product.type}`;
+
+                div.append(checkbox, label);
+                types_div.appendChild(div);
+            }
+            }
+              
+        })
     }
 
-
-    function toggleDisplay(divID) {
+    function toggleDisplay(divID, id) {
         var div = document.getElementById(divID);
+        var icon_id = document.getElementById(id);
         if (div.style.display === "none") {
             div.style.display = "block";
+            icon_id.innerText = 'remove';
         } else {
             div.style.display = "none";
+            icon_id.innerText = 'add';
         }
     } 
 
     function functionStart() {
         createBrandFilters();
         createColorFilters();
+        createProductTypeFilters();
+        addFilter();
     }
 
     window.onload = functionStart;
+
+    var filters = [];
+    function addFilter() {
+        var checkbox = document.querySelectorAll(`input[type = 'checkbox']:checked`);
+        var filterName = checkbox.className;
+        var value = checkbox.value;
+        console.log(filterName, value);
+        console.log(checkbox);
+    }
+
+    function addProductDetails(product) {
+        if(localStorage.getItem('productDetails') === null) {
+            localStorage.setItem('productDetails', JSON.stringify([]));
+        }
+
+        console.log(product);
+        var details = JSON.parse(localStorage.getItem('productDetails'));
+        details.push(product);
+
+        console.log(details)
+
+        localStorage.setItem('productDetails', JSON.stringify(details));
+    }
+
+    // var interval = setInterval(addFilter, 1000);
+
+    // window.onclose = clearInterval(interval);
 
 </script>
