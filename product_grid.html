@@ -45,23 +45,33 @@
         #description {
             text-decoration: none;
             line-height: 24.17px;
-            color: grey;
-            font-size: 15px;
+            color: rgb(51, 51, 51);
+            font-size: 14px;
             font-weight: 100;
         }
+
 
         #description:hover {
             text-decoration: underline;
         }
 
-        #filter > hr {
+        #product-price {
+            font-size: 15px;
+            color: rgb(49, 49, 49);
+        }
+
+        #product-text > *{
+            margin-bottom: 0px;
+        }
+
+        #filter hr {
             width: 100%;
         }
 
         #brand, #color, #type {
             width: 80%;
             /* border: 1px solid grey; */
-            padding: 5px;
+            /* padding: 5px; */
             font-size: 12px;
         }
 
@@ -72,7 +82,6 @@
         #filter {
             margin-left: 40px;
         }
-
         .filter-div {
             display: grid;
             grid-template-columns: 90% 10%;
@@ -382,6 +391,7 @@
 
             var p_price = document.createElement('p');
             p_price.style.fontWeight = '600';
+            p_price.setAttribute('id', 'product-price');
             p_price.innerText = "INR " + product.price;
 
             var p_brand = document.createElement('p');
@@ -392,12 +402,14 @@
 
             var description = document.createElement('a');
             description.setAttribute('id', 'description');
-            description.style.color = 'black';
             description.innerText = product.brand + " " + product.name;
             description.onclick = function() {
                 addProductDetails(product);
                 
             }
+
+            var productText = document.createElement('div');
+            productText.setAttribute('id', 'product-text');
 
             if(product.rating) {
                 var rating = document.createElement('p');
@@ -411,11 +423,12 @@
                 rating_count.innerText = ` (${product.rating})`; 
                 rating.appendChild(rating_count);
 
-                div.append(image, description, p_price, rating);
+                productText.append(description, p_price, rating);
             } else {
-                div.append(image, description, p_price);
+                productText.append(description, p_price);
             }
-            
+
+            div.append(image, productText);
             data_div.appendChild(div);
 
         })
@@ -580,10 +593,40 @@
 
     window.onload = functionStart;
 
-    var filters = [];
+    
     function addFilter() {
-        var checkbox = document.querySelectorAll(`input[type = 'checkbox']:checked`).value;
+        var filters = [];
+        var checkbox = document.getElementsByClassName('checkmark');
+        for(let i = 0; i < checkbox.length; i++) {
+            if(checkbox[i].checked) {
+                
+                filters.push(checkbox[i].value);
+            }
+        }
+
+        if(filters.length === 0) {
+            createProductCatalogue(products);
+        } else {
+            createFilteredCatalogue(filters);
+        }  
     }
+
+    function createFilteredCatalogue(filters) {
+        var catalogue = [];
+        for(let i = 0; i < filters.length; i++) {
+            for(let j = 0; j < products.length; j++) {
+                for(k in products[j]) {
+                    if(products[j][k] === filters[i]) {
+                        catalogue.push(products[j]);
+                    }
+                }
+            }
+        }
+
+        data_div.innerHTML = "";
+        createProductCatalogue(catalogue);
+    }
+
 
     function addProductDetails(product) {
         if(localStorage.getItem('productDetails') === null) {
