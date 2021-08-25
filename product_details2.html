@@ -5,16 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>view product</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+      rel="stylesheet">
     <style>
+         body {
+            font-family: "Brandon Text",Arial,sans-serif;
+        }
+        .material-icons{
+            text-align: center;
+            margin:5px;
+        }
         #details{
             width:70%;
             margin:auto;
             display: grid;
-            grid-template-columns: 48% 42%;
+            grid-template-columns:50% 600px;
             gap:20px
         }
         h2{
-            font-weight: 100px;
+            font-weight: 100;
+            margin-bottom: 0px;
+            margin-top: 0px;
         }
         h4{
             text-align: left;
@@ -30,17 +41,23 @@
            
         }
         img{
-            width: 60%;
+            width: 50%;
             margin-left: 30px;
         }
         div+div{
             display: flex;
             flex-direction: column;
         }
-        button{
+        #flex{
+            display:flex;
+            flex-direction: column;
+        }
+        #discription_product>button{
             background-color: black;
             color: white;
-            height: 25px;
+            padding: 10px;
+                font-size: 20px;
+                line-height: 24px;
             border-radius: 5px;
 
         }
@@ -60,13 +77,37 @@
             float: left;
             text-align: left;
             width: 35%;
+           
             
             
         }
-        .hower{
-            width: 90%;
+        #have_questions>button{
            
-            overflow: hidden;
+        
+            
+            background-color: white;
+            color: black;
+            padding: 20px;
+            width:120px
+        }
+        .hower{
+            width: 80%;
+            display: flex;
+            
+            
+           
+           /* overflow: hidden;*/
+        }
+        span{
+            font-size: 20px;
+            margin-bottom: 0px;
+        }
+        li{
+            font-size: 13px;
+
+        }
+        li+p{
+            margin-top: 20px;
         }
        
        
@@ -74,10 +115,14 @@
     <div id="details">
         <div id="image_product"></div>
         <div id="discription_product"></div>
+        
     </div>
     <br>
     <br>
+    <div id="flex">
     <div id="discription_list"></div>
+    <div id="have_questions"></div>
+    </div>
 </head>
 <body>
     <script>
@@ -85,6 +130,7 @@
         var image_div=document.getElementById("image_product")
         var discription_div=document.getElementById("discription_product")
         var discription_list=document.getElementById("discription_list")
+        var have_questions=document.getElementById("have_questions")
         var a=localStorage.getItem("view")
         console.log(a[0])
         let view_data=JSON.parse(localStorage.getItem("artproduct1"))
@@ -126,7 +172,19 @@
             itemcode.textContent=product.itemcode
 
             var button=document.createElement("button")
-            button.textContent="Add To Bag"
+            var span=document.createElement("span")
+            span.setAttribute("class","material-icons")
+            span.innerText="shopping_bag"
+            button.append(span)
+            button.style.fontSize="19px"
+            button.innerHTML+=" Add to Bag"
+
+            //function for add to cart
+            //console.log(product);
+            //button.onclick=add_to_bag(product)
+            button.addEventListener('click',function(event){
+                add_to_bag(product);
+            })
 
             var made=document.createElement("p")
             made.textContent=product.made
@@ -134,7 +192,20 @@
             var size=document.createElement("p")
             size.textContent=product.size
 
-            var add_to_cart=document.createElement("a")
+            //var add_to_cart=document.createElement("a")
+
+            //3rd div for have questions
+            var have_que=document.createElement("h4")
+            have_que.textContent="HAVE QUESTIONS?"
+
+            var para=document.createElement("p")
+            para.textContent="Connect with us to get free style advice, product recommendations or customer service help."
+
+            var chat_now_button=document.createElement("button")
+            chat_now_button.textContent="Chat Now"
+
+           
+
             
 
             var second_header=document.createElement("h4")
@@ -143,19 +214,80 @@
             var list=document.createElement("li")
             var list1=document.createElement("li")
             var list2=document.createElement("li")
+            var seemore=document.createElement("p")
+            var link=document.createElement("a");
+            link.setAttribute("href","http://www.google.com");
+            link.textContent="See more";
+
+            seemore.textContent="Free Shipping & Returns \t";
+            seemore.append(link)
             
             list.textContent= product.size
-            list1.textContent= "Item"+product.itemcode
+            list1.textContent= "Item "+product.itemcode
             list2.textContent= "Made in "+product.made
             
             image_div.append(image)
-            discription_div.append(name,price,text,about1,color,button)
-            discription_list.append(second_header,about,list,list1,list2)
+            if(product.rating) {
+                var rating = document.createElement('p');
+                for(let i = 1; i <= product.rating; i++) {
+                    var star = document.createElement('span');
+                    star.innerHTML = '<span>&#9733;</span>';
+                    rating.appendChild(star);
+                }
+
+                var rating_count = document.createElement('span');
+                rating_count.innerText = ` (${product.rating})`; 
+                rating.appendChild(rating_count);
+
+               // div.append(image, description, p_price, rating);
+                discription_div.append(rating,name,price,text,about1,color,document.createElement("br"),button);
+            } else {
+               // div.append(image, description, p_price);
+               discription_div.append(name,price,text,about1,color,document.createElement("br"),button);
+            }
+           // discription_div.append(name,price,text,about1,color,button)
+            discription_list.append(second_header,about,list,list1,list2,seemore)
+
             //div.append(div1,div2)
+
             //parent.append(image_div,discription_div)
+            have_questions.append(have_que,para,chat_now_button)
 
             
         });
+
+        if(localStorage.getItem("bag")==null){
+            localStorage.setItem("bag",JSON.stringify([]))
+        
+        }
+
+        function updateCart(product)
+        {
+            var bag1=JSON.parse( localStorage.getItem("bag"))
+            bag1.push(product);
+            console.log(bag1);
+            localStorage.setItem("bag",JSON.stringify(bag1));
+        }
+        {} 
+               function add_to_bag(product){
+           // var bag=JSON.stringify(product)
+           var bag1=JSON.parse( localStorage.getItem("bag"))
+            console.log(bag1.length)
+            if(bag1.length===0)
+            {   
+                bag1.push(product);
+                console.log(bag1);
+                localStorage.setItem("bag",JSON.stringify(bag1));
+
+
+
+                
+            }
+            else{
+                updateCart(product);
+            }   
+
+        }
     
     </script>
 </body>
