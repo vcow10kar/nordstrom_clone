@@ -4,6 +4,7 @@
     margin:0px;
     padding:0px;
 }
+
 #top{
     background-color: black;
     text-align: center;
@@ -61,9 +62,9 @@
     list-style-type: none;
 } */
 
-#inside-div{
-    /* border:1px solid green; */
-}
+/* #inside-div{
+    /* border:1px solid green; } */
+
 #inside-div>div{
     float:left;
     margin-right:40px;
@@ -86,7 +87,7 @@
     color:#393939;
     font-family: Brandon Text,Arial,sans-serif;
     font-weight: 400;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 #red{
@@ -156,44 +157,109 @@
     margin-left:3px;
 }
 
-.Sale-content{
-    display: none;
-    position: absolute;
+.Sale-content, .Home-content, .Women-content,.Men-content,.Kids-content,.YoungAdult-content,.Kids-content,.Activewear-content,.Gifts-content,.Beauty-content,.Designer-content,.Brands-content{
+    display: block;
+    height:0px;
+    position: absolute ;
+    overflow: hidden;
     background-color: #ffffff;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 20px 25px;
+    padding: 0px 25px;
+    padding-bottom:0px;
     z-index: 1;
+    transition: height 0.5s ease-out;
+    overflow-y: auto;
+    
 }
 
-.Sale-content>div{
+#inputBox{
+    display: block;
+    height:0px;
+    position: absolute ;
+    top:90px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 6;
+    border:none;
+    padding:0px 20px;
+    width:400px;
+}
+
+#signIN{
+    display: none;
+    position: absolute;
+    top:90px;
+    right:20px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border:none;
+    z-index: 7;
+    padding:10px 20px;
+    background-color: white;
+    width:16% !important;
+}
+
+#signIN li{
+    margin:10px;
+    margin-bottom:20px;
+    font-size:12px;
+}
+
+#signIN li:nth-child(1){
+    width:65%;
+    background-color:black;
+    text-align: center;
+    padding:10px 30px;
+}
+
+#signIN li:nth-child(2){
+    width:65%;
+    border:1px solid black;
+    text-align: center;
+    padding:10px 30px;
+}
+
+#signIN a{
+    text-decoration:none;
+    color: #393939;
+}
+
+#signIN li:nth-child(1)>a{
+    color: white;
+}
+
+
+
+.mainh3{
+    margin-top:20px;
+}
+.Sale-content>div, .Home-content>div,.Women-content>div ,.Men-content>div ,.Kids-content>div ,.YoungAdult-content>div ,.Kids-content>div ,.Activewear-content>div ,.Gifts-content>div ,.Beauty-content>div ,.Designer-content>div ,.Brands-content>div {
     display: flex;
 }
 
-.Sale-content>div>div{
-    margin-right: 90px;
+.Sale-content>div>div, .Home-content>div>div,.Women-content>div>div,.Men-content>div>div,.Kids-content>div>div,.YoungAdult-content>div>div,.Kids-content>div>div,.Activewear-content>div>div,.Gifts-content>div>div,.Beauty-content>div>div,.Designer-content>div>div,.Brands-content>div>div{
+    margin-right: 80px;
 }
 
-.Sale-content ul{
+.Sale-content ul, .Home-content ul, .Women-content ul,.Men-content ul,.Kids-content ul,.YoungAdult-content ul,.Kids-content ul,.Activewear-content ul,.Gifts-content ul,.Beauty-content ul,.Designer-content ul,.Brands-content ul{
     list-style-type:none
 }
 
-.Sale-content a{
+.Sale-content a, .Home-content a,.Women-content a,.Men-content a,.Kids-content a,.YoungAdult-content a,.Kids-content a,.Activewear-content a,.Gifts-content a,.Beauty-content a,.Designer-content a,.Brands-content a{
     color: #393939;
-    font-size:14px;
+    font-size:13px;
     line-height: 1.4;
     text-decoration:none;
 }
 
-.Sale-content li>a{
+.Sale-content li>a, .Home-content li>a,.Women-content li>a,.Men-content li>a,.Kids-content li>a,.YoungAdult-content li>a,.Kids-content li>a,.Activewear-content li>a,.Gifts-content li>a,.Beauty-content li>a,.Designer-content li>a,.Brands-content li>a{
     font-size:12px;
 }
 
-.Sale-content li{
+.Sale-content li, .Home-content li, .Women-content li,.Men-content li,.Kids-content li,.YoungAdult-content li,.Kids-content li,.Activewear-content li,.Gifts-content li,.Beauty-content li,.Designer-content li,.Brands-content li{
     margin-bottom: 10px;
 }
 
-#firstDiv{
+.firstDiv{
     margin-right:30px;
 }
 hr{
@@ -208,22 +274,89 @@ hr{
     margin-top:30px;
 }
 
-#marginRem{
+.marginRem{
     margin-right:0px;
     width:15%;
 }
 
-#marginRem img{
+.marginRem img{
     width:100%;
     margin-top:80px;
     margin-bottom:80px;
 }
 
-#decor {
-    font-size: 12px;
+.decor {
+    font-size: 11px;
 }
 
-#decor+hr{
-    width:90px;
+.decor+hr{
+    width:110px;
     background-color: black;
+}
+
+ul{
+    list-style-type:none
+}
+
+#completeDiv{
+    width:96.5%;
+    margin:auto;
+    display:flex;
+    background:rgb(245, 241, 241);
+    height:90px;
+}
+
+#completeDiv>div:nth-child(1),#completeDiv>div:nth-child(3){
+    width:4%;
+    height: 90px;
+    padding:10px;
+}
+
+#completeDiv>div:nth-child(2){
+    width:90%;
+    text-align: center;
+    color: #000;
+    font-size:15px;
+    font-family: Brandon Text,Arial,sans-serif;
+    line-height: 1.4;
+}
+
+#completeDiv>div>button{
+    width:100%;
+    border:none;
+    height: 70px;
+    transition-duration: 1s;
+}
+
+#completeDiv>div>button>h1{
+    width:100%;
+    color:rgb(245, 241, 241);
+    transition-duration: 1s;
+}
+
+#completeDiv a{
+    color:black;
+    
+}
+
+#completeDiv h3{
+    margin-top:4px;
+    margin-bottom:5px;
+    font-size:14px;
+    line-height: 2;
+   
+}
+
+#completeDiv p{
+    margin-bottom:7px;
+}
+
+.mouseIn{
+    background-color:black;
+    color:rgb(245, 241, 241);
+}
+
+.mouseOut{
+    background-color:rgb(245, 241, 241);
+    color:black;
 }
