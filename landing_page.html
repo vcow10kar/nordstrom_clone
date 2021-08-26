@@ -47,7 +47,7 @@
             <div id="search" onmouseleave="removeSignBar()">
                 <div id="one" onmouseenter="searchBar()">
                     <div class="img" onmouseenter="removeSignBar()">
-                        <img src="images/search-icon.jpg"></img>
+                        <img src="const/construct_week/images/search-icon.jpg"></img>
                     </div>
                     <input id="inputBox" maxlength="200" placeholder="What can we help you find?" type="search"
                         value="">
@@ -83,7 +83,7 @@
                     </ul>
                 </div>
                 <div id="bag">
-                    <a href=""><img class="bag-image" src="images/emptybag-icon.png"></img></a>
+                    <a href=""><img class="bag-image" src="const/construct_week/images/emptybag-icon.png"></img></a>
                 </div>
             </div>
         </div>
@@ -2800,6 +2800,34 @@
         shop_main_div.append(shop_h4,shop_img_div)
 
         document.body.append(shop_main_div)
+
+        //Stay in touch
+
+        var touch_main_div = document.createElement("div")
+        touch_main_div.setAttribute("id", "touch_main_div")
+
+        var touch_img_div = document.createElement("img")
+        touch_img_div.src="https://n.nordstrommedia.com/id/97312f94-3d15-428d-bf49-70656690cf33.jpeg?h=200&w=1608"
+
+        var touch_text_div = document.createElement("div")
+        touch_text_div.setAttribute("id", "touch_text_div")
+
+        var touch_h2 = document.createElement("h2")
+        touch_h2.textContent = "Stay in Touch"
+
+        var touch_p = document.createElement("p")
+        touch_p.textContent = "Sign up and stay in the know! Fashion, beauty, upcoming sales and events—we'll bring it all to you."
+
+        var touch_a = document.createElement("a")
+        touch_a.textContent = "Sign Up for Email"
+        touch_a.setAttribute("href","")
+
+        touch_text_div.append(touch_h2, touch_p, touch_a)
+
+        touch_main_div.append(touch_img_div, touch_text_div)
+
+        document.body.append(touch_main_div)
+
     }
 
     pageContent();

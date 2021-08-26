@@ -418,7 +418,8 @@ ul{
 }
 
 #anotherDiv>a{
-    text-decoration: underline;
+    text-decoration: none;
+    border-bottom:1px solid;
 }
 
 #boots{
@@ -449,7 +450,8 @@ ul{
 }
 
 #boots a{
-    text-decoration: underline;
+    text-decoration: none;
+    border-bottom:1px solid;
     font-size:15px;
 }
 
@@ -479,7 +481,8 @@ ul{
 
 #black_div a{
     margin-right:15px;
-    text-decoration: underline;
+    text-decoration: none;
+    border-bottom:1px solid;
 }
 
 #nike_main_div{
@@ -509,7 +512,8 @@ ul{
 
 #nike_div a{
     margin-right:15px;
-    text-decoration: underline;
+    text-decoration: none;
+    border-bottom:1px solid;
 }
 
 #orange_main_div{
@@ -534,7 +538,8 @@ ul{
 }
 
 #orange_div a{
-    text-decoration: underline;
+    text-decoration: none;
+    border-bottom:1px solid;
 }
 
 #orange_div p{
@@ -573,7 +578,8 @@ ul{
 }
 
 #hoody_div a{
-    text-decoration: underline;
+    text-decoration: none;
+    border-bottom:1px solid;
     font-size:14px;
     float:left;
     margin-right:15px;
@@ -622,3 +628,44 @@ ul{
     font-size: 15px;
     line-height: 1.4;
 }
+
+#touch_main_div{
+    width:96.5%;
+    margin:auto;
+    color: black;
+    margin-top:100px;
+    font-family: Brandon Text,Arial,sans-serif;
+}
+
+#touch_main_div img{
+    width:100%;
+}
+
+#touch_text_div{
+    width:60%;
+    position:absolute;
+    margin: -10% 10%; 
+    height:300px;
+}
+
+#touch_text_div h2{
+    font-size: 21px;
+    margin-bottom:5px;
+}
+
+#touch_text_div p{
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.4;
+    margin-bottom:5px;
+}
+
+#touch_text_div a{
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.4;
+    text-decoration: none;
+    border-bottom:1px solid;
+    color:black;
+}
+
