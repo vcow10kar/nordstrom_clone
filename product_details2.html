@@ -149,6 +149,7 @@
        .hower2{
            border: none;
            background-color: rgb(198, 196, 201);
+           text-decoration: none;
        }
     </style>
     <div id="details">
@@ -173,7 +174,7 @@
         var have_questions=document.getElementById("have_questions")
         var a=localStorage.getItem("view")
         console.log(a[0])
-        let view_data=JSON.parse(localStorage.getItem("artproduct1"))
+        let view_data=JSON.parse(localStorage.getItem("productDetails"))
         console.log(view_data)
       
         view_data.forEach(function(product){
@@ -181,9 +182,11 @@
             var name=document.createElement("h2")
             name.textContent=product.name
             console.log(product.name)
+            var brand=document.createElement("p")
+            brand.textContent=product.brand
 //hower through image
             var image=document.createElement("img")
-            image.src=product.image
+            image.src=product.image1
             image.onmouseover=function(){
                 image.setAttribute("class","hower")
             }
@@ -194,6 +197,8 @@
 
             var color=document.createElement("p")
             color.textContent=product.color
+            var color1=product.color
+            color.style.color=color1
             //console.log(color)
 
             var price=document.createElement("h3")
@@ -211,6 +216,8 @@
             var itemcode=document.createElement("p")
             itemcode.textContent=product.itemcode
 
+//add to bag button
+
             var button=document.createElement("button")
             var span=document.createElement("span")
             span.setAttribute("class","material-icons")
@@ -226,15 +233,13 @@
                 add_to_bag(product);
             })
 
-            var made=document.createElement("p")
-            made.textContent=product.made
-
-            var size=document.createElement("p")
-            size.textContent=product.size
+           
 
             //var add_to_cart=document.createElement("a")
 
-            //3rd div for have questions
+
+ //have a questions div
+
             var have_que=document.createElement("h4")
             var span=document.createElement("span")
             span.setAttribute("class","material-icons")
@@ -242,7 +247,7 @@
             have_que.append(span)
             console.log(have_que.innerHTML);
             console.log(have_que.innerHTML+="HAVE QUESTIONS?" );
-            have_que.innerHTML+="HAVE QUESTIONS?" // innerhtml = innerhtml+"aHve a question""
+           // have_que.innerHTML+="HAVE QUESTIONS?" // innerhtml = innerhtml+"aHve a question""
 
             var para=document.createElement("p")
             para.textContent="Connect with us to get free style advice, product recommendations or customer service help."
@@ -262,6 +267,7 @@
            
 
             
+//details and care div
 
             var second_header=document.createElement("h4")
             second_header.textContent="DETAILS & CARE"
@@ -269,9 +275,9 @@
 
             //var ul = document.createElement("ul");
             //ul.innerHTML = 
-            var list=document.createElement("li")
-            var list1=document.createElement("li")
-            var list2=document.createElement("li")
+           // var list=document.createElement("li")
+           // var list1=document.createElement("li")
+            //var list2=document.createElement("li")
             var seemore=document.createElement("p")
             var link=document.createElement("a");
             link.setAttribute("href","http://www.google.com");
@@ -297,12 +303,7 @@
 // wishlist content
             var wishlist=document.createElement("p")
             var wish_list_link=document.createElement("a")
-           // wish_list_link.setAttribute("href","http://www.google.com");
-
-//dialogue box creation
-            wishlist.setAttribute("click",function(element){
-                show_dialogue_box(product)
-            })
+            wish_list_link.setAttribute("href","http://www.google.com");
             
             wish_list_link.textContent="+  Add To Wish List"
             wishlist.append(wish_list_link)
@@ -318,11 +319,14 @@
             seemore.textContent="Free Shipping & Returns \t";
             seemore.append(link)
             
-            list.textContent= product.size
-            list1.textContent= "Item "+product.itemcode
-            list2.textContent= "Made in "+product.made
+           // list.textContent= product.size
+            //list1.textContent= "Item "+product.itemcode
+            //list2.textContent= "Made in "+product.made
             
             image_div.append(image)
+
+ // rating of product 
+
             if(product.rating) {
                 var rating = document.createElement('p');
                 for(let i = 1; i <= product.rating; i++) {
@@ -336,13 +340,15 @@
                 rating.appendChild(rating_count);
 
                // div.append(image, description, p_price, rating);
-                discription_div.append(rating,name,price,text,about1,color,quantity,document.createElement("br"),button,wishlist);
+                discription_div.append(rating,name,brand,price,text,about1,color,quantity,document.createElement("br"),button,wishlist);
             } else {
                // div.append(image, description, p_price);
-               discription_div.append(name,price,text,about1,color,quantity,document.createElement("br"),button,wishlist);
+               discription_div.append(name,brand,price,text,about1,color,quantity,document.createElement("br"),button,wishlist);
             }
            // discription_div.append(name,price,text,about1,color,button)
-            discription_list.append(second_header,about,list,list1,list2,seemore)
+            discription_list.append(second_header,about)
+            discription_list.innerHTML+=product.details
+            discription_list.append(seemore)
 
             //div.append(div1,div2)
 
@@ -352,11 +358,12 @@
             
         });
 
-        if(localStorage.getItem("bag")==null){
+    
+            if(localStorage.getItem("bag")==null){
             localStorage.setItem("bag",JSON.stringify([]))
         
         }
-
+// update cart
         function updateCart(product)
         {
             var bag1=JSON.parse( localStorage.getItem("bag"));
@@ -367,6 +374,8 @@
             });
 
             //console.log(filter);
+
+// increse the quantity in bag
 
             if(filter.length>0)
             {
@@ -387,7 +396,8 @@
             
 
         }
-        {} 
+ //add to bag function
+
                function add_to_bag(product){
            // var bag=JSON.stringify(product)
            
@@ -409,24 +419,7 @@
             }
             else{
                 updateCart(product);
-            } 
-            function show_dialogue_box(product) {
-        if(localStorage.getItem('wish_list') === null) {
-            localStorage.setItem('wish_list', JSON.stringify([]));
-        }
-
-        console.log(product);
-        var wish_list1 = JSON.parse(localStorage.getItem('wishlist'));
-        wish_list1.push(product);
-
-        console.log(wish_list1)
-
-        localStorage.setItem('wish_list', JSON.stringify(wish_list1));
-    } 
-            
-           
-
-          
+            }   
 
         }
     
