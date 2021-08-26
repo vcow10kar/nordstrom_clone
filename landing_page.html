@@ -47,7 +47,7 @@
             <div id="search" onmouseleave="removeSignBar()">
                 <div id="one" onmouseenter="searchBar()">
                     <div class="img" onmouseenter="removeSignBar()">
-                        <img src="/images/search-icon.jpg"></img>
+                        <img src="/const/construct_week/images/search-icon.jpg"></img>
                     </div>
                     <input id="inputBox" maxlength="200" placeholder="What can we help you find?" type="search"
                         value="">
@@ -83,7 +83,7 @@
                     </ul>
                 </div>
                 <div id="bag">
-                    <a href=""><img class="bag-image" src="/images/emptybag-icon.png"></img></a>
+                    <a href=""><img class="bag-image" src="/const/construct_week/images/emptybag-icon.png"></img></a>
                 </div>
             </div>
         </div>
@@ -2338,8 +2338,11 @@
 
     function pageContent() {
 
-        var completeDiv = document.createElement("div");
-        completeDiv.setAttribute("id", "completeDiv")
+        var completeDiv1 = document.createElement("div");
+        completeDiv1.setAttribute("id", "completeDiv")
+
+        var completeDiv2 = document.createElement("div");
+        completeDiv2.setAttribute("id", "completeDiv2")
 
         var insideDiv1 = document.createElement("div");
         var insideDiv2 = document.createElement("div");
@@ -2354,30 +2357,92 @@
         linktext.setAttribute("href", "")
 
         var highlight_array = ["Get a $40 Bonus Note!", "Pick Up Today—in Store or Curbside"]
-        var line_array=["An exclusive offer for new Nordstrom credit cardmembers. Restrictions apply",""]
-        var link_array=["Apply Now","Set Your Store"]
-        var i=0;
+        var line_array = ["An exclusive offer for new Nordstrom credit cardmembers. Restrictions apply", ""]
+        var link_array = ["Apply Now", "Set Your Store"]
+        var i = 0;
 
 
-        function changeContent(){
+        var images = ["https://n.nordstrommedia.com/id/2127fce3-8923-40ae-afb0-f792b13dfce8.jpeg?h=600&w=1608", "https://n.nordstrommedia.com/id/b518bc18-f2f8-41c1-b52c-53e56ff66053.jpeg?h=600&w=1608"]
+
+        var displayimage = document.createElement("img")
+
+        displayimage.setAttribute("id", "coverImg")
+
+
+        var insideline = document.createElement("p")
+
+        var insidelineDiv = document.createElement("div")
+
+        insideline_array=["Global perspectives meet classic clothing. See American style through a whole new lens.",""]
+
+        var insidetext1 = document.createElement("a")
+        insidetext1.setAttribute("href", "")
+
+        insidetext1_array=["Explore",""]
+
+        var insidetext2 = document.createElement("a")
+        insidetext2.setAttribute("href", "")
+        
+
+        insidetext2_array=["Shop",""]
+
+        var insidetext = document.createElement("div")
+
+        insidelineDiv.append(insideline)
+        insidetext.append(insidetext1, insidetext2)
+
+
+        var divOverImage = document.createElement("div")
+        divOverImage.setAttribute("id", "divOverImage")
+
+        divOverImage.append(insidelineDiv, insidetext)
+
+        console.log(divOverImage)
+
+
+        var h3content = document.createElement("h2")
+        h3_array=["","Fall's Best Denim"]
+
+        var pcontent = document.createElement("p")
+        pcontent_array=["","Get into fresh silhouettes and washes from MOTHER, Good American and more."]
+
+        var acontent = document.createElement("a")
+        acontent_array=["","Jeans & Denim"]
+
+        var anotherDiv = document.createElement("div")
+
+        anotherDiv.append(h3content, pcontent, acontent)
+        anotherDiv.setAttribute("id", "anotherDiv")
+
+        function changeContent() {
 
             highlight.textContent = highlight_array[i]
             line.textContent = line_array[i]
-            linktext.textContent=link_array[i]
+            linktext.textContent = link_array[i]
+            displayimage.src = images[i]
 
-            if(i<highlight_array.length-1){
+
+            insideline.textContent = insideline_array[i]
+            insidetext1.textContent = insidetext1_array[i]
+            insidetext2.textContent = insidetext2_array[i]
+
+            h3content.textContent = h3_array[i]
+            pcontent.textContent = pcontent_array[i]
+            acontent.textContent = acontent_array[i]
+
+            if (i < highlight_array.length - 1) {
                 i++
 
-                if(line_array[i]==""){
-                    highlight.style.marginTop="10px"
-                }else{
-                    highlight.style.marginTop="5px"
+                if (line_array[i] == "") {
+                    highlight.style.marginTop = "10px"
+                } else {
+                    highlight.style.marginTop = "5px"
                 }
-            }else{
-                i=0
+            } else {
+                i = 0
             }
 
-            setTimeout(changeContent,3000)
+            setTimeout(changeContent, 3000)
         }
 
         changeContent();
@@ -2425,10 +2490,12 @@
         insideDiv3.append(btn2)
         insideDiv2.append(highlight, line, linktext)
 
-        completeDiv.append(insideDiv1, insideDiv2, insideDiv3)
+        completeDiv1.append(insideDiv1, insideDiv2, insideDiv3)
+        completeDiv2.append(displayimage, divOverImage, anotherDiv)
 
         var mainDiv = document.createElement("div")
-        mainDiv.append(completeDiv)
+        mainDiv.append(completeDiv1, completeDiv2)
+
         mainDiv.setAttribute("id", "mainDiv")
 
         insideDiv2.addEventListener("mouseover", function () {
@@ -2448,6 +2515,86 @@
         })
 
         document.body.append(mainDiv)
+
+
+        //section from boots 
+
+        var boots = document.createElement("div")
+        boots.setAttribute("id","boots")
+
+
+        var boot1 = document.createElement("div")
+
+        var boot1_img = document.createElement("img")
+        boot1_img.src = "https://n.nordstrommedia.com/id/53ef2c80-f556-4df2-810c-3882cdff97a2.jpeg?h=600&w=804"
+
+        var boot1_content = document.createElement("div")
+
+        var boot1_h3 = document.createElement("h4")
+        boot1_h3.textContent="Trending Now: Lug-Sole Boots"
+
+        var boot1_p = document.createElement("p")
+        boot1_p.textContent="Instantly update your outfits with this hot style."
+
+        var boot1_a = document.createElement("a")
+        boot1_a.textContent="Boots"
+
+        boot1_content.append(boot1_h3,boot1_p,boot1_a)
+
+        boot1.append(boot1_img,boot1_content)
+
+
+        var boot2 = document.createElement("div")
+
+        var boot2_img = document.createElement("img")
+        boot2_img.src = "https://n.nordstrommedia.com/id/ac185c19-10a1-49b3-ba83-6b384027020e.jpeg?h=600&w=804"
+
+        var boot2_content = document.createElement("div")
+
+        var boot2_h3 = document.createElement("h4")
+        boot2_h3.textContent="Set the Tone for Fall"
+
+        var boot2_p = document.createElement("p")
+        boot2_p.textContent="Embrace the new season by giving your home a cozy refresh with chic accent pieces."
+
+        var boot2_a = document.createElement("a")
+        boot2_a.textContent="All Home"
+
+        boot2_content.append(boot2_h3,boot2_p,boot2_a)
+
+        boot2.append(boot2_img,boot2_content)
+
+        boots.append(boot1,boot2)
+
+        document.body.append(boots)
+
+        var black_main_div=document.createElement("div")
+        black_main_div.setAttribute("id","black_main_div")
+
+        var black_div = document.createElement("div")
+        black_div.setAttribute("id","black_div")
+
+        var black = document.createElement("img")
+        black.src = "https://n.nordstrommedia.com/id/dd10e890-214f-4c97-882a-5fc81d780eef.jpeg?h=200&w=1608"
+
+        var black_p =document.createElement("p")
+        black_p.textContent="Shop the brands and get to know visionary creatives from the Black community."
+
+        var black_inside_div =document.createElement("div")
+
+        var black1_a = document.createElement("a")
+        black1_a.textContent="Explore Diversity, Inclusion & Belonging"
+
+        var black2_a = document.createElement("a")
+        black2_a.textContent="Shop Black-Owned & Black-Founded Brands"
+
+        black_inside_div.append(black1_a,black2_a)
+
+        black_div.append(black_p,black_inside_div)
+
+        black_main_div.append(black,black_div)
+
+        document.body.append(black_main_div)
     }
 
     pageContent();

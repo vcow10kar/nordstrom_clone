@@ -89,6 +89,7 @@
     font-family: Brandon Text,Arial,sans-serif;
     font-weight: 400;
     font-size: 14px;
+    transition-duration: 1s;
 }
 
 #red{
@@ -300,12 +301,18 @@ ul{
     list-style-type:none
 }
 
-#completeDiv{
+#completeDiv, #completeDiv2{
     width:96.5%;
     margin:auto;
     display:flex;
     background:rgb(245, 241, 241);
-    height:83px;
+}
+
+#completeDiv{
+    height:90px;
+}
+#completeDiv2{
+    margin-top:30px;
 }
 
 #completeDiv>div:nth-child(1),#completeDiv>div:nth-child(3){
@@ -358,4 +365,119 @@ ul{
 .mouseOut{
     background-color:rgb(245, 241, 241);
     color:black;
+}
+
+#coverImg{
+    width:100%;
+}
+
+
+#divOverImage{
+    width:20%;
+    position:absolute;
+    margin:18% 5%; 
+    height:300px;
+    z-index: 0;
+    color:white;
+    font-size:14px;
+    line-height: 1.6;
+    font-family: Brandon Text,Arial,sans-serif;
+
+}
+
+#divOverImage>div:nth-child(1){
+    margin-bottom:10px;
+}
+
+#divOverImage>div:nth-child(2){
+    display: flex;
+    color:white;
+}
+
+#divOverImage>div:nth-child(2) a{
+    color:white;
+    font-family: Brandon Text,Arial,sans-serif;
+    margin-right:20px;
+}
+
+#anotherDiv{
+    width:18%;
+    text-align: center;
+    position:absolute;
+    margin:13% 37%; 
+    height:300px;
+    z-index: 0;
+    color:black;
+    font-size:14px;
+    line-height: 1.6;
+    font-family: Brandon Text,Arial,sans-serif;
+}
+
+#anotherDiv>h2,#anotherDiv>p{
+    margin-bottom:5px;
+}
+
+#anotherDiv>a{
+    text-decoration: underline;
+}
+
+#boots{
+    width:96.5%;
+    margin:auto;
+    display:flex;
+    margin-top:80px;
+    color: black;
+    font-size:13px;
+    font-family: Brandon Text,Arial,sans-serif;
+}
+
+#boots>div{
+    width:50%;
+}
+
+#boots>div img{
+    width:100%;
+    margin-bottom:10px;
+}
+
+#boots h4{
+    margin-bottom:3px;
+}
+
+#boots p{
+    margin-bottom:10px;
+}
+
+#boots a{
+    text-decoration: underline;
+    font-size:15px;
+}
+
+#black_main_div{
+    width:96.5%;
+    margin:auto;
+    margin-top:100px;
+    color: white;
+    font-size:14px;
+    font-family: Brandon Text,Arial,sans-serif;
+}
+
+#black_main_div img{
+    width:100%;
+}
+
+#black_div{
+    width:60%;
+    position:absolute;
+    margin: -6.5% 1.7%; 
+    height:300px;
+}
+
+#black_div p{
+    margin-bottom:18px;
+}
+
+#black_div a{
+    margin-right:15px;
+    text-decoration: underline;
 }
