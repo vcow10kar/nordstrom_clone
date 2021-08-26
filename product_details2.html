@@ -24,12 +24,12 @@
             grid-template-columns:50% 400px;
             gap:20px
         }
-        h2{
+        .pro_det_name{
             font-weight: 100;
             margin-bottom: 0px;
             margin-top: 0px;
         }
-        h4{
+       .pro_det_h4{
             text-align: left;
             margin-bottom: 0px;
             width: 50;
@@ -42,12 +42,12 @@
             
            
         }
-        img{
+        .prod-img{
             width: 50%;
            
             
         }
-        div+div{
+        .flex-box{
             display: flex;
             flex-direction: column;
         }
@@ -64,26 +64,20 @@
             border-radius: 5px;
 
         }
-        #discription_product>button+p{
-           
-            font-size: 13px;
-           width:110px;
-            color: black;
-            padding-top: 10px;
-           
-            
-        }
-        p{
+       
+        .pro_det_p{
             font-size: 13px;
             float: left;
         }
 
-        h3{
+       .pro_det_h3{
             margin-bottom: 0px;
         }
-        h3+p{
+        .pro_det_p2{
             margin-top: 0px;
             margin-bottom: 0px;
+            font-size: 13px;
+            float:left
         }
         #discription_list{
             float: left;
@@ -93,17 +87,14 @@
             
             
         }
-        #have_questions>button{
-           
-        
-            
+        #pro_det_chatnow{
            
             color: black;
             padding: 20px;
             width:120px
         }
-        .hower{
-            width: 80%;
+        .pro_det_hower{
+            width: 70%;
             transition-timing-function: cubic-bezier(0.6, 0.04, 0.98, 0.335);
             display: flex;
             max-height: 450px;
@@ -121,7 +112,9 @@
             font-size: 13px;
 
         }
-        li+p{
+        .pro_det_p3{
+            font-size: 13px;
+            float: left;
             margin-top: 20px;
         }
         #discription_list{
@@ -130,23 +123,21 @@
        #have_questions{
            padding: 20px;
        }
-       .hower1{
+       .pro_det_hower1{
        
   text-decoration-line: underline;
   text-decoration-thickness: 2px;
 
 
        }
-       input{
+       #quantity{
            width:30px;
            height: 30px;
            text-align: center;
 
        }
-       a{
-           color: black;
-       }
-       .hower2{
+       
+       .pro_det_hower2{
            border:white;
            background-color: rgb(198, 196, 201);
            text-decoration: none;
@@ -163,16 +154,16 @@
            border-bottom: black;
        }
     </style>
-    <div id="details">
-        <div id="image_product"></div>
-        <div id="discription_product"></div>
+    <div id="details"  >
+        <div id="image_product" class="flex-box" ></div>
+        <div id="discription_product" class="flex-box"></div>
         
     </div>
     <br>
     <br>
     <div id="flex">
     <div id="discription_list"></div>
-    <div id="have_questions"></div>
+    <div id="have_questions" class="flex-box"></div>
     <div id="ratings"></div>
     </div>
 </head>
@@ -184,29 +175,43 @@
         var discription_list=document.getElementById("discription_list")
         var have_questions=document.getElementById("have_questions")
         var a=localStorage.getItem("view")
-        console.log(a[0])
+        //console.log(a[0])
         let view_data=JSON.parse(localStorage.getItem("productDetails"))
-        console.log(view_data)
+        //console.log(view_data)
       
         view_data.forEach(function(product){
            
             var name=document.createElement("h2")
             name.textContent=product.name
-            console.log(product.name)
+            name.setAttribute("class","pro_det_name")
+           // console.log(product.name)
             var brand=document.createElement("p")
+            brand.setAttribute("class","pro_det_p")
             brand.textContent=product.brand
 //hower through image
             var image=document.createElement("img")
+            image.setAttribute("class","pro_det_img")
+            image.setAttribute("class","prod-img");
             image.src=product.image1
+            image.style.minHeight="200px"
+            image.style.maxHeight="520px"
             image.onmouseover=function(){
-                image.setAttribute("class","hower")
+               // image.setAttribute("class","pro_det_hower")
+               image.style.width="40%"
+               image.style.position="absolute"
+               image.style.top="0px"
+               image.style.left="50px"
+               
             }
             image.onmouseleave=function(){
-                image.removeAttribute("class")
+                //image.removeAttribute("class")
+               // image.style.width="50%"
+               image.style.position="static"
             }
            
 
             var color=document.createElement("p")
+            color.setAttribute("class","pro_det_p")
             color.textContent=product.color
             var color1=product.color
             color.style.color=color1
@@ -214,15 +219,19 @@
             //console.log(color)
 
             var price=document.createElement("h3")
+            price.setAttribute("class","pro_det_h3")
             price.textContent="INR "+product.price
 
             var text=document.createElement("p")
+            text.setAttribute("class","pro_det_p2")
             text.textContent="Price varies with currency exchange rates and may be different than in store."
 
             var about=document.createElement("p")
+            about.setAttribute("class","pro_det_p")
             about.textContent=product.about
 
             var about1=document.createElement("p")
+            about1.setAttribute("class","pro_det_p")
             about1.textContent=product.about
 
             var itemcode=document.createElement("p")
@@ -254,6 +263,7 @@
  //have a questions div
 
             var have_que=document.createElement("h4")
+            have_que.setAttribute("class","pro_det_h4")
             var span=document.createElement("span")
             span.setAttribute("class","material-icons")
             span.innerText="forum"
@@ -263,13 +273,15 @@
            // have_que.innerHTML+="HAVE QUESTIONS?" // innerhtml = innerhtml+"aHve a question""
 
             var para=document.createElement("p")
+            para.setAttribute("class","pro_det_p")
             para.textContent="Connect with us to get free style advice, product recommendations or customer service help."
 
             var chat_now_button=document.createElement("button")
+            chat_now_button.setAttribute("id","pro_det_chatnow")
             chat_now_button.textContent="Chat Now"
 //hower throgh button
             chat_now_button.onmouseover=function(){
-                chat_now_button.setAttribute("class","hower2")
+                chat_now_button.setAttribute("class","pro_det_hower2")
             }
             chat_now_button.onmouseleave=function(){
                 chat_now_button.removeAttribute("class")
@@ -283,6 +295,7 @@
 //details and care div
 
             var second_header=document.createElement("h4")
+            second_header.setAttribute("class","pro_det_h4")
             second_header.textContent="DETAILS & CARE"
 
 
@@ -292,12 +305,13 @@
            // var list1=document.createElement("li")
             //var list2=document.createElement("li")
             var seemore=document.createElement("p")
+            seemore.setAttribute("class","pro_det_p3")
             var link=document.createElement("a");
             link.setAttribute("href","http://www.google.com");
             link.textContent="See more";
 //seemore mouse hower
             link.onmouseover=function(){
-                link.setAttribute("class","hower1")
+                link.setAttribute("class","pro_det_hower1")
 
             }
             link.onmouseleave=function(){
@@ -327,7 +341,7 @@
             //wish_list_link.textContent="+  Add To Wish List"
            // wishlist.append(wish_list_link)
             wishlist.onmouseover=function(){
-                wishlist.setAttribute("class","hower1")
+                wishlist.setAttribute("class","pro_det_hower1")
 
             }
             wishlist.onmouseleave=function(){
