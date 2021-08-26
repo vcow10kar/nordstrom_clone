@@ -481,3 +481,144 @@ ul{
     margin-right:15px;
     text-decoration: underline;
 }
+
+#nike_main_div{
+    width:96.5%;
+    margin:auto;
+    margin-top:100px;
+    color: black;
+    font-size:15px;
+    font-family: Brandon Text,Arial,sans-serif;
+    line-height: 1.4;
+}
+
+#nike_main_div img{
+    width:100%;
+}
+
+#nike_div{
+    width:18%;
+    position:absolute;
+    margin: -19% 73%; 
+    height:300px;
+}
+
+#nike_div p{
+    margin-bottom:15px;
+}
+
+#nike_div a{
+    margin-right:15px;
+    text-decoration: underline;
+}
+
+#orange_main_div{
+    width:96.5%;
+    margin:auto;
+    margin-top:100px;
+    color: black;
+    font-size:14px;
+    font-family: Brandon Text,Arial,sans-serif;
+}
+
+#orange_main_div img{
+    width:100%;
+}
+
+#orange_div{
+    width:15%;
+    position:absolute;
+    margin: -24% 11%; 
+    height:300px;
+
+}
+
+#orange_div a{
+    text-decoration: underline;
+}
+
+#orange_div p{
+    margin-bottom:10px;
+    line-height: 1.4;
+}
+
+#orange_h4_div{
+    font-size: 30px;
+    margin-bottom:8px;
+}
+
+#orange_div h4:nth-child(1){
+    font-weight: 5;
+    padding:0px;
+}
+
+
+#hoody_main_div{
+    width:96.5%;
+    margin:auto;
+    margin-top:100px;
+    color: white;
+    font-family: Brandon Text,Arial,sans-serif;
+}
+
+#hoody_main_div img{
+    width:100%;
+}
+
+#hoody_div{
+    width:18%;
+    position:absolute;
+    margin: -21% 5%; 
+    height:300px;
+}
+
+#hoody_div a{
+    text-decoration: underline;
+    font-size:14px;
+    float:left;
+    margin-right:15px;
+    line-height: 1.3;
+}
+
+#hoody_div h4{
+    font-size:20px;
+    margin-bottom:5px;
+}
+
+#hoody_div p{
+    font-size:14px;
+    line-height: 1.6;
+    margin-bottom:5px;
+}
+
+
+#shop_main_div{
+    text-align:center;
+    width:96.5%;
+    margin:auto;
+    color: black;
+    margin-top:100px;
+    font-family: Brandon Text,Arial,sans-serif;
+}
+
+#shop_main_div h4{
+    margin-bottom:  50px;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 1.14;
+    letter-spacing: 0.2em;
+}
+
+#shop_img_div{
+    display: flex;
+}
+
+#shop_img_div img{
+    width:100%;
+}
+
+#shop_img_div h5{
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 1.4;
+}
