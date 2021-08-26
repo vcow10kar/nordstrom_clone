@@ -5,10 +5,174 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NordStorm Online & Indoor : Shoes,Jewlery,Clothing,Makeup,Dresses</title>
-    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons"
+      rel="stylesheet">
+       
+    <style>
+          *{
+            margin:10px;
+            font-family: 'Lato', sans-serif;
+        }
+        h2{
+            font-weight: 400;
+        }
+        .container {
+            width:30%;
+            margin:auto;
             
+            border-radius: 10px;
+            padding:20px;
+         
+        }
+
+        .signup-btn {
+            background-color:black;
+            border: none;
+            color:white;
+            margin-left:10px;
+            padding:10px;
+            width:95%;
+            font-weight: 700;
+            
+        }
+
+        .signup-btn:hover {
+            background-color:rgb(36, 36, 36);   
+        }
+        .signup-label{
+            font-weight: bold;
+            font-size:14px;            
+        }
+
+        .signup-input{
+            padding:10px;
+            margin-left:10px;
+            width:90%;            
+            border:1px solid #bbb
+        }
+
+        .error{
+            padding:10px;
+            margin-left:10px;
+            width:90%;            
+            border:1px solid red;
+            border-bottom: 3px solid red;
+        }
+
+        input:focus{
+            
+            border-bottom: 3px solid black;
+            border-left: none;
+            border-right: none;
+            border-top: none;
+            
+        }
+        a{
+            text-decoration: underline;
+            color:black;
+        }
+        .flex{
+            display: flex;
+        }
+        .material-icons{
+            font-size:18px;
+        }
+        #grayed{
+            font-size: 12px;
+            margin:0px;
+            color:gray
+            
+            
+        }
+
+        .signup-p{
+            font-size:12px;
+        }
+    </style>            
 </head>
 <body>
     
+    <div class="container" id="email_container">
+        <h2>Create Account</h2>
+        <p class="signup-p" id="grayed"><span class="material-icons">
+            payment
+            </span> Checkout faster</p>
+        <p class="signup-p" id="grayed"><span class="material-icons">
+            local_shipping
+            </span> Track orders Easily</p>
+        <p class="signup-p" id="grayed"><span class="material-icons">
+            cloud_queue
+            </span> One account to shop our brands.</p>    
+         <p class="signup-p"><span style="color:red">*</span>Required</p>
+         <label for="email">Email</label>
+         
+         <p class="signup-p" id="login_user_email"> </p>         
+         
+         <label class="signup-label" for="fname">FirstName<span style="color:red">*</span></label>
+        
+        <input class="signup-input" type="text" id="fname" required/>   
+         <label class="signup-label" for="lname">LastName<span style="color:red">*</span></label>
+        
+        <input class="signup-input" type="text" id="lname" required/>   
+        <label class="signup-label" for="password">Create password<span style="color:red">*</span></label>
+        <input class="signup-input" type="password" id="password" required/>
+
+         
+        <p class="signup-p" style="color:red;visibility: hidden;" id="error_message">Please enter all fields and try again</p>
+
+           
+        <p class="signup-p">By creating an account, you agree to our Privacy Policy and Terms & Conditions.</p>
+
+
+        <button class="signup-btn" onclick="signupUser()">Create Account</button>
+
+    </div>
+
+
+    <script>
+
+        var email=localStorage.getItem('tried_login_user');
+        document.getElementById('login_user_email').innerText=email;
+        function keyPressed(event){
+            
+            var pass = document.getElementById('password').value;
+            isValidPassword(pass);
+        }
+
+
+
+        function signupUser(){
+            var fName = document.getElementById('fname').value;
+            var lName = document.getElementById('lname').value;
+            var password = document.getElementById('password').value;
+
+
+            if(fname==''|| lname==''|| password=='')
+            {
+                document.getElementById('fname').setAttribute('class','error')
+                document.getElementById('lname').setAttribute('class','error')
+                document.getElementById('password').setAttribute('class','error')
+                document.getElementById('error_message').style.visibility = 'visible'
+            }
+            else{
+                var user ={
+                email : email,
+                fname:fName,
+                lname:lName
+            }
+            var users = JSON.parse(localStorage.getItem('users'));
+            users.push(user);
+            localStorage.setItem('users',JSON.stringify(users));
+
+            }
+
+            
+        }
+
+    </script>
 </body>
 </html>  

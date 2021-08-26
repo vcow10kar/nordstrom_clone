@@ -11,29 +11,29 @@
         body {
             font-family: Brandon Text,Arial,sans-serif;
         }
-        #container {
+        #product-grid-container {
             display: grid;
-            grid-template-columns: 20% 75%;
+            grid-template-columns: 20% 73%;
             gap: 30px;
             padding: 30px;
         }
 
-        #data {
+        #product-grid-data {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 10px;
         }
 
-        #data img {
+        #product-grid-data img {
             width: 100%;
         }
 
-        #sorting {
+        #product-grid-sorting {
             display: flex;
             flex-direction: row-reverse;
         }
 
-        #sorting > select {
+        #product-grid-sorting > select {
             font-size: 13px;
             padding: 10px;
             border: 1px solid rgb(189, 189, 189);
@@ -42,7 +42,7 @@
             color: rgb(80, 80, 80);
         }
 
-        #description {
+        #product-grid-description {
             text-decoration: none;
             line-height: 24.17px;
             color: rgb(51, 51, 51);
@@ -51,39 +51,39 @@
         }
 
 
-        #description:hover {
+        #product-grid-description:hover {
             text-decoration: underline;
         }
 
-        #product-price {
+        #product-grid-product-price {
             font-size: 15px;
             color: rgb(49, 49, 49);
         }
 
-        #product-text {
+        #product-grid-product-text {
             padding-top: 0px;
         }
 
-        #product-text > *{
+        #product-grid-product-text > *{
             margin-bottom: 0px;
         }
 
-        #filter hr {
+        #product-grid-filter hr {
             width: 100%;
         }
 
-        #brand, #color, #type {
+        #product-grid-brand, #product-grid-color, #product-grid-type {
             width: 80%;
             /* border: 1px solid grey; */
             /* padding: 5px; */
             font-size: 12px;
         }
 
-        #search-icon {
+        #product-grid-search-icon {
             padding: 10px;
         }
 
-        #search-box {
+        #product-grid-search-box {
             display: grid;
             grid-template-columns: 10% 90%;
             padding: 2px;
@@ -91,100 +91,138 @@
             margin-bottom: 10px;
         }
 
-        #search-box > input {
+        #product-grid-search-box > input {
             padding: 8px;
             border: 1px solid rgb(189, 189, 189);
         }
 
-        #search-box > span {
+        #product-grid-search-box > span {
             padding-top: 5px;
             color: rgb(61, 61, 61);
         }
 
-        #filter {
+        #product-grid-filter {
             margin-left: 10px;
         }
-        .filter-div {
+        .product-grid-filter-div {
             display: grid;
             grid-template-columns: 90% 10%;
             padding: 2px;
         }
 
-        .filter-div > p {
+        .product-grid-filter-div > p {
             font-weight: 600;
         }
 
-        .plus-icon {
+        .product-grid-plus-icon {
             padding: auto;
             text-align: right;
             margin: auto;
             size: 18dp;
         }
 
-        #quick-view {
+        #product-grid-quick-view {
             width: 100%;
             height: 20px;
             margin: 2px auto;
             text-align: center;
-            border: 1px solid rgb(32, 32, 32);
+            border: 1px solid rgb(189, 189, 189);
             padding: 10px 0px;
             visibility: hidden;
         }
 
-        #quick-view > p {
+        #product-grid-quick-view > p {
             padding: 3px;
             margin: 0px;
             color: rgb(32, 32, 32);
             font-size: 15px;
         }
-        #brand-content, #color-content, #type-content {
+        #product-grid-brand-content, #product-grid-color-content, #product-grid-type-content {
             display: none;
         }
 
-        .checkbox-div {
+        .product-grid-checkbox-div {
             display: grid;
             grid-template-columns: 10% 90%;
         }
 
-        .checkbox-div p {
+        .product-grid-checkbox-div p {
             font-size: 14px;
             margin: 5px;
+            margin-left: 3px;
             padding-bottom: 5px;
             display: inline;
         }
 
-        .checkbox-div p:hover {
+        .product-grid-checkbox-div p:hover {
             text-decoration: underline;
         }
 
-        .checkmark {
+        .product-grid-checkmark {
             width: 22px;
             height: 22px;
             border-radius: 0px;
             border: 1px solid rgb(189, 189, 189);
         }
+
+        #product-grid-modalBox {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top:0;
+            height: 100%;
+            width: 100%;
+            overflow: auto;
+            background-color: rgba(255, 250, 255, 0.6);
+        }
+
+        #product-grid-modal-div {
+            background-color: #fff;
+            margin: 20% auto;
+            padding: 20px;
+            width: 40%;
+            margin: 150px auto;
+            border: 1px solid rgb(201, 201, 201);
+        }
+
+        #product-grid-modal-content > img {
+            width: 50%;
+        }
+
+        #product-grid-closeBtn {
+            color: #ccc;
+            float: right;
+            font-size: 30px;
+        }
+
+        #product-grid-closeBtn:hover, #product-grid-closeBtn:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
 
-    <div id = "header"></div>
+    <div id = "product-grid-header"></div>
 
-    <div id = container>
-        <div id = "filter">
+    <div id = "product-grid-container">
+        <div id = "product-grid-filter">
             
-            <div id = "brand">
+            <div id = "product-grid-brand">
                 <hr/>
                 
-                <div class = "filter-div">
+                <div class = "product-grid-filter-div">
                     
                     <p>Brand</p>
-                    <span class = "material-icons plus-icon" id = "brand-icon" onclick = "toggleDisplay('brand-content', 'brand-icon')">add</span>  
+                    <span class = "material-icons product-grid-plus-icon" id = "product-grid-brand-icon" onclick = "toggleDisplay('product-grid-brand-content', 'product-grid-brand-icon')">add</span>  
                 </div>
                 
                 <!-- <span class="material-icons" id = "search-icon">search<input id = "search-brand" placeholder = "Find a brand"/></span> -->
 
-                <div id = "brand-content">
-                    <div id = "search-box">
+                <div id = "product-grid-brand-content">
+                    <div id = "product-grid-search-box">
                         <span class = "material-icons">search</span>
                         <input type = "text" placeholder = "Find a brand">
                     </div>
@@ -195,36 +233,36 @@
 
             
 
-            <div id = "color">
-                <div class = "filter-div">
+            <div id = "product-grid-color">
+                <div class = "product-grid-filter-div">
                     <p>Color</p>
-                    <span class = "material-icons plus-icon" id = "color-icon" onclick = "toggleDisplay('color-content', 'color-icon')">add</span>  
+                    <span class = "material-icons product-grid-plus-icon" id = "product-grid-color-icon" onclick = "toggleDisplay('product-grid-color-content', 'product-grid-color-icon')">add</span>  
                 </div>
                 
                 
 
-                <div id = "color-content"></div>
+                <div id = "product-grid-color-content"></div>
                 <hr/>
             </div>
 
-            <div id = "type">
-                <div class = "filter-div">
+            <div id = "product-grid-type">
+                <div class = "product-grid-filter-div">
                     <p>Product Type</p>
-                    <span class = "material-icons plus-icon" id = "type-icon" onclick = "toggleDisplay('type-content', 'type-icon')">add</span>  
+                    <span class = "material-icons product-grid-plus-icon" id = "product-grid-type-icon" onclick = "toggleDisplay('product-grid-type-content', 'product-grid-type-icon')">add</span>  
                 </div>
                 
 
-                <div id = "type-content"></div>
+                <div id = "product-grid-type-content"></div>
 
                 <hr/>
             </div>
 
         </div>
         
-        <div id = "data-div">
+        <div id = "product-grid-data-div">
             <h3>Art, Wall Decor & Mirrors</h3>
-            <p id = "itemCount"></p>
-            <div id = "sorting">
+            <p id = "product-grid-itemCount"></p>
+            <div id = "product-grid-sorting">
                 <select onchange = "sortBy(value)">
                     <option value = "newest">Sort by newest</option>
                     <option value = "lowToHigh">Sort by price: low to high</option>
@@ -232,7 +270,14 @@
                 </select>
             </div>
 
-            <div id = 'data'></div>
+            <div id = 'product-grid-data'></div>
+        </div>
+
+        <div id = 'product-grid-modalBox'>
+            <div id = 'product-grid-modal-div'>
+                <p>Hello, I'm a modal! <span id = "product-grid-closeBtn" class = "material-icons" onclick = 'closeModal()'>close</span></p>
+                <div id = 'product-grid-modal-content'></div>
+            </div>
         </div>
     </div>
     
@@ -248,7 +293,7 @@
         about: "Create a relaxing mood in your home with the evocative graphic on this framed wall art printed with archival, fade-resistant inks for lasting quality.",
         details:"<ul><li>Art by Domonique Brown</li><li>Hanging hardware included</li><li>Acid- and lignin-free archival paper/wood</li><li>Made in the USA</li><li>Item #6289066</li></ul>",
         color: "Green",
-        type: "Decorative Accents"
+        type: "Decorative Accents",
     },
     
     {
@@ -293,7 +338,9 @@
         image1: "https://n.nordstrommedia.com/id/sr3/cf564738-8bf4-4581-8247-6b00192e438c.jpeg?h=365&w=240&dpr=2",
         rating: 5,
         color: "Brown",
-        type: "Wall Hanging"
+        type: "Wall Hanging",
+        about: "This geometric wall décor set features hexagonal tiles and a shelf made from recycled chopsticks for a modern-meets-rustic aesthetic.",
+        details: "<ul><li>Set of two tiles and one shelf</li><li>Tiles are 6 1/2\" x 7 1/2\" x 1/2\"; shelf is 6 1/2\" x 7 1/2\" x 1 3/4\"</li><li>Hang using double-sided permanent tape</li><li>Recycled chopsticks</li><li>Made in Canada</li><li>Item #6212329</li></ul>",
     },
     
     {
@@ -425,20 +472,20 @@
 
     var currentArray = products;
 
-    var data_div = document.getElementById('data');
+    var data_div = document.getElementById('product-grid-data');
 
     function createProductCatalogue(products) {
         data_div.innerHTML = "";
         products.forEach(function(product) {
             var div = document.createElement('div');
-            div.setAttribute('class', 'product-data');
+            div.setAttribute('class', 'product-grid-product-data');
 
             var p_name = document.createElement('p');
             p_name.innerText = product.name;
 
             var p_price = document.createElement('p');
             p_price.style.fontWeight = '600';
-            p_price.setAttribute('id', 'product-price');
+            p_price.setAttribute('id', 'product-grid-product-price');
             p_price.innerText = "INR " + product.price;
 
             var p_brand = document.createElement('p');
@@ -448,7 +495,7 @@
             image.src = product.image1;
 
             var description = document.createElement('a');
-            description.setAttribute('id', 'description');
+            description.setAttribute('id', 'product-grid-description');
             description.innerText = product.brand + " " + product.name;
             description.onclick = function() {
                 addProductDetails(product);
@@ -456,13 +503,16 @@
             }
 
             var productText = document.createElement('div');
-            productText.setAttribute('id', 'product-text');
+            productText.setAttribute('id', 'product-grid-product-text');
 
             var quick_view = document.createElement('div');
-            quick_view.setAttribute('id', 'quick-view');
+            quick_view.setAttribute('id', 'product-grid-quick-view');
             var quick_view_text = document.createElement('p');
             quick_view_text.innerText = "Quick View";
             quick_view.appendChild(quick_view_text);
+            quick_view.onclick = function() {
+                openModal(product);
+            }
 
             if(product.rating) {
                 var rating = document.createElement('p');
@@ -491,7 +541,7 @@
             }
             data_div.appendChild(div);
 
-            var itemCount = document.getElementById('itemCount');
+            var itemCount = document.getElementById('product-grid-itemCount');
             itemCount.innerText = `${currentArray.length} items`;
 
         })
@@ -509,45 +559,43 @@
     }
 
     function priceLowToHigh() {
-        for(let i = 0; i < products.length; i++) {
-            for(let j = 0; j < products.length; j++) {
-                if(products[i].price < products[j].price) {
-                    var temp = products[i];
-                    products[i] = products[j];
-                    products[j] = temp;
+        for(let i = 0; i < currentArray.length; i++) {
+            for(let j = 0; j < currentArray.length; j++) {
+                if(currentArray[i].price < currentArray[j].price) {
+                    var temp = currentArray[i];
+                    currentArray[i] = currentArray[j];
+                    currentArray[j] = temp;
                 }
             }
         }
 
-        console.log(products);
+        console.log(currentArray);
 
         data_div.innerHTML = "";
-        createProductCatalogue(products);
+        createProductCatalogue(currentArray);
     }
 
     function priceHighToLow() {
-        for(let i = 0; i < products.length; i++) {
-            for(let j = 0; j < products.length; j++) {
-                if(products[i].price > products[j].price) {
-                    var temp = products[i];
-                    products[i] = products[j];
-                    products[j] = temp;
+        for(let i = 0; i < currentArray.length; i++) {
+            for(let j = 0; j < currentArray.length; j++) {
+                if(currentArray[i].price > currentArray[j].price) {
+                    var temp = currentArray[i];
+                    currentArray[i] = currentArray[j];
+                    currentArray[j] = temp;
                 }
             }
         }
 
-        console.log(products);
+        console.log(currentArray);
 
         data_div.innerHTML = "";
-        createProductCatalogue(products);
+        createProductCatalogue(currentArray);
     }
-
-    
 
     createProductCatalogue(products);
 
     function createBrandFilters() {
-        var brands_div = document.getElementById('brand-content');
+        var brands_div = document.getElementById('product-grid-brand-content');
         brands_div.innerHTML = "";
 
         var brands = {};
@@ -556,10 +604,10 @@
             if(brands[product.brand] === undefined) {
                 brands[product.brand] = 1;
                 var div = document.createElement('div');
-                div.setAttribute('class', 'checkbox-div');
+                div.setAttribute('class', 'product-grid-checkbox-div');
 
                 var checkbox = document.createElement('input');
-                checkbox.setAttribute('class', `brand checkmark`);
+                checkbox.setAttribute('class', `product-grid-brand product-grid-checkmark`);
                 checkbox.setAttribute('type', 'checkbox');
                 checkbox.value = `${product.brand}`;
                 checkbox.onchange = addBrandFilter;
@@ -575,7 +623,7 @@
     }
 
     function createColorFilters() {
-        var colors_div = document.getElementById('color-content');
+        var colors_div = document.getElementById('product-grid-color-content');
         colors_div.innerHTML = "";
 
         var colors = {};
@@ -586,10 +634,10 @@
                 if(colors[product.color] === undefined) {
                 colors[product.color] = 1;
                 var div = document.createElement('div');
-                div.setAttribute('class', 'checkbox-div');
+                div.setAttribute('class', 'product-grid-checkbox-div');
 
                 var checkbox = document.createElement('input');
-                checkbox.setAttribute('class', `color checkmark`);
+                checkbox.setAttribute('class', `product-grid-color product-grid-checkmark`);
                 checkbox.setAttribute('type', 'checkbox');
                 checkbox.value = `${product.color}`;
                 checkbox.onchange = addColorFilter;
@@ -607,7 +655,7 @@
     }
 
     function createProductTypeFilters() {
-        var types_div = document.getElementById('type-content');
+        var types_div = document.getElementById('product-grid-type-content');
         types_div.innerHTML = "";
 
         var types = {};
@@ -618,10 +666,10 @@
                 if(types[product.type] === undefined) {
                 types[product.type] = 1;
                 var div = document.createElement('div');
-                div.setAttribute('class', 'checkbox-div');
+                div.setAttribute('class', 'product-grid-checkbox-div');
 
                 var checkbox = document.createElement('input');
-                checkbox.setAttribute('class', `type checkmark`);
+                checkbox.setAttribute('class', `product-grid-type product-grid-checkmark`);
                 checkbox.setAttribute('type', 'checkbox');
                 checkbox.value = `${product.type}`;
                 checkbox.onchange = addTypeFilter;
@@ -660,11 +708,11 @@
 
     function addBrandFilter() {
         var brandfilters = [];
-        var checkbox = document.getElementsByClassName('checkmark');
+        var checkbox = document.getElementsByClassName('product-grid-checkmark');
         for(let i = 0; i < checkbox.length; i++) {
             var brands = checkbox[i].className.split(" ");
             if(checkbox[i].checked) {
-                if(brands[0] === 'brand') {
+                if(brands[0] === 'product-grid-brand') {
                     brandfilters.push(checkbox[i].value);
                 }
                 
@@ -693,11 +741,11 @@
     function addColorFilter() {
         
         var colorfilters = [];
-        var checkbox = document.getElementsByClassName('checkmark');
+        var checkbox = document.getElementsByClassName('product-grid-checkmark');
         for(let i = 0; i < checkbox.length; i++) {
             var colors = checkbox[i].className.split(" ");
             if(checkbox[i].checked) {
-                if(colors[0] === 'color') {
+                if(colors[0] === 'product-grid-color') {
                     colorfilters.push(checkbox[i].value);
                 }
                 
@@ -714,6 +762,7 @@
             createColorFilters();
             createProductTypeFilters();
         } else {
+            currentArray = products;
             var catalogue = createFilteredCatalogue(currentArray, colorfilters, 'color');
             currentArray = catalogue;
             createBrandFilters();
@@ -725,11 +774,11 @@
     function addTypeFilter() {
         
         var typefilters = [];
-        var checkbox = document.getElementsByClassName('checkmark');
+        var checkbox = document.getElementsByClassName('product-grid-checkmark');
         for(let i = 0; i < checkbox.length; i++) {
             var types = checkbox[i].className.split(" ");
             if(checkbox[i].checked) {
-                if(types[0] === 'type') {
+                if(types[0] === 'product-grid-type') {
                     typefilters.push(checkbox[i].value);
                 }
                 
@@ -787,6 +836,22 @@
         window.location.href = 'product_details2.html'; 
     }
 
-    
+    var closeBtn = document.getElementById('product-grid-closeBtn');
+    var modal = document.getElementById('product-grid-modalBox');
+    var modalContent = document.getElementById('product-grid-modal-content');
+
+    function openModal(product) {
+        var image = document.createElement('img');
+        image.src = product.image1;
+        modalContent.appendChild(image);
+        modal.style.display = 'block';
+    }
+
+    function closeModal() {
+        modal.style.display = "none";
+        modalContent.innerHTML = "";
+
+        
+    }
 
 </script>
