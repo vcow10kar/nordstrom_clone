@@ -43,6 +43,7 @@
 #top span{
     vertical-align: top;
 }
+
 .clear{
     clear:both
 }
@@ -262,6 +263,7 @@
 .firstDiv{
     margin-right:30px;
 }
+
 hr{
     background-color:rgb(223, 213, 213);
     height:1px;
@@ -303,7 +305,7 @@ ul{
     margin:auto;
     display:flex;
     background:rgb(245, 241, 241);
-    height:90px;
+    height:83px;
 }
 
 #completeDiv>div:nth-child(1),#completeDiv>div:nth-child(3){
@@ -324,7 +326,7 @@ ul{
 #completeDiv>div>button{
     width:100%;
     border:none;
-    height: 70px;
+    height: 65px;
     transition-duration: 1s;
 }
 
@@ -336,19 +338,16 @@ ul{
 
 #completeDiv a{
     color:black;
-    
 }
 
-#completeDiv h3{
+#highlight{
     margin-top:4px;
-    margin-bottom:5px;
+    margin-bottom:1px;
     font-size:14px;
-    line-height: 2;
-   
 }
 
 #completeDiv p{
-    margin-bottom:7px;
+    margin-bottom:6px;
 }
 
 .mouseIn{
