@@ -55,7 +55,7 @@
             display:flex;
             flex-direction: column;
         }
-        #discription_product>button{
+        #button1{
             background-color: black;
             color: white;
             padding: 10px;
@@ -147,9 +147,20 @@
            color: black;
        }
        .hower2{
-           border: none;
+           border:white;
            background-color: rgb(198, 196, 201);
            text-decoration: none;
+           transition: background .2s,border-color .2s;
+       }
+       #wishlist{
+           margin-top: 10px;
+           font-size: 13px;
+           background-color: transparent;
+           width:140px;
+           border-top: none;
+           border-left: none;
+           border-right: none;
+           border-bottom: black;
        }
     </style>
     <div id="details">
@@ -199,6 +210,7 @@
             color.textContent=product.color
             var color1=product.color
             color.style.color=color1
+            color.style.fontWeight=800;
             //console.log(color)
 
             var price=document.createElement("h3")
@@ -220,6 +232,7 @@
 
             var button=document.createElement("button")
             var span=document.createElement("span")
+            button.setAttribute("id","button1")
             span.setAttribute("class","material-icons")
             span.innerText="shopping_bag"
             button.append(span)
@@ -301,12 +314,18 @@
 
 
 // wishlist content
-            var wishlist=document.createElement("p")
-            var wish_list_link=document.createElement("a")
-            wish_list_link.setAttribute("href","http://www.google.com");
+            var wishlist=document.createElement("button")
+            //var wish_list_link=document.createElement("a")
+           // wish_list_link.setAttribute("href","http://www.google.com");
+           wishlist.textContent="+ Add To Wish List"
+           wishlist.setAttribute("id","wishlist")
+
+           wishlist.addEventListener("click",function(ele){
+               add_to_wishlist(product)
+           })
             
-            wish_list_link.textContent="+  Add To Wish List"
-            wishlist.append(wish_list_link)
+            //wish_list_link.textContent="+  Add To Wish List"
+           // wishlist.append(wish_list_link)
             wishlist.onmouseover=function(){
                 wishlist.setAttribute("class","hower1")
 
@@ -419,9 +438,52 @@
             }
             else{
                 updateCart(product);
-            }   
+            } 
+            
+            
+        
+           
+            
+           
 
         }
+        if(localStorage.getItem('wish_list') == null) {
+            localStorage.setItem('wish_list', JSON.stringify([]));
+                }
+       
+        function add_to_wishlist(product) {
+
+           
+               
+        console.log(product);
+        
+            var wish_list1 = JSON.parse(localStorage.getItem('wish_list'));
+            var count=0;
+            if(wish_list1.length>0){
+              
+                for(var i=0;i<wish_list1.length;i++){
+                    
+                    if(wish_list1[i].name==product.name){
+                        alert("Product is Already Present in your cart")
+                        count++
+                    }
+                }
+            }
+            else{
+                if(count==0){
+
+                wish_list1.push(product);
+                }
+            }
+
+
+            
+        
+       
+    
+
+        localStorage.setItem('wish_list', JSON.stringify(wish_list1));
+    } 
     
     </script>
 </body>
