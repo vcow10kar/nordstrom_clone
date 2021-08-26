@@ -126,6 +126,7 @@
         <br>
         <input type="password" id="password"/>
         <br>
+        <p class="error_message" id="error_message" style="font-size:12px;color:red;visibility:hidden">Please enter correct password</p>
         <a href="forgot.html" style="font-size:10px;color:black;margin-left: 25px;">Forgot password ? </a>
 
         <div style="display:grid;grid-template-columns:auto 100%;"><input type="checkbox" id="keep_me_signed"/><label for="keep_me_signed" style="text-align:left;margin-bottom: 5px;font-size: 10px;font-weight: 100;">Keep me signed In. <a href="details.html">Details</a></label></div>
@@ -174,7 +175,7 @@
             var users = JSON.parse(localStorage.getItem('users'));
 
             var userDetails=users.filter(function(user){
-                console.log(user);
+                //console.log(user);
                 return user.email==email;
             });
 
@@ -215,6 +216,7 @@
                         }
                         else{
                             window.location="signup.html";
+                            localStorage.setItem('tried_login_user',email);
                         }
 
                  }   
@@ -241,8 +243,17 @@
             var email=localStorage.getItem('tried_login_user');
             var password =123456;
             var user_pass =document.getElementById('password').value;
-            if(password==123456);
+            if(user_pass==password)
+            {
                 alert("Login success");
+                document.getElementById('error_message').style.visibility="hidden";
+                document.getElementById('password').removeAttribute("class")
+            }
+            else {
+                document.getElementById('password').setAttribute("class","error")
+                document.getElementById('error_message').style.visibility="visible";
+
+            }
 
              var userDetails = JSON.parse(localStorage.getItem('users'));   
              var arr = userDetails.filter(function(el){
