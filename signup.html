@@ -156,7 +156,7 @@
                 document.getElementById('fname').setAttribute('class','error')
                 document.getElementById('lname').setAttribute('class','error')
                 document.getElementById('password').setAttribute('class','error')
-                document.getElementById('error_message').style.visibility = 'visible'
+                document.getElementById('error_message').style.visibility = 'visiblegit '
             }
             else{
                 var user ={
@@ -167,6 +167,9 @@
             var users = JSON.parse(localStorage.getItem('users'));
             users.push(user);
             localStorage.setItem('users',JSON.stringify(users));
+
+            document.location="signin.html";
+
 
             }
 
