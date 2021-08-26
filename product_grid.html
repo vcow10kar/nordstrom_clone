@@ -60,6 +60,10 @@
             color: rgb(49, 49, 49);
         }
 
+        #product-text {
+            padding-top: 0px;
+        }
+
         #product-text > *{
             margin-bottom: 0px;
         }
@@ -79,8 +83,26 @@
             padding: 10px;
         }
 
+        #search-box {
+            display: grid;
+            grid-template-columns: 10% 90%;
+            padding: 2px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        #search-box > input {
+            padding: 8px;
+            border: 1px solid rgb(189, 189, 189);
+        }
+
+        #search-box > span {
+            padding-top: 5px;
+            color: rgb(61, 61, 61);
+        }
+
         #filter {
-            margin-left: 40px;
+            margin-left: 10px;
         }
         .filter-div {
             display: grid;
@@ -99,7 +121,22 @@
             size: 18dp;
         }
 
+        #quick-view {
+            width: 100%;
+            height: 20px;
+            margin: 2px auto;
+            text-align: center;
+            border: 1px solid rgb(32, 32, 32);
+            padding: 10px 0px;
+            visibility: hidden;
+        }
 
+        #quick-view > p {
+            padding: 3px;
+            margin: 0px;
+            color: rgb(32, 32, 32);
+            font-size: 15px;
+        }
         #brand-content, #color-content, #type-content {
             display: none;
         }
@@ -137,14 +174,21 @@
             
             <div id = "brand">
                 <hr/>
+                
                 <div class = "filter-div">
+                    
                     <p>Brand</p>
                     <span class = "material-icons plus-icon" id = "brand-icon" onclick = "toggleDisplay('brand-content', 'brand-icon')">add</span>  
                 </div>
                 
                 <!-- <span class="material-icons" id = "search-icon">search<input id = "search-brand" placeholder = "Find a brand"/></span> -->
 
-                <div id = "brand-content"></div>
+                <div id = "brand-content">
+                    <div id = "search-box">
+                        <span class = "material-icons">search</span>
+                        <input type = "text" placeholder = "Find a brand">
+                    </div>
+                </div>
 
                 <hr/>
             </div>
@@ -157,7 +201,7 @@
                     <span class = "material-icons plus-icon" id = "color-icon" onclick = "toggleDisplay('color-content', 'color-icon')">add</span>  
                 </div>
                 
-                <!-- <span class="material-icons" id = "search-icon">search<input id = "search-brand" placeholder = "Find a brand"/></span> -->
+                
 
                 <div id = "color-content"></div>
                 <hr/>
@@ -169,7 +213,6 @@
                     <span class = "material-icons plus-icon" id = "type-icon" onclick = "toggleDisplay('type-content', 'type-icon')">add</span>  
                 </div>
                 
-                <!-- <span class="material-icons" id = "search-icon">search<input id = "search-brand" placeholder = "Find a brand"/></span> -->
 
                 <div id = "type-content"></div>
 
@@ -380,11 +423,15 @@
     },
 ]
 
+    var currentArray = products;
+
     var data_div = document.getElementById('data');
 
     function createProductCatalogue(products) {
+        data_div.innerHTML = "";
         products.forEach(function(product) {
             var div = document.createElement('div');
+            div.setAttribute('class', 'product-data');
 
             var p_name = document.createElement('p');
             p_name.innerText = product.name;
@@ -411,6 +458,12 @@
             var productText = document.createElement('div');
             productText.setAttribute('id', 'product-text');
 
+            var quick_view = document.createElement('div');
+            quick_view.setAttribute('id', 'quick-view');
+            var quick_view_text = document.createElement('p');
+            quick_view_text.innerText = "Quick View";
+            quick_view.appendChild(quick_view_text);
+
             if(product.rating) {
                 var rating = document.createElement('p');
                 for(let i = 1; i <= product.rating; i++) {
@@ -423,13 +476,23 @@
                 rating_count.innerText = ` (${product.rating})`; 
                 rating.appendChild(rating_count);
 
-                productText.append(description, p_price, rating);
+                productText.append(quick_view, description, p_price, rating);
             } else {
-                productText.append(description, p_price);
+                productText.append(quick_view, description, p_price);
             }
 
             div.append(image, productText);
+            div.onmouseenter = function() {
+                quick_view.style.visibility = 'visible';
+            }
+
+            div.onmouseleave = function() {
+                quick_view.style.visibility = 'hidden';
+            }
             data_div.appendChild(div);
+
+            var itemCount = document.getElementById('itemCount');
+            itemCount.innerText = `${currentArray.length} items`;
 
         })
     }
@@ -479,17 +542,17 @@
         createProductCatalogue(products);
     }
 
-    var itemCount = document.getElementById('itemCount');
-    itemCount.innerText = `${products.length} items`;
+    
 
     createProductCatalogue(products);
 
     function createBrandFilters() {
         var brands_div = document.getElementById('brand-content');
+        brands_div.innerHTML = "";
 
         var brands = {};
 
-        products.forEach(function(product) {
+        currentArray.forEach(function(product) {
             if(brands[product.brand] === undefined) {
                 brands[product.brand] = 1;
                 var div = document.createElement('div');
@@ -499,7 +562,7 @@
                 checkbox.setAttribute('class', `brand checkmark`);
                 checkbox.setAttribute('type', 'checkbox');
                 checkbox.value = `${product.brand}`;
-                checkbox.onchange = addFilter;
+                checkbox.onchange = addBrandFilter;
 
                 var label = document.createElement('p');
                 label.setAttribute('for', `${product.brand}`);
@@ -513,10 +576,11 @@
 
     function createColorFilters() {
         var colors_div = document.getElementById('color-content');
+        colors_div.innerHTML = "";
 
         var colors = {};
 
-        products.forEach(function(product) {
+        currentArray.forEach(function(product) {
 
             if(product.color) {
                 if(colors[product.color] === undefined) {
@@ -528,7 +592,7 @@
                 checkbox.setAttribute('class', `color checkmark`);
                 checkbox.setAttribute('type', 'checkbox');
                 checkbox.value = `${product.color}`;
-                checkbox.onchange = addFilter;
+                checkbox.onchange = addColorFilter;
 
                 var label = document.createElement('p');
                 label.setAttribute('for', `${product.color}`);
@@ -544,10 +608,11 @@
 
     function createProductTypeFilters() {
         var types_div = document.getElementById('type-content');
+        types_div.innerHTML = "";
 
         var types = {};
 
-        products.forEach(function(product) {
+        currentArray.forEach(function(product) {
 
             if(product.color) {
                 if(types[product.type] === undefined) {
@@ -558,8 +623,8 @@
                 var checkbox = document.createElement('input');
                 checkbox.setAttribute('class', `type checkmark`);
                 checkbox.setAttribute('type', 'checkbox');
-                checkbox.value = `${product.color}`;
-                checkbox.onchange = addFilter;
+                checkbox.value = `${product.type}`;
+                checkbox.onchange = addTypeFilter;
 
                 var label = document.createElement('p');
                 label.setAttribute('for', `${product.type}`);
@@ -593,39 +658,118 @@
 
     window.onload = functionStart;
 
-    
-    function addFilter() {
-        var filters = [];
+    function addBrandFilter() {
+        var brandfilters = [];
         var checkbox = document.getElementsByClassName('checkmark');
         for(let i = 0; i < checkbox.length; i++) {
+            var brands = checkbox[i].className.split(" ");
             if(checkbox[i].checked) {
+                if(brands[0] === 'brand') {
+                    brandfilters.push(checkbox[i].value);
+                }
                 
-                filters.push(checkbox[i].value);
             }
         }
 
-        if(filters.length === 0) {
+        console.log("brand",brandfilters);
+
+        if(brandfilters.length === 0) {
             data_div.innerHTML = "";
-            createProductCatalogue(products);
+            currentArray = products;
+            createProductCatalogue(currentArray);
+            createBrandFilters();
+            createColorFilters();
+            createProductTypeFilters();
         } else {
-            createFilteredCatalogue(filters);
+            currentArray = products;
+            var catalogue = createFilteredCatalogue(currentArray, brandfilters, 'brand');
+            currentArray = catalogue;
+            createColorFilters();
+            createProductTypeFilters();
+            createProductCatalogue(currentArray);
         }  
     }
 
-    function createFilteredCatalogue(filters) {
-        var catalogue = [];
-        for(let i = 0; i < filters.length; i++) {
-            for(let j = 0; j < products.length; j++) {
-                for(k in products[j]) {
-                    if(products[j][k] === filters[i]) {
-                        catalogue.push(products[j]);
-                    }
+    function addColorFilter() {
+        
+        var colorfilters = [];
+        var checkbox = document.getElementsByClassName('checkmark');
+        for(let i = 0; i < checkbox.length; i++) {
+            var colors = checkbox[i].className.split(" ");
+            if(checkbox[i].checked) {
+                if(colors[0] === 'color') {
+                    colorfilters.push(checkbox[i].value);
                 }
+                
             }
         }
 
-        data_div.innerHTML = "";
-        createProductCatalogue(catalogue);
+        console.log("color",colorfilters);
+
+        if(colorfilters.length === 0) {
+            data_div.innerHTML = "";
+            currentArray = products;
+            createProductCatalogue(currentArray);
+            createBrandFilters();
+            createColorFilters();
+            createProductTypeFilters();
+        } else {
+            var catalogue = createFilteredCatalogue(currentArray, colorfilters, 'color');
+            currentArray = catalogue;
+            createBrandFilters();
+            createProductTypeFilters();
+            createProductCatalogue(currentArray);
+        }  
+    }
+
+    function addTypeFilter() {
+        
+        var typefilters = [];
+        var checkbox = document.getElementsByClassName('checkmark');
+        for(let i = 0; i < checkbox.length; i++) {
+            var types = checkbox[i].className.split(" ");
+            if(checkbox[i].checked) {
+                if(types[0] === 'type') {
+                    typefilters.push(checkbox[i].value);
+                }
+                
+            }
+        }
+
+        console.log("type", typefilters);
+
+        if(typefilters.length === 0) {
+            data_div.innerHTML = "";
+            currentArray = products;
+            createProductCatalogue(currentArray);
+            createBrandFilters();
+            createColorFilters();
+            createProductTypeFilters();
+        } else {
+            var catalogue = createFilteredCatalogue(currentArray, typefilters, 'type');
+            currentArray = catalogue;
+            createBrandFilters();
+            createColorFilters();
+            createProductCatalogue(currentArray);
+        }  
+    }
+
+    function createFilteredCatalogue(currentArray, filters, property) {
+        var catalogue = [];
+        for(let i = 0; i < filters.length; i++) {
+            console.log(filters[i]);
+            for(let j = 0; j < currentArray.length; j++) {
+                
+                if(currentArray[j][property] === filters[i]) {
+                    catalogue.push(currentArray[j]);
+                }
+            }
+            console.log(catalogue);
+        }
+
+        // console.log(catalogue);
+
+        return catalogue;
     }
 
 
@@ -634,13 +778,13 @@
             localStorage.setItem('productDetails', JSON.stringify([]));
         }
 
-        console.log(product);
+        localStorage.setItem('productDetails', JSON.stringify([]))
         var details = JSON.parse(localStorage.getItem('productDetails'));
         details.push(product);
 
-        console.log(details)
-
         localStorage.setItem('productDetails', JSON.stringify(details));
+
+        window.location.href = 'product_details2.html'; 
     }
 
     
