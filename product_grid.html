@@ -956,7 +956,7 @@
         p_addToBagBtn.innerHTML = `<div><span class="material-icons">shopping_bag</span></div><p>Add to Bag</p>`;
         p_addToBagBtn.setAttribute('id', 'product-grid-modal-product-addToBag');
         p_addToBagBtn.onclick = function() {
-            goToCheckoutPage();
+            goToCheckoutPage(product);
         }
 
         var p_add = document.createElement('p');
@@ -1002,12 +1002,44 @@
         container.style.filter = "blur(0px)";
     }
 
-    function goToCheckoutPage() {
-        window.location.href = "checkout.html";
+    function goToCheckoutPage(product) {
+
+        if(localStorage.getItem("bag")==null){
+            localStorage.setItem("bag",JSON.stringify([]))
+        }
+
+        var bag = JSON.parse(localStorage.getItem('bag'));
+
+        var productPresent = false;
+
+        for(let i = 0; i < bag.length; i++) {
+            if(bag[i].name === product.name) {
+                bag[i].quantity++;
+                productPresent = true;
+            }
+        }
+
+        if(!productPresent) {
+            product.quantity = 1;
+            bag.push(product);
+        }
+
+        localStorage.setItem('bag', JSON.stringify(bag));
+        
+        var element = document.getElementById('product-grid-modal-product-addToBag');
+        console.log(element);
+        element.innerHTML = `<span class="material-icons">done</span><p>Added to bag</p>`;
+
+        setTimeout(function() {
+            window.location.href = "checkout.html";
+        }, 3000);
+       
     }
 
     function openWishlistModal() {
         console.log("hello");
     }
+
+    
 
 </script>
