@@ -678,3 +678,45 @@ ul{
     color:black;
 }
 
+.footer {
+    display: flex;
+    background-color:whitesmoke;
+    
+}
+
+.footer-col{
+    flex-basis: 250px;
+    padding:10px;
+
+}
+.heading{
+    font-size: 15px;
+    font-weight: 700;
+}
+.ul{
+    list-style-type: none;
+    text-align:start;
+}
+
+.ul > li{
+    padding:5px;
+    font-size: 12px;
+ 
+}
+.ul> li:hover{
+    text-decoration: underline;
+    text-decoration-color: black;
+    text-decoration-thickness: 1px;
+}
+
+.footer > p{
+    flex-basis: 120px;
+    padding:20px;
+    font-size: 12px;
+}
+
+.footer > p:hover{
+    text-decoration: underline;
+    text-decoration-color: black;
+    text-decoration-thickness: 1px;
+}
