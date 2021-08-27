@@ -472,6 +472,10 @@
             border-radius: 3px;
         }
 
+        #shopping-bag-data {
+            color:rgb(44, 44, 44);
+        }
+
         #shopping-bag-data-div {
             display: grid;
             grid-template-columns: 20% 45% 20% 15%;
@@ -492,7 +496,7 @@
         #shipping-bag-subtotal {
             display: grid;
             grid-template-columns: 60% 40%;
-            font-size: 24px;
+            font-size: 18px;
             font-weight: 500;
         }
 
@@ -3158,8 +3162,6 @@ document.addEventListener("DOMContentLoaded",function(e){
     var shpgBagTotalPrice = document.getElementById('shipping-bag-subtotal');
     var totalPriceTag = document.createElement('p');
     totalPriceTag.innerText = `INR ${shippingBagTotal}`;
-    totalPriceTag.style.fontSize = '20px';
-    totalPriceTag.style.fontWeight = '500';
     totalPriceTag.style.textAlign = 'right';
     shpgBagTotalPrice.appendChild(totalPriceTag);
 
