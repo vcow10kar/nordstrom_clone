@@ -278,6 +278,50 @@
             text-align: center;
         }
 
+
+        .footer {
+            display: flex;
+            background-color:whitesmoke;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .footer-col{
+            flex-basis: 250px;
+            padding:10px;
+
+        }
+        .heading{
+            font-size: 15px;
+            font-weight: 700;
+        }
+        .ul{
+            list-style-type: none;
+            text-align:start;
+        }
+
+        .ul > li{
+            padding:5px;
+            font-size: 12px;
+        
+        }
+        .ul> li:hover{
+            text-decoration: underline;
+            text-decoration-color: black;
+            text-decoration-thickness: 1px;
+        }
+
+        .footer > p{
+            flex-basis: 120px;
+            padding:20px;
+            font-size: 12px;
+        }
+
+        .footer > p:hover{
+            text-decoration: underline;
+            text-decoration-color: black;
+            text-decoration-thickness: 1px;
+        }
+
     </style>
 </head>
 <body>
@@ -362,6 +406,84 @@
                     <div id = 'product-grid-modal-content'></div>
                 </div>  
             </div> 
+        </div>
+    </div>
+
+    <div id = 'product-grid-footer'>
+        <div class="footer">
+            <div class="footer-col">
+                
+                <ul class="ul">
+                    <li><label class="heading">Customer Service</label></li>
+                    <li>Contact Us</li>
+                    <li>Order Status</li>
+                    <li>Shipping</li>
+                    <li>Returns &amp; Exchanges</li>
+                    <li>Shipping</li>
+                    <li>Product recalls</li>
+                <ul>
+            </div>
+            <div class="footer-col">
+                <ul class="ul">
+                    <li><label class="heading">Stores &amp; Events</label></li>
+                    <li>Stores &amp; Events</li>
+                    <li>Carrers</li>
+                    <li>Corporate Responsibility</li>
+                    <li>Diversity Inclusion &amp; Belonging</li>
+                    <li>Get Email Updates</li>
+                    <li>Nordstrom Blog</li>
+                    
+                <ul>
+            </div>
+            <div class="footer-col">
+                <ul class="ul">
+                    <li><label class="heading">Services</label></li>
+                    <li>Personal Styling</li>
+                    <li>Altration &amp; Tailoring</li>
+                    <li>Spa Nordstrom</li>
+                    <li>Nordstrom Restaurants</li>
+                    <li>Gift Cards</li>
+                    
+                <ul>
+            </div>
+            <div class="footer-col">
+                <ul class="ul">
+                    <li><label class="heading">Nordstrom Card</label></li>
+                    <li>Pay My Bill</li>
+                    <li>Manage my Nordstrom Card</li>
+                    
+                <ul>
+            </div>
+            <div class="footer-col">
+                <ul class="ul">
+                    <li><label class="heading">Nordstrom Inc</label></li>
+                    <li>Nordstrom Rack</li>
+                    <li>Nordstrom Canada</li>
+                    <li>Trunk Club</li>
+                    <li>Investor Relations</li>
+                    <li>Press Releases</li>
+                    
+                <ul>
+            </div>
+        
+            <div class="footer-col">
+                <ul class="ul">
+                    <li>Get our apps</li>
+                    
+                <ul>
+            </div>
+            
+        
+            
+            
+        </div>
+        
+        <div class="footer" >
+            <p>Your Privacy Rights</p>
+            <p>Dont Sell My Info</p>
+            <p>Terms &amp; Conditions</p>
+            <p>Intrest Based Ads</p>
+            <p>&copy;2021 Nordstrom,Inc</p>
         </div>
     </div>
     
@@ -925,6 +1047,7 @@
     var modalContent = document.getElementById('product-grid-modal-content');
     var container = document.getElementById('product-grid-container');
     var modalImage = document.getElementById('product-grid-modal-img');
+    var footer = document.getElementById('product-grid-footer');
 
     function openModal(product) {
         console.log(product);
@@ -993,6 +1116,7 @@
         modalContent.append(p_name, p_brand, p_price, p_priceContent, p_about, p_addToBagBtn, p_add, p_seeDetails);
         modal.style.display = 'block';
         container.style.filter = 'blur(6px)';
+        footer.style.filter = 'blur(6px)';
     }
 
     function closeModal() {
@@ -1000,6 +1124,7 @@
         modalImage.innerHTML = "";
         modalContent.innerHTML = "";
         container.style.filter = "blur(0px)";
+        footer.style.filter = 'blur(0px)';
     }
 
     function goToCheckoutPage(product) {
