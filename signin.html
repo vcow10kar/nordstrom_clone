@@ -2817,10 +2817,11 @@ ul{
             var user_pass =document.getElementById('password').value;
             if(user_pass==password)
             {
-                alert("Login success");
+               // alert("Login success");
                 document.getElementById('error_message').style.visibility="hidden";
                 document.getElementById('password').removeAttribute("class");
                 document.getElementById('password').setAttribute("class","signup-input")
+                document.location="landing_page.html";
                 
             }
             else {
@@ -2835,7 +2836,7 @@ ul{
              });
 
              localStorage.setItem('logeduser',JSON.stringify(arr[0]));   
-
+             
 
 
         }
