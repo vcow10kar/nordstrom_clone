@@ -14,11 +14,11 @@
     background-color: black;
     text-align: center;
     color:white;
-    line-height:1.4;
+    
     font-size: 13px;
     font-weight: 400;
     letter-spacing: 0.15px;
-    padding:10px 25px;
+    
 }
 #top a {
     cursor: pointer;
@@ -27,7 +27,7 @@
 
 #top p{
     float:left;
-    margin-left:400px;
+    
 }
 
 #top button{
@@ -184,7 +184,7 @@
     display: block;
     height:0px;
     position: absolute ;
-    top:90px;
+    top:12%;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 6;
     border:none;
@@ -195,7 +195,7 @@
 #signIN{
     display: none;
     position: absolute;
-    top:90px;
+    top:12%;
     right:20px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     border:none;
@@ -228,6 +228,9 @@
 #signIN a{
     text-decoration:none;
     color: #393939;
+}
+.right{
+    float:right;
 }
 
 #signIN li:nth-child(1)>a{

@@ -19,11 +19,11 @@
     background-color: black;
     text-align: center;
     color:white;
-    line-height:1.4;
+    
     font-size: 13px;
     font-weight: 400;
     letter-spacing: 0.15px;
-    padding:10px 25px;
+    
 }
 #top a {
     cursor: pointer;
@@ -32,7 +32,7 @@
 
 #top p{
     float:left;
-    margin-left:400px;
+    
 }
 
 #top button{
@@ -190,7 +190,7 @@
     display: block;
     height:0px;
     position: absolute ;
-    top:90px;
+    top:14%;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 6;
     border:none;
@@ -201,7 +201,7 @@
 #signIN{
     display: none;
     position: absolute;
-    top:90px;
+    top:14%;
     right:20px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     border:none;
@@ -381,6 +381,9 @@ ul{
         body{
             margin:0px;
         }
+        .right{
+            float:right;
+        }
     </style>
 </head>
 <body  onclick="removeDropdown()">
@@ -392,12 +395,13 @@ ul{
 
     <div class="header">
         <div id="top">
-            <div>
-                <p>
+            <div style="text-align:center">
+                <p style="width:100%">
                     <strong>Shipping outside of the U.S. or Canada?</strong>
                     <a title="Learn About International Shipping" href="">Learn About International Shipping</a>
+                    <button class="right" href=""><img src="https://n.nordstrommedia.com/alias/IN.gif"><span>India</span></button>
                 </p>
-                <button href=""><img src="https://n.nordstrommedia.com/alias/IN.gif"><span>India</span></button>
+                
             </div>
             <div class="clear"></div>
         </div>
