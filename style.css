@@ -5,6 +5,11 @@
     padding:0px;
 }
 
+
+#LandingPage{
+    width:100%;
+}
+
 #top{
     background-color: black;
     text-align: center;
