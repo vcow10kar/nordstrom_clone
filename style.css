@@ -106,6 +106,7 @@
     width:18%;
     margin-right:0px !important;
     margin-left:10px;
+    position:relative;
 }
 
 #search >div{
@@ -185,7 +186,7 @@
     display: block;
     height:0px;
     position: absolute ;
-    top:12%;
+    top:100%;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 6;
     border:none;
@@ -196,14 +197,14 @@
 #signIN{
     display: none;
     position: absolute;
-    top:12%;
+    top:100%;
     right:20px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     border:none;
     z-index: 7;
     padding:10px 20px;
     background-color: white;
-    width:16% !important;
+    width:100% !important;
 }
 
 #signIN li{
