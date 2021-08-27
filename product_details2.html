@@ -179,6 +179,7 @@
 
         #product-grid-modal-content > img {
             width: 40%;
+            max-height: 250px;
         }
 
         #product-grid-closeBtn {
@@ -572,7 +573,7 @@
 // function for add the product in wishlist
 
 
-        if(localStorage.getItem('wish_list') == null) {
+    /*    if(localStorage.getItem('wish_list') == null) {
             localStorage.setItem('wish_list', JSON.stringify([]));
                 }
        
@@ -600,15 +601,54 @@
                 wish_list1.push(product);
                 }
             }
-
+*/
 
             
+        if(localStorage.getItem('wish_list') == null) {
+            localStorage.setItem('wish_list', JSON.stringify([]));
+                }
+       
+        function add_to_wishlist(product) {
+
+           
+               
+        console.log(product);
         
+            var wish_list1 = JSON.parse(localStorage.getItem('wish_list'));
+
+            console.log(wish_list1)
+            
+            if(wish_list1.length==0){
+                wish_list1.push(product);
+            }
+            if(wish_list1.length>0){
+                var count=0;
+               
+              
+                for(var i=0;i<(wish_list1).length;i++){
+                    console.log((wish_list1)[i].name)
+                   console.log( product.name)
+                    
+                    if((wish_list1)[i].name==product.name){
+                        alert("Product is Already Present in your list")
+                        count++
+                    }
+                }
+            
+            if(count==0){
+                //if(count==0){
+
+                wish_list1.push(product);
+                }
+           // }
+            }
        
     
 
         localStorage.setItem('wish_list', JSON.stringify(wish_list1));
     } 
+
+    
 
     let modal_data=JSON.parse(localStorage.getItem("productDetails"))
     console.log(modal_data)
