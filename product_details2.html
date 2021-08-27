@@ -3458,7 +3458,7 @@ document.addEventListener("DOMContentLoaded",function(e){
         function updateCart(product) {
             var bag1 = JSON.parse(localStorage.getItem("bag"));
 
-
+            console.log(bag1)
             var filter = bag1.filter(function (ele) {
                 var pd = ele.productDetails;
                 console.log(pd)

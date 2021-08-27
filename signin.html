@@ -2827,7 +2827,12 @@ ul{
                 document.getElementById('password').removeAttribute("class");
                 document.getElementById('password').setAttribute("class","signup-input")
                 document.location="landing_page.html";
-                
+                var userDetails = JSON.parse(localStorage.getItem('users'));   
+             var arr = userDetails.filter(function(el){
+                 return el.email===email;
+             });
+                localStorage.setItem('logeduser',JSON.stringify(arr[0]));   
+
             }
             else {
                 document.getElementById('password').setAttribute("class","error")
@@ -2835,12 +2840,8 @@ ul{
 
             }
 
-             var userDetails = JSON.parse(localStorage.getItem('users'));   
-             var arr = userDetails.filter(function(el){
-                 return el.email===email;
-             });
+             
 
-             localStorage.setItem('logeduser',JSON.stringify(arr[0]));   
              
 
 
