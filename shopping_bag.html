@@ -441,7 +441,7 @@
         }
 
         #shopping-bag-container {
-            font-family: Brandon Text, Arial, sans-serif;
+            font-family: Roboto, Arial, sans-serif;
             width: 60%;
             background-color: rgb(255, 255, 255);
             margin: 10px auto;
@@ -452,35 +452,62 @@
         }
 
         #shopping-bag-sections {
-            width: 40%;
-            border: 1px solid rgb(167, 167, 167);
+            width: 35%;
+            /* border: 1px solid rgb(167, 167, 167); */
             display: grid;
             grid-template-columns: 50% 50%;
+            font-weight: 500;
+            color: rgb(65, 65, 65);
+            border: 1px solid rgb(190, 190, 190);
         }
 
         #shopping-bag-sections > * {
-            padding: 20px;
+            padding: 15px;
             text-align: center;
         }
 
         #shopping-bag-tag {
-            border-right: 1px solid rgb(167, 167, 167);
+            background-color: rgb(212, 212, 212);
+            border: 1px solid rgb(212, 212, 212);
+            border-radius: 3px;
         }
 
         #shopping-bag-data-div {
             display: grid;
-            grid-template-columns: 20% 45% 20% 10%;
+            grid-template-columns: 20% 45% 20% 15%;
             gap: 10px;
         }
 
         #shopping-bag-data-div-img > * {
             margin: 10px auto;
-            width: 100%;
+            width: 80%;
         }
 
-        #hopping-bag-summary {
+        #shopping-bag-summary {
             display: grid;
-            grid-template-columns: 50% 50%;
+            grid-template-columns: 35% 35%;
+            gap: 30%;
+        }
+
+        #shipping-bag-subtotal {
+            display: grid;
+            grid-template-columns: 60% 40%;
+        }
+
+        #shipping-bag-checkout-btn {
+            width: 100%;
+            font-size: 20px;
+            padding: 10px;
+            border: 0px;
+            background-color: black;
+            color: white;
+        }
+
+        #shopping-bag-titles-name {
+            font-size: 24px;
+            font-weight: 400;
+            color: rgb(90, 90, 90);
+            letter-spacing: 1px;
         }
 
     </style>
@@ -2793,7 +2820,18 @@
                 <img style = "width: 50px" src = "https://constant.myntassets.com/checkout/assets/img/footer-bank-rupay.png"/>
                 </span>
 
-                <p>Need help? Call 1.888.282.6060 or chat with us</p>
+                <p>Need help? Call 1.888.282.6060 or <a href = "">chat with us</a></p>
+
+                <p><a href = "">Shipping internationally?</a></p>
+            </div>
+
+            <div id = "shipping-bag-price-summary">
+                <div id = "shipping-bag-subtotal">
+                    <p>Subtotal</p>
+                </div>
+
+                <hr style = "width: 100%;"/>
+                <div><button onclick = "goToCheckout()" id = "shipping-bag-checkout-btn">Check Out</button></div>
             </div>
 
 
@@ -2946,9 +2984,12 @@
 
     var number = 6288700;
 
-    function addShoppingBagDetails() {
-        var bag = JSON.parse(localStorage.getItem('bag'));
+    var shippingBagTotal = 0;
 
+    var bag = JSON.parse(localStorage.getItem('bag'));
+
+    function addShoppingBagDetails() {
+        
         bag.forEach(function(product) {
 
             var bagDataDiv = document.createElement('div');
@@ -2966,6 +3007,7 @@
 
             //Text Div
             var textDiv = document.createElement('div');
+            textDiv.setAttribute('id', 'shopping-bag-data-product-text');
 
             var brand = document.createElement('p');
             brand.innerText = product.brand.toUpperCase();
@@ -2985,23 +3027,51 @@
             var deliveryText = document.createElement('p');
             deliveryText.innerText = "International orders usually arrive within 5–13 business days. We'll give you delivery dates in checkout.";
 
-            textDiv.append(brand, size, color, itemNo, deliveryTitle, deliveryText);
+            var buttonsDiv = document.createElement('div');
+            buttonsDiv.style.display = 'grid';
+            buttonsDiv.style.gridTemplateColumns = 'repeat(2, 1fr)';
+
+            var removeBtn = document.createElement('a');
+            removeBtn.setAttribute('href', "");
+            removeBtn.innerText = 'Remove';
+            removeBtn.style.textAlign = 'left';
+            removeBtn.style.textDecoration = 'none';
+            removeBtn.style.color = 'rgb(1, 100, 107)';
+
+
+            var saveBtn = document.createElement('a');
+            saveBtn.setAttribute('href', "");
+            saveBtn.innerText = 'Save for later';
+            saveBtn.style.textAlign = 'left';
+            saveBtn.style.textDecoration = 'none';
+            saveBtn.style.color = 'rgb(1, 100, 107)';
+
+
+            buttonsDiv.append(removeBtn, saveBtn);
+
+            textDiv.append(brand, size, color, itemNo, deliveryTitle, deliveryText, buttonsDiv);
             
             //Quantity Div
 
             var quantityDiv = document.createElement('div');
+            quantityDiv.setAttribute('id', 'shopping-bag-data-product-quantity');
+
             var quantity = document.createElement('p');
-            quantity.innerHTML = `Qty ${product.quantity} <span class="material-icons">expand_more</span>`;
-            quantity.style.color = 'blue';
+            quantity.innerHTML = `Qty ${product.quantity}`;
+            quantity.style.color = 'rgb(1, 100, 107)';
             
             quantityDiv.appendChild(quantity);
 
             //Total price div
 
             var priceDiv = document.createElement('div');
+            priceDiv.setAttribute('id', 'shopping-bag-data-product-price');
+            
             var totalPrice = document.createElement('p');
             totalPrice.innerText = `INR ${product.price * product.quantity}`;
             totalPrice.style.fontWeight = '600';
+
+            shippingBagTotal += product.price * product.quantity;
 
             var price = document.createElement('p');
             price.innerText = `(INR ${product.price} each)`;
@@ -3011,6 +3081,7 @@
 
             priceDiv.appendChild(span);
 
+            
 
             bagDataDiv.append(imgDiv, textDiv, quantityDiv, priceDiv);
 
@@ -3022,7 +3093,25 @@
         
 
     }
-    window.onload = addShoppingBagDetails();
+    window.onload = addShoppingBagDetails('');
+
+    var shpgBagTotalPrice = document.getElementById('shipping-bag-subtotal');
+    var totalPriceTag = document.createElement('p');
+    totalPriceTag.innerText = `INR ${shippingBagTotal}`;
+    totalPriceTag.style.textAlign = 'right';
+    shpgBagTotalPrice.appendChild(totalPriceTag);
+
+
+    var shpBagTag = document.getElementById('shopping-bag-tag');
+    shpBagTag.innerText = `Shopping Bag (${bag.length})`;
+
+    var savedForLater = document.getElementById('shopping-bag-saved');
+    savedForLater.innerText = `Saved for Later (0)`;
+
+
+    function goToCheckout() {
+        window.location.href = 'checkout.html';
+    }
 
     document.addEventListener("DOMContentLoaded",function(e){
     
