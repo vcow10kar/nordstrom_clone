@@ -492,6 +492,8 @@
         #shipping-bag-subtotal {
             display: grid;
             grid-template-columns: 60% 40%;
+            font-size: 24px;
+            font-weight: 500;
         }
 
         #shipping-bag-checkout-btn {
@@ -505,9 +507,25 @@
 
         #shopping-bag-titles-name {
             font-size: 24px;
-            font-weight: 400;
-            color: rgb(90, 90, 90);
+            font-weight: 500;
+            color: rgb(51, 51, 51);
             letter-spacing: 1px;
+        }
+
+        #shopping-bag-empty {
+            font-size: 24px;
+            font-weight: 500;
+            color:rgb(31, 30, 30);
+            text-decoration: none;
+        }
+
+        #shopping-bag-empty > a {
+            text-decoration: none;
+            color:rgb(31, 30, 30);
+        }
+
+        #shopping-bag-empty > a:hover {
+            text-decoration: underline;
         }
 
     </style>
@@ -3018,119 +3036,130 @@ document.addEventListener("DOMContentLoaded",function(e){
     var bag = JSON.parse(localStorage.getItem('bag'));
 
     function addShoppingBagDetails(bag) {
-        
-        bag.forEach(function(product) {
+       
+        if(bag.length === 0) {
 
-            var bagDataDiv = document.createElement('div');
-            bagDataDiv.setAttribute('id', 'shopping-bag-data-div');
+            var text = document.createElement('p');
+            text.innerHTML = `Bag is empty. <a href = 'landing_page.html'>Start Shopping!</a>`;
+            text.setAttribute('id', 'shopping-bag-empty');
+            bagData.append(text);
+        } else {
+            bag.forEach(function(product) {
 
-            
-            //Image Div
-            var imgDiv = document.createElement('div');
-            imgDiv.setAttribute('id', 'shopping-bag-data-div-img');
-        
-            var image = document.createElement('img');
-            image.src = product.image1;
-            imgDiv.appendChild(image);
+                var bagDataDiv = document.createElement('div');
+                bagDataDiv.setAttribute('id', 'shopping-bag-data-div');
 
 
-            //Text Div
-            var textDiv = document.createElement('div');
-            textDiv.setAttribute('id', 'shopping-bag-data-product-text');
+                //Image Div
+                var imgDiv = document.createElement('div');
+                imgDiv.setAttribute('id', 'shopping-bag-data-div-img');
 
-            var brand = document.createElement('p');
-            brand.innerText = product.brand.toUpperCase();
-
-            var size = document.createElement('p');
-            size.innerText = 'Size: One Size';
-
-            var color = document.createElement('p');
-            color.innerText = `Color: ${product.color.toUpperCase()}`;
-
-            var itemNo = document.createElement('p');
-            itemNo.innerText = `Item: ${number++}`;
-
-            var deliveryTitle = document.createElement('p');
-            deliveryTitle.innerHTML = `<span class="material-icons">local_shipping</span> Delivery`;
-
-            var deliveryText = document.createElement('p');
-            deliveryText.innerText = "International orders usually arrive within 5–13 business days. We'll give you delivery dates in checkout.";
-
-            var buttonsDiv = document.createElement('div');
-            buttonsDiv.style.display = 'grid';
-            buttonsDiv.style.gridTemplateColumns = 'repeat(2, 1fr)';
-
-            var removeBtn = document.createElement('p');
-            removeBtn.innerText = 'Remove';
-            removeBtn.style.textAlign = 'left';
-            removeBtn.style.textDecoration = 'none';
-            removeBtn.style.color = 'rgb(1, 100, 107)';
-            removeBtn.onclick = function() {
-                console.log('hI');
-                removeProduct(product);
-            }
+                var image = document.createElement('img');
+                image.src = product.image1;
+                imgDiv.appendChild(image);
 
 
-            var saveBtn = document.createElement('a');
-            saveBtn.setAttribute('href', "");
-            saveBtn.innerText = 'Save for later';
-            saveBtn.style.textAlign = 'left';
-            saveBtn.style.textDecoration = 'none';
-            saveBtn.style.color = 'rgb(1, 100, 107)';
+                //Text Div
+                var textDiv = document.createElement('div');
+                textDiv.setAttribute('id', 'shopping-bag-data-product-text');
+
+                var brand = document.createElement('p');
+                brand.innerText = product.brand.toUpperCase();
+
+                var size = document.createElement('p');
+                size.innerText = 'Size: One Size';
+
+                var color = document.createElement('p');
+                color.innerText = `Color: ${product.color.toUpperCase()}`;
+
+                var itemNo = document.createElement('p');
+                itemNo.innerText = `Item: ${number++}`;
+
+                var deliveryTitle = document.createElement('p');
+                deliveryTitle.innerHTML = `<span class="material-icons">local_shipping</span> Delivery`;
+
+                var deliveryText = document.createElement('p');
+                deliveryText.innerText = "International orders usually arrive within 5–13 business days. We'll give you delivery dates in checkout.";
+
+                var buttonsDiv = document.createElement('div');
+                buttonsDiv.style.display = 'grid';
+                buttonsDiv.style.gridTemplateColumns = 'repeat(2, 1fr)';
+
+                var removeBtn = document.createElement('p');
+                removeBtn.innerText = 'Remove';
+                removeBtn.style.textAlign = 'left';
+                removeBtn.style.textDecoration = 'none';
+                removeBtn.style.color = 'rgb(1, 100, 107)';
+                removeBtn.onclick = function() {
+                    console.log('hI');
+                    removeProduct(product);
+                }
+
+                removeBtn.onmouseover = function() {
+                    removeBtn.style.cursor = 'pointer';
+                }
 
 
-            buttonsDiv.append(removeBtn, saveBtn);
+                // var saveBtn = document.createElement('a');
+                // saveBtn.setAttribute('href', "");
+                // saveBtn.innerText = 'Save for later';
+                // saveBtn.style.textAlign = 'left';
+                // saveBtn.style.textDecoration = 'none';
+                // saveBtn.style.color = 'rgb(1, 100, 107)';
 
-            textDiv.append(brand, size, color, itemNo, deliveryTitle, deliveryText, buttonsDiv);
-            
-            //Quantity Div
 
-            var quantityDiv = document.createElement('div');
-            quantityDiv.setAttribute('id', 'shopping-bag-data-product-quantity');
+                buttonsDiv.appendChild(removeBtn);
 
-            var quantity = document.createElement('p');
-            quantity.innerHTML = `Qty ${product.quantity}`;
-            quantity.style.color = 'rgb(1, 100, 107)';
-            quantityTotal += product.quantity;
-            
-            quantityDiv.appendChild(quantity);
+                textDiv.append(brand, size, color, itemNo, deliveryTitle, deliveryText, buttonsDiv);
 
-            //Total price div
+                //Quantity Div
 
-            var priceDiv = document.createElement('div');
-            priceDiv.setAttribute('id', 'shopping-bag-data-product-price');
-            
-            var totalPrice = document.createElement('p');
-            totalPrice.innerText = `INR ${product.price * product.quantity}`;
-            totalPrice.style.fontWeight = '600';
+                var quantityDiv = document.createElement('div');
+                quantityDiv.setAttribute('id', 'shopping-bag-data-product-quantity');
 
-            shippingBagTotal += product.price * product.quantity;
+                var quantity = document.createElement('p');
+                quantity.innerHTML = `Qty ${product.quantity}`;
+                quantity.style.color = 'rgb(1, 100, 107)';
+                quantityTotal += product.quantity;
 
-            var price = document.createElement('p');
-            price.innerText = `(INR ${product.price} each)`;
+                quantityDiv.appendChild(quantity);
 
-            var span = document.createElement('span');
-            span.append(totalPrice, price)
+                //Total price div
 
-            priceDiv.appendChild(span);
+                var priceDiv = document.createElement('div');
+                priceDiv.setAttribute('id', 'shopping-bag-data-product-price');
 
-            
+                var totalPrice = document.createElement('p');
+                totalPrice.innerText = `INR ${product.price * product.quantity}`;
+                totalPrice.style.fontWeight = '600';
 
-            bagDataDiv.append(imgDiv, textDiv, quantityDiv, priceDiv);
+                shippingBagTotal += product.price * product.quantity;
 
-            var line = document.createElement('hr');
-            line.style.width = '100%';
-            bagData.append(line,bagDataDiv);
-        });
+                var price = document.createElement('p');
+                price.innerText = `(INR ${product.price} each)`;
 
-        
+                var span = document.createElement('span');
+                span.append(totalPrice, price)
 
+                priceDiv.appendChild(span);
+
+
+
+                bagDataDiv.append(imgDiv, textDiv, quantityDiv, priceDiv);
+
+                var line = document.createElement('hr');
+                line.style.width = '100%';
+                bagData.append(line,bagDataDiv);
+            });
+        }
     }
     window.onload = addShoppingBagDetails(bag);
 
     var shpgBagTotalPrice = document.getElementById('shipping-bag-subtotal');
     var totalPriceTag = document.createElement('p');
     totalPriceTag.innerText = `INR ${shippingBagTotal}`;
+    totalPriceTag.style.fontSize = '20px';
+    totalPriceTag.style.fontWeight = '500';
     totalPriceTag.style.textAlign = 'right';
     shpgBagTotalPrice.appendChild(totalPriceTag);
 
@@ -3157,7 +3186,12 @@ document.addEventListener("DOMContentLoaded",function(e){
 
         localStorage.setItem('bag', JSON.stringify(bag));
 
+        shippingBagTotal = 0;
+        quantityTotal = 0;
+
         addShoppingBagDetails(bag);
+        shpBagTag.innerText = `Shopping Bag (${quantityTotal})`;
+        totalPriceTag.innerText = `INR ${shippingBagTotal}`;
     }
 
     document.addEventListener("DOMContentLoaded",function(e){
