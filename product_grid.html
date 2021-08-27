@@ -3892,13 +3892,21 @@
         footer.style.filter = 'blur(0px)';
     }
 
+    if (localStorage.getItem("bag") == null) {
+        localStorage.setItem("bag", JSON.stringify([]))
+    }
+
     function goToCheckoutPage(product) {
 
-        if (localStorage.getItem("bag") == null) {
-            localStorage.setItem("bag", JSON.stringify([]))
+        if (localStorage.getItem('logeduser') != null) {
+            var logeduser = JSON.parse(localStorage.getItem('logeduser')); 
+            var key = `bag_${logeduser.email}`;
+            var bag = JSON.parse(localStorage.getItem(key));
+            localStorage.setItem('bag', JSON.stringify([]));
+        } else if(localStorage.getItem('logeduser') === null) {
+            var bag = JSON.parse(localStorage.getItem('bag'));
+            key = 'bag';
         }
-
-        var bag = JSON.parse(localStorage.getItem('bag'));
 
         var productPresent = false;
 
@@ -3914,11 +3922,13 @@
             bag.push(product);
         }
 
-        localStorage.setItem('bag', JSON.stringify(bag));
+        localStorage.setItem(key, JSON.stringify(bag));
 
         var element = document.getElementById('product-grid-modal-product-addToBag');
         console.log(element);
         element.innerHTML = `<span class="material-icons">done</span><p>Added to bag</p>`;
+
+        
     }
 
     function openWishlistModal() {

@@ -3037,17 +3037,33 @@ document.addEventListener("DOMContentLoaded",function(e){
     var shippingBagTotal = 0;
     var quantityTotal = 0;
 
-    var bag = JSON.parse(localStorage.getItem('bag'));
+    if (localStorage.getItem('logeduser') != null) {
+        var logeduser = JSON.parse(localStorage.getItem('logeduser')); 
+        var key = `bag_${logeduser.email}`;
+        var bag = JSON.parse(localStorage.getItem(key));
+        localStorage.setItem('bag', JSON.stringify([]));
+    } else if(localStorage.getItem('logeduser') === null) {
+        var bag = JSON.parse(localStorage.getItem('bag'));
+        key = 'bag';
+    }
+
+    console.log(key, bag);   
 
     function addShoppingBagDetails(bag) {
        
-        if(bag.length === 0) {
-
+        if(bag === null) {
+            localStorage.setItem('bag', JSON.stringify([]));
             var text = document.createElement('p');
             text.innerHTML = `Bag is empty. <a href = 'landing_page.html'>Start Shopping!</a>`;
             text.setAttribute('id', 'shopping-bag-empty');
             bagData.append(text);
-        } else {
+        } else if (bag.length === 0) {
+            localStorage.setItem('bag', JSON.stringify([]));
+            var text = document.createElement('p');
+            text.innerHTML = `Bag is empty. <a href = 'landing_page.html'>Start Shopping!</a>`;
+            text.setAttribute('id', 'shopping-bag-empty');
+            bagData.append(text);
+        }else {
             bag.forEach(function(product) {
 
                 var bagDataDiv = document.createElement('div');
@@ -3095,8 +3111,7 @@ document.addEventListener("DOMContentLoaded",function(e){
                 removeBtn.style.textDecoration = 'none';
                 removeBtn.style.color = 'rgb(1, 100, 107)';
                 removeBtn.onclick = function() {
-                    console.log('hI');
-                    removeProduct(product);
+                    removeProduct(product, bag, key);
                 }
 
                 removeBtn.onmouseover = function() {
@@ -3174,19 +3189,22 @@ document.addEventListener("DOMContentLoaded",function(e){
 
 
     function goToCheckout() {
-        window.location.href = 'checkout.html';
+        if(localStorage.getItem('logeduser') === null) {
+            window.location.href = 'signin.html';
+        } else {
+            window.location.href = 'checkout.html';
+        }
     }
 
 
-    function removeProduct(product) {
-        console.log(bag);
-        console.log('hello');
+    function removeProduct(product, bag, key) {
         var index = bag.indexOf(product);
         bag.splice(index, 1);
 
         bagData.innerHTML = "";
 
-        localStorage.setItem('bag', JSON.stringify(bag));
+
+        localStorage.setItem(key, JSON.stringify(bag));
 
         shippingBagTotal = 0;
         quantityTotal = 0;
