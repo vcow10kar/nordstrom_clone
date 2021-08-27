@@ -2814,7 +2814,11 @@ ul{
             console.log(event);
 
             var email=localStorage.getItem('tried_login_user');
-            var password =123456;
+            var users= JSON.parse(localStorage.getItem('users'));
+            var filter_arr = users.filter(function(el){
+                return el.email == email;
+            });
+            var password =filter_arr[0].password;
             var user_pass =document.getElementById('password').value;
             if(user_pass==password)
             {
