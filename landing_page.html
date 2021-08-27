@@ -21,6 +21,12 @@
                     p.innerText= "Hi,\t" +JSON.parse(localStorage.getItem('logeduser')).fname ;
                     document.getElementById("sign-in-btn").style.display="none";
                     document.getElementById("sign-up-btn").style.display="none";
+                    var signout=document.getElementById("signout");
+                    signout.style.display="block"
+                    signout.addEventListener("click",function(ev){
+                        localStorage.removeItem("logeduser");
+                        document.location="landing_page.html";
+                    });
                     
                 }
         });
@@ -99,6 +105,9 @@
                             </li>
                             <li>
                                 <a href=""><span>Stores & Events</span></a>
+                            </li>
+                            <li id="signout" style="display:none">
+                                <a href=""><span>Logout</span></a>
                             </li>
                         </ul>
                     </div>
