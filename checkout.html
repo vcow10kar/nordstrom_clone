@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #Checkout-Nav {
+            width: 96%;
+            margin: auto;
+            height: 30px;
+            margin-top: 33px;
+            margin-bottom: 70px;
+        }
+
+        #logo {
+            width: 10%;
+            float: left;
+            margin-top: 5px;
+        }
+
+        #bag {
+            width: 2%;
+            float: right;
+        }
+
+        #logo img,
+        #bag img {
+            width: 100%;
+        }
+
+        .clear {
+            clear: both;
+        }
+        .nc-icon-outline.shopping_cart:before {
+            content: "\ea62";
+        }
+
+        #main-checkout{
+            width: 81%;
+            margin: auto;
+            border:1px solid red;
+            display: flex;
+        }
+        #main-checkout>div:nth-child(1){
+            width:70%;
+            border:1px solid red;
+        }
+        #main-checkout>div:nth-child(2){
+            width:30%;
+            border:1px solid red;
+        }
+
+        #address>div:nth-child(1){
+            display: flex;
+            border:1px solid red;
+        }
+        .upper-div>div:nth-child(1){
+            width:10px;
+            background-color: black;
+            color:white;
+            font-weight: 500;
+            border:1px solid red;
+        }
+
+        .upper-div>div:nth-child(2){
+            color:black;
+            font-size:20px;
+            border:1px solid red;
+        }
+
+        #address>div:nth-child(2)>input, #address>div:nth-child(4)>input{
+            width:100%;
+        }
+
+        #address>div:nth-child(3),#address>div:nth-child(5),#address>div:nth-child(6),#address>div:nth-child(7){
+            display:flex;
+        }
+        #address>div:nth-child(3)>input,#address>div:nth-child(5)>input,#address>div:nth-child(6)>input,#address>div:nth-child(7)>input{
+            width:50%;
+        }
+
+        #delivery>div:nth-child(1),#delivery>div:nth-child(2),#delivery>div:nth-child(3),#delivery>div:nth-child(4),#delivery>div:nth-child(5){
+            display: flex;
+        }
+
+        #delivery>div:nth-child(1)>div,#delivery>div:nth-child(2)>div,#delivery>div:nth-child(3)>div,#delivery>div:nth-child(4)>div,#delivery>div:nth-child(5)>div{
+            display: 33%;
+            border:1px solid red;
+        }
+
+        .blue-div{
+            display: flex;
+        }
+        .blue-div>div:nth-child(1){
+            width:25%;
+            border:1px solid green;
+        }
+        .blue-div>div:nth-child(2){
+            width:75%;
+            border:1px solid green;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="Checkout-Nav">
+        <div id="logo">
+            <a href="landing_page.html"><img src="https://n.nordstrommedia.com/alias/nordstrom-logo.svg"></a>
+        </div>
+        <div id="bag">
+            <a href=""><img class="bag-image" src="emptybag-icon.png"></img></a>
+        </div>
+    </div>
+    <div id="main-checkout">
+        <div id="address">
+            <div class="upper-div">
+                <div>1</div>
+                <div>
+                    <p>Delivery</p>
+                </div>
+            </div>
+            <div>
+                <input type="email" id="email" placeholder="Email">
+            </div>
+            <div>
+                <input type="text" id="firstName" placeholder="First Name">
+                <input type="text" id="lastName" placeholder="Last Name">
+            </div>
+            <div>
+                <input type="text" id="address" placeholder="Address">
+            </div>
+            <div>
+                <input type="text" id="address2" placeholder="Address2 (Optional)">
+                <input type="text" id="Postal" placeholder="Postal Code">
+            </div>
+            <div>
+                <input type="text" id="city" placeholder="City">
+                <input type="text" id="region" placeholder="Region (Optional)">
+            </div>
+            <div>
+                <input type="text" id="city" placeholder="Phone">
+                <input type="text" id="region" placeholder="Location">
+            </div>
+            <div id="delivery">
+                <div>
+                    <div>
+                        <p><strong>Delivery Method</strong></p>
+                    </div>
+                    <div>
+                        <p><strong>Estimated Arrival</strong></p>
+                    </div>
+                    <div>
+                        <p><strong>Shipping Cost</strong></p>
+                    </div>
+                </div>
+                <div>
+                    <div class="blue-div">
+                        <div>
+                            <div style="border:1px solid blue; padding:20px;">
+                                <div style="color:blue"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <p>Standard</p>
+                            <p style="font-style: italic;">No additional import charges at delivery</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p>11–21 business days</p>
+                    </div>
+                    <div>
+                        <p>(INR) ₹2,487</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="blue-div"> 
+                        <div>
+                            <div style="border:1px solid blue; padding:20px;">
+                                <div style="color:blue"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <p>Standard</p>
+                            <p style="font-style: italic;">No additional import charges at delivery</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p>11–21 business days</p>
+                    </div>
+                    <div>
+                        <p>Calculate</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="blue-div">
+                        <div>
+                            <div style="border:1px solid blue; padding:20px;">
+                                <div style="color:blue"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <p>Standard</p>
+                            <p style="font-style: italic;">No additional import charges at delivery</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p>11–21 business days</p>
+                    </div>
+                    <div>
+                        <p>Calculate</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="blue-div">
+                        <div>
+                            <div style="border:1px solid blue; padding:20px;">
+                                <div style="color:blue"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <p>Standard</p>
+                            <p style="font-style: italic;">No additional import charges at delivery</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p>11–21 business days</p>
+                    </div>
+                    <div>
+                        <p>Calculate</p>
+                    </div>
+                </div>
+                <div>
+                    <button>Continue>></button>
+                </div>
+                <hr>
+                <div class="upper-div">
+                    <div>2</div>
+                    <div>
+                        <p>Payment</p>
+                    </div>
+                </div>
+                <hr>
+                <div>
+                    <p>
+                        By placing your order, you agree to the <span><a>Terms & Conditions</a></span> and <span><a>Privacy Policy of Borderfree from Pitney Bowes</a></span>, Nordstrom’s international fulfillment service. Borderfree is an online merchant that is located at 27 Waterview Drive, Shelton, CT, 06484, US.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="payment-details">
+            <div>
+                <h1>
+                    <i class="nc-icon-outline shopping_cart"></i>
+                    Your Order
+                </h1>
+            </div>
+            <button>Continue>></button>
+            <div>
+                <div>
+                    <p>Items</p>
+                    <p>₹3,121</p>
+                </div>
+                <div>
+                    <p>Shipping</p>
+                    <p>₹2,487</p>
+                </div>
+                <div>
+                    <p>Duties & Taxes</p>
+                    <p>₹2,360</p>
+                </div>
+                <div>
+                    <h1>TOTAL</h1>
+                    <p><strong>(INR)</strong><span><h1>R.7968</h1></span><p>
+                </div>
+            </div>
+            <hr>
+            <div id="checkout-image-div">
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+
+
+
