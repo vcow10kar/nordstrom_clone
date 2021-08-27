@@ -3013,10 +3013,11 @@ document.addEventListener("DOMContentLoaded",function(e){
     var number = 6288700;
 
     var shippingBagTotal = 0;
+    var quantityTotal = 0;
 
     var bag = JSON.parse(localStorage.getItem('bag'));
 
-    function addShoppingBagDetails() {
+    function addShoppingBagDetails(bag) {
         
         bag.forEach(function(product) {
 
@@ -3059,12 +3060,15 @@ document.addEventListener("DOMContentLoaded",function(e){
             buttonsDiv.style.display = 'grid';
             buttonsDiv.style.gridTemplateColumns = 'repeat(2, 1fr)';
 
-            var removeBtn = document.createElement('a');
-            removeBtn.setAttribute('href', "");
+            var removeBtn = document.createElement('p');
             removeBtn.innerText = 'Remove';
             removeBtn.style.textAlign = 'left';
             removeBtn.style.textDecoration = 'none';
             removeBtn.style.color = 'rgb(1, 100, 107)';
+            removeBtn.onclick = function() {
+                console.log('hI');
+                removeProduct(product);
+            }
 
 
             var saveBtn = document.createElement('a');
@@ -3087,6 +3091,7 @@ document.addEventListener("DOMContentLoaded",function(e){
             var quantity = document.createElement('p');
             quantity.innerHTML = `Qty ${product.quantity}`;
             quantity.style.color = 'rgb(1, 100, 107)';
+            quantityTotal += product.quantity;
             
             quantityDiv.appendChild(quantity);
 
@@ -3121,7 +3126,7 @@ document.addEventListener("DOMContentLoaded",function(e){
         
 
     }
-    window.onload = addShoppingBagDetails('');
+    window.onload = addShoppingBagDetails(bag);
 
     var shpgBagTotalPrice = document.getElementById('shipping-bag-subtotal');
     var totalPriceTag = document.createElement('p');
@@ -3131,7 +3136,7 @@ document.addEventListener("DOMContentLoaded",function(e){
 
 
     var shpBagTag = document.getElementById('shopping-bag-tag');
-    shpBagTag.innerText = `Shopping Bag (${bag.length})`;
+    shpBagTag.innerText = `Shopping Bag (${quantityTotal})`;
 
     var savedForLater = document.getElementById('shopping-bag-saved');
     savedForLater.innerText = `Saved for Later (0)`;
@@ -3139,6 +3144,20 @@ document.addEventListener("DOMContentLoaded",function(e){
 
     function goToCheckout() {
         window.location.href = 'checkout.html';
+    }
+
+
+    function removeProduct(product) {
+        console.log(bag);
+        console.log('hello');
+        var index = bag.indexOf(product);
+        bag.splice(index, 1);
+
+        bagData.innerHTML = "";
+
+        localStorage.setItem('bag', JSON.stringify(bag));
+
+        addShoppingBagDetails(bag);
     }
 
     document.addEventListener("DOMContentLoaded",function(e){
