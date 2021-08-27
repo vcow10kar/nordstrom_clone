@@ -2714,7 +2714,7 @@ ul{
             localStorage.setItem('users',JSON.stringify([]));
         }
 
-
+/**
         //below is code for setting users in localstorage for acess
         var user ={
             name : "akhil",
@@ -2727,9 +2727,9 @@ ul{
 
         var storage = JSON.parse(localStorage.getItem('users'));
         console.log(storage);
-        storage.push(user);
+        //storage.push({});
         localStorage.setItem('users',JSON.stringify(storage));
-
+**/
         
 
 
@@ -2783,8 +2783,9 @@ ul{
                             localStorage.setItem('tried_login_user',email);
                         }
                         else{
-                            window.location="signup.html";
+                            
                             localStorage.setItem('tried_login_user',email);
+                            window.location="signup.html";
                         }
 
                  }   else{
