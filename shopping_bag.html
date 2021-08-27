@@ -441,9 +441,14 @@
         }
 
         #shopping-bag-container {
+            font-family: Brandon Text, Arial, sans-serif;
             width: 60%;
             background-color: rgb(255, 255, 255);
             margin: 10px auto;
+        }
+
+        #shopping-bag-container > hr {
+            width: 100%;
         }
 
         #shopping-bag-sections {
@@ -464,13 +469,18 @@
 
         #shopping-bag-data-div {
             display: grid;
-            grid-template-columns: 10% 40% 20% 20%;
+            grid-template-columns: 20% 45% 20% 10%;
             gap: 10px;
         }
 
         #shopping-bag-data-div-img > * {
             margin: 10px auto;
             width: 100%;
+        }
+
+        #hopping-bag-summary {
+            display: grid;
+            grid-template-columns: 50% 50%;
         }
 
     </style>
@@ -2770,6 +2780,25 @@
         <div id = "shopping-bag-data">
 
         </div>
+
+        <hr/>
+
+        <div id = "shopping-bag-summary">
+            <div id = "shopping-bag-payment-methods">
+                <p>Accepted Payment Methods</p>
+                <span id = "shopping-bag-credit-logos">
+                <img style = "width: 50px" src = "https://constant.myntassets.com/checkout/assets/img/footer-bank-mc.png"/>
+                <img style = "width: 50px" src = "https://constant.myntassets.com/checkout/assets/img/footer-bank-visa.png"/>
+                <img style = "width: 50px" src = "https://constant.myntassets.com/checkout/assets/img/footer-bank-ae.png"/>
+                <img style = "width: 50px" src = "https://constant.myntassets.com/checkout/assets/img/footer-bank-rupay.png"/>
+                </span>
+
+                <p>Need help? Call 1.888.282.6060 or chat with us</p>
+            </div>
+
+
+        </div>
+        
     </div>
 
     <div id='shopping-bag-footer'>
@@ -2983,8 +3012,11 @@
             priceDiv.appendChild(span);
 
 
-            bagDataDiv.append(imgDiv, textDiv, quantityDiv, priceDiv);;
-            bagData.appendChild(bagDataDiv);
+            bagDataDiv.append(imgDiv, textDiv, quantityDiv, priceDiv);
+
+            var line = document.createElement('hr');
+            line.style.width = '100%';
+            bagData.append(line,bagDataDiv);
         });
 
         
