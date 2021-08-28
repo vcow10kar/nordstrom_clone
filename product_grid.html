@@ -474,7 +474,7 @@
         }
 
         #bag {
-            width: 15% !important;
+            width: 17% !important;
 
         }
 
@@ -744,6 +744,23 @@
         .right{
             float:right
         }
+
+        #bag-icon-text {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            text-decoration: none;
+            gap: 2px;
+        }
+
+        #itemsInBag {
+            width: 100%;
+            height: 50%;
+            border-radius: 50%;
+            font-weight: 800;
+            font-size: 18px;
+            color: rgb(61, 61, 61);
+            margin-bottom: 12px;
+        }
     </style>
 </head>
 
@@ -826,7 +843,9 @@
                             </ul>
                         </div>
                         <div id="bag">
-                            <a href="shopping_bag.html"><span class="material-icons" style = "font-size: 36px; color: black">shopping_bag</span>
+                            <a  id = "bag-icon-text" href="shopping_bag.html">
+                                <div><span class="material-icons" style = "font-size: 36px; color: black">shopping_bag</span></div>
+                                <p id = "itemsInBag"></p>
                                 <!-- <img class="bag-image" src="images/emptybag-icon.png"></img> -->
                             </a>
                         </div>
@@ -3274,7 +3293,7 @@
             price: 1604,
             image1: ["https://n.nordstrommedia.com/id/sr3/27b60e77-02e6-429a-8ded-f0d98a503bfb.jpeg?h=365&w=240&dpr=2"],
             about: "Create a relaxing mood in your home with the evocative graphic on this framed wall art printed with archival, fade-resistant inks for lasting quality.",
-            details: "<ul><li>Art by Domonique Brown</li><li>Hanging hardware included</li><li>Acid- and lignin-free archival paper/wood</li><li>Made in the USA</li><li>Item #6289066</li></ul>",
+            details: "<li>Art by Domonique Brown</li><li>Hanging hardware included</li><li>Acid- and lignin-free archival paper/wood</li><li>Made in the USA</li><li>Item #6289066</li>",
             color: "Green",
             type: "Decorative Accents",
         },
@@ -3286,7 +3305,7 @@
             image1: ["https://n.nordstrommedia.com/id/sr3/05f24a3b-808b-4ea5-b2f2-54acb5a74ab8.jpeg?h=365&w=240&dpr=2"],
             rating: 4,
             about: "A dreamy beach scene from artist Ingrid Beddoes takes center stage on ready-to-hang wall art featuring a satin finish and a rustic bamboo frame.",
-            details: "<ul><li>11\" x 13\"</li><li>2 lb.</li><li>Fiberboard/bamboo</li><li>Made in the USA</li><li>Item #5664127</li></ul>",
+            details: "<li>11\" x 13\"</li><li>2 lb.</li><li>Fiberboard/bamboo</li><li>Made in the USA</li><li>Item #5664127</li>",
             color: "Pink",
             type: "Framed Art"
         },
@@ -3297,8 +3316,8 @@
             price: 1604,
             image1: ["https://n.nordstrommedia.com/id/sr3/6f574bc6-31b9-49a8-b0f8-4125c7615534.jpeg?h=365&w=240&dpr=2"],
             about: "Printed on matte paper with gallery-quality archival ink, this print from Elodie Bachelier depicts a woman's profile in chaotic lines and splatters. The print has enough weight to be hung on its own but will look even more stunning in a frame of your choice.",
-            details: "<ul><li>Paper</li><li>Made in the USA</li><li>Item #6288618</li></ul>",
-            color: "White",
+            details: "<li>Paper</li><li>Made in the USA</li><li>Item #6288618</li>",
+            color: "Grey",
             type: "Decorative Accents"
         },
 
@@ -3309,7 +3328,7 @@
             image1: ["https://n.nordstrommedia.com/id/sr3/7e33ebe8-caa9-42c7-893f-950773c40801.jpeg?h=365&w=240&dpr=2"],
             rating: 3,
             about: "Bring the serenity of the beach into your home with a matte-finish art print available on its own or in a ready-to-hang frame.",
-            details: "<ul><li>Art by Cassia Beck</li><li>Framed version includes wood frame and hanging hardware</li><li>Acid- and lignin-free archival paper/wood</li><li>Made in the USA</li><li>Item #5867301</li></ul>",
+            details: "<li>Art by Cassia Beck</li><li>Framed version includes wood frame and hanging hardware</li><li>Acid- and lignin-free archival paper/wood</li><li>Made in the USA</li><li>Item #5867301</li>",
             color: "Pink",
             type: "Decorative Accents"
         },
@@ -3323,7 +3342,7 @@
             color: "Brown",
             type: "Wall Hanging",
             about: "This geometric wall décor set features hexagonal tiles and a shelf made from recycled chopsticks for a modern-meets-rustic aesthetic.",
-            details: "<ul><li>Set of two tiles and one shelf</li><li>Tiles are 6 1/2\" x 7 1/2\" x 1/2\"; shelf is 6 1/2\" x 7 1/2\" x 1 3/4\"</li><li>Hang using double-sided permanent tape</li><li>Recycled chopsticks</li><li>Made in Canada</li><li>Item #6212329</li></ul>",
+            details: "<li>Set of two tiles and one shelf</li><li>Tiles are 6 1/2\" x 7 1/2\" x 1/2\"; shelf is 6 1/2\" x 7 1/2\" x 1 3/4\"</li><li>Hang using double-sided permanent tape</li><li>Recycled chopsticks</li><li>Made in Canada</li><li>Item #6212329</li>",
         },
 
         {
@@ -3333,7 +3352,7 @@
             image1: ["https://n.nordstrommedia.com/id/sr3/0b0cb8b1-97e0-434f-8431-8ce0fd5e7b45.jpeg?h=365&w=240&dpr=2"],
             color: 'Pink',
             about: 'Bring a sweet message of love to your space with this satin-finish art print available on its own or in a ready-to-hang frame.',
-            details: "<ul><li>Art by Bree Madden</li><li>Framed version includes wood frame and hanging hardware</li><li>Acid- and lignin-free archival paper/wood</li><li>Made in the USA</li><li>Item #5868604</li></ul>",
+            details: "<li>Art by Bree Madden</li><li>Framed version includes wood frame and hanging hardware</li><li>Acid- and lignin-free archival paper/wood</li><li>Made in the USA</li><li>Item #5868604</li>",
             type: "Decorative Accents"
         },
 
@@ -3345,7 +3364,7 @@
             rating: 5,
             type: "Decorative Accents",
             about: "Bring a little nature indoors with this giclée print presented on a hand-stretched canvas and mounted on a sustainably harvested, FSC-certified wood frame.",
-            details: "<ul><li>Hanging hardware included</li><li>Canvas/wood</li><li>Made in the USA</li><li>Item #5520384</li></ul>",
+            details: "<li>Hanging hardware included</li><li>Canvas/wood</li><li>Made in the USA</li><li>Item #5520384</li>",
             color: 'Gold'
         },
 
@@ -3357,7 +3376,7 @@
             color: 'Black',
             type: "Decorative Accents",
             about: "A simple yet stunning figure drawing is the focal point of this gallery-quality art print that elevates any space.",
-            details: "<ul><li>Art by Elodie Bachelier</li><li>Frame not included</li><li>Acid- and lignin-free archival paper/wood</li><li>Made in the USA</li><li>Item #6288613</li></ul>"
+            details: "<li>Art by Elodie Bachelier</li><li>Frame not included</li><li>Acid- and lignin-free archival paper/wood</li><li>Made in the USA</li><li>Item #6288613</li>"
         },
 
         {
@@ -3369,7 +3388,7 @@
             color: 'Red',
             type: "Framed Art",
             about: "A cool pop art mouth by artist Nick Nelson takes center stage on ready-to-hang wall art featuring a satin finish and a rustic bamboo frame.",
-            details: "<ul><li>11\" x 13\"</li><li>2 lb.</li><li>Art by Nick Nelson</li><li>Hanging hardware included</li><li>Fiberboard/bamboo</li><li>Made in the USA</li><li>Item #5636409</li></ul>"
+            details: "<li>11\" x 13\"</li><li>2 lb.</li><li>Art by Nick Nelson</li><li>Hanging hardware included</li><li>Fiberboard/bamboo</li><li>Made in the USA</li><li>Item #5636409</li>"
         },
 
         {
@@ -3381,7 +3400,7 @@
             color: 'Blue',
             type: "Framed Art",
             about: "A cool pop art mouth by artist Nick Nelson takes center stage on ready-to-hang wall art featuring a satin finish and a rustic bamboo frame.",
-            details: "<ul><li>11\" x 13\"</li><li>2 lb.</li><li>Art by Nick Nelson</li><li>Hanging hardware included</li><li>Fiberboard/bamboo</li><li>Made in the USA</li><li>Item #5636409</li></ul>"
+            details: "<li>11\" x 13\"</li><li>2 lb.</li><li>Art by Nick Nelson</li><li>Hanging hardware included</li><li>Fiberboard/bamboo</li><li>Made in the USA</li><li>Item #5636409</li>"
         },
 
         {
@@ -3392,7 +3411,7 @@
             color: 'Black',
             type: "Decorative Accents",
             about: "A cool pop art mouth by artist Nick Nelson takes center stage on ready-to-hang wall art featuring a satin finish and a rustic bamboo frame.",
-            details: "<ul><li>11\" x 13\"</li><li>2 lb.</li><li>Art by Nick Nelson</li><li>Hanging hardware included</li><li>Fiberboard/bamboo</li><li>Made in the USA</li><li>Item #5636409</li></ul>"
+            details: "<li>11\" x 13\"</li><li>2 lb.</li><li>Art by Nick Nelson</li><li>Hanging hardware included</li><li>Fiberboard/bamboo</li><li>Made in the USA</li><li>Item #5636409</li>"
         },
 
         {
@@ -3403,7 +3422,7 @@
             color: 'Yellow',
             type: "Decorative Accents",
             about: "A cool pop art mouth by artist Nick Nelson takes center stage on ready-to-hang wall art featuring a satin finish and a rustic bamboo frame.",
-            details: "<ul><li>11\" x 13\"</li><li>2 lb.</li><li>Art by Nick Nelson</li><li>Hanging hardware included</li><li>Fiberboard/bamboo</li><li>Made in the USA</li><li>Item #5636409</li></ul>"
+            details: "<li>11\" x 13\"</li><li>2 lb.</li><li>Art by Nick Nelson</li><li>Hanging hardware included</li><li>Fiberboard/bamboo</li><li>Made in the USA</li><li>Item #5636409</li>"
         },
 
         {
@@ -3414,7 +3433,7 @@
             color: 'Orange',
             type: "Decorative Accents",
             about: "A cool pop art mouth by artist Nick Nelson takes center stage on ready-to-hang wall art featuring a satin finish and a rustic bamboo frame.",
-            details: "<ul><li>11\" x 13\"</li><li>2 lb.</li><li>Art by Nick Nelson</li><li>Hanging hardware included</li><li>Fiberboard/bamboo</li><li>Made in the USA</li><li>Item #5636409</li></ul>"
+            details: "<li>11\" x 13\"</li><li>2 lb.</li><li>Art by Nick Nelson</li><li>Hanging hardware included</li><li>Fiberboard/bamboo</li><li>Made in the USA</li><li>Item #5636409</li>"
         },
 
         {
@@ -3425,7 +3444,7 @@
             color: 'Brown',
             type: "Framed Art",
             about: "A cool pop art mouth by artist Nick Nelson takes center stage on ready-to-hang wall art featuring a satin finish and a rustic bamboo frame.",
-            details: "<ul><li>11\" x 13\"</li><li>2 lb.</li><li>Art by Nick Nelson</li><li>Hanging hardware included</li><li>Fiberboard/bamboo</li><li>Made in the USA</li><li>Item #5636409</li></ul>"
+            details: "<li>11\" x 13\"</li><li>2 lb.</li><li>Art by Nick Nelson</li><li>Hanging hardware included</li><li>Fiberboard/bamboo</li><li>Made in the USA</li><li>Item #5636409</li>"
         },
 
         {
@@ -3437,7 +3456,7 @@
             type: "Framed Art",
             color: 'Yellow',
             about: "A cool pop art mouth by artist Nick Nelson takes center stage on ready-to-hang wall art featuring a satin finish and a rustic bamboo frame.",
-            details: "<ul><li>11\" x 13\"</li><li>2 lb.</li><li>Art by Nick Nelson</li><li>Hanging hardware included</li><li>Fiberboard/bamboo</li><li>Made in the USA</li><li>Item #5636409</li></ul>"
+            details: "<li>11\" x 13\"</li><li>2 lb.</li><li>Art by Nick Nelson</li><li>Hanging hardware included</li><li>Fiberboard/bamboo</li><li>Made in the USA</li><li>Item #5636409</li>"
         },
 
         {
@@ -3449,7 +3468,7 @@
             color: 'Teal',
             type: "Framed Art",
             about: "A cool pop art mouth by artist Nick Nelson takes center stage on ready-to-hang wall art featuring a satin finish and a rustic bamboo frame.",
-            details: "<ul><li>11\" x 13\"</li><li>2 lb.</li><li>Art by Nick Nelson</li><li>Hanging hardware included</li><li>Fiberboard/bamboo</li><li>Made in the USA</li><li>Item #5636409</li></ul>"
+            details: "<li>11\" x 13\"</li><li>2 lb.</li><li>Art by Nick Nelson</li><li>Hanging hardware included</li><li>Fiberboard/bamboo</li><li>Made in the USA</li><li>Item #5636409</li>"
         },
     ]
 
@@ -3687,7 +3706,10 @@
         createProductTypeFilters();
     }
 
-    window.onload = functionStart;
+    window.onload = function() {
+        functionStart();
+        calculateItemsInBag();
+    }
 
     function addBrandFilter() {
         var brandfilters = [];
@@ -3940,13 +3962,36 @@
         console.log(element);
         element.innerHTML = `<span class="material-icons">done</span><p>Added to bag</p>`;
 
-        
+        calculateItemsInBag();
     }
 
     function openWishlistModal() {
         console.log("hello");
     }
 
+    var bagIcon = document.getElementById('bag-icon-text');
+    var items = document.getElementById('itemsInBag');
 
+    function calculateItemsInBag() {
+        items.innerText = "";
+        if (localStorage.getItem('logeduser') != null) {
+            var logeduser = JSON.parse(localStorage.getItem('logeduser')); 
+            var key = `bag_${logeduser.email}`;
+            var bag = JSON.parse(localStorage.getItem(key));
+            localStorage.setItem('bag', JSON.stringify([]));
+        } else if(localStorage.getItem('logeduser') === null) {
+            var bag = JSON.parse(localStorage.getItem('bag'));
+            key = 'bag';
+        }
+
+        
+        var totalItems = 0;
+
+        bag.forEach(function(product) {
+            totalItems += product.quantity;
+        })
+
+        items.innerText = `(${totalItems})`;
+    }
 
 </script>

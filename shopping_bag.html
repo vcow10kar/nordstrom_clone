@@ -532,6 +532,52 @@
             text-decoration: underline;
         }
 
+        #bag-icon-text {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            text-decoration: none;
+            gap: 5px;
+        }
+
+        #itemsInBag {
+            width: 100%;
+            height: 50%;
+            border-radius: 50%;
+            font-weight: 800;
+            font-size: 18px;
+            color: rgb(61, 61, 61);
+            margin-bottom: 12px;
+        }
+
+        #shopping-bag-data-product-quantity {
+            display: grid;
+            width: 50%;
+            grid-template-columns: 40% 40%;
+            height: 30px;
+            gap: 5px;
+            color: rgb(0, 61, 61);
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+        #shopping-bag-data-product-quantity > * {
+            color: rgb(0, 61, 61);
+            padding: 10px 10px;
+            font-weight: 300;
+        }
+
+        .shopping-bag-product-p-text {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            padding: 0px;
+            font-size: 15px;
+            font-weight: 300;
+        }
+
+        .vertical-space {
+            height: 14px;
+        }
+
     </style>
 
     <script>
@@ -638,7 +684,9 @@ document.addEventListener("DOMContentLoaded",function(e){
                         </ul>
                     </div>
                     <div id="bag">
-                        <a href="shopping_bag.html"><span class="material-icons" style = "font-size: 36px; color: black">shopping_bag</span>
+                        <a  id = "bag-icon-text" href="shopping_bag.html">
+                            <div><span class="material-icons" style = "font-size: 36px; color: black">shopping_bag</span></div>
+                            <p id = "itemsInBag"></p>
                             <!-- <img class="bag-image" src="images/emptybag-icon.png"></img> -->
                         </a>
                     </div>
@@ -3109,29 +3157,47 @@ document.addEventListener("DOMContentLoaded",function(e){
 
                 var brand = document.createElement('p');
                 brand.innerText = product.brand.toUpperCase();
+                brand.setAttribute('class', 'shopping-bag-product-p-text');
+
+                var name = document.createElement('p');
+                name.innerText = product.name;
+                name.setAttribute('class', 'shopping-bag-product-p-text');
+                name.style.fontWeight = '400';
 
                 var size = document.createElement('p');
                 size.innerText = 'Size: One Size';
+                size.setAttribute('class', 'shopping-bag-product-p-text');
 
                 var color = document.createElement('p');
                 color.innerText = `Color: ${product.color.toUpperCase()}`;
+                color.setAttribute('class', 'shopping-bag-product-p-text');
+
 
                 var itemNo = document.createElement('p');
                 itemNo.innerText = `Item: ${number++}`;
+                itemNo.setAttribute('class', 'shopping-bag-product-p-text');
+
 
                 var deliveryTitle = document.createElement('p');
                 deliveryTitle.innerHTML = `<span class="material-icons">local_shipping</span> Delivery`;
+                deliveryTitle.style.marginBottom = '0px';
 
                 var deliveryText = document.createElement('p');
                 deliveryText.innerText = "International orders usually arrive within 5–13 business days. We'll give you delivery dates in checkout.";
+                deliveryText.setAttribute('class', 'shopping-bag-product-p-text');
+                
 
                 var buttonsDiv = document.createElement('div');
                 buttonsDiv.style.display = 'grid';
                 buttonsDiv.style.gridTemplateColumns = 'repeat(2, 1fr)';
 
+                var verticalSpace = document.createElement('div');
+                verticalSpace.setAttribute('class', 'vertical-space');
+
                 var removeBtn = document.createElement('p');
                 removeBtn.innerText = 'Remove';
                 removeBtn.style.textAlign = 'left';
+                removeBtn.style.fontSize = '14px';
                 removeBtn.style.textDecoration = 'none';
                 removeBtn.style.color = 'rgb(1, 100, 107)';
                 removeBtn.onclick = function() {
@@ -3153,19 +3219,38 @@ document.addEventListener("DOMContentLoaded",function(e){
 
                 buttonsDiv.appendChild(removeBtn);
 
-                textDiv.append(brand, size, color, itemNo, deliveryTitle, deliveryText, buttonsDiv);
+                textDiv.append(brand, name, verticalSpace, size, color, itemNo, verticalSpace, deliveryTitle, deliveryText, buttonsDiv);
 
                 //Quantity Div
 
                 var quantityDiv = document.createElement('div');
                 quantityDiv.setAttribute('id', 'shopping-bag-data-product-quantity');
 
-                var quantity = document.createElement('p');
-                quantity.innerHTML = `Qty ${product.quantity}`;
-                quantity.style.color = 'rgb(1, 100, 107)';
+                var  quantityLabel = document.createElement('label');
+                quantityLabel.innerText = "Qty";
+                quantityLabel.style.fontSize = '18px';
+                var quantity = document.createElement('input');
+                quantity.setAttribute('value', product.quantity);
+                quantity.onchange = function() {
+                    if(Number(quantity.value) === 0) {
+                        product.quantity = Number(quantity.value);
+                        removeProduct(product, bag, key);
+                        window.location.href = 'shopping_bag.html';
+                    } else {
+                        product.quantity = Number(quantity.value);
+                        localStorage.setItem(key, JSON.stringify(bag));
+                        window.location.href = 'shopping_bag.html';
+                    }
+                }
+                console.log(product);
+                quantity.value = `${product.quantity}`;
+                // quantity.style.color = 'rgb(1, 100, 107)';
+                console.log(product.quantity);
                 quantityTotal += product.quantity;
+                quantity.style.border = '1px solid rgb(37, 37, 37)';
+                quantity.style.fontSize = '14px';
 
-                quantityDiv.appendChild(quantity);
+                quantityDiv.append(quantityLabel, quantity);
 
                 //Total price div
 
@@ -3175,35 +3260,46 @@ document.addEventListener("DOMContentLoaded",function(e){
                 var totalPrice = document.createElement('p');
                 totalPrice.innerText = `₹${product.price * product.quantity}`;
                 totalPrice.style.fontWeight = '500';
+                totalPrice.style.margin = '5px';
 
                 shoppingBagTotal += product.price * product.quantity;
 
                 var price = document.createElement('p');
                 price.innerText = `(₹${product.price} each)`;
+                price.setAttribute('class', 'shopping-bag-product-p-text');
+                price.style.margin = '0px';
 
                 var span = document.createElement('span');
                 span.append(totalPrice, price)
 
                 priceDiv.appendChild(span);
 
-
-
                 bagDataDiv.append(imgDiv, textDiv, quantityDiv, priceDiv);
 
                 var line = document.createElement('hr');
                 line.style.width = '100%';
                 bagData.append(line,bagDataDiv);
+                shpBagTag.innerText = `Shopping Bag (${quantityTotal})`;
+
             });
         }
     }
-    window.onload = addShoppingBagDetails(bag);
 
+    var items = document.getElementById('itemsInBag');
     var shpgBagTotalPrice = document.getElementById('shipping-bag-subtotal');
     var totalPriceTag = document.createElement('p');
-    totalPriceTag.innerText = `₹${shoppingBagTotal}`;
-    totalPriceTag.style.textAlign = 'right';
-    shpgBagTotalPrice.appendChild(totalPriceTag);
+    window.onload = function() {
+        addShoppingBagDetails(bag);
 
+        items.innerText = "";
+        items.innerText = `(${quantityTotal})`;
+
+        totalPriceTag.innerText = `₹${shoppingBagTotal}`;
+        totalPriceTag.style.textAlign = 'right';
+
+        shpgBagTotalPrice.appendChild(totalPriceTag);
+        shpBagTag.innerText = `Shopping Bag (${quantityTotal})`;
+    }
 
     var shpBagTag = document.getElementById('shopping-bag-tag');
     shpBagTag.innerText = `Shopping Bag (${quantityTotal})`;
@@ -3236,6 +3332,9 @@ document.addEventListener("DOMContentLoaded",function(e){
         addShoppingBagDetails(bag);
         shpBagTag.innerText = `Shopping Bag (${quantityTotal})`;
         totalPriceTag.innerText = `INR ${shoppingBagTotal}`;
+        var items = document.getElementById('itemsInBag');
+        items.innerText = "";
+        items.innerText = `(${quantityTotal})`;
     }
 
     document.addEventListener("DOMContentLoaded",function(e){
@@ -3249,4 +3348,29 @@ document.addEventListener("DOMContentLoaded",function(e){
                 
         }
     });
+
+    var bagIcon = document.getElementById('bag-icon-text');
+    
+
+    function calculateItemsInBag() {
+        items.innerText = "";
+        if (localStorage.getItem('logeduser') != null) {
+            var logeduser = JSON.parse(localStorage.getItem('logeduser')); 
+            var key = `bag_${logeduser.email}`;
+            var bag = JSON.parse(localStorage.getItem(key));
+            localStorage.setItem('bag', JSON.stringify([]));
+        } else if(localStorage.getItem('logeduser') === null) {
+            var bag = JSON.parse(localStorage.getItem('bag'));
+            key = 'bag';
+        }
+
+        
+        var totalItems = 0;
+
+        bag.forEach(function(product) {
+            totalItems += product.quantity;
+        })
+
+        items.innerText = `(${totalItems})`;
+    }
 </script>
