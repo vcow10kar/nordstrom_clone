@@ -29,7 +29,7 @@
             margin: auto;
             display: grid;
             grid-template-columns: 40% 400px 300px;
-            gap: 80px
+            gap: 40px;
         }
 
         .pro_det_name {
@@ -740,9 +740,19 @@
             float: right
         }
 
+        #recommended-product {
+            width: 90%;
+        }
+
         #recommended-product > * {
-            margin: 10px 50px;
             text-align: center;
+            color:rgb(68, 68, 68);
+        }
+
+        #recommended-product > img {
+            margin: 10px 90px;
+            text-align: center;
+            color:rgb(68, 68, 68);
         }
     </style>
 
@@ -3073,13 +3083,18 @@
                 <div id="discription_product" class="flex-box"></div>
             </div>
 
-            <div id='recommended-product' style="border: 1px solid grey">
-                <p style = "font-size: 22px;">You might also like:</p>
+            <div id='recommended-product'>
+                <p style = "font-size: 20px; font-weight: 500;">You might also like</p>
 
-                <img src = "https://n.io.nordstrommedia.com/id/sr3/d6cc85b0-201f-46a6-b6dd-791c83ae6eec.jpeg?crop=pad&amp;pad_color=FFF&amp;format=jpeg&amp;w=200&amp;h=300"/>
+                <img src = "https://n.io.nordstrommedia.com/id/sr3/d6cc85b0-201f-46a6-b6dd-791c83ae6eec.jpeg?crop=pad&amp;pad_color=FFF&amp;format=jpeg&amp;w=100&amp;h=150"/>
 
-                <p style = "text-align: center; margin: 0px;">DENY DESIGNS</p>
-                <p style = "text-align: center; margin: 0px;">INR 3094</p>
+                <p style = "text-align: center; margin: 0px; font-size: 12px;">DENY DESIGNS</p>
+                <p style = "text-align: center; margin: 0px; font-size: 17px;">INR 3094</p>
+
+                <img src = "https://n.io.nordstrommedia.com/id/sr3/afcad95c-d478-48b2-915f-3d9a1bb2e716.jpeg?crop=pad&pad_color=FFF&format=jpeg&w=100&h=150"/>
+
+                <p style = "text-align: center; margin: 0px; font-size: 12px;">NEWGATE</p>
+                <p style = "text-align: center; margin: 0px; font-size: 17px;">INR 2048</p>
             </div>
         </div>
         <div id="flex" style="margin-left:30px;">
