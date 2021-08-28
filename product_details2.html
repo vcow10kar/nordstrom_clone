@@ -3583,7 +3583,11 @@ document.addEventListener("DOMContentLoaded",function(e){
             p_addToCheckoutBtn.setAttribute('id', 'product-grid-modal-product-checkout');
 
             p_addToCheckoutBtn.onclick = function () {
-                window.location.href = 'checkout.html';
+                if(localStorage.getItem('logeduser') === null) {
+                    window.location.href = 'signin.html';
+                } else {
+                    window.location.href = 'checkout.html';
+                }
             }
             var quantity = product.quantity;
 
