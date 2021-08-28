@@ -754,6 +754,23 @@
             text-align: center;
             color:rgb(68, 68, 68);
         }
+
+        #bag-icon-text {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            text-decoration: none;
+            gap: 5px;
+        }
+
+        #itemsInBag {
+            width: 100%;
+            height: 50%;
+            border-radius: 50%;
+            font-weight: 800;
+            font-size: 18px;
+            color: rgb(61, 61, 61);
+            margin-bottom: 12px;
+        }
     </style>
 
     <script>
@@ -867,8 +884,9 @@
                             </ul>
                         </div>
                         <div id="bag">
-                            <a href="shopping_bag.html"><span class="material-icons"
-                                    style="font-size: 36px; color: black">shopping_bag</span>
+                            <a  id = "bag-icon-text" href="shopping_bag.html">
+                                <div><span class="material-icons" style = "font-size: 36px; color: black">shopping_bag</span></div>
+                                <p id = "itemsInBag"></p>
                                 <!-- <img class="bag-image" src="images/emptybag-icon.png"></img> -->
                             </a>
                         </div>
@@ -3674,6 +3692,8 @@
 
             localStorage.setItem(key, JSON.stringify(bag));
 
+            calculateItemsInBag()
+
         }
 
         function closeModal() {
@@ -3717,10 +3737,37 @@
             console.log("hello");
         }
 
+        window.onload = calculateItemsInBag;
+
 
 
         function open_modal_wishlist(product) {
 
+        }
+
+        var bagIcon = document.getElementById('bag-icon-text');
+        var items = document.getElementById('itemsInBag');
+
+        function calculateItemsInBag() {
+            items.innerText = "";
+            if (localStorage.getItem('logeduser') != null) {
+                var logeduser = JSON.parse(localStorage.getItem('logeduser')); 
+                var key = `bag_${logeduser.email}`;
+                var bag = JSON.parse(localStorage.getItem(key));
+                localStorage.setItem('bag', JSON.stringify([]));
+            } else if(localStorage.getItem('logeduser') === null) {
+                var bag = JSON.parse(localStorage.getItem('bag'));
+                key = 'bag';
+            }
+
+            
+            var totalItems = 0;
+
+            bag.forEach(function(product) {
+                totalItems += product.quantity;
+            })
+
+            items.innerText = `(${totalItems})`;
         }
 
 
