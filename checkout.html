@@ -49,7 +49,7 @@
         }
 
         #main-checkout {
-            width: 81%;
+            width: 71%;
             margin: auto;
             display: flex;
             margin-bottom:30px;
@@ -296,7 +296,8 @@
             background-color:rgba(0,0,0,.75);
             color:white;
             font-size: 18px;
-            padding:12px 150px;
+            width:100%;
+            padding:12px 140px;
             border-radius: 4px;
             margin-bottom:20px;
         }
@@ -319,6 +320,41 @@
             width:90%;
         }
 
+        #checkout-image-div{
+            margin-top:30px;
+        }
+
+        #checkout-image-div>div{
+            margin-bottom:40px;
+            display: flex;
+        }
+
+        #checkout-image-div>div>div:nth-child(1){
+            width:25%;
+            margin-right:30px;
+        }
+
+        #checkout-image-div>div>div:nth-child(2){
+            width:70%;
+            font-size: 16px;
+        }
+
+        #checkout-image-div>div>div>img{
+            width:100%;
+        }
+
+        #product_name{
+            font-weight: 600;
+        }
+
+        #checkout-image-div>div>div:nth-child(2)>p{
+            margin-bottom:1px;
+        }
+
+        #product_price{
+            margin-top:20px;
+            font-weight: 600;
+        }
     </style>
 </head>
 
@@ -496,4 +532,64 @@
     </div>
 </body>
 
+
+<script>
+    function shop_bag(){
+
+        var logged_user=localStorage.getItem("tried_login_user")
+
+        var to_check = "bag_"+logged_user
+
+        for (var key in localStorage){
+            if(key==to_check){
+                break;
+            }
+        }
+
+        JSON.parse(localStorage.getItem(key)).forEach(function(e){
+
+            var main_div=document.createElement("div")
+
+            var image_div=document.createElement("div")
+
+            var details_div=document.createElement("div")
+
+
+            var image = document.createElement("img")
+            image.src=e.image1[0]
+
+            image_div.append(image)
+
+            var name = document.createElement("p")
+            name.textContent=e.name
+            name.setAttribute("id","product_name")
+
+            var color = document.createElement("p")
+            color.textContent="Color: "+e.color
+
+            var brand = document.createElement("p")
+            brand.textContent="Brand: "+e.brand
+
+            var quantiy = document.createElement("p")
+            quantiy.textContent="Qty: "+e.quantity
+
+            var price = document.createElement("p")
+            price.textContent="₹"+e.price
+            price.setAttribute("id","product_price")
+
+            details_div.append(name,color,brand,quantiy,price)
+
+
+            main_div.append(image_div,details_div)
+
+
+            var product_checkout_div=document.getElementById("checkout-image-div")
+
+            product_checkout_div.append(main_div)
+
+        })
+        
+    }
+    shop_bag()
+</script>
 </html>
