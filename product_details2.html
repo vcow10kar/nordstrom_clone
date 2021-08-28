@@ -86,7 +86,7 @@
         }
 
         .pro_det_p {
-            font-size: 16px;
+            font-size: 14px;
             float: left;
             color: rgb(68, 68, 68);
             font-weight: 350;
@@ -106,7 +106,7 @@
             font-size: 14px;
             float: left;
             color: rgb(63, 63, 63);
-            font-weight: 400;
+            font-weight: 300;
         }
 
         #discription_list {
@@ -172,7 +172,7 @@
             width: 40px;
             height: 40px;
             text-align: center;
-            font-size: 22px;
+            font-size: 14px;
         }
 
         .pro_det_hower2 {
@@ -3099,7 +3099,9 @@
         </div>
         <div id="flex" style="margin-left:30px;">
             <div id="discription_list"></div>
+            <hr style = "width: 90%">
             <div id="have_questions" class="flex-box"></div>
+            <hr>
             <div id="ratings"></div>
         </div>
         <div id='product-grid-footer'>
@@ -3420,6 +3422,8 @@
             var link = document.createElement("a");
             link.setAttribute("href", "http://www.google.com");
             link.textContent = "See more";
+            link.style.color = 'rgb(37, 37, 37)';
+            link.style.fontWeight = '400';
             //seemore mouse hower
             link.onmouseover = function () {
                 link.setAttribute("class", "pro_det_hower1")
@@ -3430,13 +3434,6 @@
             }
 
             // quantity element 
-            var quantityLabel = document.createElement('label');
-            quantityLabel.setAttribute('for', 'quantity');
-            quantityLabel.innerText = "Quantity: ";
-            quantityLabel.style.fontSize = '18px';
-            quantityLabel.style.fontWeight = '450';
-            quantityLabel.style.marginBottom = '10px';
-            quantityLabel.style.color = 'rgb(68, 68, 68)';
             var quantity = document.createElement("input");
             quantity.setAttribute("type", "text");
             quantity.setAttribute("id", "quantity");
@@ -3467,6 +3464,8 @@
 
 
             seemore.textContent = "Free Shipping & Returns \t";
+            seemore.style.color = 'rgb(37, 37, 37)';
+            seemore.style.fontWeight = '500';
             seemore.append(link)
 
             // list.textContent= product.size
@@ -3490,10 +3489,10 @@
                 rating.appendChild(rating_count);
 
                 // div.append(image, description, p_price, rating);
-                discription_div.append(rating, name, brand, price, text, about1, color, quantityLabel, quantity, document.createElement("br"), button, wishlist);
+                discription_div.append(rating, name, brand, price, text, about1, color, quantity, document.createElement("br"), button, wishlist);
             } else {
                 // div.append(image, description, p_price);
-                discription_div.append(name, brand, price, text, about1, color, quantityLabel, quantity, document.createElement("br"), button, wishlist);
+                discription_div.append(name, brand, price, text, about1, color, quantity, document.createElement("br"), button, wishlist);
             }
             // discription_div.append(name,price,text,about1,color,button)
             discription_list.append(second_header, about2)
