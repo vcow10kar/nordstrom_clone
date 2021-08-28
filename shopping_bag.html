@@ -549,6 +549,20 @@
             margin-bottom: 12px;
         }
 
+        #shopping-bag-data-product-quantity {
+            display: grid;
+            width: 50%;
+            grid-template-columns: 40% 40%;
+            height: 30px;
+            gap: 5px;
+            color: rgb(0, 61, 61);
+        }
+
+        #shopping-bag-data-product-quantity > * {
+            color: rgb(0, 61, 61);
+            padding: 10px 10px;
+        }
+
     </style>
 
     <script>
@@ -3179,12 +3193,31 @@ document.addEventListener("DOMContentLoaded",function(e){
                 var quantityDiv = document.createElement('div');
                 quantityDiv.setAttribute('id', 'shopping-bag-data-product-quantity');
 
-                var quantity = document.createElement('p');
-                quantity.innerHTML = `Qty ${product.quantity}`;
-                quantity.style.color = 'rgb(1, 100, 107)';
+                var  quantityLabel = document.createElement('label');
+                quantityLabel.innerText = "Qty";
+                quantityLabel.style.fontSize = '18px';
+                var quantity = document.createElement('input');
+                quantity.setAttribute('value', product.quantity);
+                quantity.onchange = function() {
+                    if(Number(quantity.value) === 0) {
+                        product.quantity = Number(quantity.value);
+                        removeProduct(product, bag, key);
+                        window.location.href = 'shopping_bag.html';
+                    } else {
+                        product.quantity = Number(quantity.value);
+                        localStorage.setItem(key, JSON.stringify(bag));
+                        window.location.href = 'shopping_bag.html';
+                    }
+                }
+                console.log(product);
+                quantity.value = `${product.quantity}`;
+                // quantity.style.color = 'rgb(1, 100, 107)';
+                console.log(product.quantity);
                 quantityTotal += product.quantity;
+                quantity.style.border = '1px solid rgb(37, 37, 37)';
+                quantity.style.fontSize = '18px';
 
-                quantityDiv.appendChild(quantity);
+                quantityDiv.append(quantityLabel, quantity);
 
                 //Total price div
 
@@ -3205,27 +3238,32 @@ document.addEventListener("DOMContentLoaded",function(e){
 
                 priceDiv.appendChild(span);
 
-
-
                 bagDataDiv.append(imgDiv, textDiv, quantityDiv, priceDiv);
 
                 var line = document.createElement('hr');
                 line.style.width = '100%';
                 bagData.append(line,bagDataDiv);
+                shpBagTag.innerText = `Shopping Bag (${quantityTotal})`;
+
             });
         }
     }
-    window.onload = function() {
-        addShoppingBagDetails(bag);
-        calculateItemsInBag();
-    }
 
+    var items = document.getElementById('itemsInBag');
     var shpgBagTotalPrice = document.getElementById('shipping-bag-subtotal');
     var totalPriceTag = document.createElement('p');
-    totalPriceTag.innerText = `₹${shoppingBagTotal}`;
-    totalPriceTag.style.textAlign = 'right';
-    shpgBagTotalPrice.appendChild(totalPriceTag);
+    window.onload = function() {
+        addShoppingBagDetails(bag);
 
+        items.innerText = "";
+        items.innerText = `(${quantityTotal})`;
+
+        totalPriceTag.innerText = `₹${shoppingBagTotal}`;
+        totalPriceTag.style.textAlign = 'right';
+
+        shpgBagTotalPrice.appendChild(totalPriceTag);
+        shpBagTag.innerText = `Shopping Bag (${quantityTotal})`;
+    }
 
     var shpBagTag = document.getElementById('shopping-bag-tag');
     shpBagTag.innerText = `Shopping Bag (${quantityTotal})`;
@@ -3258,7 +3296,9 @@ document.addEventListener("DOMContentLoaded",function(e){
         addShoppingBagDetails(bag);
         shpBagTag.innerText = `Shopping Bag (${quantityTotal})`;
         totalPriceTag.innerText = `INR ${shoppingBagTotal}`;
-        calculateItemsInBag();
+        var items = document.getElementById('itemsInBag');
+        items.innerText = "";
+        items.innerText = `(${quantityTotal})`;
     }
 
     document.addEventListener("DOMContentLoaded",function(e){
@@ -3274,7 +3314,7 @@ document.addEventListener("DOMContentLoaded",function(e){
     });
 
     var bagIcon = document.getElementById('bag-icon-text');
-    var items = document.getElementById('itemsInBag');
+    
 
     function calculateItemsInBag() {
         items.innerText = "";
