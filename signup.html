@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,411 +10,504 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Icons"
-      rel="stylesheet">
-       
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+
     <style>
-        body{
-            margin:0px;
+        #main-content a:hover {
+            border-bottom: 2px solid black;
         }
-          *{            
+
+        body {
+            margin: 0px;
+        }
+
+        * {
             font-family: 'Lato', sans-serif;
         }
-        h2{
+
+        h2 {
             font-weight: bold;
         }
+
         .container {
-            width:30%;
-            margin:auto;
-            
+            width: 30%;
+            margin: auto;
+
             border-radius: 10px;
-            padding:20px;
-         
+            padding: 20px;
+
         }
 
         .signup-btn {
-            background-color:black;
+            background-color: black;
             border: none;
-            color:white;
-            margin-left:10px;
-            padding:10px;
-            width:95%;
+            color: white;
+            margin-left: 10px;
+            padding: 10px;
+            width: 95%;
             font-weight: 700;
-            
+
         }
 
         .signup-btn:hover {
-            background-color:rgb(36, 36, 36);   
+            background-color: rgb(36, 36, 36);
         }
-        .signup-label{
+
+        .signup-label {
             font-weight: bold;
-            font-size:14px;            
+            font-size: 14px;
         }
 
-        .signup-input{
-            padding:10px;
-            margin-left:10px;
-            width:90%;            
-            border:1px solid #bbb
+        .signup-input {
+            padding: 10px;
+            margin-left: 10px;
+            width: 90%;
+            border: 1px solid #bbb
         }
 
-        .error{
-            padding:10px;
-            margin-left:10px;
-            width:90%;            
-            border:1px solid red;
+        .error {
+            padding: 10px;
+            margin-left: 10px;
+            width: 90%;
+            border: 1px solid red;
             border-bottom: 3px solid red;
         }
 
-        input:focus{
-            
+        input:focus {
+
             border-bottom: 3px solid black;
             border-left: none;
             border-right: none;
             border-top: none;
-            
+
         }
-        a{
+
+        a {
             text-decoration: underline;
-            color:black;
+            color: black;
         }
-        .flex{
+
+        .flex {
             display: flex;
         }
-        .material-icons{
-            font-size:18px;
+
+        .material-icons {
+            font-size: 18px;
         }
-        #grayed{
+
+        #grayed {
             font-size: 12px;
-            margin:0px;
-            color:gray
-            
-            
+            margin: 0px;
+            color: gray
         }
 
-        .signup-p{
-            font-size:12px;
+        .signup-p {
+            font-size: 12px;
         }
 
-        #top{
-    background-color: black;
-    text-align: center;
-    color:white;
-    /*line-height:1.4;*/
-    font-size: 13px;
-    font-weight: 400;
-    letter-spacing: 0.15px;
-    /*padding:10px 25px;*/
-}
-#top a {
-    cursor: pointer;
-    color:rgb(248, 246, 246);
-}
+        #top {
+            background-color: black;
+            text-align: center;
+            color: white;
+            /*line-height:1.4;*/
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 0.15px;
+            /*padding:10px 25px;*/
+        }
 
-#top p{
-    float:left;
-    
-}
+        #top a {
+            cursor: pointer;
+            color: rgb(248, 246, 246);
+        }
 
-#top button{
-    float:right;
-    color:white;
-    background-color: black;
-    border:none;
-    cursor: pointer;
-    font-size: 12px;
-}
+        #top p {
+            float: left;
 
-#top button img{
-    height: 15px;
-    width: 15px;
-    border-radius: 50%;
-    margin-right:5px;
-}
-#top span{
-    vertical-align: top;
-}
+        }
 
-.clear{
-    clear:both
-}
+        #top button {
+            float: right;
+            color: white;
+            background-color: black;
+            border: none;
+            cursor: pointer;
+            font-size: 12px;
+        }
 
-#nav-bar{
-    margin-top:25px;
-    padding-bottom:13px;
+        #top button img {
+            height: 15px;
+            width: 15px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
 
-}
+        #top span {
+            vertical-align: top;
+        }
 
-#nav-bar>div{
-    width:96.5%;
-    margin:auto;
-}
+        .clear {
+            clear: both
+        }
 
-/* ul{
+        #nav-bar {
+            margin-top: 25px;
+            padding-bottom: 13px;
+
+        }
+
+        #nav-bar>div {
+            width: 96.5%;
+            margin: auto;
+        }
+
+        /* ul{
     list-style-type: none;
 } */
 
-/* #inside-div{
+        /* #inside-div{
     /* border:1px solid green; } */
 
-#inside-div>div{
-    float:left;
-    margin-right:40px;
-}
+        #inside-div>div {
+            float: left;
+            margin-right: 40px;
+        }
 
-#logo{
-    width:15%;
-}
+        #logo {
+            width: 15%;
+        }
 
-#navs{
-    width:56%;
-    margin-top: 7px;
-}
+        #navs {
+            width: 56%;
+            margin-top: 7px;
+        }
 
-#navs>button{
-    display: inline;
-    border:none;
-    background-color: white;
-    margin-right: 0px;
-    color:#393939;
-    font-family: Brandon Text,Arial,sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    transition-duration: 1s;
-}
+        #navs>button {
+            display: inline;
+            border: none;
+            background-color: white;
+            margin-right: 0px;
+            color: #393939;
+            font-family: Brandon Text, Arial, sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            transition-duration: 1s;
+        }
 
-#red{
-    color:#d61f27 !important;
-}
+        #red {
+            color: #d61f27 !important;
+        }
 
-#search{
-    display: flex;
-    width:18%;
-    margin-right:0px !important;
-    margin-left:10px;
-    position:relative;
-}
+        #search {
+            display: flex;
+            width: 18%;
+            margin-right: 0px !important;
+            margin-left: 10px;
+            position: relative;
+        }
 
-#search >div{
-    width:37%;
-    margin-right: 20px;
-}
+        #search>div {
+            width: 37%;
+            margin-right: 20px;
+        }
 
-#search >div:nth-last-child(1){
-    margin-right: 0px;
-}
+        #search>div:nth-last-child(1) {
+            margin-right: 0px;
+        }
 
-#bag{
-    width:15% !important;
-    
-}
+        #bag {
+            width: 15% !important;
 
-#bag img{
-    width:100%;
-    margin-top: 3px;
-}
+        }
 
-#one,#two{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    font-size: 14px;
-    color:#393939;
-    font-family: Brandon Text,Arial,sans-serif;
-}
+        #bag img {
+            width: 100%;
+            margin-top: 3px;
+        }
 
-#one img{
-    width:100%;
-    height: 30px;
-}
-#bag > a > img {
-    width: 100%;
-    height: 25px;
-}
+        #one,
+        #two {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            font-size: 14px;
+            color: #393939;
+            font-family: Brandon Text, Arial, sans-serif;
+        }
 
-#two > img {
-    width: 16px;
-    height: 16px;
-}
+        #one img {
+            width: 100%;
+            height: 30px;
+        }
 
-.img > img{
-    width: 20px;
-    height: 20px;
-}
+        #bag>a>img {
+            width: 100%;
+            height: 25px;
+        }
 
-#navs>button:nth-last-child(1){
-    margin-left:17px;
-    margin-right: 0px;
-}
+        #two>img {
+            width: 16px;
+            height: 16px;
+        }
 
-#search p{
-    margin-left:3px;
-}
+        .img>img {
+            width: 20px;
+            height: 20px;
+        }
 
-.Sale-content, .Home-content, .Women-content,.Men-content,.Kids-content,.YoungAdult-content,.Kids-content,.Activewear-content,.Gifts-content,.Beauty-content,.Designer-content,.Brands-content{
-    display: block;
-    height:0px;
-    width:100%;
-    position: absolute ;
-    overflow: hidden;
-    background-color: #ffffff;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 0px 25px;
-    padding-bottom:0px;
-    z-index: 1;
-    transition: height 0.5s ease-out;
-    overflow-y: auto;
-    
-}
+        #navs>button:nth-last-child(1) {
+            margin-left: 17px;
+            margin-right: 0px;
+        }
 
-#inputBox{
-    display: block;
-    height:0px;
-    position: absolute ;
-    top:100%;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 6;
-    border:none;
-    padding:0px 20px;
-    width:400px;
-}
+        #search p {
+            margin-left: 3px;
+        }
 
-#signIN{
-    display: none;
-    position: absolute;
-    top:100%;
-    right:20px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    border:none;
-    z-index: 7;
-    padding:10px 20px;
-    background-color: white;
-    width:100% !important;
-}
+        .Sale-content,
+        .Home-content,
+        .Women-content,
+        .Men-content,
+        .Kids-content,
+        .YoungAdult-content,
+        .Kids-content,
+        .Activewear-content,
+        .Gifts-content,
+        .Beauty-content,
+        .Designer-content,
+        .Brands-content {
+            display: block;
+            height: 0px;
+            width: 100%;
+            position: absolute;
+            overflow: hidden;
+            background-color: #ffffff;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            padding: 0px 25px;
+            padding-bottom: 0px;
+            z-index: 1;
+            transition: height 0.5s ease-out;
+            overflow-y: auto;
 
-#signIN li{
-    margin:10px;
-    margin-bottom:20px;
-    font-size:12px;
-}
+        }
 
-#signIN li:nth-child(1){
-    width:65%;
-    background-color:black;
-    text-align: center;
-    padding:10px 30px;
-}
+        #inputBox {
+            display: block;
+            height: 0px;
+            position: absolute;
+            top: 100%;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 6;
+            border: none;
+            padding: 0px 20px;
+            width: 400px;
+        }
 
-#signIN li:nth-child(2){
-    width:65%;
-    border:1px solid black;
-    text-align: center;
-    padding:10px 30px;
-}
+        #signIN {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 20px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            border: none;
+            z-index: 7;
+            padding: 10px 20px;
+            background-color: white;
+            width: 100% !important;
+        }
 
-#signIN a{
-    text-decoration:none;
-    color: #393939;
-}
+        #signIN li {
+            margin: 10px;
+            margin-bottom: 20px;
+            font-size: 12px;
+        }
 
-#signIN li:nth-child(1)>a{
-    color: white;
-}
+        #signIN li:nth-child(1) {
+            width: 65%;
+            background-color: black;
+            text-align: center;
+            padding: 10px 30px;
+        }
+
+        #signIN li:nth-child(2) {
+            width: 65%;
+            border: 1px solid black;
+            text-align: center;
+            padding: 10px 30px;
+        }
+
+        #signIN a {
+            text-decoration: none;
+            color: #393939;
+        }
+
+        #signIN li:nth-child(1)>a {
+            color: white;
+        }
 
 
 
-.mainh3{
-    margin-top:20px;
-}
-.Sale-content>div, .Home-content>div,.Women-content>div ,.Men-content>div ,.Kids-content>div ,.YoungAdult-content>div ,.Kids-content>div ,.Activewear-content>div ,.Gifts-content>div ,.Beauty-content>div ,.Designer-content>div ,.Brands-content>div {
-    display: flex;
-}
+        .mainh3 {
+            margin-top: 20px;
+        }
 
-.Sale-content>div>div, .Home-content>div>div,.Women-content>div>div,.Men-content>div>div,.Kids-content>div>div,.YoungAdult-content>div>div,.Kids-content>div>div,.Activewear-content>div>div,.Gifts-content>div>div,.Beauty-content>div>div,.Designer-content>div>div,.Brands-content>div>div{
-    margin-right: 80px;
-}
+        .Sale-content>div,
+        .Home-content>div,
+        .Women-content>div,
+        .Men-content>div,
+        .Kids-content>div,
+        .YoungAdult-content>div,
+        .Kids-content>div,
+        .Activewear-content>div,
+        .Gifts-content>div,
+        .Beauty-content>div,
+        .Designer-content>div,
+        .Brands-content>div {
+            display: flex;
+        }
 
-.Sale-content ul, .Home-content ul, .Women-content ul,.Men-content ul,.Kids-content ul,.YoungAdult-content ul,.Kids-content ul,.Activewear-content ul,.Gifts-content ul,.Beauty-content ul,.Designer-content ul,.Brands-content ul{
-    list-style-type:none
-}
+        .Sale-content>div>div,
+        .Home-content>div>div,
+        .Women-content>div>div,
+        .Men-content>div>div,
+        .Kids-content>div>div,
+        .YoungAdult-content>div>div,
+        .Kids-content>div>div,
+        .Activewear-content>div>div,
+        .Gifts-content>div>div,
+        .Beauty-content>div>div,
+        .Designer-content>div>div,
+        .Brands-content>div>div {
+            margin-right: 80px;
+        }
 
-.Sale-content a, .Home-content a,.Women-content a,.Men-content a,.Kids-content a,.YoungAdult-content a,.Kids-content a,.Activewear-content a,.Gifts-content a,.Beauty-content a,.Designer-content a,.Brands-content a{
-    color: #393939;
-    font-size:13px;
-    line-height: 1.4;
-    text-decoration:none;
-}
+        .Sale-content ul,
+        .Home-content ul,
+        .Women-content ul,
+        .Men-content ul,
+        .Kids-content ul,
+        .YoungAdult-content ul,
+        .Kids-content ul,
+        .Activewear-content ul,
+        .Gifts-content ul,
+        .Beauty-content ul,
+        .Designer-content ul,
+        .Brands-content ul {
+            list-style-type: none
+        }
 
-.Sale-content li>a, .Home-content li>a,.Women-content li>a,.Men-content li>a,.Kids-content li>a,.YoungAdult-content li>a,.Kids-content li>a,.Activewear-content li>a,.Gifts-content li>a,.Beauty-content li>a,.Designer-content li>a,.Brands-content li>a{
-    font-size:12px;
-}
+        .Sale-content a,
+        .Home-content a,
+        .Women-content a,
+        .Men-content a,
+        .Kids-content a,
+        .YoungAdult-content a,
+        .Kids-content a,
+        .Activewear-content a,
+        .Gifts-content a,
+        .Beauty-content a,
+        .Designer-content a,
+        .Brands-content a {
+            color: #393939;
+            font-size: 13px;
+            line-height: 1.4;
+            text-decoration: none;
+        }
 
-.Sale-content li, .Home-content li, .Women-content li,.Men-content li,.Kids-content li,.YoungAdult-content li,.Kids-content li,.Activewear-content li,.Gifts-content li,.Beauty-content li,.Designer-content li,.Brands-content li{
-    margin-bottom: 10px;
-}
+        .Sale-content li>a,
+        .Home-content li>a,
+        .Women-content li>a,
+        .Men-content li>a,
+        .Kids-content li>a,
+        .YoungAdult-content li>a,
+        .Kids-content li>a,
+        .Activewear-content li>a,
+        .Gifts-content li>a,
+        .Beauty-content li>a,
+        .Designer-content li>a,
+        .Brands-content li>a {
+            font-size: 12px;
+        }
 
-.firstDiv{
-    margin-right:30px;
-}
+        .Sale-content li,
+        .Home-content li,
+        .Women-content li,
+        .Men-content li,
+        .Kids-content li,
+        .YoungAdult-content li,
+        .Kids-content li,
+        .Activewear-content li,
+        .Gifts-content li,
+        .Beauty-content li,
+        .Designer-content li,
+        .Brands-content li {
+            margin-bottom: 10px;
+        }
 
-hr{
-    background-color:rgb(223, 213, 213);
-    height:1px;
-    width:200px;
-    margin-bottom:10px;
-    border:none;
-}
+        .firstDiv {
+            margin-right: 30px;
+        }
 
-.topMargin{
-    margin-top:30px;
-}
+        hr {
+            background-color: rgb(223, 213, 213);
+            height: 1px;
+            width: 200px;
+            margin-bottom: 10px;
+            border: none;
+        }
 
-.marginRem{
-    margin-right:0px;
-    width:15%;
-}
+        .topMargin {
+            margin-top: 30px;
+        }
 
-.marginRem img{
-    width:100%;
-    margin-top:80px;
-    margin-bottom:80px;
-}
+        .marginRem {
+            margin-right: 0px;
+            width: 15%;
+        }
 
-.decor {
-    font-size: 11px;
-}
+        .marginRem img {
+            width: 100%;
+            margin-top: 80px;
+            margin-bottom: 80px;
+        }
 
-.decor+hr{
-    width:110px;
-    background-color: black;
-}
+        .decor {
+            font-size: 11px;
+        }
 
-ul{
-    list-style-type:none
-}
-.right{
-    float:right;
-}
+        .decor+hr {
+            width: 110px;
+            background-color: black;
+        }
 
-#bag-icon-text {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    text-decoration: none;
-    gap: 5px;
-}
+        ul {
+            list-style-type: none
+        }
 
-#itemsInBag {
-    width: 100%;
-    height: 50%;
-    border-radius: 50%;
-    font-weight: 800;
-    font-size: 18px;
-    color: rgb(61, 61, 61);
-    margin-bottom: 12px;
-}
-</style>            
+        .right {
+            float: right;
+        }
+
+        #bag-icon-text {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            text-decoration: none;
+            gap: 5px;
+        }
+
+        #itemsInBag {
+            width: 100%;
+            height: 50%;
+            border-radius: 50%;
+            font-weight: 800;
+            font-size: 18px;
+            color: rgb(61, 61, 61);
+            margin-bottom: 12px;
+        }
+    </style>
 </head>
+
 <body onclick="removeDropdown()">
     <div class="header">
         <div id="top">
@@ -422,9 +516,10 @@ ul{
                     <strong>Shipping outside of the U.S. or Canada?</strong>
                     <a title="Learn About International Shipping" href="">Learn About International Shipping</a>
 
-                    <button class="right" href=""><img src="https://n.nordstrommedia.com/alias/IN.gif"><span>India</span></button>
+                    <button class="right" href=""><img
+                            src="https://n.nordstrommedia.com/alias/IN.gif"><span>India</span></button>
                 </p>
-                
+
             </div>
             <div class="clear"></div>
         </div>
@@ -434,7 +529,8 @@ ul{
                     <a href="landing_page.html"><img src="https://n.nordstrommedia.com/alias/nordstrom-logo.svg"></a>
                 </div>
                 <div id="navs">
-                    <button id="red" class="navEle" onclick="dropDown('Sale')" onmouseover="dropDown('Sale')">Sale</button>
+                    <button id="red" class="navEle" onclick="dropDown('Sale')"
+                        onmouseover="dropDown('Sale')">Sale</button>
                     <button class="navEle" onclick="dropDown('Women')" onmouseover="dropDown('Women')">Women</button>
                     <button class="navEle" onclick="dropDown('Men')" onmouseover="dropDown('Men')">Men</button>
                     <button class="navEle" onclick="dropDown('Kids')" onmouseover="dropDown('Kids')">Kids</button>
@@ -487,9 +583,10 @@ ul{
                         </ul>
                     </div>
                     <div id="bag">
-                        <a  id = "bag-icon-text" href="shopping_bag.html">
-                            <div><span class="material-icons" style = "font-size: 36px; color: black">shopping_bag</span></div>
-                            <p id = "itemsInBag"></p>
+                        <a id="bag-icon-text" href="shopping_bag.html">
+                            <div><span class="material-icons" style="font-size: 36px; color: black">shopping_bag</span>
+                            </div>
+                            <p id="itemsInBag"></p>
                             <!-- <img class="bag-image" src="images/emptybag-icon.png"></img> -->
                         </a>
                     </div>
@@ -676,7 +773,8 @@ ul{
                             <div>
                                 <a href="">
                                     <div>
-                                        <img src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                        <img
+                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
                                     </div>
                                 </a>
                             </div>
@@ -688,8 +786,8 @@ ul{
                     </div>
                 </div>
             </div>
-    
-    
+
+
             <div class="Women-content">
                 <div>
                     <div class="firstDiv">
@@ -868,7 +966,8 @@ ul{
                             <div>
                                 <a href="">
                                     <div>
-                                        <img src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                        <img
+                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
                                     </div>
                                 </a>
                             </div>
@@ -880,7 +979,7 @@ ul{
                     </div>
                 </div>
             </div>
-    
+
             <div class="Men-content">
                 <div>
                     <div class="firstDiv">
@@ -1059,7 +1158,8 @@ ul{
                             <div>
                                 <a href="">
                                     <div>
-                                        <img src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                        <img
+                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
                                     </div>
                                 </a>
                             </div>
@@ -1071,7 +1171,7 @@ ul{
                     </div>
                 </div>
             </div>
-    
+
             <div class="Kids-content">
                 <div>
                     <div class="firstDiv">
@@ -1250,7 +1350,8 @@ ul{
                             <div>
                                 <a href="">
                                     <div>
-                                        <img src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                        <img
+                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
                                     </div>
                                 </a>
                             </div>
@@ -1262,7 +1363,7 @@ ul{
                     </div>
                 </div>
             </div>
-    
+
             <div class="YoungAdult-content">
                 <div>
                     <div class="firstDiv">
@@ -1441,7 +1542,8 @@ ul{
                             <div>
                                 <a href="">
                                     <div>
-                                        <img src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                        <img
+                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
                                     </div>
                                 </a>
                             </div>
@@ -1453,7 +1555,7 @@ ul{
                     </div>
                 </div>
             </div>
-    
+
             <div class="Activewear-content">
                 <div>
                     <div class="firstDiv">
@@ -1632,7 +1734,8 @@ ul{
                             <div>
                                 <a href="">
                                     <div>
-                                        <img src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                        <img
+                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
                                     </div>
                                 </a>
                             </div>
@@ -1644,7 +1747,7 @@ ul{
                     </div>
                 </div>
             </div>
-    
+
             <div class="Home-content">
                 <div>
                     <div class="firstDiv">
@@ -1904,7 +2007,8 @@ ul{
                             <div>
                                 <a href="">
                                     <div>
-                                        <img src="https://n.nordstrommedia.com/id/4e7d9382-fd6b-4697-b1f3-ceeddf0a63aa.jpg">
+                                        <img
+                                            src="https://n.nordstrommedia.com/id/4e7d9382-fd6b-4697-b1f3-ceeddf0a63aa.jpg">
                                     </div>
                                 </a>
                             </div>
@@ -1913,11 +2017,11 @@ ul{
                                 <hr>
                             </div>
                         </div>
-    
+
                     </div>
                 </div>
             </div>
-    
+
             <div class="Gifts-content">
                 <div>
                     <div class="firstDiv">
@@ -2096,7 +2200,8 @@ ul{
                             <div>
                                 <a href="">
                                     <div>
-                                        <img src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                        <img
+                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
                                     </div>
                                 </a>
                             </div>
@@ -2108,7 +2213,7 @@ ul{
                     </div>
                 </div>
             </div>
-    
+
             <div class="Beauty-content">
                 <div>
                     <div class="firstDiv">
@@ -2287,7 +2392,8 @@ ul{
                             <div>
                                 <a href="">
                                     <div>
-                                        <img src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                        <img
+                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
                                     </div>
                                 </a>
                             </div>
@@ -2299,7 +2405,7 @@ ul{
                     </div>
                 </div>
             </div>
-    
+
             <div class="Designer-content">
                 <div>
                     <div class="firstDiv">
@@ -2478,7 +2584,8 @@ ul{
                             <div>
                                 <a href="">
                                     <div>
-                                        <img src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                        <img
+                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
                                     </div>
                                 </a>
                             </div>
@@ -2490,7 +2597,7 @@ ul{
                     </div>
                 </div>
             </div>
-    
+
             <div class="Brands-content">
                 <div>
                     <div class="firstDiv">
@@ -2669,7 +2776,8 @@ ul{
                             <div>
                                 <a href="">
                                     <div>
-                                        <img src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                        <img
+                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
                                     </div>
                                 </a>
                             </div>
@@ -2686,33 +2794,37 @@ ul{
     <div class="container" id="email_container">
         <h2 style="margin:10px;">Create Account</h2>
         <p style="margin:10px;" class="signup-p" id="grayed"><span class="material-icons">
-            payment
+                payment
             </span> Checkout faster</p>
-        <p  style="margin:10px;"class="signup-p" id="grayed"><span class="material-icons">
-            local_shipping
+        <p style="margin:10px;" class="signup-p" id="grayed"><span class="material-icons">
+                local_shipping
             </span> Track orders Easily</p>
-        <p  style="margin:10px;"class="signup-p" id="grayed"><span class="material-icons">
-            cloud_queue
-            </span> One account to shop our brands.</p>    
-         <p  style="margin:10px;"class="signup-p"><span style="color:red">*</span>Required</p>
-         <label style="margin:10px;" for="email">Email</label>
-         
-         <p style="margin:10px;" class="signup-p" id="login_user_email"> </p>         
-         
-         <label style="margin:10px;" class="signup-label" for="fname">FirstName<span style="color:red">*</span></label>
-        
-        <input style="margin:10px;" class="signup-input" type="text" id="fname" required/>   
-         <label style="margin:10px;" class="signup-label" for="lname">LastName<span style="color:red">*</span></label>
-        
-        <input style="margin:10px;" class="signup-input" type="text" id="lname" required/>   
-        <label style="margin:10px;" class="signup-label" for="password">Create password<span style="color:red">*</span></label>
-        <input style="margin:10px;" class="signup-input" type="password" id="password" onkeydown="keyPressed(event)" required/>
+        <p style="margin:10px;" class="signup-p" id="grayed"><span class="material-icons">
+                cloud_queue
+            </span> One account to shop our brands.</p>
+        <p style="margin:10px;" class="signup-p"><span style="color:red">*</span>Required</p>
+        <label style="margin:10px;" for="email">Email</label>
 
-         
-        <p class="signup-p" style="color:red;visibility: hidden;margin:10px;" id="error_message">Please enter all fields and try again</p>
+        <p style="margin:10px;" class="signup-p" id="login_user_email"> </p>
 
-           
-        <p style="margin:10px;" class="signup-p">By creating an account, you agree to our Privacy Policy and Terms & Conditions.</p>
+        <label style="margin:10px;" class="signup-label" for="fname">FirstName<span style="color:red">*</span></label>
+
+        <input style="margin:10px;" class="signup-input" type="text" id="fname" required />
+        <label style="margin:10px;" class="signup-label" for="lname">LastName<span style="color:red">*</span></label>
+
+        <input style="margin:10px;" class="signup-input" type="text" id="lname" required />
+        <label style="margin:10px;" class="signup-label" for="password">Create password<span
+                style="color:red">*</span></label>
+        <input style="margin:10px;" class="signup-input" type="password" id="password" onkeydown="keyPressed(event)"
+            required />
+
+
+        <p class="signup-p" style="color:red;visibility: hidden;margin:10px;" id="error_message">Please enter all fields
+            and try again</p>
+
+
+        <p style="margin:10px;" class="signup-p">By creating an account, you agree to our Privacy Policy and Terms &
+            Conditions.</p>
 
 
         <button class="signup-btn" onclick="signupUser()">Create Account</button>
@@ -2724,155 +2836,154 @@ ul{
 
     <script>
 
-        var email=localStorage.getItem('tried_login_user');
-        document.getElementById('login_user_email').innerText=email;
-        function keyPressed(event){
-            
+        var email = localStorage.getItem('tried_login_user');
+        document.getElementById('login_user_email').innerText = email;
+        function keyPressed(event) {
+
             var pass = document.getElementById('password').value;
             console.log(isValidPassword(pass));
         }
 
 
 
-        function isValidPassword(string){
+        function isValidPassword(string) {
             const re = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
             return re.test(string);
         }
 
-        function signupUser(){
+        function signupUser() {
             var fName = document.getElementById('fname').value;
             var lName = document.getElementById('lname').value;
             var password = document.getElementById('password').value;
-            
 
-            if(fname==''|| lname==''|| password=='')
-            {
-                document.getElementById('fname').setAttribute('class','error')
-                document.getElementById('lname').setAttribute('class','error')
-                document.getElementById('password').setAttribute('class','error')
+
+            if (fname == '' || lname == '' || password == '') {
+                document.getElementById('fname').setAttribute('class', 'error')
+                document.getElementById('lname').setAttribute('class', 'error')
+                document.getElementById('password').setAttribute('class', 'error')
                 document.getElementById('error_message').style.visibility = 'visible'
             }
-            else{
+            else {
 
                 //document.getElementById('fname').setAttribute('class','error')
                 //document.getElementById('lname').setAttribute('class','error')
 
-                if(isValidPassword(password))
-            {
-                        var user ={
-                        email : email,
-                        fname:fName,
-                        lname:lName,
-                        password:password
+                if (isValidPassword(password)) {
+                    var user = {
+                        email: email,
+                        fname: fName,
+                        lname: lName,
+                        password: password
                     }
                     var users = JSON.parse(localStorage.getItem('users'));
                     users.push(user);
-                    localStorage.setItem('users',JSON.stringify(users));
+                    localStorage.setItem('users', JSON.stringify(users));
 
-                    document.location="signin.html";
+                    document.location = "signin.html";
 
+
+
+
+                }
+                else {
+                    document.getElementById('password').setAttribute('class', 'error')
+                    document.getElementById('error_message').style.visibility = 'visible'
+                    document.getElementById('error_message').innerText = "Password must have Atleast one Capital letter,one small letter, one number and one special character.";
+                }
 
 
 
             }
-            else{
-                document.getElementById('password').setAttribute('class','error')
-                document.getElementById('error_message').style.visibility = 'visible'
-                document.getElementById('error_message').innerText="Password must have Atleast one Capital letter,one small letter, one number and one special character.";
-            }
 
 
-
-            }
-
-            
         }
         function dropDown(a) {
 
-var show1 = document.querySelector("#main-content")
-var show = document.querySelector(`.${a}-content`)
-show1.style.display = "block";
-// show.style.display="block";
-show.style.height = "500px"
+            var show1 = document.querySelector("#main-content")
+            var show = document.querySelector(`.${a}-content`)
+            show1.style.display = "block";
+            // show.style.display="block";
+            show.style.height = "500px"
 
-var rem = document.getElementsByClassName("navEle")
+            var rem = document.getElementsByClassName("navEle")
 
-for (var i = 0; i < rem.length; i++) {
-    if (rem[i].textContent != a) {
-        var remo = document.querySelector(`.${rem[i].textContent}-content`)
-        remo.style.height = "0px";
+            for (var i = 0; i < rem.length; i++) {
+                if (rem[i].textContent != a) {
+                    var remo = document.querySelector(`.${rem[i].textContent}-content`)
+                    remo.style.height = "0px";
 
-        rem[i].style.color = "rgba(0, 0, 0, 0.3)"
-        rem[i].style.textDecoration = "none"
-    } else {
-        rem[i].style.color = "#393939"
-        rem[i].style.textDecoration = "underline"
-    }
-}
-}
-
-function searchBar() {
-var bar = document.querySelector("#inputBox")
-bar.style.height = "70px";
-}
-
-function removeBar() {
-var bar = document.querySelector("#inputBox")
-bar.style.height = "0px";
-}
-
-function signBar() {
-var bar = document.querySelector("#signIN")
-bar.style.display = "block";
-}
-
-function removeSignBar() {
-var bar = document.querySelector("#signIN")
-bar.style.display = "none";
-}
-
-function removeDropdown() {
-var show = document.querySelector("#main-content")
-show.style.display = "none";
-
-var reset = document.getElementsByClassName("navEle")
-
-for (var i = 0; i < reset.length; i++) {
-    if (reset[i].textContent != "Sale") {
-        reset[i].style.color = "#393939"
-    }
-    reset[i].style.textDecoration = "none"
-}
-}
-
-    var bagIcon = document.getElementById('bag-icon-text');
-    var items = document.getElementById('itemsInBag');
-
-    window.onload = calculateItemsInBag;
-
-    function calculateItemsInBag() {
-        items.innerText = "";
-        if (localStorage.getItem('logeduser') != null) {
-            var logeduser = JSON.parse(localStorage.getItem('logeduser')); 
-            var key = `bag_${logeduser.email}`;
-            var bag = JSON.parse(localStorage.getItem(key));
-            localStorage.setItem('bag', JSON.stringify([]));
-        } else if(localStorage.getItem('logeduser') === null) {
-            var bag = JSON.parse(localStorage.getItem('bag'));
-            key = 'bag';
+                    rem[i].style.color = "rgba(0, 0, 0, 0.3)"
+                    rem[i].style.textDecoration = "none"
+                } else {
+                    rem[i].style.color = "#393939"
+                    rem[i].style.textDecoration = "underline"
+                }
+            }
         }
 
-        
-        var totalItems = 0;
+        function searchBar() {
+            var bar = document.querySelector("#inputBox")
+            bar.style.height = "70px";
+        }
 
-        bag.forEach(function(product) {
-            totalItems += product.quantity;
-        })
+        function removeBar() {
+            var bar = document.querySelector("#inputBox")
+            bar.style.height = "0px";
+        }
 
-        items.innerText = `(${totalItems})`;
-    }
+        function signBar() {
+            var bar = document.querySelector("#signIN")
+            bar.style.display = "block";
+        }
+
+        function removeSignBar() {
+            var bar = document.querySelector("#signIN")
+            bar.style.display = "none";
+        }
+
+        function removeDropdown() {
+            var show = document.querySelector("#main-content")
+            show.style.display = "none";
+
+            var reset = document.getElementsByClassName("navEle")
+
+            for (var i = 0; i < reset.length; i++) {
+                if (reset[i].textContent != "Sale") {
+                    reset[i].style.color = "#393939"
+                }
+                reset[i].style.textDecoration = "none"
+            }
+        }
+
+        var bagIcon = document.getElementById('bag-icon-text');
+        var items = document.getElementById('itemsInBag');
+
+        window.onload = calculateItemsInBag;
+
+        function calculateItemsInBag() {
+            items.innerText = "";
+            if (localStorage.getItem('logeduser') != null) {
+                var logeduser = JSON.parse(localStorage.getItem('logeduser'));
+                var key = `bag_${logeduser.email}`;
+                var bag = JSON.parse(localStorage.getItem(key));
+                localStorage.setItem('bag', JSON.stringify([]));
+            } else if (localStorage.getItem('logeduser') === null) {
+                var bag = JSON.parse(localStorage.getItem('bag'));
+                key = 'bag';
+            }
+
+
+            var totalItems = 0;
+
+            bag.forEach(function (product) {
+                totalItems += product.quantity;
+            })
+
+            items.innerText = `(${totalItems})`;
+        }
 
 
     </script>
 </body>
-</html>  
+
+</html>
