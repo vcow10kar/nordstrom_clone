@@ -845,6 +845,7 @@
                         <div id="bag">
                             <a  id = "bag-icon-text" href="shopping_bag.html">
                                 <div><span class="material-icons" style = "font-size: 36px; color: black">shopping_bag</span></div>
+                                <p id = "itemsInBag"></p>
                                 <!-- <img class="bag-image" src="images/emptybag-icon.png"></img> -->
                             </a>
                         </div>
@@ -3961,7 +3962,7 @@
         console.log(element);
         element.innerHTML = `<span class="material-icons">done</span><p>Added to bag</p>`;
 
-        
+        calculateItemsInBag();
     }
 
     function openWishlistModal() {
@@ -3969,8 +3970,10 @@
     }
 
     var bagIcon = document.getElementById('bag-icon-text');
+    var items = document.getElementById('itemsInBag');
 
     function calculateItemsInBag() {
+        items.innerText = "";
         if (localStorage.getItem('logeduser') != null) {
             var logeduser = JSON.parse(localStorage.getItem('logeduser')); 
             var key = `bag_${logeduser.email}`;
@@ -3981,7 +3984,7 @@
             key = 'bag';
         }
 
-        var items = document.createElement('p');
+        
         var totalItems = 0;
 
         bag.forEach(function(product) {
@@ -3989,8 +3992,6 @@
         })
 
         items.innerText = `(${totalItems})`;
-        items.setAttribute('id', 'itemsInBag');
-        bagIcon.appendChild(items);
     }
 
 </script>
