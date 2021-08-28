@@ -1,0 +1,3376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Bag | Nordstorm</title>
+    <link rel="icon" href="https://n.nordstrommedia.com/id/c4fb2a09-3657-4161-9b79-6412897d9399.png"
+        type="image/x-icon">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
+    <style>
+
+        body {
+            font-family: Brandon Text, Arial, sans-serif;
+            margin: 0px;
+            padding: 0px;
+        }
+        .footer {
+            display: flex;
+            background-color: whitesmoke;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .footer-col {
+            flex-basis: 250px;
+            padding: 10px;
+
+        }
+
+        .heading {
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .ul {
+            list-style-type: none;
+            text-align: start;
+        }
+
+        .ul>li {
+            padding: 5px;
+            font-size: 12px;
+
+        }
+
+        .ul>li:hover {
+            text-decoration: underline;
+            text-decoration-color: black;
+            text-decoration-thickness: 1px;
+        }
+
+        .footer>p {
+            flex-basis: 120px;
+            padding: 20px;
+            font-size: 12px;
+        }
+
+        .footer>p:hover {
+            text-decoration: underline;
+            text-decoration-color: black;
+            text-decoration-thickness: 1px;
+        }
+
+        #top {
+            background-color: black;
+            text-align: center;
+            color: white;
+
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 0.15px;
+
+        }
+
+        #top a {
+            cursor: pointer;
+            color: rgb(248, 246, 246);
+        }
+
+        #top p {
+            float: left;
+
+        }
+
+        #top button {
+            float: right;
+            color: white;
+            background-color: black;
+            border: none;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        #top button img {
+            height: 15px;
+            width: 15px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+
+        #top span {
+            vertical-align: top;
+        }
+
+        .clear {
+            clear: both
+        }
+
+        #nav-bar {
+            margin-top: 25px;
+            padding-bottom: 13px;
+
+        }
+
+        #nav-bar>div {
+            width: 96.5%;
+            margin: auto;
+        }
+
+        #inside-div>div {
+            float: left;
+            margin-right: 40px;
+        }
+
+        #logo {
+            width: 15%;
+        }
+
+        #navs {
+            width: 60%;
+            margin-top: 7px;
+        }
+
+        #navs>button {
+            display: inline;
+            border: none;
+            background-color: white;
+            margin-right: 20px;
+            color: #393939;
+            font-family: Brandon Text, Arial, sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            transition-duration: 1s;
+        }
+
+        #red {
+            color: #d61f27 !important;
+        }
+
+        #search {
+            display: flex;
+            width: 18%;
+            margin-right: 0px !important;
+            margin-left: 10px;
+        }
+
+        #search>div {
+            width: 37%;
+            margin-right: 20px;
+        }
+
+        #search>div:nth-last-child(1) {
+            margin-right: 0px;
+        }
+
+        #bag {
+            width: 15% !important;
+
+        }
+
+        #bag img {
+            width: 100%;
+            margin-top: 3px;
+        }
+
+        #one,
+        #two {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            font-size: 14px;
+            color: #393939;
+            font-family: Brandon Text, Arial, sans-serif;
+        }
+
+        #one img {
+            width: 100%;
+            height: 30px;
+        }
+
+        #bag>a>img {
+            width: 100%;
+            height: 25px;
+        }
+
+        #two>img {
+            width: 16px;
+            height: 16px;
+        }
+
+        .img>img {
+            width: 20px;
+            height: 20px;
+        }
+
+        #navs>button:nth-last-child(1) {
+            margin-left: 17px;
+            margin-right: 0px;
+        }
+
+        #search p {
+            margin-left: 3px;
+        }
+
+        .Sale-content,
+        .Home-content,
+        .Women-content,
+        .Men-content,
+        .Kids-content,
+        .YoungAdult-content,
+        .Kids-content,
+        .Activewear-content,
+        .Gifts-content,
+        .Beauty-content,
+        .Designer-content,
+        .Brands-content {
+            display: block;
+            height: 0px;
+            position: absolute;
+            overflow: hidden;
+            background-color: #ffffff;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            padding: 0px 25px;
+            padding-bottom: 0px;
+            z-index: 1;
+            transition: height 0.5s ease-out;
+            overflow-y: auto;
+
+        }
+
+        #inputBox {
+            display: block;
+            height: 0px;
+            position: absolute;
+            top: 14%;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 6;
+            border: none;
+            padding: 0px 20px;
+            width: 400px;
+        }
+
+        #signIN {
+            display: none;
+            position: absolute;
+            top: 14%;
+            right: 20px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            border: none;
+            z-index: 7;
+            padding: 10px 20px;
+            background-color: white;
+            width: 16% !important;
+        }
+
+        #signIN li {
+            margin: 10px;
+            margin-bottom: 20px;
+            font-size: 12px;
+        }
+
+        #signIN li:nth-child(1) {
+            width: 65%;
+            background-color: black;
+            text-align: center;
+            padding: 10px 30px;
+        }
+
+        #signIN li:nth-child(2) {
+            width: 65%;
+            border: 1px solid black;
+            text-align: center;
+            padding: 10px 30px;
+        }
+
+        #signIN a {
+            text-decoration: none;
+            color: #393939;
+        }
+
+        #signIN li:nth-child(1)>a {
+            color: white;
+        }
+
+
+
+        .mainh3 {
+            margin-top: 20px;
+        }
+
+        .Sale-content>div,
+        .Home-content>div,
+        .Women-content>div,
+        .Men-content>div,
+        .Kids-content>div,
+        .YoungAdult-content>div,
+        .Kids-content>div,
+        .Activewear-content>div,
+        .Gifts-content>div,
+        .Beauty-content>div,
+        .Designer-content>div,
+        .Brands-content>div {
+            display: flex;
+        }
+
+        .Sale-content>div>div,
+        .Home-content>div>div,
+        .Women-content>div>div,
+        .Men-content>div>div,
+        .Kids-content>div>div,
+        .YoungAdult-content>div>div,
+        .Kids-content>div>div,
+        .Activewear-content>div>div,
+        .Gifts-content>div>div,
+        .Beauty-content>div>div,
+        .Designer-content>div>div,
+        .Brands-content>div>div {
+            margin-right: 80px;
+        }
+
+        .Sale-content ul,
+        .Home-content ul,
+        .Women-content ul,
+        .Men-content ul,
+        .Kids-content ul,
+        .YoungAdult-content ul,
+        .Kids-content ul,
+        .Activewear-content ul,
+        .Gifts-content ul,
+        .Beauty-content ul,
+        .Designer-content ul,
+        .Brands-content ul {
+            list-style-type: none
+        }
+
+        .Sale-content a,
+        .Home-content a,
+        .Women-content a,
+        .Men-content a,
+        .Kids-content a,
+        .YoungAdult-content a,
+        .Kids-content a,
+        .Activewear-content a,
+        .Gifts-content a,
+        .Beauty-content a,
+        .Designer-content a,
+        .Brands-content a {
+            color: #393939;
+            font-size: 13px;
+            line-height: 1.4;
+            text-decoration: none;
+        }
+
+        .Sale-content li>a,
+        .Home-content li>a,
+        .Women-content li>a,
+        .Men-content li>a,
+        .Kids-content li>a,
+        .YoungAdult-content li>a,
+        .Kids-content li>a,
+        .Activewear-content li>a,
+        .Gifts-content li>a,
+        .Beauty-content li>a,
+        .Designer-content li>a,
+        .Brands-content li>a {
+            font-size: 12px;
+        }
+
+        .Sale-content li,
+        .Home-content li,
+        .Women-content li,
+        .Men-content li,
+        .Kids-content li,
+        .YoungAdult-content li,
+        .Kids-content li,
+        .Activewear-content li,
+        .Gifts-content li,
+        .Beauty-content li,
+        .Designer-content li,
+        .Brands-content li {
+            margin-bottom: 10px;
+        }
+
+        .firstDiv {
+            margin-right: 30px;
+        }
+
+        hr {
+            background-color: rgb(223, 213, 213);
+            height: 1px;
+            width: 200px;
+            margin-bottom: 10px;
+            border: none;
+        }
+
+        .topMargin {
+            margin-top: 30px;
+        }
+
+        .marginRem {
+            margin-right: 0px;
+            width: 15%;
+        }
+
+        .marginRem img {
+            width: 100%;
+            margin-top: 80px;
+            margin-bottom: 80px;
+        }
+
+        .decor {
+            font-size: 11px;
+        }
+
+        .decor+hr {
+            width: 110px;
+            background-color: black;
+        }
+
+        ul {
+            list-style-type: none
+        }
+
+        .right {
+            float: right
+        }
+
+        #shopping-bag-container {
+            font-family: Roboto, Arial, sans-serif;
+            width: 60%;
+            background-color: rgb(255, 255, 255);
+            margin: 10px auto;
+        }
+
+        #shopping-bag-container > hr {
+            width: 100%;
+        }
+
+        #shopping-bag-sections {
+            width: 35%;
+            /* border: 1px solid rgb(167, 167, 167); */
+            display: grid;
+            grid-template-columns: 50% 50%;
+            font-weight: 500;
+            color: rgb(65, 65, 65);
+            border: 1px solid rgb(190, 190, 190);
+        }
+
+        #shopping-bag-sections > * {
+            padding: 15px;
+            text-align: center;
+        }
+
+        #shopping-bag-tag {
+            background-color: rgb(212, 212, 212);
+            border: 1px solid rgb(212, 212, 212);
+            border-radius: 3px;
+        }
+
+        #shopping-bag-data {
+            color:rgb(44, 44, 44);
+        }
+
+        #shopping-bag-data-div {
+            display: grid;
+            grid-template-columns: 20% 45% 20% 15%;
+            gap: 10px;
+        }
+
+        #shopping-bag-data-div-img > * {
+            margin: 10px auto;
+            width: 80%;
+        }
+
+        #shopping-bag-summary {
+            display: grid;
+            grid-template-columns: 35% 35%;
+            gap: 30%;
+        }
+
+        #shipping-bag-subtotal {
+            display: grid;
+            grid-template-columns: 60% 40%;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        #shipping-bag-checkout-btn {
+            width: 100%;
+            font-size: 20px;
+            padding: 10px;
+            border: 0px;
+            background-color: black;
+            color: white;
+        }
+
+        #shopping-bag-titles-name {
+            font-size: 24px;
+            font-weight: 500;
+            color: rgb(51, 51, 51);
+            letter-spacing: 1px;
+        }
+
+        #shopping-bag-empty {
+            font-size: 24px;
+            font-weight: 500;
+            color:rgb(31, 30, 30);
+            text-decoration: none;
+        }
+
+        #shopping-bag-empty > a {
+            text-decoration: none;
+            color:rgb(31, 30, 30);
+        }
+
+        #shopping-bag-empty > a:hover {
+            text-decoration: underline;
+        }
+
+        #bag-icon-text {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            text-decoration: none;
+            gap: 5px;
+        }
+
+        #itemsInBag {
+            width: 100%;
+            height: 50%;
+            border-radius: 50%;
+            font-weight: 800;
+            font-size: 18px;
+            color: rgb(61, 61, 61);
+            margin-bottom: 12px;
+        }
+
+        #shopping-bag-data-product-quantity {
+            display: grid;
+            width: 50%;
+            grid-template-columns: 40% 40%;
+            height: 30px;
+            gap: 5px;
+            color: rgb(0, 61, 61);
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+        #shopping-bag-data-product-quantity > * {
+            color: rgb(0, 61, 61);
+            padding: 10px 10px;
+            font-weight: 300;
+        }
+
+        .shopping-bag-product-p-text {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            padding: 0px;
+            font-size: 15px;
+            font-weight: 300;
+        }
+
+        .vertical-space {
+            height: 14px;
+        }
+
+    </style>
+
+    <script>
+
+document.addEventListener("DOMContentLoaded",function(e){
+    
+    var p=document.getElementById("welcome_message");
+
+    if(localStorage.getItem('logeduser')!=null)
+        {
+            p.innerText= "Hi,\t" +JSON.parse(localStorage.getItem('logeduser')).fname ;
+            document.getElementById("sign-in-btn").style.display="none";
+            document.getElementById("sign-up-btn").style.display="none";
+            var signout=document.getElementById("signout");
+            signout.style.display="block"
+            signout.addEventListener("click",function(ev){
+                localStorage.removeItem("logeduser");
+                document.location="landing_page.html";
+            });
+            
+        }
+});
+    </script>
+</head>
+
+<body onclick="removeDropdown()">
+    <div id="shopping-bag-header">
+        <div id="top">
+            <div style="text-align:center">
+                <p style="width:100%;">
+                    <strong>Shipping outside of the U.S. or Canada?</strong>
+                    <a title="Learn About International Shipping" href="">Learn About International Shipping</a>
+
+                    <button class="right" href=""><img
+                            src="https://n.nordstrommedia.com/alias/IN.gif"><span>India</span></button>
+                </p>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div id="nav-bar" onmouseenter="removeBar()">
+            <div id="inside-div">
+                <div id="logo">
+                    <a href="landing_page.html"><img src="https://n.nordstrommedia.com/alias/nordstrom-logo.svg"></a>
+                </div>
+                <div id="navs">
+                    <button id="red" class="navEle" onclick="dropDown('Sale')"
+                        onmouseover="dropDown('Sale')">Sale</button>
+                    <button class="navEle" onclick="dropDown('Women')" onmouseover="dropDown('Women')">Women</button>
+                    <button class="navEle" onclick="dropDown('Men')" onmouseover="dropDown('Men')">Men</button>
+                    <button class="navEle" onclick="dropDown('Kids')" onmouseover="dropDown('Kids')">Kids</button>
+                    <button class="navEle" onclick="dropDown('YoungAdult')"
+                        onmouseover="dropDown('YoungAdult')">YoungAdult</button>
+                    <button class="navEle" onclick="dropDown('Activewear')"
+                        onmouseover="dropDown('Activewear')">Activewear</button>
+                    <button class="navEle" onclick="dropDown('Home')" onmouseover="dropDown('Home')">Home</button>
+                    <button class="navEle" onclick="dropDown('Gifts')" onmouseover="dropDown('Gifts')">Gifts</button>
+                    <button class="navEle" onclick="dropDown('Beauty')" onmouseover="dropDown('Beauty')">Beauty</button>
+                    <button class="navEle" onclick="dropDown('Designer')"
+                        onmouseover="dropDown('Designer')">Designer</button>
+                    <button class="navEle" onclick="dropDown('Brands')" onmouseover="dropDown('Brands')">Brands</button>
+                </div>
+                <div id="search" onmouseleave="removeSignBar()">
+                    <div id="one" onmouseenter="searchBar()">
+                        <div class="img" onmouseenter="removeSignBar()">
+                            <span class="material-icons">search</span>
+                        </div>
+                        <input id="inputBox" maxlength="200" placeholder="What can we help you find?" type="search"
+                            value="">
+                        <div class="word">
+                            <p>Search</p>
+                        </div>
+                    </div>
+                    <div id="two" onmouseenter="removeBar()">
+                        <p onmouseenter="signBar()" id="welcome_message">Sign In</p>
+                        <span class="material-icons">keyboard_arrow_down</span>
+                    </div>
+                    <div id="signIN" onmouseleave="removeSignBar()">
+                        <ul>
+                            <li id="sign-in-btn">
+                                <a href="signin.html">Sign In</a>
+                            </li>
+                            <li id="sign-up-btn">
+                                <a href="signup.html">Create Account</a>
+                            </li>
+                            <li>
+                                <a href=""><span>Your Account</span></a>
+                            </li>
+                            <li>
+                                <a href=""><span>Wish List</span></a>
+                            </li>
+                            <li>
+                                <a href=""><span>Looks</span></a>
+                            </li>
+                            <li>
+                                <a href=""><span>Stores & Events</span></a>
+                            </li>
+                            <li id="signout" style="display:none">
+                                <a href=""><span>Logout</span></a>
+                            </li>
+
+
+
+                        </ul>
+                    </div>
+                    <div id="bag">
+                        <a  id = "bag-icon-text" href="shopping_bag.html">
+                            <div><span class="material-icons" style = "font-size: 36px; color: black">shopping_bag</span></div>
+                            <p id = "itemsInBag"></p>
+                            <!-- <img class="bag-image" src="images/emptybag-icon.png"></img> -->
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div id="main-content">
+            <div class="Sale-content">
+                <div>
+                    <div class="firstDiv">
+                        <ul>
+                            <li id="saleIn">
+                                <h3 class="mainh3"><a href="">Sale: Get Inspired</a></h3>
+                            </li>
+                            <hr>
+                            <li>
+                                <h3><a href="">Bestsellers</a></h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">New Markdowns</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">Price Matched</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">Men's Designer Sale</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">Women's Designer Sale</a>
+                                </h3>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Women</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Clothing</a>
+                            </li>
+                            <li>
+                                <a href="">Shoes</a>
+                            </li>
+                            <li>
+                                <a href="">Handbags & Wallets</a>
+                            </li>
+                            <li>
+                                <a href="">Jewelry</a>
+                            </li>
+                            <li>
+                                <a href="">Accessories</a>
+                            </li>
+                            <li>
+                                <a href="">Beauty</a>
+                            </li>
+                            <li>
+                                <a href="">Designer</a>
+                            </li>
+                            <li class="topMargin">
+                                <a href="">Plus</a>
+                            </li>
+                            <li>
+                                <a href="">Petite</a>
+                            </li>
+                            <li>
+                                <a href="">Maternity</a>
+                            </li>
+                            <li>
+                                <a href="">Juniors</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Men</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Clothing</a>
+                            </li>
+                            <li>
+                                <a href="">Shoes</a>
+                            </li>
+                            <li>
+                                <a href="">Accessories</a>
+                            </li>
+                            <li>
+                                <a href="">Grooming & Cologne</a>
+                            </li>
+                            <li>
+                                <a href="">Designer</a>
+                            </li>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Designer</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">Women</a>
+                            </li>
+                            <li>
+                                <a href="">Men</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Kids</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Girls</a>
+                            </li>
+                            <li>
+                                <a href="">Boys</a>
+                            </li>
+                            <li>
+                                <a href="">Baby</a>
+                            </li>
+                            <li>
+                                <a href="">Baby Gear & Essentials</a>
+                            </li>
+                            <li>
+                                <a href="">Shoes</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Home</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Bedding & Bath</a>
+                            </li>
+                            <li>
+                                <a href="">Home Decor</a>
+                            </li>
+                            <li>
+                                <a href="">Electronics & Tech Accessories</a>
+                            </li>
+                            <li>
+                                <a href="">Luggage & Travel</a>
+                            </li>
+                            <li>
+                                <a href="">Tabletop & Kitchen</a>
+                            </li>
+                            <li>
+                                <h3 class="mainh3"><a href="">Beauty</a></h3>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="marginRem">
+                        <div>
+                            <div>
+                                <a href="">
+                                    <div>
+                                        <img
+                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                    </div>
+                                </a>
+                            </div>
+                            <div>
+                                <a class="decor" href="">New Markdowns</a>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="Women-content">
+                <div>
+                    <div class="firstDiv">
+                        <ul>
+                            <li id="saleIn">
+                                <h3 class="mainh3"><a href="">Sale: Get Inspired</a></h3>
+                            </li>
+                            <hr>
+                            <li>
+                                <h3><a href="">Bestsellers</a></h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">New Markdowns</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">Price Matched</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">Men's Designer Sale</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">Women's Designer Sale</a>
+                                </h3>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Women</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Clothing</a>
+                            </li>
+                            <li>
+                                <a href="">Shoes</a>
+                            </li>
+                            <li>
+                                <a href="">Handbags & Wallets</a>
+                            </li>
+                            <li>
+                                <a href="">Jewelry</a>
+                            </li>
+                            <li>
+                                <a href="">Accessories</a>
+                            </li>
+                            <li>
+                                <a href="">Beauty</a>
+                            </li>
+                            <li>
+                                <a href="">Designer</a>
+                            </li>
+                            <li class="topMargin">
+                                <a href="">Plus</a>
+                            </li>
+                            <li>
+                                <a href="">Petite</a>
+                            </li>
+                            <li>
+                                <a href="">Maternity</a>
+                            </li>
+                            <li>
+                                <a href="">Juniors</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Men</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Clothing</a>
+                            </li>
+                            <li>
+                                <a href="">Shoes</a>
+                            </li>
+                            <li>
+                                <a href="">Accessories</a>
+                            </li>
+                            <li>
+                                <a href="">Grooming & Cologne</a>
+                            </li>
+                            <li>
+                                <a href="">Designer</a>
+                            </li>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Designer</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">Women</a>
+                            </li>
+                            <li>
+                                <a href="">Men</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Kids</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Girls</a>
+                            </li>
+                            <li>
+                                <a href="">Boys</a>
+                            </li>
+                            <li>
+                                <a href="">Baby</a>
+                            </li>
+                            <li>
+                                <a href="">Baby Gear & Essentials</a>
+                            </li>
+                            <li>
+                                <a href="">Shoes</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Home</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Bedding & Bath</a>
+                            </li>
+                            <li>
+                                <a href="">Home Decor</a>
+                            </li>
+                            <li>
+                                <a href="">Electronics & Tech Accessories</a>
+                            </li>
+                            <li>
+                                <a href="">Luggage & Travel</a>
+                            </li>
+                            <li>
+                                <a href="">Tabletop & Kitchen</a>
+                            </li>
+                            <li>
+                                <h3 class="mainh3"><a href="">Beauty</a></h3>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="marginRem">
+                        <div>
+                            <div>
+                                <a href="">
+                                    <div>
+                                        <img
+                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                    </div>
+                                </a>
+                            </div>
+                            <div>
+                                <a class="decor" href="">New Markdowns</a>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="Men-content">
+                <div>
+                    <div class="firstDiv">
+                        <ul>
+                            <li id="saleIn">
+                                <h3 class="mainh3"><a href="">Sale: Get Inspired</a></h3>
+                            </li>
+                            <hr>
+                            <li>
+                                <h3><a href="">Bestsellers</a></h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">New Markdowns</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">Price Matched</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">Men's Designer Sale</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">Women's Designer Sale</a>
+                                </h3>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Women</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Clothing</a>
+                            </li>
+                            <li>
+                                <a href="">Shoes</a>
+                            </li>
+                            <li>
+                                <a href="">Handbags & Wallets</a>
+                            </li>
+                            <li>
+                                <a href="">Jewelry</a>
+                            </li>
+                            <li>
+                                <a href="">Accessories</a>
+                            </li>
+                            <li>
+                                <a href="">Beauty</a>
+                            </li>
+                            <li>
+                                <a href="">Designer</a>
+                            </li>
+                            <li class="topMargin">
+                                <a href="">Plus</a>
+                            </li>
+                            <li>
+                                <a href="">Petite</a>
+                            </li>
+                            <li>
+                                <a href="">Maternity</a>
+                            </li>
+                            <li>
+                                <a href="">Juniors</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Men</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Clothing</a>
+                            </li>
+                            <li>
+                                <a href="">Shoes</a>
+                            </li>
+                            <li>
+                                <a href="">Accessories</a>
+                            </li>
+                            <li>
+                                <a href="">Grooming & Cologne</a>
+                            </li>
+                            <li>
+                                <a href="">Designer</a>
+                            </li>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Designer</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">Women</a>
+                            </li>
+                            <li>
+                                <a href="">Men</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Kids</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Girls</a>
+                            </li>
+                            <li>
+                                <a href="">Boys</a>
+                            </li>
+                            <li>
+                                <a href="">Baby</a>
+                            </li>
+                            <li>
+                                <a href="">Baby Gear & Essentials</a>
+                            </li>
+                            <li>
+                                <a href="">Shoes</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Home</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Bedding & Bath</a>
+                            </li>
+                            <li>
+                                <a href="">Home Decor</a>
+                            </li>
+                            <li>
+                                <a href="">Electronics & Tech Accessories</a>
+                            </li>
+                            <li>
+                                <a href="">Luggage & Travel</a>
+                            </li>
+                            <li>
+                                <a href="">Tabletop & Kitchen</a>
+                            </li>
+                            <li>
+                                <h3 class="mainh3"><a href="">Beauty</a></h3>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="marginRem">
+                        <div>
+                            <div>
+                                <a href="">
+                                    <div>
+                                        <img
+                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                    </div>
+                                </a>
+                            </div>
+                            <div>
+                                <a class="decor" href="">New Markdowns</a>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="Kids-content">
+                <div>
+                    <div class="firstDiv">
+                        <ul>
+                            <li id="saleIn">
+                                <h3 class="mainh3"><a href="">Sale: Get Inspired</a></h3>
+                            </li>
+                            <hr>
+                            <li>
+                                <h3><a href="">Bestsellers</a></h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">New Markdowns</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">Price Matched</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">Men's Designer Sale</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">Women's Designer Sale</a>
+                                </h3>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Women</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Clothing</a>
+                            </li>
+                            <li>
+                                <a href="">Shoes</a>
+                            </li>
+                            <li>
+                                <a href="">Handbags & Wallets</a>
+                            </li>
+                            <li>
+                                <a href="">Jewelry</a>
+                            </li>
+                            <li>
+                                <a href="">Accessories</a>
+                            </li>
+                            <li>
+                                <a href="">Beauty</a>
+                            </li>
+                            <li>
+                                <a href="">Designer</a>
+                            </li>
+                            <li class="topMargin">
+                                <a href="">Plus</a>
+                            </li>
+                            <li>
+                                <a href="">Petite</a>
+                            </li>
+                            <li>
+                                <a href="">Maternity</a>
+                            </li>
+                            <li>
+                                <a href="">Juniors</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Men</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Clothing</a>
+                            </li>
+                            <li>
+                                <a href="">Shoes</a>
+                            </li>
+                            <li>
+                                <a href="">Accessories</a>
+                            </li>
+                            <li>
+                                <a href="">Grooming & Cologne</a>
+                            </li>
+                            <li>
+                                <a href="">Designer</a>
+                            </li>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Designer</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">Women</a>
+                            </li>
+                            <li>
+                                <a href="">Men</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Kids</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Girls</a>
+                            </li>
+                            <li>
+                                <a href="">Boys</a>
+                            </li>
+                            <li>
+                                <a href="">Baby</a>
+                            </li>
+                            <li>
+                                <a href="">Baby Gear & Essentials</a>
+                            </li>
+                            <li>
+                                <a href="">Shoes</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Home</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Bedding & Bath</a>
+                            </li>
+                            <li>
+                                <a href="">Home Decor</a>
+                            </li>
+                            <li>
+                                <a href="">Electronics & Tech Accessories</a>
+                            </li>
+                            <li>
+                                <a href="">Luggage & Travel</a>
+                            </li>
+                            <li>
+                                <a href="">Tabletop & Kitchen</a>
+                            </li>
+                            <li>
+                                <h3 class="mainh3"><a href="">Beauty</a></h3>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="marginRem">
+                        <div>
+                            <div>
+                                <a href="">
+                                    <div>
+                                        <img
+                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                    </div>
+                                </a>
+                            </div>
+                            <div>
+                                <a class="decor" href="">New Markdowns</a>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="YoungAdult-content">
+                <div>
+                    <div class="firstDiv">
+                        <ul>
+                            <li id="saleIn">
+                                <h3 class="mainh3"><a href="">Sale: Get Inspired</a></h3>
+                            </li>
+                            <hr>
+                            <li>
+                                <h3><a href="">Bestsellers</a></h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">New Markdowns</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">Price Matched</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">Men's Designer Sale</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">Women's Designer Sale</a>
+                                </h3>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Women</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Clothing</a>
+                            </li>
+                            <li>
+                                <a href="">Shoes</a>
+                            </li>
+                            <li>
+                                <a href="">Handbags & Wallets</a>
+                            </li>
+                            <li>
+                                <a href="">Jewelry</a>
+                            </li>
+                            <li>
+                                <a href="">Accessories</a>
+                            </li>
+                            <li>
+                                <a href="">Beauty</a>
+                            </li>
+                            <li>
+                                <a href="">Designer</a>
+                            </li>
+                            <li class="topMargin">
+                                <a href="">Plus</a>
+                            </li>
+                            <li>
+                                <a href="">Petite</a>
+                            </li>
+                            <li>
+                                <a href="">Maternity</a>
+                            </li>
+                            <li>
+                                <a href="">Juniors</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Men</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Clothing</a>
+                            </li>
+                            <li>
+                                <a href="">Shoes</a>
+                            </li>
+                            <li>
+                                <a href="">Accessories</a>
+                            </li>
+                            <li>
+                                <a href="">Grooming & Cologne</a>
+                            </li>
+                            <li>
+                                <a href="">Designer</a>
+                            </li>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Designer</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">Women</a>
+                            </li>
+                            <li>
+                                <a href="">Men</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Kids</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Girls</a>
+                            </li>
+                            <li>
+                                <a href="">Boys</a>
+                            </li>
+                            <li>
+                                <a href="">Baby</a>
+                            </li>
+                            <li>
+                                <a href="">Baby Gear & Essentials</a>
+                            </li>
+                            <li>
+                                <a href="">Shoes</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Home</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Bedding & Bath</a>
+                            </li>
+                            <li>
+                                <a href="">Home Decor</a>
+                            </li>
+                            <li>
+                                <a href="">Electronics & Tech Accessories</a>
+                            </li>
+                            <li>
+                                <a href="">Luggage & Travel</a>
+                            </li>
+                            <li>
+                                <a href="">Tabletop & Kitchen</a>
+                            </li>
+                            <li>
+                                <h3 class="mainh3"><a href="">Beauty</a></h3>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="marginRem">
+                        <div>
+                            <div>
+                                <a href="">
+                                    <div>
+                                        <img
+                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                    </div>
+                                </a>
+                            </div>
+                            <div>
+                                <a class="decor" href="">New Markdowns</a>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="Activewear-content">
+                <div>
+                    <div class="firstDiv">
+                        <ul>
+                            <li id="saleIn">
+                                <h3 class="mainh3"><a href="">Sale: Get Inspired</a></h3>
+                            </li>
+                            <hr>
+                            <li>
+                                <h3><a href="">Bestsellers</a></h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">New Markdowns</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">Price Matched</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">Men's Designer Sale</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">Women's Designer Sale</a>
+                                </h3>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Women</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Clothing</a>
+                            </li>
+                            <li>
+                                <a href="">Shoes</a>
+                            </li>
+                            <li>
+                                <a href="">Handbags & Wallets</a>
+                            </li>
+                            <li>
+                                <a href="">Jewelry</a>
+                            </li>
+                            <li>
+                                <a href="">Accessories</a>
+                            </li>
+                            <li>
+                                <a href="">Beauty</a>
+                            </li>
+                            <li>
+                                <a href="">Designer</a>
+                            </li>
+                            <li class="topMargin">
+                                <a href="">Plus</a>
+                            </li>
+                            <li>
+                                <a href="">Petite</a>
+                            </li>
+                            <li>
+                                <a href="">Maternity</a>
+                            </li>
+                            <li>
+                                <a href="">Juniors</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Men</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Clothing</a>
+                            </li>
+                            <li>
+                                <a href="">Shoes</a>
+                            </li>
+                            <li>
+                                <a href="">Accessories</a>
+                            </li>
+                            <li>
+                                <a href="">Grooming & Cologne</a>
+                            </li>
+                            <li>
+                                <a href="">Designer</a>
+                            </li>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Designer</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">Women</a>
+                            </li>
+                            <li>
+                                <a href="">Men</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Kids</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Girls</a>
+                            </li>
+                            <li>
+                                <a href="">Boys</a>
+                            </li>
+                            <li>
+                                <a href="">Baby</a>
+                            </li>
+                            <li>
+                                <a href="">Baby Gear & Essentials</a>
+                            </li>
+                            <li>
+                                <a href="">Shoes</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Home</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Bedding & Bath</a>
+                            </li>
+                            <li>
+                                <a href="">Home Decor</a>
+                            </li>
+                            <li>
+                                <a href="">Electronics & Tech Accessories</a>
+                            </li>
+                            <li>
+                                <a href="">Luggage & Travel</a>
+                            </li>
+                            <li>
+                                <a href="">Tabletop & Kitchen</a>
+                            </li>
+                            <li>
+                                <h3 class="mainh3"><a href="">Beauty</a></h3>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="marginRem">
+                        <div>
+                            <div>
+                                <a href="">
+                                    <div>
+                                        <img
+                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                    </div>
+                                </a>
+                            </div>
+                            <div>
+                                <a class="decor" href="">New Markdowns</a>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="Home-content">
+                <div>
+                    <div class="firstDiv">
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Home: Get Inspired</a>
+                                </h3>
+                            </li>
+                            <hr>
+                            <li>
+                                <h3>
+                                    <a href="">New Arrivals</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">
+                                        Black-Owned & Founded Brands
+                                    </a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">Dorm Room Essentials</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">Gift Cards</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">GOODEE</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">Home Looks</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">Nordstrom Made</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">Personalized Shop</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">Pop-In: Disney Mickey & Friends</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">Sustainable Style</a>
+                                </h3>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Bath</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">Bath Accessories</a>
+                            </li>
+                            <li>
+                                <a href="">Towels</a>
+                            </li>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Bedding</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">Bedding Basics</a>
+                            </li>
+                            <li>
+                                <a href="">Bedding Sets</a>
+                            </li>
+                            <li>
+                                <a href="">Blankets & Throws</a>
+                            </li>
+                            <li>
+                                <a href="">Comforters & Quilts</a>
+                            </li>
+                            <li>
+                                <a href="">Duvet Covers & Shams</a>
+                            </li>
+                            <li>
+                                <a href="">Sheets & Bed Skirts</a>
+                            </li>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Electronics & Music</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">Headphones</a>
+                            </li>
+                            <li>
+                                <a href="">Home Devices</a>
+                            </li>
+                            <li>
+                                <a href="">Speakers & Home Audio</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Home Decor</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">Accent Furniture</a>
+                            </li>
+                            <li>
+                                <a href="product_grid.html">Art, Wall Decor & Mirrors</a>
+                            </li>
+                            <li>
+                                <a href="">Books, Games & Puzzles</a>
+                            </li>
+                            <li>
+                                <a href="">Candles & Diffusers</a>
+                            </li>
+                            <li>
+                                <a href="">Decorative Accents</a>
+                            </li>
+                            <li>
+                                <a href="">Decorative Pillows</a>
+                            </li>
+                            <li>
+                                <a href="">Desk Accessories & Stationery</a>
+                            </li>
+                            <li>
+                                <a href="">Jewelry Boxes & Holders</a>
+                            </li>
+                            <li>
+                                <a href="">Lighting & Lamps</a>
+                            </li>
+                            <li>
+                                <a href="">Picture Frames</a>
+                            </li>
+                            <li>
+                                <a href="">Rugs</a>
+                            </li>
+                            <li>
+                                <a href="">Throw Blankets</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Kitchen</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">Bar Accessories</a>
+                            </li>
+                            <li>
+                                <a href="">Coffee & Tea Accessories</a>
+                            </li>
+                            <li>
+                                <a href="">Cookware & Bakeware</a>
+                            </li>
+                            <li>
+                                <a href="">Cutlery</a>
+                            </li>
+                            <li>
+                                <a href="">Kitchen Linens</a>
+                            </li>
+                            <li>
+                                <a href="">Small Appliances</a>
+                            </li>
+                            <li>
+                                <a href="">Storage & Gadgets</a>
+                            </li>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Tabletop</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">Dinnerware</a>
+                            </li>
+                            <li>
+                                <a href="">Drinkware & Glassware</a>
+                            </li>
+                            <li>
+                                <a href="">Flatware</a>
+                            </li>
+                            <li>
+                                <a href="">Serveware</a>
+                            </li>
+                            <li>
+                                <a href="">Table Linens</a>
+                            </li>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Water Bottles & Tumblers</a>
+                                </h3>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Pantry</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">Candy</a>
+                            </li>
+                            <li>
+                                <a href="">Coffee & Tea</a>
+                            </li>
+                            <li>
+                                <a href="">Gift Sets</a>
+                            </li>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Luggage & Travel</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Outdoor Living</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Pet Accessories</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Sanitizers & Personal Care</a>
+                                </h3>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="marginRem">
+                        <div>
+                            <div>
+                                <a href="">
+                                    <div>
+                                        <img
+                                            src="https://n.nordstrommedia.com/id/4e7d9382-fd6b-4697-b1f3-ceeddf0a63aa.jpg">
+                                    </div>
+                                </a>
+                            </div>
+                            <div>
+                                <a class="decor" href="">Explore the Trend</a>
+                                <hr>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="Gifts-content">
+                <div>
+                    <div class="firstDiv">
+                        <ul>
+                            <li id="saleIn">
+                                <h3 class="mainh3"><a href="">Sale: Get Inspired</a></h3>
+                            </li>
+                            <hr>
+                            <li>
+                                <h3><a href="">Bestsellers</a></h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">New Markdowns</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">Price Matched</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">Men's Designer Sale</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">Women's Designer Sale</a>
+                                </h3>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Women</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Clothing</a>
+                            </li>
+                            <li>
+                                <a href="">Shoes</a>
+                            </li>
+                            <li>
+                                <a href="">Handbags & Wallets</a>
+                            </li>
+                            <li>
+                                <a href="">Jewelry</a>
+                            </li>
+                            <li>
+                                <a href="">Accessories</a>
+                            </li>
+                            <li>
+                                <a href="">Beauty</a>
+                            </li>
+                            <li>
+                                <a href="">Designer</a>
+                            </li>
+                            <li class="topMargin">
+                                <a href="">Plus</a>
+                            </li>
+                            <li>
+                                <a href="">Petite</a>
+                            </li>
+                            <li>
+                                <a href="">Maternity</a>
+                            </li>
+                            <li>
+                                <a href="">Juniors</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Men</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Clothing</a>
+                            </li>
+                            <li>
+                                <a href="">Shoes</a>
+                            </li>
+                            <li>
+                                <a href="">Accessories</a>
+                            </li>
+                            <li>
+                                <a href="">Grooming & Cologne</a>
+                            </li>
+                            <li>
+                                <a href="">Designer</a>
+                            </li>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Designer</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">Women</a>
+                            </li>
+                            <li>
+                                <a href="">Men</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Kids</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Girls</a>
+                            </li>
+                            <li>
+                                <a href="">Boys</a>
+                            </li>
+                            <li>
+                                <a href="">Baby</a>
+                            </li>
+                            <li>
+                                <a href="">Baby Gear & Essentials</a>
+                            </li>
+                            <li>
+                                <a href="">Shoes</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Home</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Bedding & Bath</a>
+                            </li>
+                            <li>
+                                <a href="">Home Decor</a>
+                            </li>
+                            <li>
+                                <a href="">Electronics & Tech Accessories</a>
+                            </li>
+                            <li>
+                                <a href="">Luggage & Travel</a>
+                            </li>
+                            <li>
+                                <a href="">Tabletop & Kitchen</a>
+                            </li>
+                            <li>
+                                <h3 class="mainh3"><a href="">Beauty</a></h3>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="marginRem">
+                        <div>
+                            <div>
+                                <a href="">
+                                    <div>
+                                        <img
+                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                    </div>
+                                </a>
+                            </div>
+                            <div>
+                                <a class="decor" href="">New Markdowns</a>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="Beauty-content">
+                <div>
+                    <div class="firstDiv">
+                        <ul>
+                            <li id="saleIn">
+                                <h3 class="mainh3"><a href="">Sale: Get Inspired</a></h3>
+                            </li>
+                            <hr>
+                            <li>
+                                <h3><a href="">Bestsellers</a></h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">New Markdowns</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">Price Matched</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">Men's Designer Sale</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">Women's Designer Sale</a>
+                                </h3>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Women</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Clothing</a>
+                            </li>
+                            <li>
+                                <a href="">Shoes</a>
+                            </li>
+                            <li>
+                                <a href="">Handbags & Wallets</a>
+                            </li>
+                            <li>
+                                <a href="">Jewelry</a>
+                            </li>
+                            <li>
+                                <a href="">Accessories</a>
+                            </li>
+                            <li>
+                                <a href="">Beauty</a>
+                            </li>
+                            <li>
+                                <a href="">Designer</a>
+                            </li>
+                            <li class="topMargin">
+                                <a href="">Plus</a>
+                            </li>
+                            <li>
+                                <a href="">Petite</a>
+                            </li>
+                            <li>
+                                <a href="">Maternity</a>
+                            </li>
+                            <li>
+                                <a href="">Juniors</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Men</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Clothing</a>
+                            </li>
+                            <li>
+                                <a href="">Shoes</a>
+                            </li>
+                            <li>
+                                <a href="">Accessories</a>
+                            </li>
+                            <li>
+                                <a href="">Grooming & Cologne</a>
+                            </li>
+                            <li>
+                                <a href="">Designer</a>
+                            </li>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Designer</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">Women</a>
+                            </li>
+                            <li>
+                                <a href="">Men</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Kids</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Girls</a>
+                            </li>
+                            <li>
+                                <a href="">Boys</a>
+                            </li>
+                            <li>
+                                <a href="">Baby</a>
+                            </li>
+                            <li>
+                                <a href="">Baby Gear & Essentials</a>
+                            </li>
+                            <li>
+                                <a href="">Shoes</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Home</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Bedding & Bath</a>
+                            </li>
+                            <li>
+                                <a href="">Home Decor</a>
+                            </li>
+                            <li>
+                                <a href="">Electronics & Tech Accessories</a>
+                            </li>
+                            <li>
+                                <a href="">Luggage & Travel</a>
+                            </li>
+                            <li>
+                                <a href="">Tabletop & Kitchen</a>
+                            </li>
+                            <li>
+                                <h3 class="mainh3"><a href="">Beauty</a></h3>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="marginRem">
+                        <div>
+                            <div>
+                                <a href="">
+                                    <div>
+                                        <img
+                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                    </div>
+                                </a>
+                            </div>
+                            <div>
+                                <a class="decor" href="">New Markdowns</a>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="Designer-content">
+                <div>
+                    <div class="firstDiv">
+                        <ul>
+                            <li id="saleIn">
+                                <h3 class="mainh3"><a href="">Sale: Get Inspired</a></h3>
+                            </li>
+                            <hr>
+                            <li>
+                                <h3><a href="">Bestsellers</a></h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">New Markdowns</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">Price Matched</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">Men's Designer Sale</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">Women's Designer Sale</a>
+                                </h3>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Women</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Clothing</a>
+                            </li>
+                            <li>
+                                <a href="">Shoes</a>
+                            </li>
+                            <li>
+                                <a href="">Handbags & Wallets</a>
+                            </li>
+                            <li>
+                                <a href="">Jewelry</a>
+                            </li>
+                            <li>
+                                <a href="">Accessories</a>
+                            </li>
+                            <li>
+                                <a href="">Beauty</a>
+                            </li>
+                            <li>
+                                <a href="">Designer</a>
+                            </li>
+                            <li class="topMargin">
+                                <a href="">Plus</a>
+                            </li>
+                            <li>
+                                <a href="">Petite</a>
+                            </li>
+                            <li>
+                                <a href="">Maternity</a>
+                            </li>
+                            <li>
+                                <a href="">Juniors</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Men</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Clothing</a>
+                            </li>
+                            <li>
+                                <a href="">Shoes</a>
+                            </li>
+                            <li>
+                                <a href="">Accessories</a>
+                            </li>
+                            <li>
+                                <a href="">Grooming & Cologne</a>
+                            </li>
+                            <li>
+                                <a href="">Designer</a>
+                            </li>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Designer</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">Women</a>
+                            </li>
+                            <li>
+                                <a href="">Men</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Kids</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Girls</a>
+                            </li>
+                            <li>
+                                <a href="">Boys</a>
+                            </li>
+                            <li>
+                                <a href="">Baby</a>
+                            </li>
+                            <li>
+                                <a href="">Baby Gear & Essentials</a>
+                            </li>
+                            <li>
+                                <a href="">Shoes</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Home</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Bedding & Bath</a>
+                            </li>
+                            <li>
+                                <a href="">Home Decor</a>
+                            </li>
+                            <li>
+                                <a href="">Electronics & Tech Accessories</a>
+                            </li>
+                            <li>
+                                <a href="">Luggage & Travel</a>
+                            </li>
+                            <li>
+                                <a href="">Tabletop & Kitchen</a>
+                            </li>
+                            <li>
+                                <h3 class="mainh3"><a href="">Beauty</a></h3>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="marginRem">
+                        <div>
+                            <div>
+                                <a href="">
+                                    <div>
+                                        <img
+                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                    </div>
+                                </a>
+                            </div>
+                            <div>
+                                <a class="decor" href="">New Markdowns</a>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="Brands-content">
+                <div>
+                    <div class="firstDiv">
+                        <ul>
+                            <li id="saleIn">
+                                <h3 class="mainh3"><a href="">Sale: Get Inspired</a></h3>
+                            </li>
+                            <hr>
+                            <li>
+                                <h3><a href="">Bestsellers</a></h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">New Markdowns</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">Price Matched</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">Men's Designer Sale</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <h3>
+                                    <a href="">Women's Designer Sale</a>
+                                </h3>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Women</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Clothing</a>
+                            </li>
+                            <li>
+                                <a href="">Shoes</a>
+                            </li>
+                            <li>
+                                <a href="">Handbags & Wallets</a>
+                            </li>
+                            <li>
+                                <a href="">Jewelry</a>
+                            </li>
+                            <li>
+                                <a href="">Accessories</a>
+                            </li>
+                            <li>
+                                <a href="">Beauty</a>
+                            </li>
+                            <li>
+                                <a href="">Designer</a>
+                            </li>
+                            <li class="topMargin">
+                                <a href="">Plus</a>
+                            </li>
+                            <li>
+                                <a href="">Petite</a>
+                            </li>
+                            <li>
+                                <a href="">Maternity</a>
+                            </li>
+                            <li>
+                                <a href="">Juniors</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Men</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Clothing</a>
+                            </li>
+                            <li>
+                                <a href="">Shoes</a>
+                            </li>
+                            <li>
+                                <a href="">Accessories</a>
+                            </li>
+                            <li>
+                                <a href="">Grooming & Cologne</a>
+                            </li>
+                            <li>
+                                <a href="">Designer</a>
+                            </li>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Designer</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">Women</a>
+                            </li>
+                            <li>
+                                <a href="">Men</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Kids</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Girls</a>
+                            </li>
+                            <li>
+                                <a href="">Boys</a>
+                            </li>
+                            <li>
+                                <a href="">Baby</a>
+                            </li>
+                            <li>
+                                <a href="">Baby Gear & Essentials</a>
+                            </li>
+                            <li>
+                                <a href="">Shoes</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3 class="mainh3">
+                                    <a href="">Home</a>
+                                </h3>
+                            </li>
+                            <li>
+                                <a href="">New Markdowns</a>
+                            </li>
+                            <li>
+                                <a href="">Bedding & Bath</a>
+                            </li>
+                            <li>
+                                <a href="">Home Decor</a>
+                            </li>
+                            <li>
+                                <a href="">Electronics & Tech Accessories</a>
+                            </li>
+                            <li>
+                                <a href="">Luggage & Travel</a>
+                            </li>
+                            <li>
+                                <a href="">Tabletop & Kitchen</a>
+                            </li>
+                            <li>
+                                <h3 class="mainh3"><a href="">Beauty</a></h3>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="marginRem">
+                        <div>
+                            <div>
+                                <a href="">
+                                    <div>
+                                        <img
+                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                    </div>
+                                </a>
+                            </div>
+                            <div>
+                                <a class="decor" href="">New Markdowns</a>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="shopping-bag-container">
+        <div id="shopping-bag-sections">
+            <span id="shopping-bag-tag">Shopping Bag</span>
+            <span id="shopping-bag-saved">Saved for Later</span>
+        </div>
+
+        <div id = "shopping-bag-titles">
+            <p id = "shopping-bag-titles-name">Shopping Bag</p>
+            <p id = "shopping-bag-titles-gift"><span class="material-icons">card_giftcard</span>Choose gift options when you check out.</p>
+            <p id = "shopping-bag-titles-text">Items in your bag are not on hold.   </p>
+        </div>
+
+        <div id = "shopping-bag-data">
+
+        </div>
+
+        <hr/>
+
+        <div id = "shopping-bag-summary">
+            <div id = "shopping-bag-payment-methods">
+                <p>Accepted Payment Methods</p>
+                <span id = "shopping-bag-credit-logos">
+                <img style = "width: 50px" src = "https://constant.myntassets.com/checkout/assets/img/footer-bank-mc.png"/>
+                <img style = "width: 50px" src = "https://constant.myntassets.com/checkout/assets/img/footer-bank-visa.png"/>
+                <img style = "width: 50px" src = "https://constant.myntassets.com/checkout/assets/img/footer-bank-ae.png"/>
+                <img style = "width: 50px" src = "https://constant.myntassets.com/checkout/assets/img/footer-bank-rupay.png"/>
+                </span>
+
+                <p>Need help? Call 1.888.282.6060 or <a href = "">chat with us</a></p>
+
+                <p><a href = "">Shipping internationally?</a></p>
+            </div>
+
+            <div id = "shipping-bag-price-summary">
+                <div id = "shipping-bag-subtotal">
+                    <p>Subtotal</p>
+                </div>
+
+                <hr style = "width: 100%;"/>
+                <div><button onclick = "goToCheckout()" id = "shipping-bag-checkout-btn">Check Out</button></div>
+            </div>
+
+
+        </div>
+        
+    </div>
+
+    <div id='shopping-bag-footer'>
+        <div class="footer">
+            <div class="footer-col">
+
+                <ul class="ul">
+                    <li><label class="heading">Customer Service</label></li>
+                    <li>Contact Us</li>
+                    <li>Order Status</li>
+                    <li>Shipping</li>
+                    <li>Returns &amp; Exchanges</li>
+                    <li>Shipping</li>
+                    <li>Product recalls</li>
+                    <ul>
+            </div>
+            <div class="footer-col">
+                <ul class="ul">
+                    <li><label class="heading">Stores &amp; Events</label></li>
+                    <li>Stores &amp; Events</li>
+                    <li>Carrers</li>
+                    <li>Corporate Responsibility</li>
+                    <li>Diversity Inclusion &amp; Belonging</li>
+                    <li>Get Email Updates</li>
+                    <li>Nordstrom Blog</li>
+
+                    <ul>
+            </div>
+            <div class="footer-col">
+                <ul class="ul">
+                    <li><label class="heading">Services</label></li>
+                    <li>Personal Styling</li>
+                    <li>Altration &amp; Tailoring</li>
+                    <li>Spa Nordstrom</li>
+                    <li>Nordstrom Restaurants</li>
+                    <li>Gift Cards</li>
+
+                    <ul>
+            </div>
+            <div class="footer-col">
+                <ul class="ul">
+                    <li><label class="heading">Nordstrom Card</label></li>
+                    <li>Pay My Bill</li>
+                    <li>Manage my Nordstrom Card</li>
+
+                    <ul>
+            </div>
+            <div class="footer-col">
+                <ul class="ul">
+                    <li><label class="heading">Nordstrom Inc</label></li>
+                    <li>Nordstrom Rack</li>
+                    <li>Nordstrom Canada</li>
+                    <li>Trunk Club</li>
+                    <li>Investor Relations</li>
+                    <li>Press Releases</li>
+
+                    <ul>
+            </div>
+
+            <div class="footer-col">
+                <ul class="ul">
+                    <li style="padding:5px"><img src="./images/mobile.svg" alt="facebook" style="width:18px;margin-right:0px;padding:5px"/>Get our apps</li>
+                    <div style="display:flex;gap:15px;margin-top: 20px;">
+                        
+                        <img src="./images/insta.svg" alt="facebook" style="width:24px;"/>
+                        <img src="./images/pin.svg" alt="facebook" style="width:24px;"/>
+                        <img src="./images/twitter.svg" alt="facebook" style="width:24px;"/>
+                        <img src="./images/fb.svg" alt="facebook" style="width:24px;"/>
+                    </div>
+                <ul>
+            </div>
+
+
+
+
+        </div>
+
+        <div class="footer">
+            <p>Your Privacy Rights</p>
+            <p>Dont Sell My Info</p>
+            <p>Terms &amp; Conditions</p>
+            <p>Intrest Based Ads</p>
+            <p>&copy;2021 Nordstrom,Inc</p>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    function dropDown(a) {
+
+        var show1 = document.querySelector("#main-content")
+        var show = document.querySelector(`.${a}-content`)
+        show1.style.display = "block";
+        // show.style.display="block";
+        show.style.height = "500px"
+
+        var rem = document.getElementsByClassName("navEle")
+
+        for (var i = 0; i < rem.length; i++) {
+            if (rem[i].textContent != a) {
+                var remo = document.querySelector(`.${rem[i].textContent}-content`)
+                remo.style.height = "0px";
+
+                rem[i].style.color = "rgba(0, 0, 0, 0.3)"
+                rem[i].style.textDecoration = "none"
+            } else {
+                rem[i].style.color = "#393939"
+                rem[i].style.textDecoration = "underline"
+            }
+        }
+    }
+
+    function searchBar() {
+        var bar = document.querySelector("#inputBox")
+        bar.style.height = "70px";
+    }
+
+    function removeBar() {
+        var bar = document.querySelector("#inputBox")
+        bar.style.height = "0px";
+    }
+
+    function signBar() {
+        var bar = document.querySelector("#signIN")
+        bar.style.display = "block";
+    }
+
+    function removeSignBar() {
+        var bar = document.querySelector("#signIN")
+        bar.style.display = "none";
+    }
+
+    function removeDropdown() {
+        var show = document.querySelector("#main-content")
+        show.style.display = "none";
+
+        var reset = document.getElementsByClassName("navEle")
+
+        for (var i = 0; i < reset.length; i++) {
+            if (reset[i].textContent != "Sale") {
+                reset[i].style.color = "#393939"
+            }
+            reset[i].style.textDecoration = "none"
+        }
+    }
+
+    var bagData = document.getElementById('shopping-bag-data');
+
+    var number = 6288700;
+
+    var shoppingBagTotal = 0;
+    var quantityTotal = 0;
+
+    if (localStorage.getItem('logeduser') != null) {
+        var logeduser = JSON.parse(localStorage.getItem('logeduser')); 
+        var key = `bag_${logeduser.email}`;
+        var bag = JSON.parse(localStorage.getItem(key));
+        localStorage.setItem('bag', JSON.stringify([]));
+    } else if(localStorage.getItem('logeduser') === null) {
+        var bag = JSON.parse(localStorage.getItem('bag'));
+        key = 'bag';
+    }
+
+    console.log(key, bag);   
+
+    function addShoppingBagDetails(bag) {
+       
+        if(bag === null) {
+            localStorage.setItem('bag', JSON.stringify([]));
+            var text = document.createElement('p');
+            text.innerHTML = `Bag is empty. <a href = 'landing_page.html'>Start Shopping!</a>`;
+            text.setAttribute('id', 'shopping-bag-empty');
+            bagData.append(text);
+        } else if (bag.length === 0) {
+            localStorage.setItem('bag', JSON.stringify([]));
+            var text = document.createElement('p');
+            text.innerHTML = `Bag is empty. <a href = 'landing_page.html'>Start Shopping!</a>`;
+            text.setAttribute('id', 'shopping-bag-empty');
+            bagData.append(text);
+        }else {
+            bag.forEach(function(product) {
+
+                var bagDataDiv = document.createElement('div');
+                bagDataDiv.setAttribute('id', 'shopping-bag-data-div');
+
+
+                //Image Div
+                var imgDiv = document.createElement('div');
+                imgDiv.setAttribute('id', 'shopping-bag-data-div-img');
+                imgDiv.onclick = function() {
+                    if (localStorage.getItem('productDetails') === null) {
+                        localStorage.setItem('productDetails', JSON.stringify([]));
+                    }
+
+                    localStorage.setItem('productDetails', JSON.stringify([]))
+                    var details = JSON.parse(localStorage.getItem('productDetails'));
+                    details.push(product);
+
+                    localStorage.setItem('productDetails', JSON.stringify(details));
+
+                    window.location.href = 'product_details2.html';
+                }
+
+                imgDiv.onmouseover = function() {
+                    imgDiv.style.cursor = 'pointer';
+                }
+
+                var image = document.createElement('img');
+                image.src = product.image1;
+                imgDiv.appendChild(image);
+
+
+                //Text Div
+                var textDiv = document.createElement('div');
+                textDiv.setAttribute('id', 'shopping-bag-data-product-text');
+
+                var brand = document.createElement('p');
+                brand.innerText = product.brand.toUpperCase();
+                brand.setAttribute('class', 'shopping-bag-product-p-text');
+
+                var name = document.createElement('p');
+                name.innerText = product.name;
+                name.setAttribute('class', 'shopping-bag-product-p-text');
+                name.style.fontWeight = '400';
+
+                var size = document.createElement('p');
+                size.innerText = 'Size: One Size';
+                size.setAttribute('class', 'shopping-bag-product-p-text');
+
+                var color = document.createElement('p');
+                color.innerText = `Color: ${product.color.toUpperCase()}`;
+                color.setAttribute('class', 'shopping-bag-product-p-text');
+
+
+                var itemNo = document.createElement('p');
+                itemNo.innerText = `Item: ${number++}`;
+                itemNo.setAttribute('class', 'shopping-bag-product-p-text');
+
+
+                var deliveryTitle = document.createElement('p');
+                deliveryTitle.innerHTML = `<span class="material-icons">local_shipping</span> Delivery`;
+                deliveryTitle.style.marginBottom = '0px';
+
+                var deliveryText = document.createElement('p');
+                deliveryText.innerText = "International orders usually arrive within 5–13 business days. We'll give you delivery dates in checkout.";
+                deliveryText.setAttribute('class', 'shopping-bag-product-p-text');
+                
+
+                var buttonsDiv = document.createElement('div');
+                buttonsDiv.style.display = 'grid';
+                buttonsDiv.style.gridTemplateColumns = 'repeat(2, 1fr)';
+
+                var verticalSpace = document.createElement('div');
+                verticalSpace.setAttribute('class', 'vertical-space');
+
+                var removeBtn = document.createElement('p');
+                removeBtn.innerText = 'Remove';
+                removeBtn.style.textAlign = 'left';
+                removeBtn.style.fontSize = '14px';
+                removeBtn.style.textDecoration = 'none';
+                removeBtn.style.color = 'rgb(1, 100, 107)';
+                removeBtn.onclick = function() {
+                    removeProduct(product, bag, key);
+                }
+
+                removeBtn.onmouseover = function() {
+                    removeBtn.style.cursor = 'pointer';
+                }
+
+
+                // var saveBtn = document.createElement('a');
+                // saveBtn.setAttribute('href', "");
+                // saveBtn.innerText = 'Save for later';
+                // saveBtn.style.textAlign = 'left';
+                // saveBtn.style.textDecoration = 'none';
+                // saveBtn.style.color = 'rgb(1, 100, 107)';
+
+
+                buttonsDiv.appendChild(removeBtn);
+
+                textDiv.append(brand, name, verticalSpace, size, color, itemNo, verticalSpace, deliveryTitle, deliveryText, buttonsDiv);
+
+                //Quantity Div
+
+                var quantityDiv = document.createElement('div');
+                quantityDiv.setAttribute('id', 'shopping-bag-data-product-quantity');
+
+                var  quantityLabel = document.createElement('label');
+                quantityLabel.innerText = "Qty";
+                quantityLabel.style.fontSize = '18px';
+                var quantity = document.createElement('input');
+                quantity.setAttribute('value', product.quantity);
+                quantity.onchange = function() {
+                    if(Number(quantity.value) === 0) {
+                        product.quantity = Number(quantity.value);
+                        removeProduct(product, bag, key);
+                        window.location.href = 'shopping_bag.html';
+                    } else {
+                        product.quantity = Number(quantity.value);
+                        localStorage.setItem(key, JSON.stringify(bag));
+                        window.location.href = 'shopping_bag.html';
+                    }
+                }
+                console.log(product);
+                quantity.value = `${product.quantity}`;
+                // quantity.style.color = 'rgb(1, 100, 107)';
+                console.log(product.quantity);
+                quantityTotal += product.quantity;
+                quantity.style.border = '1px solid rgb(37, 37, 37)';
+                quantity.style.fontSize = '14px';
+
+                quantityDiv.append(quantityLabel, quantity);
+
+                //Total price div
+
+                var priceDiv = document.createElement('div');
+                priceDiv.setAttribute('id', 'shopping-bag-data-product-price');
+
+                var totalPrice = document.createElement('p');
+                totalPrice.innerText = `₹${product.price * product.quantity}`;
+                totalPrice.style.fontWeight = '500';
+                totalPrice.style.margin = '5px';
+
+                shoppingBagTotal += product.price * product.quantity;
+
+                var price = document.createElement('p');
+                price.innerText = `(₹${product.price} each)`;
+                price.setAttribute('class', 'shopping-bag-product-p-text');
+                price.style.margin = '0px';
+
+                var span = document.createElement('span');
+                span.append(totalPrice, price)
+
+                priceDiv.appendChild(span);
+
+                bagDataDiv.append(imgDiv, textDiv, quantityDiv, priceDiv);
+
+                var line = document.createElement('hr');
+                line.style.width = '100%';
+                bagData.append(line,bagDataDiv);
+                shpBagTag.innerText = `Shopping Bag (${quantityTotal})`;
+
+            });
+        }
+    }
+
+    var items = document.getElementById('itemsInBag');
+    var shpgBagTotalPrice = document.getElementById('shipping-bag-subtotal');
+    var totalPriceTag = document.createElement('p');
+    window.onload = function() {
+        addShoppingBagDetails(bag);
+
+        items.innerText = "";
+        items.innerText = `(${quantityTotal})`;
+
+        totalPriceTag.innerText = `₹${shoppingBagTotal}`;
+        totalPriceTag.style.textAlign = 'right';
+
+        shpgBagTotalPrice.appendChild(totalPriceTag);
+        shpBagTag.innerText = `Shopping Bag (${quantityTotal})`;
+    }
+
+    var shpBagTag = document.getElementById('shopping-bag-tag');
+    shpBagTag.innerText = `Shopping Bag (${quantityTotal})`;
+
+    var savedForLater = document.getElementById('shopping-bag-saved');
+    savedForLater.innerText = `Saved for Later (0)`;
+
+
+    function goToCheckout() {
+        if(localStorage.getItem('logeduser') === null) {
+            window.location.href = 'signin.html';
+        } else {
+            window.location.href = 'checkout.html';
+        }
+    }
+
+
+    function removeProduct(product, bag, key) {
+        var index = bag.indexOf(product);
+        bag.splice(index, 1);
+
+        bagData.innerHTML = "";
+
+
+        localStorage.setItem(key, JSON.stringify(bag));
+
+        shoppingBagTotal = 0;
+        quantityTotal = 0;
+
+        addShoppingBagDetails(bag);
+        shpBagTag.innerText = `Shopping Bag (${quantityTotal})`;
+        totalPriceTag.innerText = `INR ${shoppingBagTotal}`;
+        var items = document.getElementById('itemsInBag');
+        items.innerText = "";
+        items.innerText = `(${quantityTotal})`;
+    }
+
+    document.addEventListener("DOMContentLoaded",function(e){
+    
+        var p=document.getElementById("welcome_message");
+
+        if(localStorage.getItem('logeduser')!=null){
+                p.innerText= "Hi \t" +JSON.parse(localStorage.getItem('logeduser')).fname;
+                document.getElementById("sign-in-btn").style.display="none";
+                document.getElementById("sign-up-btn").style.display="none";
+                
+        }
+    });
+
+    var bagIcon = document.getElementById('bag-icon-text');
+    
+
+    function calculateItemsInBag() {
+        items.innerText = "";
+        if (localStorage.getItem('logeduser') != null) {
+            var logeduser = JSON.parse(localStorage.getItem('logeduser')); 
+            var key = `bag_${logeduser.email}`;
+            var bag = JSON.parse(localStorage.getItem(key));
+            localStorage.setItem('bag', JSON.stringify([]));
+        } else if(localStorage.getItem('logeduser') === null) {
+            var bag = JSON.parse(localStorage.getItem('bag'));
+            key = 'bag';
+        }
+
+        
+        var totalItems = 0;
+
+        bag.forEach(function(product) {
+            totalItems += product.quantity;
+        })
+
+        items.innerText = `(${totalItems})`;
+    }
+</script>
