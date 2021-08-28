@@ -5,16 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id = "page-title">Nordstrom Online & In Store: Shoes, Jewelry, Clothing, Makeup, Dresses</title>
+    <title id="page-title">Nordstrom Online & In Store: Shoes, Jewelry, Clothing, Makeup, Dresses</title>
     <link rel="icon" href="https://n.nordstrommedia.com/id/c4fb2a09-3657-4161-9b79-6412897d9399.png"
         type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: "Lato", Arial, sans-serif;
+            font-family: Roboto, Arial, sans-serif;
             margin: 0px;
         }
 
@@ -27,14 +28,16 @@
             width: 70%;
             margin: auto;
             display: grid;
-            grid-template-columns: 50% 400px;
+            grid-template-columns: 40% 400px 300px;
             gap: 20px
         }
 
         .pro_det_name {
-            font-weight: 100;
+            font-weight: 400;
             margin-bottom: 0px;
             margin-top: 0px;
+            color: rgb(68, 68, 68);
+            font-size: 30px;
         }
 
         .pro_det_h4 {
@@ -52,14 +55,13 @@
         }
 
 
-        .disc li{
+        .disc li {
             list-style-type: square;
+            font-size: 30px;
         }
 
         .prod-img {
             width: 50%;
-
-
         }
 
         .flex-box {
@@ -75,44 +77,49 @@
         #button1 {
             background-color: black;
             color: white;
-            padding: 10px;
+            padding: 5px;
             font-size: 20px;
-            line-height: 24px;
-            border-radius: 5px;
-
+            line-height: 0px;
+            border: 0px;
         }
 
         .pro_det_p {
-            font-size: 13px;
+            font-size: 18px;
             float: left;
-
+            color: rgb(68, 68, 68);
+            font-weight: 350;
         }
 
         .pro_det_h3 {
+            margin-top: 0px;
             margin-bottom: 0px;
+            font-size: 18px;
+            color: #393939;
+            font-weight: 500;
         }
 
         .pro_det_p2 {
             margin-top: 0px;
             margin-bottom: 0px;
-            font-size: 13px;
-            float: left
+            font-size: 16px;
+            float: left;
+            color: rgb(63, 63, 63);
+            font-weight: 400;
         }
 
         #discription_list {
             float: left;
             text-align: left;
             width: 35%;
-
-
-
         }
 
         #pro_det_chatnow {
-
-            color: black;
-            padding: 20px;
-            width: 120px
+            color: #3a3a3a;
+            padding: 10px;
+            width: 120px;
+            margin-bottom: 10px;
+            background-color: white;
+            border: 1px solid #969696;
         }
 
         .pro_det_hower {
@@ -132,8 +139,9 @@
             margin-bottom: 0px;
         }*/
         #discription_list li {
-            font-size: 13px;
-
+            font-size: 16px;
+            color: rgb(63, 63, 63);
+            font-weight: 300;
         }
 
         .pro_det_p3 {
@@ -143,11 +151,11 @@
         }
 
         #discription_list {
-            padding: 20px;
+            padding-left: 50px;
         }
 
         #have_questions {
-            padding: 20px;
+            padding-left: 50px;
         }
 
         .pro_det_hower1 {
@@ -159,10 +167,10 @@
         }
 
         #quantity {
-            width: 30px;
-            height: 30px;
+            width: 40px;
+            height: 40px;
             text-align: center;
-
+            font-size: 22px;
         }
 
         .pro_det_hower2 {
@@ -445,7 +453,7 @@
             width: 18%;
             margin-right: 0px !important;
             margin-left: 10px;
-            position:relative;
+            position: relative;
         }
 
         #search>div {
@@ -729,32 +737,36 @@
         .right {
             float: right
         }
+
+        #recommended-product > * {
+            margin: 10px 50px;
+            text-align: center;
+        }
     </style>
 
-<script>
+    <script>
 
-document.addEventListener("DOMContentLoaded",function(e){
-                
-                var p=document.getElementById("welcome_message");
+        document.addEventListener("DOMContentLoaded", function (e) {
 
-                if(localStorage.getItem('logeduser')!=null)
-                    {
-                        p.innerText= "Hi,\t" +JSON.parse(localStorage.getItem('logeduser')).fname ;
-                        document.getElementById("sign-in-btn").style.display="none";
-                        document.getElementById("sign-up-btn").style.display="none";
-                        var signout=document.getElementById("signout");
-                        signout.style.display="block"
-                        signout.addEventListener("click",function(ev){
-                            
-                            localStorage.removeItem("logeduser").then(function(e){
-                                document.location="landing_page.html";
-                            });
-                            
-                        });
-                        
-                    }
-            });
-</script>
+            var p = document.getElementById("welcome_message");
+
+            if (localStorage.getItem('logeduser') != null) {
+                p.innerText = "Hi,\t" + JSON.parse(localStorage.getItem('logeduser')).fname;
+                document.getElementById("sign-in-btn").style.display = "none";
+                document.getElementById("sign-up-btn").style.display = "none";
+                var signout = document.getElementById("signout");
+                signout.style.display = "block"
+                signout.addEventListener("click", function (ev) {
+
+                    localStorage.removeItem("logeduser").then(function (e) {
+                        document.location = "landing_page.html";
+                    });
+
+                });
+
+            }
+        });
+    </script>
 </head>
 
 <body onclick="removeDropdown()">
@@ -767,23 +779,25 @@ document.addEventListener("DOMContentLoaded",function(e){
                     <p style="width:100%;">
                         <strong>Shipping outside of the U.S. or Canada?</strong>
                         <a title="Learn About International Shipping" href="">Learn About International Shipping</a>
-    
+
                         <button class="right" href=""><img
                                 src="https://n.nordstrommedia.com/alias/IN.gif"><span>India</span></button>
                     </p>
-    
+
                 </div>
                 <div class="clear"></div>
             </div>
             <div id="nav-bar" onmouseenter="removeBar()">
                 <div id="inside-div">
                     <div id="logo">
-                        <a href="landing_page.html"><img src="https://n.nordstrommedia.com/alias/nordstrom-logo.svg"></a>
+                        <a href="landing_page.html"><img
+                                src="https://n.nordstrommedia.com/alias/nordstrom-logo.svg"></a>
                     </div>
                     <div id="navs">
                         <button id="red" class="navEle" onclick="dropDown('Sale')"
                             onmouseover="dropDown('Sale')">Sale</button>
-                        <button class="navEle" onclick="dropDown('Women')" onmouseover="dropDown('Women')">Women</button>
+                        <button class="navEle" onclick="dropDown('Women')"
+                            onmouseover="dropDown('Women')">Women</button>
                         <button class="navEle" onclick="dropDown('Men')" onmouseover="dropDown('Men')">Men</button>
                         <button class="navEle" onclick="dropDown('Kids')" onmouseover="dropDown('Kids')">Kids</button>
                         <button class="navEle" onclick="dropDown('YoungAdult')"
@@ -791,11 +805,14 @@ document.addEventListener("DOMContentLoaded",function(e){
                         <button class="navEle" onclick="dropDown('Activewear')"
                             onmouseover="dropDown('Activewear')">Activewear</button>
                         <button class="navEle" onclick="dropDown('Home')" onmouseover="dropDown('Home')">Home</button>
-                        <button class="navEle" onclick="dropDown('Gifts')" onmouseover="dropDown('Gifts')">Gifts</button>
-                        <button class="navEle" onclick="dropDown('Beauty')" onmouseover="dropDown('Beauty')">Beauty</button>
+                        <button class="navEle" onclick="dropDown('Gifts')"
+                            onmouseover="dropDown('Gifts')">Gifts</button>
+                        <button class="navEle" onclick="dropDown('Beauty')"
+                            onmouseover="dropDown('Beauty')">Beauty</button>
                         <button class="navEle" onclick="dropDown('Designer')"
                             onmouseover="dropDown('Designer')">Designer</button>
-                        <button class="navEle" onclick="dropDown('Brands')" onmouseover="dropDown('Brands')">Brands</button>
+                        <button class="navEle" onclick="dropDown('Brands')"
+                            onmouseover="dropDown('Brands')">Brands</button>
                     </div>
                     <div id="search" onmouseleave="removeSignBar()">
                         <div id="one" onmouseenter="searchBar()">
@@ -838,7 +855,8 @@ document.addEventListener("DOMContentLoaded",function(e){
                             </ul>
                         </div>
                         <div id="bag">
-                            <a href="shopping_bag.html"><span class="material-icons" style = "font-size: 36px; color: black">shopping_bag</span>
+                            <a href="shopping_bag.html"><span class="material-icons"
+                                    style="font-size: 36px; color: black">shopping_bag</span>
                                 <!-- <img class="bag-image" src="images/emptybag-icon.png"></img> -->
                             </a>
                         </div>
@@ -1038,8 +1056,8 @@ document.addEventListener("DOMContentLoaded",function(e){
                         </div>
                     </div>
                 </div>
-    
-    
+
+
                 <div class="Women-content">
                     <div>
                         <div class="firstDiv">
@@ -1231,7 +1249,7 @@ document.addEventListener("DOMContentLoaded",function(e){
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="Men-content">
                     <div>
                         <div class="firstDiv">
@@ -1423,7 +1441,7 @@ document.addEventListener("DOMContentLoaded",function(e){
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="Kids-content">
                     <div>
                         <div class="firstDiv">
@@ -1615,7 +1633,7 @@ document.addEventListener("DOMContentLoaded",function(e){
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="YoungAdult-content">
                     <div>
                         <div class="firstDiv">
@@ -1807,7 +1825,7 @@ document.addEventListener("DOMContentLoaded",function(e){
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="Activewear-content">
                     <div>
                         <div class="firstDiv">
@@ -1999,7 +2017,7 @@ document.addEventListener("DOMContentLoaded",function(e){
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="Home-content">
                     <div>
                         <div class="firstDiv">
@@ -2269,11 +2287,11 @@ document.addEventListener("DOMContentLoaded",function(e){
                                     <hr>
                                 </div>
                             </div>
-    
+
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="Gifts-content">
                     <div>
                         <div class="firstDiv">
@@ -2465,7 +2483,7 @@ document.addEventListener("DOMContentLoaded",function(e){
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="Beauty-content">
                     <div>
                         <div class="firstDiv">
@@ -2657,7 +2675,7 @@ document.addEventListener("DOMContentLoaded",function(e){
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="Designer-content">
                     <div>
                         <div class="firstDiv">
@@ -2849,7 +2867,7 @@ document.addEventListener("DOMContentLoaded",function(e){
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="Brands-content">
                     <div>
                         <div class="firstDiv">
@@ -3046,103 +3064,109 @@ document.addEventListener("DOMContentLoaded",function(e){
         <div id="details" style="position:relative;overflow:hidden">
             <div class="image-holder">
                 <div id="image_product" class="flex-box"></div>
-        
+
             </div>
-    
+
             <div class="product-holder">
                 <div id="discription_product" class="flex-box"></div>
             </div>
-    
-            
+
+            <div id='recommended-product' style="border: 1px solid grey">
+                <p style = "font-size: 22px;">You might also like:</p>
+
+                <img src = "https://n.io.nordstrommedia.com/id/sr3/d6cc85b0-201f-46a6-b6dd-791c83ae6eec.jpeg?crop=pad&amp;pad_color=FFF&amp;format=jpeg&amp;w=200&amp;h=300"/>
+
+                <p style = "text-align: center; margin: 0px;">DENY DESIGNS</p>
+                <p style = "text-align: center; margin: 0px;">INR 3094</p>
+
+            </div>
         </div>
-        <br>
-    <br>
-    <div id="flex" style="margin:30px;">
-        <div id="discription_list"></div>
-        <div id="have_questions" class="flex-box"></div>
-        <div id="ratings"></div>
-    </div>
-    <div id='product-grid-footer'>
-        <div class="footer">
-            <div class="footer-col">
-
-                <ul class="ul">
-                    <li><label class="heading">Customer Service</label></li>
-                    <li>Contact Us</li>
-                    <li>Order Status</li>
-                    <li>Shipping</li>
-                    <li>Returns &amp; Exchanges</li>
-                    <li>Shipping</li>
-                    <li>Product recalls</li>
-                    <ul>
-            </div>
-            <div class="footer-col">
-                <ul class="ul">
-                    <li><label class="heading">Stores &amp; Events</label></li>
-                    <li>Stores &amp; Events</li>
-                    <li>Carrers</li>
-                    <li>Corporate Responsibility</li>
-                    <li>Diversity Inclusion &amp; Belonging</li>
-                    <li>Get Email Updates</li>
-                    <li>Nordstrom Blog</li>
-
-                    <ul>
-            </div>
-            <div class="footer-col">
-                <ul class="ul">
-                    <li><label class="heading">Services</label></li>
-                    <li>Personal Styling</li>
-                    <li>Altration &amp; Tailoring</li>
-                    <li>Spa Nordstrom</li>
-                    <li>Nordstrom Restaurants</li>
-                    <li>Gift Cards</li>
-
-                    <ul>
-            </div>
-            <div class="footer-col">
-                <ul class="ul">
-                    <li><label class="heading">Nordstrom Card</label></li>
-                    <li>Pay My Bill</li>
-                    <li>Manage my Nordstrom Card</li>
-
-                    <ul>
-            </div>
-            <div class="footer-col">
-                <ul class="ul">
-                    <li><label class="heading">Nordstrom Inc</label></li>
-                    <li>Nordstrom Rack</li>
-                    <li>Nordstrom Canada</li>
-                    <li>Trunk Club</li>
-                    <li>Investor Relations</li>
-                    <li>Press Releases</li>
-
-                    <ul>
-            </div>
-
-            <div class="footer-col">
-                <ul class="ul">
-                    <li>Get our apps</li>
-
-                    <ul>
-            </div>
-
-
-
-
+        <div id="flex" style="margin-left:30px;">
+            <div id="discription_list"></div>
+            <div id="have_questions" class="flex-box"></div>
+            <div id="ratings"></div>
         </div>
+        <div id='product-grid-footer'>
+            <div class="footer">
+                <div class="footer-col">
 
-        <div class="footer">
-            <p>Your Privacy Rights</p>
-            <p>Dont Sell My Info</p>
-            <p>Terms &amp; Conditions</p>
-            <p>Intrest Based Ads</p>
-            <p>&copy;2021 Nordstrom,Inc</p>
+                    <ul class="ul">
+                        <li><label class="heading">Customer Service</label></li>
+                        <li>Contact Us</li>
+                        <li>Order Status</li>
+                        <li>Shipping</li>
+                        <li>Returns &amp; Exchanges</li>
+                        <li>Shipping</li>
+                        <li>Product recalls</li>
+                        <ul>
+                </div>
+                <div class="footer-col">
+                    <ul class="ul">
+                        <li><label class="heading">Stores &amp; Events</label></li>
+                        <li>Stores &amp; Events</li>
+                        <li>Carrers</li>
+                        <li>Corporate Responsibility</li>
+                        <li>Diversity Inclusion &amp; Belonging</li>
+                        <li>Get Email Updates</li>
+                        <li>Nordstrom Blog</li>
+
+                        <ul>
+                </div>
+                <div class="footer-col">
+                    <ul class="ul">
+                        <li><label class="heading">Services</label></li>
+                        <li>Personal Styling</li>
+                        <li>Altration &amp; Tailoring</li>
+                        <li>Spa Nordstrom</li>
+                        <li>Nordstrom Restaurants</li>
+                        <li>Gift Cards</li>
+
+                        <ul>
+                </div>
+                <div class="footer-col">
+                    <ul class="ul">
+                        <li><label class="heading">Nordstrom Card</label></li>
+                        <li>Pay My Bill</li>
+                        <li>Manage my Nordstrom Card</li>
+
+                        <ul>
+                </div>
+                <div class="footer-col">
+                    <ul class="ul">
+                        <li><label class="heading">Nordstrom Inc</label></li>
+                        <li>Nordstrom Rack</li>
+                        <li>Nordstrom Canada</li>
+                        <li>Trunk Club</li>
+                        <li>Investor Relations</li>
+                        <li>Press Releases</li>
+
+                        <ul>
+                </div>
+
+                <div class="footer-col">
+                    <ul class="ul">
+                        <li>Get our apps</li>
+
+                        <ul>
+                </div>
+
+
+
+
+            </div>
+
+            <div class="footer">
+                <p>Your Privacy Rights</p>
+                <p>Dont Sell My Info</p>
+                <p>Terms &amp; Conditions</p>
+                <p>Intrest Based Ads</p>
+                <p>&copy;2021 Nordstrom,Inc</p>
+            </div>
         </div>
     </div>
-    </div>
-    
-   
-    <div id='product-grid-modalBox' >
+
+
+    <div id='product-grid-modalBox'>
         <div id='product-grid-modal-product-info'>
 
             <div>
@@ -3156,7 +3180,7 @@ document.addEventListener("DOMContentLoaded",function(e){
         </div>
     </div>
 
-    
+
     <script>
 
         function dropDown(a) {
@@ -3238,7 +3262,8 @@ document.addEventListener("DOMContentLoaded",function(e){
             // console.log(product.name)
             var brand = document.createElement("p")
             brand.setAttribute("class", "pro_det_p")
-            brand.textContent = product.brand
+            brand.textContent = product.brand.toUpperCase();
+            brand.style.fontSize = "17px";
             //hower through image
             var image = document.createElement("img")
             image.setAttribute("class", "pro_det_img")
@@ -3251,7 +3276,7 @@ document.addEventListener("DOMContentLoaded",function(e){
                 image.style.width = "40%"
                 image.style.position = "absolute"
                 image.style.top = "0px"
-                image.style.left = "20px"
+                image.style.left = "10px"
 
             }
             image.onmouseleave = function () {
@@ -3262,11 +3287,14 @@ document.addEventListener("DOMContentLoaded",function(e){
 
 
             var color = document.createElement("p")
+            color.innerText = "Colors available: ";
             color.setAttribute("class", "pro_det_p")
-            color.textContent = product.color
-            var color1 = product.color
-            color.style.color = color1
-            color.style.fontWeight = 800;
+            color.style.fontWeight = 500;
+            var colorName = document.createElement('span');
+            colorName.innerText = product.color;
+            colorName.style.color = product.color;
+            colorName.style.fontWeight = 800;
+            color.appendChild(colorName);
             //console.log(color)
 
             var price = document.createElement("h3")
@@ -3284,9 +3312,14 @@ document.addEventListener("DOMContentLoaded",function(e){
             var about1 = document.createElement("p")
             about1.setAttribute("class", "pro_det_p")
             about1.textContent = product.about
-
             var itemcode = document.createElement("p")
             itemcode.textContent = product.itemcode
+            console.log(itemcode);
+
+            var about2 = document.createElement("p")
+            about2.setAttribute("class", "pro_det_p")
+            about2.textContent = product.about
+            about2.style.fontSize = '14px';
 
             //add to bag button
 
@@ -3294,9 +3327,10 @@ document.addEventListener("DOMContentLoaded",function(e){
             var span = document.createElement("span")
             button.setAttribute("id", "button1")
             span.setAttribute("class", "material-icons")
-            span.innerText = "shopping_bag"
+            span.innerText = "shopping_bag";
+            span.style.fontSize = "24px";
             button.append(span)
-            button.style.fontSize = "19px"
+            button.style.fontSize = "19px";
             button.innerHTML += " Add to Bag"
 
             //function for add to cart
@@ -3374,12 +3408,17 @@ document.addEventListener("DOMContentLoaded",function(e){
             }
 
             // quantity element 
+            var quantityLabel = document.createElement('label');
+            quantityLabel.setAttribute('for', 'quantity');
+            quantityLabel.innerText = "Quantity: ";
+            quantityLabel.style.fontSize = '18px';
+            quantityLabel.style.fontWeight = '450';
+            quantityLabel.style.marginBottom = '10px';
+            quantityLabel.style.color = 'rgb(68, 68, 68)';
             var quantity = document.createElement("input");
             quantity.setAttribute("type", "text");
             quantity.setAttribute("id", "quantity");
             quantity.setAttribute("value", "1")
-
-
 
 
             // wishlist content
@@ -3429,15 +3468,18 @@ document.addEventListener("DOMContentLoaded",function(e){
                 rating.appendChild(rating_count);
 
                 // div.append(image, description, p_price, rating);
-                discription_div.append(rating, name, brand, price, text, about1, color, quantity, document.createElement("br"), button, wishlist);
+                discription_div.append(rating, name, brand, price, text, about1, color, quantityLabel, quantity, document.createElement("br"), button, wishlist);
             } else {
                 // div.append(image, description, p_price);
-                discription_div.append(name, brand, price, text, about1, color, quantity, document.createElement("br"), button, wishlist);
+                discription_div.append(name, brand, price, text, about1, color, quantityLabel, quantity, document.createElement("br"), button, wishlist);
             }
             // discription_div.append(name,price,text,about1,color,button)
-            discription_list.append(second_header, about)
-            discription_list.setAttribute("class","disc");
-            discription_list.innerHTML += product.details
+            discription_list.append(second_header, about2)
+            discription_list.setAttribute("class", "disc");
+            var product_details = document.createElement('ul');
+            product_details.innerHTML = product.details;
+            console.log(product_details);
+            discription_list.append(product_details);
             discription_list.append(seemore)
 
             //div.append(div1,div2)
@@ -3449,29 +3491,29 @@ document.addEventListener("DOMContentLoaded",function(e){
         if (localStorage.getItem("bag") == null) {
             localStorage.setItem("bag", JSON.stringify([]))
         }
-    
+
         //add to bag function
 
         function add_to_bag(product) {
             if (localStorage.getItem('logeduser') != null) {
-                var logeduser = JSON.parse(localStorage.getItem('logeduser')); 
+                var logeduser = JSON.parse(localStorage.getItem('logeduser'));
                 var key = `bag_${logeduser.email}`;
                 var bag = JSON.parse(localStorage.getItem(key));
                 localStorage.setItem('bag', JSON.stringify([]));
-            } else if(localStorage.getItem('logeduser') === null) {
+            } else if (localStorage.getItem('logeduser') === null) {
                 var bag = JSON.parse(localStorage.getItem('bag'));
                 key = 'bag';
             }
-    
+
             // var bag=JSON.stringify(product)
 
             var selectedProduct = product;
 
             var productPresent = false;
 
-            for(let i = 0; i < bag.length; i++) {
-                if(bag[i].name === selectedProduct.name) {
-                    if(bag[i].quantity === undefined) {
+            for (let i = 0; i < bag.length; i++) {
+                if (bag[i].name === selectedProduct.name) {
+                    if (bag[i].quantity === undefined) {
                         bag[i].quantity = Number(document.getElementById("quantity").value);
                     } else {
                         bag[i].quantity += Number(document.getElementById("quantity").value);
@@ -3482,7 +3524,7 @@ document.addEventListener("DOMContentLoaded",function(e){
                 }
             }
 
-            if(!productPresent) {
+            if (!productPresent) {
                 selectedProduct.quantity = Number(document.getElementById("quantity").value);;
                 bag.push(selectedProduct);
             }
@@ -3492,7 +3534,7 @@ document.addEventListener("DOMContentLoaded",function(e){
             console.log(selectedProduct);
 
             openModal(selectedProduct, bag, key);
-            
+
 
         }
 
@@ -3583,7 +3625,7 @@ document.addEventListener("DOMContentLoaded",function(e){
             p_addToCheckoutBtn.setAttribute('id', 'product-grid-modal-product-checkout');
 
             p_addToCheckoutBtn.onclick = function () {
-                if(localStorage.getItem('logeduser') === null) {
+                if (localStorage.getItem('logeduser') === null) {
                     window.location.href = 'signin.html';
                 } else {
                     window.location.href = 'checkout.html';
@@ -3604,13 +3646,13 @@ document.addEventListener("DOMContentLoaded",function(e){
             p_add.onmouseout = function () {
                 p_add.style.textDecoration = 'none';
             }
-            
+
             modalContent.append(p_name, p_brand, p_price, p_priceContent, p_addToCheckoutBtn, p_add,);
             modal.style.display = 'block';
             container.style.filter = 'blur(6px)';
 
             localStorage.setItem(key, JSON.stringify(bag));
-            
+
         }
 
         function closeModal() {
@@ -3618,7 +3660,7 @@ document.addEventListener("DOMContentLoaded",function(e){
             modalImage.innerHTML = "";
             modalContent.innerHTML = "";
             container.style.filter = "blur(0px)";
-           
+
         }
 
         function goToCheckoutPage(product) {
