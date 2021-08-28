@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nikhil</title>
+    <h1>Art, Wall Decor & Mirrors</h1>
+    <div  id="main"></div>
+    <script>
+
+            document.addEventListener("DOMContentLoaded",function(e){
+                
+                var p=document.getElementById("welcome_message");
+
+                if(localStorage.getItem('logeduser')!=null)
+                    {
+                        p.innerText= "Hi,\t" +JSON.parse(localStorage.getItem('logeduser')).fname ;
+                        document.getElementById("sign-in-btn").style.display="none";
+                        document.getElementById("sign-up-btn").style.display="none";
+                        var signout=document.getElementById("signout");
+                        signout.style.display="block"
+                        signout.addEventListener("click",function(ev){
+                            localStorage.removeItem("logeduser");
+                            document.location="landing_page.html";
+                        });
+                        
+                    }
+            });
+    </script>
+</head>
+<body>
+    <script>
+        const artproduct=[{
+            name:"Ingrid Beddoes - Beach Summer of Love Framed Wall Art",
+            price:"3219",
+            color:"pink",
+            about:"A dreamy beach scene from artist Ingrid Beddoes takes center stage on ready-to-hang wall art featuring a satin finish and a rustic bamboo frame.",
+            size:"11*13",
+            made:"USA",
+            itemcode:"#5664127",
+            image:"https://n.io.nordstrommedia.com/id/sr3/05f24a3b-808b-4ea5-b2f2-54acb5a74ab8.jpeg?crop=pad&pad_color=FFF&format=jpeg&w=60&h=90"
+        },]
+        const artproduct_json=JSON.stringify(artproduct)
+
+        localStorage.setItem("artproduct1",artproduct_json)
+
+        let artproduct1=localStorage.getItem("artproduct1")
+
+        artproduct1=JSON.parse(artproduct1)
+        console.log(artproduct1[0].name)
+
+        function viewproduct1(){
+
+            var parent=document.getElementById("main")
+
+            let div=document.createElement("div")
+
+            let name=document.createElement("p")
+            name.textContent=artproduct1[0].name
+            //console.log(artproduct1.name)
+
+            let image=document.createElement("img")
+            image.src=artproduct1[0].image
+
+            let button=document.createElement("button")
+            button.textContent="viewproduct"
+            var c=0;
+            button.onclick=function(){
+                if(c==0){
+                view_main(artproduct1)
+                c++;
+                }
+            }
+
+            div.append(image,name,button)
+
+            parent.append(div)
+
+
+        }
+        viewproduct1()
+        if(localStorage.getItem("view")==null){
+            localStorage.setItem("view",JSON.stringify([]))
+        }
+        function view_main(pro){
+            let view_data=JSON.parse(localStorage.getItem("view"))
+
+            view_data.push(pro)//
+
+        localStorage.setItem("view",JSON.stringify(view_data))
+
+        }
+    </script>
+    
+</body>
+
+</html>
