@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://n.nordstrommedia.com/id/c4fb2a09-3657-4161-9b79-6412897d9399.png"
+        type="image/x-icon">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #Checkout-Nav {
+            width: 96%;
+            margin: auto;
+            height: 30px;
+            margin-top: 33px;
+            margin-bottom: 50px;
+        }
+
+        #logo {
+            width: 10%;
+            float: left;
+            margin-top: 5px;
+        }
+
+        #bag {
+            width: 2%;
+            float: right;
+        }
+
+        #logo img,
+        #bag img {
+            width: 100%;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        .nc-icon-outline.shopping_cart:before {
+            content: "\ea62";
+        }
+
+        #main-checkout {
+            width: 80%;
+            margin: auto;
+            display: flex;
+            margin-bottom: 30px;
+        }
+
+        #main-checkout>div:nth-child(1) {
+            width: 70%;
+            border-top: 1px solid rgb(209, 204, 204);
+        }
+
+        #main-checkout>div:nth-child(2) {
+            width: 30%;
+            border-top: 1px solid rgb(209, 204, 204);
+            border-left: 1px solid rgb(209, 204, 204);
+        }
+
+        #address>div:nth-child(1) {
+            display: flex;
+            margin-bottom: 12px;
+        }
+
+        #delivery>div:nth-child(8) {
+            display: flex;
+        }
+
+        /* #address>div:nth-child(2)>input,
+        #address>div:nth-child(4)>input {
+            width: 98%;
+        } */
+
+        /* #address>div:nth-child(3),
+        #address>div:nth-child(5),
+        #address>div:nth-child(6),
+        #address>div:nth-child(7) {
+            display: flex;
+        } */
+
+        /* #address>div:nth-child(3)>input,
+        #address>div:nth-child(5)>input,
+        #address>div:nth-child(6)>input,
+        #address>div:nth-child(7)>input {
+            width: 46.2%;
+        } */
+
+        #delivery>div:nth-child(1),
+        #delivery>div:nth-child(2),
+        #delivery>div:nth-child(3),
+        #delivery>div:nth-child(4),
+        #delivery>div:nth-child(5) {
+            display: flex;
+        }
+
+        #delivery>div:nth-child(1)>div,
+        #delivery>div:nth-child(2)>div,
+        #delivery>div:nth-child(3)>div,
+        #delivery>div:nth-child(4)>div,
+        #delivery>div:nth-child(5)>div {
+            display: 33%;
+            font-size: 15px;
+            padding: 10px;
+        }
+
+        .blue-div {
+            display: flex;
+        }
+
+        .blue-div>div:nth-child(1) {
+            width: 10%;
+        }
+
+        .blue-div>div:nth-child(2) {
+            width: 90%;
+        }
+
+        #address {
+            padding: 10px;
+        }
+
+        #Gone>div {
+            margin-bottom: 27px;
+        }
+
+        input {
+            border: 1px solid rgb(206, 198, 198);
+            border-radius: 5px;
+            height: 40px;
+            padding-left: 10px;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: box-shadow 300ms ease-out;
+        }
+
+        /* #address>div:nth-child(3)>input:nth-child(1),
+        #address>div:nth-child(5)>input:nth-child(1),
+        #address>div:nth-child(6)>input:nth-child(1),
+        #address>div:nth-child(7)>input:nth-child(1) {
+            margin-right: 40px;
+        } */
+
+        ::placeholder {
+            color: rgb(196, 188, 188);
+            opacity: 1;
+        }
+
+
+        input:focus {
+            background-color: transparent;
+            resize: none;
+            outline: rgb(153, 30, 30);
+            box-shadow: 0px 0px 20px rgba(15, 15, 77, 0.2);
+        }
+
+        #delivery>div:nth-child(1) {
+            background-color: rgb(240, 240, 240);
+        }
+
+        #delivery>div>div {
+            width: 33%;
+        }
+
+
+        #heading {
+            text-align: center;
+            font-size: 15px;
+        }
+
+        #heading>div {
+            padding: 10px 0px;
+        }
+
+        .center-text {
+            text-align: center;
+        }
+
+        #delivery {
+            color: #555353;
+        }
+
+        #delivery p {
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        #border-color {
+            border: 1.5px #2a9dcc solid;
+            margin-top: 5px;
+        }
+
+        .blue-div>div:nth-child(1) {
+            padding: 10px;
+        }
+
+        .blue-div button {
+            width: 90%;
+            height: 30px;
+            border-radius: 50%;
+            border: 1px solid #2a9dcc;
+            background-color: white;
+        }
+
+        #delivery>div:nth-child(5) {
+            margin-bottom: 30px;
+        }
+
+        #delivery>div:nth-child(6) {
+            text-align: center;
+        }
+
+        #delivery>div:nth-child(6) button {
+            background-color: rgba(0, 0, 0, .75);
+            color: white;
+            font-size: 15px;
+            padding: 12px 160px;
+            border-radius: 4px;
+            margin-bottom: 30px;
+            border: none;
+        }
+
+        .upper-div>div:nth-child(1) {
+            width: 32px !important;
+            height: 27px;
+            border-radius: 15px;
+            background-color: black;
+            color: white;
+            font-weight: 500;
+            text-align: center;
+            margin-right: 10px;
+            padding-top: 8px;
+            border: none;
+        }
+
+        .upper-div p {
+            font-size: 20px !important;
+        }
+
+        .upper-div>div:nth-child(2) {
+            color: rgb(58, 51, 51);
+            font-size: 20px;
+            line-height: 1.4;
+
+        }
+
+        .upper-div {
+            margin-top: 7px;
+            display: flex !important;
+        }
+
+        .upper-div-2 {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        hr {
+            border: 0.9px solid rgb(211, 205, 205);
+        }
+
+        #foot>p {
+            font-size: 15px;
+            margin-top: 40px;
+            width: 92%;
+            text-align: center;
+            color: rgb(168, 164, 164) !important;
+        }
+
+        #foot a {
+            color: rgb(70, 66, 66);
+            text-decoration: none;
+        }
+
+        #payment-details {
+            background-color: rgb(240, 240, 240);
+            padding: 20px;
+        }
+
+        #payment-details>div:nth-child(1) {
+            font-size: 25px;
+            font-weight: 500;
+            display: flex;
+            margin-bottom: 30px;
+        }
+
+        i {
+            margin-right: 10px;
+        }
+
+        #payment-details>button {
+            background-color: rgba(0, 0, 0, .75);
+            color: white;
+            font-size: 15px;
+            width: 100%;
+            padding: 12px 100px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            border: none;
+        }
+
+        #payment-details>button>p {
+            text-align: center;
+        }
+
+        #product-prices p {
+            font-size: 15px;
+            color: rgb(54, 50, 50)
+        }
+
+        #product-prices>div {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        #product-prices>div>p:nth-child(1) {
+            width: 90%;
+        }
+
+        #product-prices>div>h2:nth-child(1) {
+            width: 90%;
+        }
+
+        #checkout-image-div {
+            margin-top: 30px;
+        }
+
+        #checkout-image-div>div {
+            margin-bottom: 40px;
+            display: flex;
+        }
+
+        #checkout-image-div>div>div:nth-child(1) {
+            width: 25%;
+            margin-right: 30px;
+        }
+
+        #checkout-image-div>div>div:nth-child(2) {
+            width: 70%;
+            font-size: 14px;
+        }
+
+        #checkout-image-div>div>div>img {
+            width: 100%;
+        }
+
+        #product_name {
+            font-weight: 600;
+        }
+
+        #checkout-image-div>div>div:nth-child(2)>p {
+            margin-bottom: 1px;
+        }
+
+        #product_price {
+            margin-top: 20px;
+            font-weight: 600;
+        }
+
+        .border-color {
+            border: 1px solid white;
+        }
+
+        #emaillabel,
+        #addresslabel {
+            display: none;
+            color: #d30c0c;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        #address_display {
+            display: none;
+            margin-top: 40px;
+            width: 100%;
+            margin: auto;
+            margin-bottom: 20px;
+        }
+
+        #address_display>div {
+            width: 50% !important;
+            margin-left: 40px;
+        }
+
+        #address_display p {
+            font-size: 14px;
+            color: rgb(129, 126, 126);
+            line-height: 1.4;
+        }
+
+        .highlightText {
+            font-size: 13px !important;
+            color: rgb(63, 62, 62) !important;
+            font-weight: 600 !important;
+            margin-bottom: 10px;
+        }
+
+
+        #credit-details {
+            display: none;
+        }
+
+        #credit-details>div:nth-child(1) {
+            display: flex;
+            width: 100%;
+
+        }
+
+        #credit-details>div:nth-child(1)>div {
+            width: 30%;
+
+        }
+
+        #visa {
+            width: 100%;
+            height: 50px;
+        }
+
+        #firstDiv {
+            border-bottom: 30px
+        }
+
+        #card_div {
+            width: 95% !important;
+            margin: auto;
+            margin-top: 20px;
+        }
+
+        #card_div>input:nth-child(1) {
+            width: 80% !important;
+        }
+
+        #card_div input {
+            margin: 10px;
+        }
+
+        #card_details input {
+            margin-right: 29px;
+            margin-bottom: 70px;
+        }
+
+        #creditDiv {
+            margin: 0px;
+            height: 10px;
+        }
+
+        #Gone {
+            display: block;
+            width:100%;
+        }
+
+        #Gone>div:nth-child(1)>input,#Gone>div:nth-child(3)>input{
+            width: 98%;
+        }
+
+        #Gone>div:nth-child(2),
+        #Gone>div:nth-child(4),
+        #Gone>div:nth-child(5),
+        #Gone>div:nth-child(6) {
+            display: flex;
+        }
+
+        #Gone>div:nth-child(2)>input,
+        #Gone>div:nth-child(4)>input,
+        #Gone>div:nth-child(5)>input,
+        #Gone>div:nth-child(6)>input {
+            width: 46.2%;
+        }
+
+        #Gone>div:nth-child(2)>input:nth-child(1),
+        #Gone>div:nth-child(4)>input:nth-child(1),
+        #Gone>div:nth-child(5)>input:nth-child(1),
+        #Gone>div:nth-child(6)>input:nth-child(1) {
+            margin-right: 40px;
+        }
+
+
+        #bag-icon-text {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            text-decoration: none;
+            gap: 5px;
+        }
+
+        #itemsInBag {
+            width: 100%;
+            height: 50%;
+            border-radius: 50%;
+            font-weight: 800;
+            font-size: 18px;
+            color: rgb(61, 61, 61);
+            margin-bottom: 12px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="Checkout-Nav">
+        <div id="logo">
+            <a href="landing_page.html"><img src="https://n.nordstrommedia.com/alias/nordstrom-logo.svg"></a>
+        </div>
+        <div id="bag">
+            <a  id = "bag-icon-text" href="shopping_bag.html">
+                <div><span class="material-icons" style = "font-size: 36px; color: black">shopping_bag</span></div>
+                <p id = "itemsInBag"></p>
+                <!-- <img class="bag-image" src="images/emptybag-icon.png"></img> -->
+            </a>
+        </div>
+    </div>
+    <div id="main-checkout">
+        <div id="address">
+            <div class="upper-div">
+                <div>1</div>
+                <div>
+                    <p>Delivery</p>
+                </div>
+            </div>
+            <div id="Gone">
+                <div>
+                    <input type="email" id="emailInput" placeholder="Email">
+                    <label id="emaillabel">Email address is required</label>
+                </div>
+                <div>
+                    <input type="text" id="firstName" placeholder="First Name">
+                    <input type="text" id="lastName" placeholder="Last Name">
+                </div>
+                <div>
+                    <input type="text" id="addressInput" placeholder="Address">
+                    <label id="addresslabel">Address is required</label>
+                </div>
+                <div>
+                    <input type="text" id="address2" placeholder="Address2 (Optional)">
+                    <input type="text" id="Postal" placeholder="Postal Code">
+                </div>
+                <div>
+                    <input type="text" id="city" placeholder="City">
+                    <input type="text" id="region" placeholder="Region (Optional)">
+                </div>
+                <div>
+                    <input type="text" id="phone" placeholder="Phone">
+                    <input type="text" id="Country" placeholder="Country">
+                </div>
+                <div id="delivery">
+                    <div id="heading">
+                        <div>
+                            <p><strong>Delivery Method</strong></p>
+                        </div>
+                        <div>
+                            <p><strong>Estimated Arrival</strong></p>
+                        </div>
+                        <div>
+                            <p><strong>Shipping Cost</strong></p>
+                        </div>
+                    </div>
+                    <div id="border-color" class="required" onclick="required(1)">
+                        <div class="blue-div">
+                            <div>
+                                <button>1</button>
+                            </div>
+                            <div>
+                                <p>Standard</p>
+                                <p style="font-style: italic;">No additional import charges at delivery</p>
+                            </div>
+                        </div>
+                        <div class="center-text">
+                            <p>11–21 business days</p>
+                        </div>
+                        <div class="center-text">
+                            <p>₹2,487</p>
+                        </div>
+                    </div>
+                    <div class="required border-color" onclick="required(2)">
+                        <div class="blue-div">
+                            <div>
+                                <button>2</button>
+                            </div>
+                            <div>
+                                <p>Standard</p>
+                                <p style="font-style: italic;">Import charges collected upon delivery</p>
+                            </div>
+                        </div>
+                        <div class="center-text">
+                            <p>11–21 business days</p>
+                        </div>
+                        <div class="center-text">
+                            <a style="color: #2a9dcc;">Calculate</a>
+                        </div>
+                    </div>
+                    <div class="required border-color" onclick="required(3)">
+                        <div class="blue-div">
+                            <div>
+                                <button>3</button>
+                            </div>
+                            <div>
+                                <p>Standard</p>
+                                <p style="font-style: italic;">No additional import charges at delivery</p>
+                            </div>
+                        </div>
+                        <div class="center-text">
+                            <p>11–16 business days</p>
+                        </div>
+                        <div class="center-text">
+                            <a style="color: #2a9dcc;">Calculate</a>
+                        </div>
+                    </div>
+                    <div class="required border-color" onclick="required(4)">
+                        <div class="blue-div">
+                            <div>
+                                <button>4</button>
+                            </div>
+                            <div>
+                                <p>Standard</p>
+                                <p style="font-style: italic;">Import charges collected upon delivery</p>
+                            </div>
+                        </div>
+                        <div class="center-text">
+                            <p>11–21 business days</p>
+                        </div>
+                        <div class="center-text">
+                            <a style="color: #2a9dcc;">Calculate</a>
+                        </div>
+                    </div>
+                    <div>
+                        <button onclick="checkValues()">Continue>></button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="address_display">
+                <div>
+                    <div>
+                        <p class="highlightText">DELIVERY ADDRESS:</p>
+                    </div>
+                    <div>
+                        <p id="displayname">PRATIK JADHAV</p>
+                        <p id="displayAddress">
+                            B94 2ND FLOOR KALACHOWKI OLD POLICE
+                            MUMBAI, MAHARASHTRA 400033
+                            INDIA</p>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <p class="highlightText">DELIVERY METHOD:</p>
+                    </div>
+                    <div style="width:50%">
+                        <p id="imports">STANDARD
+                            IMPORT CHARGES COLLECTED UPON DELIVERY
+                            11–21 BUSINESS DAYS</p>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="upper-div upper-div-2">
+                <div>2</div>
+                <div>
+                    <p>Payment</p>
+                </div>
+            </div>
+            <div id="credit-details">
+                <div id="firstDiv">
+                    <div id="creditDiv">
+                        <input type="checkbox" id="credit" checked>
+                        <label for="credit">Credit or Debit card</label>
+                    </div>
+                    <div>
+                        <img style="width: 50px"
+                            src="https://constant.myntassets.com/checkout/assets/img/footer-bank-visa.png" />
+                        <img style="width: 50px"
+                            src="https://constant.myntassets.com/checkout/assets/img/footer-bank-mc.png" />
+                    </div>
+                </div>
+                <div id="card_div">
+                    <input id="card number" type="text" placeholder="Card Number">
+                    <div id="card_details">
+                        <input type="text" placeholder="MM / YY">
+                        <input type="text" placeholder="Security Code">
+                    </div>
+                </div>
+                <hr style="border-top: 2px dotted rgb(97, 94, 94);">
+                <input type="checkbox" id="ele" checked>
+                <label style="color:rgb(187, 179, 179);;" for="ele">Send me electronic or mail offers from
+                    Nordstrom. You may opt out at any time.</label><br>
+
+                <button
+                    style="width:40%; background-color: black; border:none; border-radius: 5px; padding:10px;color:white; margin-top: 35px; margin-left:200px;">Place
+                    Order>></button>
+
+                <p
+                    style="text-align: center; margin-top:10px; margin-bottom:30px;color:rgb(100, 97, 97);font-size: 18px;">
+                    This order total does not include duties or taxes. You will be required to pay those, along with
+                    any collection fees, to the shipping carrier upon receipt.</p>
+            </div>
+            <hr>
+            <div id="foot">
+                <p>
+                    By placing your order, you agree to the <span><a href="">Terms & Conditions</a></span> and
+                    <span><a href="">Privacy Policy of Borderfree from Pitney Bowes</a></span>, Nordstrom’s
+                    international
+                    fulfillment service. Borderfree is an online merchant that is located at 27 Waterview Drive,
+                    Shelton, CT, 06484, US.
+                </p>
+            </div>
+        </div>
+        <div id="payment-details">
+            <div>
+                <i style='font-size:25px' class="fa fa-shopping-cart"></i>
+                <p>
+                    Your Order
+                </p>
+            </div>
+            <button onclick="checkValues()">Continue>></button>
+            <div id="product-prices">
+                <div>
+                    <p>Items</p>
+                    <p id="items_price"></p>
+                </div>
+                <div>
+                    <p>Shipping</p>
+                    <p id="shipping_price">₹2,487</p>
+                </div>
+                <div>
+                    <p>Duties & Taxes</p>
+                    <p>₹2,360</p>
+                </div>
+                <div>
+                    <h2>TOTAL</h2>
+                    <h2 id="total_price"></h2>
+                </div>
+            </div>
+            <hr>
+            <div id="checkout-image-div">
+
+            </div>
+        </div>
+    </div>
+</body>
+
+
+<script>
+
+    var item_price_value, total_price;
+    var required_value;
+    var total_price = document.getElementById('total_price')
+    var required_event;
+
+    function shop_bag() {
+
+        var logged_user = localStorage.getItem("tried_login_user")
+
+        var to_check = "bag_" + logged_user
+
+        for (var key in localStorage) {
+            if (key == to_check) {
+                break;
+            }
+        }
+
+        var total = 0;
+
+        JSON.parse(localStorage.getItem(key)).forEach(function (e) {
+
+            var main_div = document.createElement("div")
+
+            var image_div = document.createElement("div")
+
+            var details_div = document.createElement("div")
+
+
+            var image = document.createElement("img")
+            image.src = e.image1[0]
+
+            image_div.append(image)
+
+            var name = document.createElement("p")
+            name.textContent = e.name
+            name.setAttribute("id", "product_name")
+
+            var color = document.createElement("p")
+            color.textContent = "Color: " + e.color
+
+            var brand = document.createElement("p")
+            brand.textContent = "Brand: " + e.brand
+
+            var quantiy = document.createElement("p")
+            quantiy.textContent = "Qty: " + e.quantity
+
+            var price = document.createElement("p")
+            price.textContent = "₹" + e.price
+            price.setAttribute("id", "product_price")
+
+            if (e.quantity > 1) {
+                total = total + e.price * e.quantity;
+            } else {
+                total = total + e.price;
+            }
+
+            details_div.append(name, color, brand, quantiy, price)
+
+
+            main_div.append(image_div, details_div)
+
+
+            var product_checkout_div = document.getElementById("checkout-image-div")
+
+            product_checkout_div.append(main_div)
+
+            var items_price = document.getElementById("items_price")
+
+        })
+        items_price.textContent = "₹" + total
+        item_price_value = total;
+
+    }
+    shop_bag()
+
+
+    console.log(item_price_value)
+
+    total_price.textContent = "₹" + Number(item_price_value + 2487 + 2360)
+
+    function required(num) {
+
+        var req = document.getElementsByClassName("required")
+
+        for (var i = 0; i < req.length; i++) {
+            req[i].style.borderColor = "white"
+        }
+
+        event.currentTarget.style.borderColor = "#2a9dcc"
+
+        required_event = (event.currentTarget.children[0].children[1].children[0].textContent + "\n" + event.currentTarget.children[0].children[1].children[1].textContent + "\n" + event.currentTarget.children[1].children[0].textContent).toUpperCase();
+
+
+        var element = event.currentTarget.children[2]
+
+
+        if (num == 2) {
+            element.children[0].textContent = "₹3,325"
+            required_value = 3325
+        } else if (num == 3) {
+            element.children[0].textContent = "₹3,428"
+            required_value = 3428
+        } else if (num == 4) {
+            element.children[0].textContent = "₹3,628"
+            required_value = 3628
+        } else {
+            element.children[0].textContent = "₹2,487"
+            required_value = 2487
+        }
+
+        total_price.textContent = "₹" + Number(item_price_value + required_value + 2360)
+        var shipping_price = document.getElementById('shipping_price')
+        shipping_price.textContent = element.children[0].textContent
+
+    }
+
+    function checkValues() {
+
+        var eml = document.getElementById("emaillabel")
+        var add = document.getElementById("addresslabel")
+
+        var eml_input = document.getElementById("emailInput")
+        var add_input = document.getElementById("addressInput")
+
+        if (document.getElementById("emailInput").value == "" || document.getElementById("addressInput").value == "") {
+
+            if (document.getElementById("emailInput").value == "" && document.getElementById("addressInput").value == "") {
+                eml.style.display = "block"
+                add.style.display = "block"
+                eml_input.style.borderColor = "#d30c0c"
+                add_input.style.borderColor = "#d30c0c"
+            } else if (document.getElementById("emailInput").value == "") {
+                eml.style.display = "block"
+                add.style.display = "none"
+
+                eml_input.style.borderColor = "#d30c0c"
+                add_input.style.borderColor = "rgb(206, 198, 198)"
+            } else {
+                add.style.display = "block"
+                eml.style.display = "none"
+
+                add_input.style.borderColor = "#d30c0c"
+                eml_input.style.borderColor = "rgb(206, 198, 198)"
+            }
+        } else {
+            eml.style.display = "none"
+            add.style.display = "none"
+            add_input.style.borderColor = "rgb(206, 198, 198)"
+            eml_input.style.borderColor = "rgb(206, 198, 198)"
+
+
+            var firstName = document.getElementById("firstName").value
+            var lastName = document.getElementById("lastName").value
+            var addressInput = document.getElementById("addressInput").value
+            var address2 = document.getElementById("address2").value
+            var city = document.getElementById("city").value
+            var region = document.getElementById("region").value
+            var Country = document.getElementById("Country").value
+            var Postal = document.getElementById("Postal").value
+
+
+            document.getElementById("displayname").textContent = (firstName + " " + lastName).toUpperCase()
+            document.getElementById("displayAddress").textContent = (addressInput + "," + address2 + "," + city + "," + region + " " + Postal + " " + Country).toUpperCase()
+
+
+            document.getElementById("emailInput").value = ""
+            document.getElementById("firstName").value = ""
+            document.getElementById("lastName").value = ""
+            document.getElementById("addressInput").value = ""
+            document.getElementById("address2").value = ""
+            document.getElementById("city").value = ""
+            document.getElementById("region").value = ""
+            document.getElementById("Country").value = ""
+            document.getElementById("Postal").value = ""
+            document.getElementById("phone").value = ""
+
+            console.log(required_event)
+
+
+            document.getElementById("imports").textContent = required_event
+
+
+
+            var gone = document.getElementById("Gone")
+            var address_display = document.getElementById("address_display")
+            var credit_details = document.getElementById("credit-details")
+
+
+            if (gone.style.display === "none") {
+                gone.style.display = "block";
+            } else {
+                gone.style.display = "none"
+                address_display.style.display="flex"
+                credit_details.style.display="block"
+            }
+
+        }
+    }
+
+    // window.onload = calculateItemsInBag;
+
+    var bagIcon = document.getElementById('bag-icon-text');
+    var items = document.getElementById('itemsInBag');
+
+    function calculateItemsInBag() {
+        items.innerText = "";
+        if (localStorage.getItem('logeduser') != null) {
+            var logeduser = JSON.parse(localStorage.getItem('logeduser')); 
+            var key = `bag_${logeduser.email}`;
+            var bag = JSON.parse(localStorage.getItem(key));
+            localStorage.setItem('bag', JSON.stringify([]));
+        } else if(localStorage.getItem('logeduser') === null) {
+            var bag = JSON.parse(localStorage.getItem('bag'));
+            key = 'bag';
+        }
+        
+        var totalItems = 0;
+
+        bag.forEach(function(product) {
+            totalItems += product.quantity;
+        })
+
+        items.innerText = `(${totalItems})`;
+    }
+
+
+
+</script>
+
+</html>
