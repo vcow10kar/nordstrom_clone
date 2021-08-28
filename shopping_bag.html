@@ -597,7 +597,7 @@ document.addEventListener("DOMContentLoaded",function(e){
                 <div id="search" onmouseleave="removeSignBar()">
                     <div id="one" onmouseenter="searchBar()">
                         <div class="img" onmouseenter="removeSignBar()">
-                            <img src="images/search-icon.jpg"></img>
+                            <span class="material-icons">search</span>
                         </div>
                         <input id="inputBox" maxlength="200" placeholder="What can we help you find?" type="search"
                             value="">
@@ -607,8 +607,7 @@ document.addEventListener("DOMContentLoaded",function(e){
                     </div>
                     <div id="two" onmouseenter="removeBar()">
                         <p onmouseenter="signBar()" id="welcome_message">Sign In</p>
-                        <img
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkXLgiLmUs1qs3M7byaf01fztGJV4lm0YHkw&usqp=CAU"></img>
+                        <span class="material-icons">keyboard_arrow_down</span>
                     </div>
                     <div id="signIN" onmouseleave="removeSignBar()">
                         <ul>
@@ -639,7 +638,9 @@ document.addEventListener("DOMContentLoaded",function(e){
                         </ul>
                     </div>
                     <div id="bag">
-                        <a href="shopping_bag.html"><img class="bag-image" src="images/emptybag-icon.png"></img></a>
+                        <a href="shopping_bag.html"><span class="material-icons" style = "font-size: 36px; color: black">shopping_bag</span>
+                            <!-- <img class="bag-image" src="images/emptybag-icon.png"></img> -->
+                        </a>
                     </div>
                 </div>
             </div>
@@ -3034,7 +3035,7 @@ document.addEventListener("DOMContentLoaded",function(e){
 
     var number = 6288700;
 
-    var shippingBagTotal = 0;
+    var shoppingBagTotal = 0;
     var quantityTotal = 0;
 
     if (localStorage.getItem('logeduser') != null) {
@@ -3149,13 +3150,13 @@ document.addEventListener("DOMContentLoaded",function(e){
                 priceDiv.setAttribute('id', 'shopping-bag-data-product-price');
 
                 var totalPrice = document.createElement('p');
-                totalPrice.innerText = `INR ${product.price * product.quantity}`;
-                totalPrice.style.fontWeight = '600';
+                totalPrice.innerText = `₹${product.price * product.quantity}`;
+                totalPrice.style.fontWeight = '500';
 
-                shippingBagTotal += product.price * product.quantity;
+                shoppingBagTotal += product.price * product.quantity;
 
                 var price = document.createElement('p');
-                price.innerText = `(INR ${product.price} each)`;
+                price.innerText = `(₹${product.price} each)`;
 
                 var span = document.createElement('span');
                 span.append(totalPrice, price)
@@ -3176,7 +3177,7 @@ document.addEventListener("DOMContentLoaded",function(e){
 
     var shpgBagTotalPrice = document.getElementById('shipping-bag-subtotal');
     var totalPriceTag = document.createElement('p');
-    totalPriceTag.innerText = `INR ${shippingBagTotal}`;
+    totalPriceTag.innerText = `₹${shoppingBagTotal}`;
     totalPriceTag.style.textAlign = 'right';
     shpgBagTotalPrice.appendChild(totalPriceTag);
 
@@ -3206,12 +3207,12 @@ document.addEventListener("DOMContentLoaded",function(e){
 
         localStorage.setItem(key, JSON.stringify(bag));
 
-        shippingBagTotal = 0;
+        shoppingBagTotal = 0;
         quantityTotal = 0;
 
         addShoppingBagDetails(bag);
         shpBagTag.innerText = `Shopping Bag (${quantityTotal})`;
-        totalPriceTag.innerText = `INR ${shippingBagTotal}`;
+        totalPriceTag.innerText = `INR ${shoppingBagTotal}`;
     }
 
     document.addEventListener("DOMContentLoaded",function(e){
