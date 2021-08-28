@@ -21,7 +21,7 @@
             margin: auto;
             height: 30px;
             margin-top: 33px;
-            margin-bottom: 70px;
+            margin-bottom: 50px;
         }
 
         #logo {
@@ -49,7 +49,7 @@
         }
 
         #main-checkout {
-            width: 71%;
+            width: 80%;
             margin: auto;
             display: flex;
             margin-bottom: 30px;
@@ -75,24 +75,24 @@
             display: flex;
         }
 
-        #address>div:nth-child(2)>input,
+        /* #address>div:nth-child(2)>input,
         #address>div:nth-child(4)>input {
             width: 98%;
-        }
+        } */
 
-        #address>div:nth-child(3),
+        /* #address>div:nth-child(3),
         #address>div:nth-child(5),
         #address>div:nth-child(6),
         #address>div:nth-child(7) {
             display: flex;
-        }
+        } */
 
-        #address>div:nth-child(3)>input,
+        /* #address>div:nth-child(3)>input,
         #address>div:nth-child(5)>input,
         #address>div:nth-child(6)>input,
         #address>div:nth-child(7)>input {
             width: 46.2%;
-        }
+        } */
 
         #delivery>div:nth-child(1),
         #delivery>div:nth-child(2),
@@ -108,7 +108,7 @@
         #delivery>div:nth-child(4)>div,
         #delivery>div:nth-child(5)>div {
             display: 33%;
-            font-size: 20px;
+            font-size: 15px;
             padding: 10px;
         }
 
@@ -128,7 +128,7 @@
             padding: 10px;
         }
 
-        #address>div {
+        #Gone>div {
             margin-bottom: 27px;
         }
 
@@ -136,20 +136,20 @@
             border: 1px solid rgb(206, 198, 198);
             border-radius: 5px;
             height: 40px;
-            padding-left: 12px;
-            padding-top: 5px;
-            padding-bottom: 5px;
-            font-size: 19px;
+            padding-left: 10px;
+            padding-top: 3px;
+            padding-bottom: 3px;
+            font-size: 14px;
             font-weight: 500;
             transition: box-shadow 300ms ease-out;
         }
 
-        #address>div:nth-child(3)>input:nth-child(1),
+        /* #address>div:nth-child(3)>input:nth-child(1),
         #address>div:nth-child(5)>input:nth-child(1),
         #address>div:nth-child(6)>input:nth-child(1),
         #address>div:nth-child(7)>input:nth-child(1) {
             margin-right: 40px;
-        }
+        } */
 
         ::placeholder {
             color: rgb(196, 188, 188);
@@ -175,7 +175,7 @@
 
         #heading {
             text-align: center;
-            font-size: 20px;
+            font-size: 15px;
         }
 
         #heading>div {
@@ -191,7 +191,7 @@
         }
 
         #delivery p {
-            font-size: 20px;
+            font-size: 15px;
             font-weight: 500;
         }
 
@@ -223,10 +223,11 @@
         #delivery>div:nth-child(6) button {
             background-color: rgba(0, 0, 0, .75);
             color: white;
-            font-size: 18px;
+            font-size: 15px;
             padding: 12px 160px;
             border-radius: 4px;
             margin-bottom: 30px;
+            border: none;
         }
 
         .upper-div>div:nth-child(1) {
@@ -243,18 +244,19 @@
         }
 
         .upper-div p {
-            font-size: 25px !important;
+            font-size: 20px !important;
         }
 
         .upper-div>div:nth-child(2) {
             color: rgb(58, 51, 51);
-            font-size: 25px;
+            font-size: 20px;
             line-height: 1.4;
 
         }
 
         .upper-div {
             margin-top: 7px;
+            display: flex !important;
         }
 
         .upper-div-2 {
@@ -267,7 +269,7 @@
         }
 
         #foot>p {
-            font-size: 18px;
+            font-size: 15px;
             margin-top: 40px;
             width: 92%;
             text-align: center;
@@ -285,7 +287,7 @@
         }
 
         #payment-details>div:nth-child(1) {
-            font-size: 30px;
+            font-size: 25px;
             font-weight: 500;
             display: flex;
             margin-bottom: 30px;
@@ -298,15 +300,20 @@
         #payment-details>button {
             background-color: rgba(0, 0, 0, .75);
             color: white;
-            font-size: 18px;
+            font-size: 15px;
             width: 100%;
-            padding: 12px 140px;
+            padding: 12px 100px;
             border-radius: 4px;
             margin-bottom: 20px;
+            border: none;
+        }
+
+        #payment-details>button>p {
+            text-align: center;
         }
 
         #product-prices p {
-            font-size: 20px;
+            font-size: 15px;
             color: rgb(54, 50, 50)
         }
 
@@ -319,7 +326,7 @@
             width: 90%;
         }
 
-        #product-prices>div>h1:nth-child(1) {
+        #product-prices>div>h2:nth-child(1) {
             width: 90%;
         }
 
@@ -339,7 +346,7 @@
 
         #checkout-image-div>div>div:nth-child(2) {
             width: 70%;
-            font-size: 16px;
+            font-size: 14px;
         }
 
         #checkout-image-div>div>div>img {
@@ -359,9 +366,123 @@
             font-weight: 600;
         }
 
-        .border-color{
-            border:1px solid white;
+        .border-color {
+            border: 1px solid white;
         }
+
+        #emaillabel,
+        #addresslabel {
+            display: none;
+            color: #d30c0c;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        #address_display {
+            display: none;
+            margin-top: 40px;
+            width: 100%;
+            margin: auto;
+            margin-bottom: 20px;
+        }
+
+        #address_display>div {
+            width: 50% !important;
+            margin-left: 40px;
+        }
+
+        #address_display p {
+            font-size: 14px;
+            color: rgb(129, 126, 126);
+            line-height: 1.4;
+        }
+
+        .highlightText {
+            font-size: 13px !important;
+            color: rgb(63, 62, 62) !important;
+            font-weight: 600 !important;
+            margin-bottom: 10px;
+        }
+
+
+        #credit-details {
+            display: none;
+        }
+
+        #credit-details>div:nth-child(1) {
+            display: flex;
+            width: 100%;
+
+        }
+
+        #credit-details>div:nth-child(1)>div {
+            width: 30%;
+
+        }
+
+        #visa {
+            width: 100%;
+            height: 50px;
+        }
+
+        #firstDiv {
+            border-bottom: 30px
+        }
+
+        #card_div {
+            width: 95% !important;
+            margin: auto;
+            margin-top: 20px;
+        }
+
+        #card_div>input:nth-child(1) {
+            width: 80% !important;
+        }
+
+        #card_div input {
+            margin: 10px;
+        }
+
+        #card_details input {
+            margin-right: 29px;
+            margin-bottom: 70px;
+        }
+
+        #creditDiv {
+            margin: 0px;
+            height: 10px;
+        }
+
+        #Gone {
+            display: block;
+            width:100%;
+        }
+
+        #Gone>div:nth-child(1)>input,#Gone>div:nth-child(3)>input{
+            width: 98%;
+        }
+
+        #Gone>div:nth-child(2),
+        #Gone>div:nth-child(4),
+        #Gone>div:nth-child(5),
+        #Gone>div:nth-child(6) {
+            display: flex;
+        }
+
+        #Gone>div:nth-child(2)>input,
+        #Gone>div:nth-child(4)>input,
+        #Gone>div:nth-child(5)>input,
+        #Gone>div:nth-child(6)>input {
+            width: 46.2%;
+        }
+
+        #Gone>div:nth-child(2)>input:nth-child(1),
+        #Gone>div:nth-child(4)>input:nth-child(1),
+        #Gone>div:nth-child(5)>input:nth-child(1),
+        #Gone>div:nth-child(6)>input:nth-child(1) {
+            margin-right: 40px;
+        }
+
     </style>
 </head>
 
@@ -382,138 +503,201 @@
                     <p>Delivery</p>
                 </div>
             </div>
-            <div>
-                <input type="email" id="email" placeholder="Email">
-            </div>
-            <div>
-                <input type="text" id="firstName" placeholder="First Name">
-                <input type="text" id="lastName" placeholder="Last Name">
-            </div>
-            <div>
-                <input type="text" id="addressInput" placeholder="Address">
-            </div>
-            <div>
-                <input type="text" id="address2" placeholder="Address2 (Optional)">
-                <input type="text" id="Postal" placeholder="Postal Code">
-            </div>
-            <div>
-                <input type="text" id="city" placeholder="City">
-                <input type="text" id="region" placeholder="Region (Optional)">
-            </div>
-            <div>
-                <input type="text" id="city" placeholder="Phone">
-                <input type="text" id="region" placeholder="Location">
-            </div>
-            <div id="delivery">
-                <div id="heading">
+            <div id="Gone">
+                <div>
+                    <input type="email" id="emailInput" placeholder="Email">
+                    <label id="emaillabel">Email address is required</label>
+                </div>
+                <div>
+                    <input type="text" id="firstName" placeholder="First Name">
+                    <input type="text" id="lastName" placeholder="Last Name">
+                </div>
+                <div>
+                    <input type="text" id="addressInput" placeholder="Address">
+                    <label id="addresslabel">Address is required</label>
+                </div>
+                <div>
+                    <input type="text" id="address2" placeholder="Address2 (Optional)">
+                    <input type="text" id="Postal" placeholder="Postal Code">
+                </div>
+                <div>
+                    <input type="text" id="city" placeholder="City">
+                    <input type="text" id="region" placeholder="Region (Optional)">
+                </div>
+                <div>
+                    <input type="text" id="phone" placeholder="Phone">
+                    <input type="text" id="Country" placeholder="Country">
+                </div>
+                <div id="delivery">
+                    <div id="heading">
+                        <div>
+                            <p><strong>Delivery Method</strong></p>
+                        </div>
+                        <div>
+                            <p><strong>Estimated Arrival</strong></p>
+                        </div>
+                        <div>
+                            <p><strong>Shipping Cost</strong></p>
+                        </div>
+                    </div>
+                    <div id="border-color" class="required" onclick="required(1)">
+                        <div class="blue-div">
+                            <div>
+                                <button>1</button>
+                            </div>
+                            <div>
+                                <p>Standard</p>
+                                <p style="font-style: italic;">No additional import charges at delivery</p>
+                            </div>
+                        </div>
+                        <div class="center-text">
+                            <p>11–21 business days</p>
+                        </div>
+                        <div class="center-text">
+                            <p>₹2,487</p>
+                        </div>
+                    </div>
+                    <div class="required border-color" onclick="required(2)">
+                        <div class="blue-div">
+                            <div>
+                                <button>2</button>
+                            </div>
+                            <div>
+                                <p>Standard</p>
+                                <p style="font-style: italic;">Import charges collected upon delivery</p>
+                            </div>
+                        </div>
+                        <div class="center-text">
+                            <p>11–21 business days</p>
+                        </div>
+                        <div class="center-text">
+                            <a style="color: #2a9dcc;">Calculate</a>
+                        </div>
+                    </div>
+                    <div class="required border-color" onclick="required(3)">
+                        <div class="blue-div">
+                            <div>
+                                <button>3</button>
+                            </div>
+                            <div>
+                                <p>Standard</p>
+                                <p style="font-style: italic;">No additional import charges at delivery</p>
+                            </div>
+                        </div>
+                        <div class="center-text">
+                            <p>11–16 business days</p>
+                        </div>
+                        <div class="center-text">
+                            <a style="color: #2a9dcc;">Calculate</a>
+                        </div>
+                    </div>
+                    <div class="required border-color" onclick="required(4)">
+                        <div class="blue-div">
+                            <div>
+                                <button>4</button>
+                            </div>
+                            <div>
+                                <p>Standard</p>
+                                <p style="font-style: italic;">Import charges collected upon delivery</p>
+                            </div>
+                        </div>
+                        <div class="center-text">
+                            <p>11–21 business days</p>
+                        </div>
+                        <div class="center-text">
+                            <a style="color: #2a9dcc;">Calculate</a>
+                        </div>
+                    </div>
                     <div>
-                        <p><strong>Delivery Method</strong></p>
+                        <button onclick="checkValues()">Continue>></button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="address_display">
+                <div>
+                    <div>
+                        <p class="highlightText">DELIVERY ADDRESS:</p>
                     </div>
                     <div>
-                        <p><strong>Estimated Arrival</strong></p>
-                    </div>
-                    <div>
-                        <p><strong>Shipping Cost</strong></p>
-                    </div>
-                </div>
-                <div id="border-color" class="required" onclick="required(1)">
-                    <div class="blue-div">
-                        <div>
-                            <button>1</button>
-                        </div>
-                        <div>
-                            <p>Standard</p>
-                            <p style="font-style: italic;">No additional import charges at delivery</p>
-                        </div>
-                    </div>
-                    <div class="center-text">
-                        <p>11–21 business days</p>
-                    </div>
-                    <div class="center-text">
-                        <p>₹2,487</p>
-                    </div>
-                </div>
-                <div class="required border-color" onclick="required(2)">
-                    <div class="blue-div">
-                        <div>
-                            <button>2</button>
-                        </div>
-                        <div>
-                            <p>Standard</p>
-                            <p style="font-style: italic;">Import charges collected upon delivery</p>
-                        </div>
-                    </div>
-                    <div class="center-text">
-                        <p>11–21 business days</p>
-                    </div>
-                    <div class="center-text">
-                        <a style="color: #2a9dcc;">Calculate</a>
-                    </div>
-                </div>
-                <div class="required border-color" onclick="required(3)">
-                    <div class="blue-div">
-                        <div>
-                            <button>3</button>
-                        </div>
-                        <div>
-                            <p>Standard</p>
-                            <p style="font-style: italic;">No additional import charges at delivery</p>
-                        </div>
-                    </div>
-                    <div class="center-text">
-                        <p>11–16 business days</p>
-                    </div>
-                    <div class="center-text">
-                        <a style="color: #2a9dcc;">Calculate</a>
-                    </div>
-                </div>
-                <div class="required border-color" onclick="required(4)">
-                    <div class="blue-div">
-                        <div>
-                            <button>4</button>
-                        </div>
-                        <div>
-                            <p>Standard</p>
-                            <p style="font-style: italic;">Import charges collected upon delivery</p>
-                        </div>
-                    </div>
-                    <div class="center-text">
-                        <p>11–21 business days</p>
-                    </div>
-                    <div class="center-text">
-                        <a style="color: #2a9dcc;">Calculate</a>
+                        <p id="displayname">PRATIK JADHAV</p>
+                        <p id="displayAddress">
+                            B94 2ND FLOOR KALACHOWKI OLD POLICE
+                            MUMBAI, MAHARASHTRA 400033
+                            INDIA</p>
                     </div>
                 </div>
                 <div>
-                    <button>Continue>></button>
-                </div>
-                <hr>
-                <div class="upper-div upper-div-2">
-                    <div>2</div>
                     <div>
-                        <p>Payment</p>
+                        <p class="highlightText">DELIVERY METHOD:</p>
+                    </div>
+                    <div style="width:50%">
+                        <p id="imports">STANDARD
+                            IMPORT CHARGES COLLECTED UPON DELIVERY
+                            11–21 BUSINESS DAYS</p>
                     </div>
                 </div>
-                <hr>
-                <div id="foot">
-                    <p>
-                        By placing your order, you agree to the <span><a href="">Terms & Conditions</a></span> and
-                        <span><a href="">Privacy Policy of Borderfree from Pitney Bowes</a></span>, Nordstrom’s
-                        international
-                        fulfillment service. Borderfree is an online merchant that is located at 27 Waterview Drive,
-                        Shelton, CT, 06484, US.
-                    </p>
+            </div>
+            <hr>
+            <div class="upper-div upper-div-2">
+                <div>2</div>
+                <div>
+                    <p>Payment</p>
                 </div>
+            </div>
+            <div id="credit-details">
+                <div id="firstDiv">
+                    <div id="creditDiv">
+                        <input type="checkbox" id="credit" checked>
+                        <label for="credit">Credit or Debit card</label>
+                    </div>
+                    <div>
+                        <img style="width: 50px"
+                            src="https://constant.myntassets.com/checkout/assets/img/footer-bank-visa.png" />
+                        <img style="width: 50px"
+                            src="https://constant.myntassets.com/checkout/assets/img/footer-bank-mc.png" />
+                    </div>
+                </div>
+                <div id="card_div">
+                    <input id="card number" type="text" placeholder="Card Number">
+                    <div id="card_details">
+                        <input type="text" placeholder="MM / YY">
+                        <input type="text" placeholder="Security Code">
+                    </div>
+                </div>
+                <hr style="border-top: 2px dotted rgb(97, 94, 94);">
+                <input type="checkbox" id="ele" checked>
+                <label style="color:rgb(187, 179, 179);;" for="ele">Send me electronic or mail offers from
+                    Nordstrom. You may opt out at any time.</label><br>
+
+                <button
+                    style="width:40%; background-color: black; border:none; border-radius: 5px; padding:10px;color:white; margin-top: 35px; margin-left:200px;">Place
+                    Order>></button>
+
+                <p
+                    style="text-align: center; margin-top:10px; margin-bottom:30px;color:rgb(100, 97, 97);font-size: 18px;">
+                    This order total does not include duties or taxes. You will be required to pay those, along with
+                    any collection fees, to the shipping carrier upon receipt.</p>
+            </div>
+            <hr>
+            <div id="foot">
+                <p>
+                    By placing your order, you agree to the <span><a href="">Terms & Conditions</a></span> and
+                    <span><a href="">Privacy Policy of Borderfree from Pitney Bowes</a></span>, Nordstrom’s
+                    international
+                    fulfillment service. Borderfree is an online merchant that is located at 27 Waterview Drive,
+                    Shelton, CT, 06484, US.
+                </p>
             </div>
         </div>
         <div id="payment-details">
             <div>
-                <i style='font-size:30px' class="fa fa-shopping-cart"></i>
+                <i style='font-size:25px' class="fa fa-shopping-cart"></i>
                 <p>
                     Your Order
                 </p>
             </div>
-            <button>Continue>></button>
+            <button onclick="checkValues()">Continue>></button>
             <div id="product-prices">
                 <div>
                     <p>Items</p>
@@ -528,8 +712,8 @@
                     <p>₹2,360</p>
                 </div>
                 <div>
-                    <h1>TOTAL</h1>
-                    <h1 id="total_price"></h1>
+                    <h2>TOTAL</h2>
+                    <h2 id="total_price"></h2>
                 </div>
             </div>
             <hr>
@@ -543,9 +727,10 @@
 
 <script>
 
-var item_price_value,total_price;
-var required_value;
-var total_price = document.getElementById('total_price')
+    var item_price_value, total_price;
+    var required_value;
+    var total_price = document.getElementById('total_price')
+    var required_event;
 
     function shop_bag() {
 
@@ -612,48 +797,136 @@ var total_price = document.getElementById('total_price')
 
         })
         items_price.textContent = "₹" + total
-        item_price_value=total;
-        
+        item_price_value = total;
+
     }
     shop_bag()
-    
+
 
     console.log(item_price_value)
-    
-    total_price.textContent="₹"+Number(item_price_value+2487+2360)
+
+    total_price.textContent = "₹" + Number(item_price_value + 2487 + 2360)
 
     function required(num) {
 
         var req = document.getElementsByClassName("required")
 
-        for(var i=0;i<req.length;i++){
+        for (var i = 0; i < req.length; i++) {
             req[i].style.borderColor = "white"
         }
 
         event.currentTarget.style.borderColor = "#2a9dcc"
 
+        required_event = (event.currentTarget.children[0].children[1].children[0].textContent + "\n" + event.currentTarget.children[0].children[1].children[1].textContent + "\n" + event.currentTarget.children[1].children[0].textContent).toUpperCase();
+
+
         var element = event.currentTarget.children[2]
 
 
-            if(num==2){
-                element.children[0].textContent="₹3,325"
-                required_value=3325
-            }else if(num==3){
-                element.children[0].textContent="₹3,428"
-                required_value=3428
-            }else  if(num==4){
-                element.children[0].textContent="₹3,628"
-                required_value=3628
-            }else{
-                element.children[0].textContent="₹2,487"
-                required_value=2487
-            }
+        if (num == 2) {
+            element.children[0].textContent = "₹3,325"
+            required_value = 3325
+        } else if (num == 3) {
+            element.children[0].textContent = "₹3,428"
+            required_value = 3428
+        } else if (num == 4) {
+            element.children[0].textContent = "₹3,628"
+            required_value = 3628
+        } else {
+            element.children[0].textContent = "₹2,487"
+            required_value = 2487
+        }
 
-        total_price.textContent="₹"+Number(item_price_value+required_value+2360)
-        var shipping_price=document.getElementById('shipping_price')
-        shipping_price.textContent=element.children[0].textContent
+        total_price.textContent = "₹" + Number(item_price_value + required_value + 2360)
+        var shipping_price = document.getElementById('shipping_price')
+        shipping_price.textContent = element.children[0].textContent
 
     }
+
+    function checkValues() {
+
+        var eml = document.getElementById("emaillabel")
+        var add = document.getElementById("addresslabel")
+
+        var eml_input = document.getElementById("emailInput")
+        var add_input = document.getElementById("addressInput")
+
+        if (document.getElementById("emailInput").value == "" || document.getElementById("addressInput").value == "") {
+
+            if (document.getElementById("emailInput").value == "" && document.getElementById("addressInput").value == "") {
+                eml.style.display = "block"
+                add.style.display = "block"
+                eml_input.style.borderColor = "#d30c0c"
+                add_input.style.borderColor = "#d30c0c"
+            } else if (document.getElementById("emailInput").value == "") {
+                eml.style.display = "block"
+                add.style.display = "none"
+
+                eml_input.style.borderColor = "#d30c0c"
+                add_input.style.borderColor = "rgb(206, 198, 198)"
+            } else {
+                add.style.display = "block"
+                eml.style.display = "none"
+
+                add_input.style.borderColor = "#d30c0c"
+                eml_input.style.borderColor = "rgb(206, 198, 198)"
+            }
+        } else {
+            eml.style.display = "none"
+            add.style.display = "none"
+            add_input.style.borderColor = "rgb(206, 198, 198)"
+            eml_input.style.borderColor = "rgb(206, 198, 198)"
+
+
+            var firstName = document.getElementById("firstName").value
+            var lastName = document.getElementById("lastName").value
+            var addressInput = document.getElementById("addressInput").value
+            var address2 = document.getElementById("address2").value
+            var city = document.getElementById("city").value
+            var region = document.getElementById("region").value
+            var Country = document.getElementById("Country").value
+            var Postal = document.getElementById("Postal").value
+
+
+            document.getElementById("displayname").textContent = (firstName + " " + lastName).toUpperCase()
+            document.getElementById("displayAddress").textContent = (addressInput + "," + address2 + "," + city + "," + region + " " + Postal + " " + Country).toUpperCase()
+
+
+            document.getElementById("emailInput").value = ""
+            document.getElementById("firstName").value = ""
+            document.getElementById("lastName").value = ""
+            document.getElementById("addressInput").value = ""
+            document.getElementById("address2").value = ""
+            document.getElementById("city").value = ""
+            document.getElementById("region").value = ""
+            document.getElementById("Country").value = ""
+            document.getElementById("Postal").value = ""
+            document.getElementById("phone").value = ""
+
+            console.log(required_event)
+
+
+            document.getElementById("imports").textContent = required_event
+
+
+
+            var gone = document.getElementById("Gone")
+            var address_display = document.getElementById("address_display")
+            var credit_details = document.getElementById("credit-details")
+
+
+            if (gone.style.display === "none") {
+                gone.style.display = "block";
+            } else {
+                gone.style.display = "none"
+                address_display.style.display="flex"
+                credit_details.style.display="block"
+            }
+
+        }
+    }
+
+
 
 </script>
 
