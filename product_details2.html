@@ -28,7 +28,7 @@
             width: 90%;
             margin: auto;
             display: grid;
-            grid-template-columns: 40% 400px 300px;
+            grid-template-columns: 40% 500px 300px;
             gap: 40px;
         }
 
@@ -86,7 +86,7 @@
         }
 
         .pro_det_p {
-            font-size: 18px;
+            font-size: 16px;
             float: left;
             color: rgb(68, 68, 68);
             font-weight: 350;
@@ -95,7 +95,7 @@
         .pro_det_h3 {
             margin-top: 0px;
             margin-bottom: 0px;
-            font-size: 18px;
+            font-size: 16px;
             color: #393939;
             font-weight: 500;
         }
@@ -103,7 +103,7 @@
         .pro_det_p2 {
             margin-top: 0px;
             margin-bottom: 0px;
-            font-size: 16px;
+            font-size: 14px;
             float: left;
             color: rgb(63, 63, 63);
             font-weight: 400;
@@ -141,7 +141,7 @@
             margin-bottom: 0px;
         }*/
         #discription_list li {
-            font-size: 16px;
+            font-size: 14px;
             color: rgb(63, 63, 63);
             font-weight: 300;
         }
@@ -3285,7 +3285,7 @@
             var brand = document.createElement("p")
             brand.setAttribute("class", "pro_det_p")
             brand.textContent = product.brand.toUpperCase();
-            brand.style.fontSize = "17px";
+            brand.style.fontSize = "15px";
             //hower through image
             var image = document.createElement("img")
             image.setAttribute("class", "pro_det_img")
@@ -3311,11 +3311,11 @@
             var color = document.createElement("p")
             color.innerText = "Colors available: ";
             color.setAttribute("class", "pro_det_p")
-            color.style.fontWeight = 500;
+            color.style.fontWeight = 400;
             var colorName = document.createElement('span');
             colorName.innerText = product.color;
             colorName.style.color = product.color;
-            colorName.style.fontWeight = 800;
+            colorName.style.fontWeight = 500;
             color.appendChild(colorName);
             //console.log(color)
 
