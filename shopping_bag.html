@@ -3080,6 +3080,23 @@ document.addEventListener("DOMContentLoaded",function(e){
                 //Image Div
                 var imgDiv = document.createElement('div');
                 imgDiv.setAttribute('id', 'shopping-bag-data-div-img');
+                imgDiv.onclick = function() {
+                    if (localStorage.getItem('productDetails') === null) {
+                        localStorage.setItem('productDetails', JSON.stringify([]));
+                    }
+
+                    localStorage.setItem('productDetails', JSON.stringify([]))
+                    var details = JSON.parse(localStorage.getItem('productDetails'));
+                    details.push(product);
+
+                    localStorage.setItem('productDetails', JSON.stringify(details));
+
+                    window.location.href = 'product_details2.html';
+                }
+
+                imgDiv.onmouseover = function() {
+                    imgDiv.style.cursor = 'pointer';
+                }
 
                 var image = document.createElement('img');
                 image.src = product.image1;
