@@ -5,7 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Document</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
     <style>
         * {
             margin: 0px;
@@ -39,74 +43,282 @@
         .clear {
             clear: both;
         }
+
         .nc-icon-outline.shopping_cart:before {
             content: "\ea62";
         }
 
-        #main-checkout{
+        #main-checkout {
             width: 81%;
             margin: auto;
-            border:1px solid red;
             display: flex;
-        }
-        #main-checkout>div:nth-child(1){
-            width:70%;
-            border:1px solid red;
-        }
-        #main-checkout>div:nth-child(2){
-            width:30%;
-            border:1px solid red;
+            margin-bottom:30px;
         }
 
-        #address>div:nth-child(1){
+        #main-checkout>div:nth-child(1) {
+            width: 70%;
+            border-top: 1px solid rgb(209, 204, 204);
+        }
+
+        #main-checkout>div:nth-child(2) {
+            width: 30%;
+            border-top: 1px solid rgb(209, 204, 204);
+            border-left: 1px solid rgb(209, 204, 204);
+        }
+
+        #address>div:nth-child(1) {
             display: flex;
-            border:1px solid red;
-        }
-        .upper-div>div:nth-child(1){
-            width:10px;
-            background-color: black;
-            color:white;
-            font-weight: 500;
-            border:1px solid red;
+            margin-bottom: 12px;
         }
 
-        .upper-div>div:nth-child(2){
-            color:black;
-            font-size:20px;
-            border:1px solid red;
-        }
-
-        #address>div:nth-child(2)>input, #address>div:nth-child(4)>input{
-            width:100%;
-        }
-
-        #address>div:nth-child(3),#address>div:nth-child(5),#address>div:nth-child(6),#address>div:nth-child(7){
-            display:flex;
-        }
-        #address>div:nth-child(3)>input,#address>div:nth-child(5)>input,#address>div:nth-child(6)>input,#address>div:nth-child(7)>input{
-            width:50%;
-        }
-
-        #delivery>div:nth-child(1),#delivery>div:nth-child(2),#delivery>div:nth-child(3),#delivery>div:nth-child(4),#delivery>div:nth-child(5){
+        #delivery>div:nth-child(8) {
             display: flex;
         }
 
-        #delivery>div:nth-child(1)>div,#delivery>div:nth-child(2)>div,#delivery>div:nth-child(3)>div,#delivery>div:nth-child(4)>div,#delivery>div:nth-child(5)>div{
+        #address>div:nth-child(2)>input,
+        #address>div:nth-child(4)>input {
+            width: 98%;
+        }
+
+        #address>div:nth-child(3),
+        #address>div:nth-child(5),
+        #address>div:nth-child(6),
+        #address>div:nth-child(7) {
+            display: flex;
+        }
+
+        #address>div:nth-child(3)>input,
+        #address>div:nth-child(5)>input,
+        #address>div:nth-child(6)>input,
+        #address>div:nth-child(7)>input {
+            width: 46.2%;
+        }
+
+        #delivery>div:nth-child(1),
+        #delivery>div:nth-child(2),
+        #delivery>div:nth-child(3),
+        #delivery>div:nth-child(4),
+        #delivery>div:nth-child(5) {
+            display: flex;
+        }
+
+        #delivery>div:nth-child(1)>div,
+        #delivery>div:nth-child(2)>div,
+        #delivery>div:nth-child(3)>div,
+        #delivery>div:nth-child(4)>div,
+        #delivery>div:nth-child(5)>div {
             display: 33%;
-            border:1px solid red;
+            font-size: 20px;
+            padding: 10px;
         }
 
-        .blue-div{
+        .blue-div {
             display: flex;
         }
+
+        .blue-div>div:nth-child(1) {
+            width: 10%;
+        }
+
+        .blue-div>div:nth-child(2) {
+            width: 90%;
+        }
+
+        #address {
+            padding: 10px;
+        }
+
+        #address>div {
+            margin-bottom: 27px;
+        }
+
+        input {
+            border: 1px solid rgb(206, 198, 198);
+            border-radius: 5px;
+            height: 40px;
+            padding-left: 12px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            font-size: 19px;
+            font-weight: 500;
+            transition: box-shadow 300ms ease-out;
+        }
+
+        #address>div:nth-child(3)>input:nth-child(1),
+        #address>div:nth-child(5)>input:nth-child(1),
+        #address>div:nth-child(6)>input:nth-child(1),
+        #address>div:nth-child(7)>input:nth-child(1) {
+            margin-right: 40px;
+        }
+
+        ::placeholder {
+            color: rgb(196, 188, 188);
+            opacity: 1;
+        }
+
+
+        input:focus {
+            background-color: transparent;
+            resize: none;
+            outline: rgb(153, 30, 30);
+            box-shadow: 0px 0px 20px rgba(15, 15, 77, 0.2);
+        }
+
+        #delivery>div:nth-child(1) {
+            background-color: rgb(240, 240, 240);
+        }
+
+        #delivery>div>div {
+            width: 33%;
+        }
+
+
+        #heading {
+            text-align: center;
+            font-size: 20px;
+        }
+
+        #heading>div {
+            padding: 10px 0px;
+        }
+
+        .center-text {
+            text-align: center;
+        }
+
+        #delivery{
+            color:#555353;
+        }
+
+        #delivery p {
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        #border-color{
+            border:1.5px #2a9dcc solid;
+            margin-top:5px;
+        }
+
         .blue-div>div:nth-child(1){
-            width:25%;
-            border:1px solid green;
+            padding:10px;
         }
-        .blue-div>div:nth-child(2){
-            width:75%;
-            border:1px solid green;
+
+        .blue-div button{
+            width:90%;
+            height:30px;
+            border-radius: 50%;
+            border:1px solid #2a9dcc;
+            background-color: white;
         }
+        #delivery>div:nth-child(5){
+            margin-bottom: 30px;
+        }
+        #delivery>div:nth-child(6){
+            text-align: center;
+        }
+        #delivery>div:nth-child(6) button{
+            background-color:rgba(0,0,0,.75);
+            color:white;
+            font-size: 18px;
+            padding:12px 160px;
+            border-radius: 4px;
+            margin-bottom:30px;
+        }
+
+        .upper-div>div:nth-child(1) {
+            width: 32px !important; 
+            height: 27px ;
+            border-radius: 15px;
+            background-color: black ;
+            color: white ;
+            font-weight: 500 ;
+            text-align: center ;
+            margin-right: 10px;
+            padding-top: 8px;
+            border: none;
+        }
+
+        .upper-div p{
+            font-size: 25px !important;
+        }
+
+        .upper-div>div:nth-child(2) {
+            color: rgb(58, 51, 51);
+            font-size: 25px;
+            line-height: 1.4;
+            
+        }
+
+        .upper-div {
+            margin-top: 7px;
+        }
+
+        .upper-div-2{
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        hr{
+            border: 0.9px solid rgb(211, 205, 205);
+        }
+
+        #foot>p{
+            font-size: 18px;
+            margin-top:40px;
+            width:92%;
+            text-align: center;
+            color:rgb(168, 164, 164) !important;
+        }
+
+        #foot a{
+            color:rgb(70, 66, 66);
+            text-decoration: none;
+        }
+
+        #payment-details{
+            background-color: rgb(240, 240, 240);
+            padding:20px;
+        }
+
+        #payment-details>div:nth-child(1){
+            font-size: 30px;
+            font-weight: 500;
+            display: flex;
+            margin-bottom: 30px;
+        }
+
+        i{
+            margin-right: 10px;
+        }
+
+        #payment-details>button{
+            background-color:rgba(0,0,0,.75);
+            color:white;
+            font-size: 18px;
+            padding:12px 150px;
+            border-radius: 4px;
+            margin-bottom:20px;
+        }
+
+        #product-prices p{
+            font-size: 20px;
+            color:rgb(54, 50, 50)
+        }
+
+        #product-prices>div{
+            display:flex;
+            margin-bottom: 20px;
+        }
+
+        #product-prices>div>p:nth-child(1){
+            width:90%;
+        }
+
+        #product-prices>div>h1:nth-child(1){
+            width:90%;
+        }
+
     </style>
 </head>
 
@@ -116,7 +328,7 @@
             <a href="landing_page.html"><img src="https://n.nordstrommedia.com/alias/nordstrom-logo.svg"></a>
         </div>
         <div id="bag">
-            <a href="shopping_bag.html"><img class="bag-image" src="/const/construct_week/images/emptybag-icon.png"></a>
+            <a href=""><img class="bag-image" src="emptybag-icon.png"></img></a>
         </div>
     </div>
     <div id="main-checkout">
@@ -135,7 +347,7 @@
                 <input type="text" id="lastName" placeholder="Last Name">
             </div>
             <div>
-                <input type="text" id="address" placeholder="Address">
+                <input type="text" id="addressInput" placeholder="Address">
             </div>
             <div>
                 <input type="text" id="address2" placeholder="Address2 (Optional)">
@@ -150,7 +362,7 @@
                 <input type="text" id="region" placeholder="Location">
             </div>
             <div id="delivery">
-                <div>
+                <div id="heading">
                     <div>
                         <p><strong>Delivery Method</strong></p>
                     </div>
@@ -161,109 +373,104 @@
                         <p><strong>Shipping Cost</strong></p>
                     </div>
                 </div>
-                <div>
+                <div id = "border-color">
                     <div class="blue-div">
                         <div>
-                            <div style="border:1px solid blue; padding:20px;">
-                                <div style="color:blue"></div>
-                            </div>
+                            <button>1</button>
                         </div>
                         <div>
                             <p>Standard</p>
                             <p style="font-style: italic;">No additional import charges at delivery</p>
                         </div>
                     </div>
-                    <div>
+                    <div class="center-text">
                         <p>11–21 business days</p>
                     </div>
-                    <div>
+                    <div class="center-text">
                         <p>(INR) ₹2,487</p>
                     </div>
                 </div>
                 <div>
-                    <div class="blue-div"> 
+                    <div class="blue-div">
                         <div>
-                            <div style="border:1px solid blue; padding:20px;">
-                                <div style="color:blue"></div>
-                            </div>
+                            <button>2</button>
                         </div>
                         <div>
                             <p>Standard</p>
-                            <p style="font-style: italic;">No additional import charges at delivery</p>
+                            <p style="font-style: italic;">Import charges collected upon delivery</p>
                         </div>
                     </div>
-                    <div>
+                    <div class="center-text">
                         <p>11–21 business days</p>
                     </div>
-                    <div>
-                        <p>Calculate</p>
+                    <div class="center-text">
+                        <a style="color: #2a9dcc;">Calculate</a>
                     </div>
                 </div>
                 <div>
                     <div class="blue-div">
                         <div>
-                            <div style="border:1px solid blue; padding:20px;">
-                                <div style="color:blue"></div>
-                            </div>
+                            <button>3</button>
                         </div>
                         <div>
                             <p>Standard</p>
                             <p style="font-style: italic;">No additional import charges at delivery</p>
                         </div>
                     </div>
-                    <div>
-                        <p>11–21 business days</p>
+                    <div class="center-text">
+                        <p>11–16 business days</p>
                     </div>
-                    <div>
-                        <p>Calculate</p>
+                    <div class="center-text">
+                        <a style="color: #2a9dcc;">Calculate</a>
                     </div>
                 </div>
                 <div>
                     <div class="blue-div">
                         <div>
-                            <div style="border:1px solid blue; padding:20px;">
-                                <div style="color:blue"></div>
-                            </div>
+                        <button>4</button>
                         </div>
                         <div>
                             <p>Standard</p>
-                            <p style="font-style: italic;">No additional import charges at delivery</p>
+                            <p style="font-style: italic;">Import charges collected upon delivery</p>
                         </div>
                     </div>
-                    <div>
+                    <div class="center-text">
                         <p>11–21 business days</p>
                     </div>
-                    <div>
-                        <p>Calculate</p>
+                    <div class="center-text" >
+                        <a style="color: #2a9dcc;">Calculate</a>
                     </div>
                 </div>
                 <div>
                     <button>Continue>></button>
                 </div>
                 <hr>
-                <div class="upper-div">
+                <div class="upper-div upper-div-2">
                     <div>2</div>
                     <div>
                         <p>Payment</p>
                     </div>
                 </div>
                 <hr>
-                <div>
+                <div id="foot"> 
                     <p>
-                        By placing your order, you agree to the <span><a>Terms & Conditions</a></span> and <span><a>Privacy Policy of Borderfree from Pitney Bowes</a></span>, Nordstrom’s international fulfillment service. Borderfree is an online merchant that is located at 27 Waterview Drive, Shelton, CT, 06484, US.
+                        By placing your order, you agree to the <span><a href="">Terms & Conditions</a></span> and
+                        <span><a href="">Privacy Policy of Borderfree from Pitney Bowes</a></span>, Nordstrom’s international
+                        fulfillment service. Borderfree is an online merchant that is located at 27 Waterview Drive,
+                        Shelton, CT, 06484, US.
                     </p>
                 </div>
             </div>
         </div>
         <div id="payment-details">
             <div>
-                <h1>
-                    <i class="nc-icon-outline shopping_cart"></i>
+                <i style='font-size:30px' class="fa fa-shopping-cart"></i>
+                <p>
                     Your Order
-                </h1>
+                </p>
             </div>
             <button>Continue>></button>
-            <div>
+            <div id="product-prices">
                 <div>
                     <p>Items</p>
                     <p>₹3,121</p>
@@ -278,7 +485,7 @@
                 </div>
                 <div>
                     <h1>TOTAL</h1>
-                    <p><strong>(INR)</strong><span><h1>R.7968</h1></span><p>
+                    <h1>7968</h1>
                 </div>
             </div>
             <hr>
@@ -290,8 +497,3 @@
 </body>
 
 </html>
-
-
-
-
-
