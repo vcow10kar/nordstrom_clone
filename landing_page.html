@@ -5,515 +5,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NordStorm Online & Indoor : Shoes,Jewlery,Clothing,Makeup,Dresses</title>            
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;100&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
-
-
-
-    <style>
-        #main-content a:hover {
-            border-bottom: 2px solid black;
-        }
-
-        #top {
-            background-color: black;
-            text-align: center;
-            color: white;
-
-            font-size: 13px;
-            font-weight: 400;
-            letter-spacing: 0.15px;
-
-        }
-
-        #top a {
-            cursor: pointer;
-            color: rgb(248, 246, 246);
-        }
-
-        #top p {
-            float: left;
-
-        }
-
-        #top button {
-            float: right;
-            color: white;
-            background-color: black;
-            border: none;
-            cursor: pointer;
-            font-size: 12px;
-        }
-
-        #top button img {
-            height: 15px;
-            width: 15px;
-            border-radius: 50%;
-            margin-right: 5px;
-        }
-
-        #top span {
-            vertical-align: top;
-        }
-
-        .clear {
-            clear: both
-        }
-
-        #nav-bar {
-            margin-top: 25px;
-            padding-bottom: 13px;
-
-        }
-
-        #nav-bar>div {
-            width: 96.5%;
-            margin: auto;
-        }
-
-        /* ul{
-    list-style-type: none;
-} */
-
-        /* #inside-div{
-    /* border:1px solid green; } */
-
-        #inside-div>div {
-            float: left;
-            margin-right: 40px;
-        }
-
-        #logo {
-            width: 15%;
-        }
-
-        #navs {
-            width: 60%;
-            margin-top: 7px;
-        }
-
-        #navs>button {
-            display: inline;
-            border: none;
-            background-color: white;
-            margin-right: 20px;
-            color: #393939;
-            font-family: Brandon Text, Arial, sans-serif;
-            font-weight: 400;
-            font-size: 14px;
-            transition-duration: 1s;
-        }
-
-        #red {
-            color: #d61f27 !important;
-        }
-
-        #search {
-            display: flex;
-            width: 18%;
-            margin-right: 0px !important;
-            margin-left: 10px;
-            position: relative
-        }
-
-        #search>div {
-            width: 37%;
-            margin-right: 20px;
-        }
-
-        #search>div:nth-last-child(1) {
-            margin-right: 0px;
-        }
-
-        #bag {
-            width: 15% !important;
-
-        }
-
-        #bag img {
-            width: 100%;
-            margin-top: 3px;
-        }
-
-        #one,
-        #two {
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-            font-size: 14px;
-            color: #393939;
-            font-family: Brandon Text, Arial, sans-serif;
-        }
-
-        #one img {
-            width: 100%;
-            height: 30px;
-        }
-
-        #bag>a>img {
-            width: 100%;
-            height: 25px;
-        }
-
-        #two>img {
-            width: 16px;
-            height: 16px;
-        }
-
-        .img>img {
-            width: 20px;
-            height: 20px;
-        }
-
-        #navs>button:nth-last-child(1) {
-            margin-left: 17px;
-            margin-right: 0px;
-        }
-
-        #search p {
-            margin-left: 3px;
-        }
-
-        .Sale-content,
-        .Home-content,
-        .Women-content,
-        .Men-content,
-        .Kids-content,
-        .YoungAdult-content,
-        .Kids-content,
-        .Activewear-content,
-        .Gifts-content,
-        .Beauty-content,
-        .Designer-content,
-        .Brands-content {
-            display: block;
-            height: 0px;
-            width: 100%;
-            position: absolute;
-            overflow: hidden;
-            background-color: #ffffff;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            padding: 0px 25px;
-            padding-bottom: 0px;
-            z-index: 1;
-            transition: height 0.5s ease-out;
-            overflow-y: auto;
-
-        }
-
-        #inputBox {
-            display: block;
-            height: 0px;
-            position: absolute;
-            top: 100%;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 6;
-            border: none;
-            padding: 0px 20px;
-            width: 400px;
-        }
-
-        #signIN {
-            display: none;
-            position: absolute;
-            top: 100%;
-            right: 20px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            border: none;
-            z-index: 7;
-            padding: 10px 20px;
-            background-color: white;
-            width: 100% !important;
-        }
-
-        #signIN li {
-            margin: 10px;
-            margin-bottom: 20px;
-            font-size: 12px;
-        }
-
-        #signIN li:nth-child(1) {
-            width: 65%;
-            background-color: black;
-            text-align: center;
-            padding: 10px 30px;
-        }
-
-        #signIN li:nth-child(2) {
-            width: 65%;
-            border: 1px solid black;
-            text-align: center;
-            padding: 10px 30px;
-        }
-
-        #signIN a {
-            text-decoration: none;
-            color: #393939;
-        }
-
-        #signIN li:nth-child(1)>a {
-            color: white;
-        }
-
-
-
-        .mainh3 {
-            margin-top: 20px;
-        }
-
-        .Sale-content>div,
-        .Home-content>div,
-        .Women-content>div,
-        .Men-content>div,
-        .Kids-content>div,
-        .YoungAdult-content>div,
-        .Kids-content>div,
-        .Activewear-content>div,
-        .Gifts-content>div,
-        .Beauty-content>div,
-        .Designer-content>div,
-        .Brands-content>div {
-            display: flex;
-        }
-
-        .Sale-content>div>div,
-        .Home-content>div>div,
-        .Women-content>div>div,
-        .Men-content>div>div,
-        .Kids-content>div>div,
-        .YoungAdult-content>div>div,
-        .Kids-content>div>div,
-        .Activewear-content>div>div,
-        .Gifts-content>div>div,
-        .Beauty-content>div>div,
-        .Designer-content>div>div,
-        .Brands-content>div>div {
-            margin-right: 80px;
-        }
-
-        .Sale-content ul,
-        .Home-content ul,
-        .Women-content ul,
-        .Men-content ul,
-        .Kids-content ul,
-        .YoungAdult-content ul,
-        .Kids-content ul,
-        .Activewear-content ul,
-        .Gifts-content ul,
-        .Beauty-content ul,
-        .Designer-content ul,
-        .Brands-content ul {
-            list-style-type: none
-        }
-
-        .Sale-content a,
-        .Home-content a,
-        .Women-content a,
-        .Men-content a,
-        .Kids-content a,
-        .YoungAdult-content a,
-        .Kids-content a,
-        .Activewear-content a,
-        .Gifts-content a,
-        .Beauty-content a,
-        .Designer-content a,
-        .Brands-content a {
-            color: #393939;
-            font-size: 13px;
-            line-height: 1.4;
-            text-decoration: none;
-        }
-
-        .Sale-content li>a,
-        .Home-content li>a,
-        .Women-content li>a,
-        .Men-content li>a,
-        .Kids-content li>a,
-        .YoungAdult-content li>a,
-        .Kids-content li>a,
-        .Activewear-content li>a,
-        .Gifts-content li>a,
-        .Beauty-content li>a,
-        .Designer-content li>a,
-        .Brands-content li>a {
-            font-size: 12px;
-        }
-
-        .Sale-content li,
-        .Home-content li,
-        .Women-content li,
-        .Men-content li,
-        .Kids-content li,
-        .YoungAdult-content li,
-        .Kids-content li,
-        .Activewear-content li,
-        .Gifts-content li,
-        .Beauty-content li,
-        .Designer-content li,
-        .Brands-content li {
-            margin-bottom: 10px;
-        }
-
-        .firstDiv {
-            margin-right: 30px;
-        }
-
-        hr {
-            background-color: rgb(223, 213, 213);
-            height: 1px;
-            width: 200px;
-            margin-bottom: 10px;
-            border: none;
-        }
-
-        .topMargin {
-            margin-top: 30px;
-        }
-
-        .marginRem {
-            margin-right: 0px;
-            width: 15%;
-        }
-
-        .marginRem img {
-            width: 100%;
-            margin-top: 80px;
-            margin-bottom: 80px;
-        }
-
-        .decor {
-            font-size: 11px;
-        }
-
-        .decor+hr {
-            width: 110px;
-            background-color: black;
-        }
-
-        ul {
-            list-style-type: none
-        }
-
-        * {
-
-            font-family: 'Lato', sans-serif;
-        }
-
-        h2 {
-            font-weight: bold;
-        }
-
-        .signup-container {
-            width: 30%;
-            margin: auto;
-
-            border-radius: 10px;
-            padding: 20px;
-
-        }
-
-        .signup-btn {
-            background-color: black;
-            border: none;
-            color: white;
-            margin-left: 10px;
-            padding: 10px;
-            width: 95%;
-            font-weight: 700;
-
-        }
-
-        .signup-btn:hover {
-            background-color: rgb(36, 36, 36);
-        }
-
-        .signup-label {
-            font-weight: bold;
-            font-size: 14px;
-            margin: 10px;
-        }
-
-        .signup-input {
-            padding: 10px;
-            margin-left: 10px;
-            width: 90%;
-            border: 1px solid #bbb
-        }
-
-        .error {
-            padding: 10px;
-            margin-left: 10px;
-            width: 90%;
-            border: 1px solid red;
-            border-bottom: 3px solid red;
-        }
-
-        input:focus {
-
-            border-bottom: 3px solid black;
-            border-left: none;
-            border-right: none;
-            border-top: none;
-
-        }
-
-        .signup-a {
-            text-decoration: underline;
-            color: black;
-        }
-
-        .flex {
-            display: flex;
-        }
-
-        body {
-            margin: 0px;
-        }
-
-        .right {
-            float: right;
-        }
-
-        #bag-icon-text {
-            display: grid;
-            grid-template-columns: 50% 50%;
-            text-decoration: none;
-            gap: 5px;
-        }
-
-        #itemsInBag {
-            width: 100%;
-            height: 50%;
-            border-radius: 50%;
-            font-weight: 800;
-            font-size: 18px;
-            color: rgb(61, 61, 61);
-            margin-bottom: 12px;
-        }
-    </style>
+    <title>Nordstrom Online & In Store: Shoes, Jewelry, Clothing, Makeup, Dresses</title>
+    <link rel="icon" href="https://n.nordstrommedia.com/id/c4fb2a09-3657-4161-9b79-6412897d9399.png"
+        type="image/x-icon">
+        <script src="https://use.fontawesome.com/0d7192da0b.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- <script src="landingPage.js"></script> -->
+    <script>
+
+        document.addEventListener("DOMContentLoaded",function(e){
+    
+            var p=document.getElementById("welcome_message");
+    
+            if(localStorage.getItem('logeduser')!=null)
+                {
+                    p.innerText= "Hi,\t" +JSON.parse(localStorage.getItem('logeduser')).fname ;
+                    document.getElementById("sign-in-btn").style.display="none";
+                    document.getElementById("sign-up-btn").style.display="none";
+                    var signout=document.getElementById("signout");
+                    signout.style.display="block"
+                    signout.addEventListener("click",function(ev){
+                        localStorage.removeItem("logeduser");
+                        document.location="landing_page.html";
+                    });
+                    
+                }
+        });
+        
+    
+    </script>
 </head>
 
 <body onclick="removeDropdown()">
-
-
-
-
-
-
-    <div class="header">
+    <div id="LandingPage">
         <div id="top">
             <div style="text-align:center">
-                <p style="width:100%">
+                <p style="width:95%;padding:10px 10px;">
                     <strong>Shipping outside of the U.S. or Canada?</strong>
                     <a title="Learn About International Shipping" href="">Learn About International Shipping</a>
-                    <button class="right" href=""><img
-                            src="https://n.nordstrommedia.com/alias/IN.gif"><span>India</span></button>
-                </p>
 
+                    <button class="right" href=""><img src="https://n.nordstrommedia.com/alias/IN.gif"><span>India</span></button>
+                </p>
+                
             </div>
             <div class="clear"></div>
         </div>
@@ -523,8 +57,7 @@
                     <a href="landing_page.html"><img src="https://n.nordstrommedia.com/alias/nordstrom-logo.svg"></a>
                 </div>
                 <div id="navs">
-                    <button id="red" class="navEle" onclick="dropDown('Sale')"
-                        onmouseover="dropDown('Sale')">Sale</button>
+                    <button id="red" class="navEle" onclick="dropDown('Sale')" onmouseover="dropDown('Sale')">Sale</button>
                     <button class="navEle" onclick="dropDown('Women')" onmouseover="dropDown('Women')">Women</button>
                     <button class="navEle" onclick="dropDown('Men')" onmouseover="dropDown('Men')">Men</button>
                     <button class="navEle" onclick="dropDown('Kids')" onmouseover="dropDown('Kids')">Kids</button>
@@ -551,15 +84,15 @@
                         </div>
                     </div>
                     <div id="two" onmouseenter="removeBar()">
-                        <p onmouseenter="signBar()">Sign In</p>
+                        <p onmouseenter="signBar()" id="welcome_message">Sign In</p>
                         <span class="material-icons">keyboard_arrow_down</span>
                     </div>
                     <div id="signIN" onmouseleave="removeSignBar()">
                         <ul>
-                            <li>
+                            <li id="sign-in-btn">
                                 <a href="signin.html">Sign In</a>
                             </li>
-                            <li>
+                            <li id="sign-up-btn">
                                 <a href="signup.html">Create Account</a>
                             </li>
                             <li>
@@ -574,13 +107,15 @@
                             <li>
                                 <a href=""><span>Stores & Events</span></a>
                             </li>
+                            <li id="signout" style="display:none">
+                                <a href=""><span>Logout</span></a>
+                            </li>
                         </ul>
                     </div>
                     <div id="bag">
-                        <a id="bag-icon-text" href="shopping_bag.html">
-                            <div><span class="material-icons" style="font-size: 36px; color: black">shopping_bag</span>
-                            </div>
-                            <p id="itemsInBag"></p>
+                        <a  id = "bag-icon-text" href="shopping_bag.html">
+                            <div><span class="material-icons" style = "font-size: 36px; color: black">shopping_bag</span></div>
+                            <p id = "itemsInBag"></p>
                             <!-- <img class="bag-image" src="images/emptybag-icon.png"></img> -->
                         </a>
                     </div>
@@ -767,8 +302,7 @@
                             <div>
                                 <a href="">
                                     <div>
-                                        <img
-                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                        <img src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
                                     </div>
                                 </a>
                             </div>
@@ -780,8 +314,8 @@
                     </div>
                 </div>
             </div>
-
-
+    
+    
             <div class="Women-content">
                 <div>
                     <div class="firstDiv">
@@ -960,8 +494,7 @@
                             <div>
                                 <a href="">
                                     <div>
-                                        <img
-                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                        <img src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
                                     </div>
                                 </a>
                             </div>
@@ -973,7 +506,7 @@
                     </div>
                 </div>
             </div>
-
+    
             <div class="Men-content">
                 <div>
                     <div class="firstDiv">
@@ -1152,8 +685,7 @@
                             <div>
                                 <a href="">
                                     <div>
-                                        <img
-                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                        <img src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
                                     </div>
                                 </a>
                             </div>
@@ -1165,7 +697,7 @@
                     </div>
                 </div>
             </div>
-
+    
             <div class="Kids-content">
                 <div>
                     <div class="firstDiv">
@@ -1344,8 +876,7 @@
                             <div>
                                 <a href="">
                                     <div>
-                                        <img
-                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                        <img src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
                                     </div>
                                 </a>
                             </div>
@@ -1357,7 +888,7 @@
                     </div>
                 </div>
             </div>
-
+    
             <div class="YoungAdult-content">
                 <div>
                     <div class="firstDiv">
@@ -1536,8 +1067,7 @@
                             <div>
                                 <a href="">
                                     <div>
-                                        <img
-                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                        <img src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
                                     </div>
                                 </a>
                             </div>
@@ -1549,7 +1079,7 @@
                     </div>
                 </div>
             </div>
-
+    
             <div class="Activewear-content">
                 <div>
                     <div class="firstDiv">
@@ -1728,8 +1258,7 @@
                             <div>
                                 <a href="">
                                     <div>
-                                        <img
-                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                        <img src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
                                     </div>
                                 </a>
                             </div>
@@ -1741,7 +1270,7 @@
                     </div>
                 </div>
             </div>
-
+    
             <div class="Home-content">
                 <div>
                     <div class="firstDiv">
@@ -2001,8 +1530,7 @@
                             <div>
                                 <a href="">
                                     <div>
-                                        <img
-                                            src="https://n.nordstrommedia.com/id/4e7d9382-fd6b-4697-b1f3-ceeddf0a63aa.jpg">
+                                        <img src="https://n.nordstrommedia.com/id/4e7d9382-fd6b-4697-b1f3-ceeddf0a63aa.jpg">
                                     </div>
                                 </a>
                             </div>
@@ -2011,11 +1539,11 @@
                                 <hr>
                             </div>
                         </div>
-
+    
                     </div>
                 </div>
             </div>
-
+    
             <div class="Gifts-content">
                 <div>
                     <div class="firstDiv">
@@ -2194,8 +1722,7 @@
                             <div>
                                 <a href="">
                                     <div>
-                                        <img
-                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                        <img src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
                                     </div>
                                 </a>
                             </div>
@@ -2207,7 +1734,7 @@
                     </div>
                 </div>
             </div>
-
+    
             <div class="Beauty-content">
                 <div>
                     <div class="firstDiv">
@@ -2386,8 +1913,7 @@
                             <div>
                                 <a href="">
                                     <div>
-                                        <img
-                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                        <img src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
                                     </div>
                                 </a>
                             </div>
@@ -2399,7 +1925,7 @@
                     </div>
                 </div>
             </div>
-
+    
             <div class="Designer-content">
                 <div>
                     <div class="firstDiv">
@@ -2578,8 +2104,7 @@
                             <div>
                                 <a href="">
                                     <div>
-                                        <img
-                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                        <img src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
                                     </div>
                                 </a>
                             </div>
@@ -2591,7 +2116,7 @@
                     </div>
                 </div>
             </div>
-
+    
             <div class="Brands-content">
                 <div>
                     <div class="firstDiv">
@@ -2770,8 +2295,7 @@
                             <div>
                                 <a href="">
                                     <div>
-                                        <img
-                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                        <img src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
                                     </div>
                                 </a>
                             </div>
@@ -2787,322 +2311,675 @@
     </div>
 
 
-    <div class="signup-container" id="email_container">
-        <h2 style="margin:10px;">Sign In | Create Account</h2>
-        <p style="margin:10px;">Enter your email to get started</p>
-
-        <label class="signup-label" for="email">Email</label>
-        <br>
-        <input class="signup-input" type="text" id="email" style="margin:10px;" />
-        <br>
-        <p id="error_message" style="visibility:hidden;margin:10px">Enter Email address as name@email.com</p>
-        <button class="signup-btn" onclick="checkUser(event)">Next</button>
-
-        <p style="margin:10px;">By tapping Next, you agree to our<a href="privacy.html">Privacy Policy</a> and <a
-                href="terms.html">Terms & Conditions</a>.</p>
-    </div>
-
-
-
-    <div class="login-container signup-container" id="login_container" style="display:none">
-        <h2 style="margin:10px;">Welcome back !</h2>
-        <p style="margin:10px;">Sign in with the same info at:</p>
-        <div class="flex" style="margin:10px;gap:10px">
-            <svg xmlns="http://www.w3.org/2000/svg" width="128" height="16" focusable="false" class="_3tnSq">
-                <path
-                    d="M120.613 9.31L127.41.08v15.5h-2.297V7.252l-4.501 5.99-4.499-5.99v8.328h-2.307V.08l6.806 9.23zm-52.83 2.248c-.041-.793-.415-2.375-2.482-4.043l-1.813-1.587c-.764-.61-1.133-1.278-1.149-2.04a1.469 1.469 0 011.469-1.547 2.055 2.055 0 011.813.811l.027.039 1.845-1.235-.023-.039C67.162 1.41 65.72.052 63.792.16a4.057 4.057 0 00-2.742 1.16 3.625 3.625 0 00-.995 2.776c.066 1.3.818 2.493 2.368 3.771l1.7 1.505c.942.775 1.36 1.43 1.414 2.196a2.077 2.077 0 01-.517 1.527c-.295.347-.725.55-1.18.558h-.112c-1.434 0-2.012-1.018-2.359-1.627l-.088-.155-1.963.952a4.55 4.55 0 004.379 3.01h.054a4.357 4.357 0 002.928-1.283 3.97 3.97 0 001.104-2.991zM22.417 0a7.987 7.987 0 107.987 7.986A7.996 7.996 0 0022.417 0zm0 13.659a5.665 5.665 0 01-5.665-5.666 5.665 5.665 0 1111.331 0 5.68 5.68 0 01-5.666 5.666zM102.843 0a7.986 7.986 0 107.975 7.986A7.995 7.995 0 00102.843 0zm0 13.659a5.665 5.665 0 01-5.665-5.666 5.665 5.665 0 1111.331 0 5.68 5.68 0 01-5.666 5.666zm-91.437 2.307V.396H9.092v9.668L0 .08v15.5h2.307V6.062l.084.089 9.015 9.815zM79.458.396h-9.704v2.122h3.656V15.58h2.395V2.518h3.656L79.458.397zm10.13 9.469l.05-.023c.25-.118.487-.26.71-.424a5.074 5.074 0 001.987-4.09c0-2.72-2.015-4.93-4.494-4.93h-5.35v15.185h2.311v-5.328h2.266l.014.02 3.51 5.305h2.776l-3.78-5.715zm-2-1.933H84.81v-5.28h2.776c1.33 0 2.411 1.182 2.411 2.637s-1.083 2.643-2.41 2.643zM50.92.397h-3.75V15.58h3.75c3.678 0 6.572-3.4 6.572-7.592S54.572.397 50.92.397zM50.852 13.4h-1.396V2.577h1.396c2.493 0 4.367 2.427 4.367 5.411 0 2.985-1.881 5.412-4.367 5.412zm-10.35-3.535l.05-.023c.25-.118.487-.26.71-.424a5.074 5.074 0 001.987-4.09c0-2.72-2.015-4.93-4.494-4.93h-5.342v15.185h2.312v-5.328h2.266l.014.02 3.51 5.305h2.762l-3.775-5.715zm-2.003-1.933h-2.774v-5.28H38.5c1.33 0 2.411 1.182 2.411 2.637S39.83 7.932 38.5 7.932z"
-                    fill="#000" fill-rule="nonzero"></path>
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="52" height="24" focusable="false" class="_3tnSq">
-                <path
-                    d="M.427 5.154H0s.056-1.672.056-3.297V.984h.288s1.225 1.802 2.172 3.092V2.461a8.99 8.99 0 00-.065-1.458h.437s-.056 1.523-.056 3.287v.864h-.288S1.18 3.139.39 2.089v1.625c0 1.142.037 1.44.037 1.44zm7.429-2.08a1.948 1.948 0 01-.895 1.88 1.946 1.946 0 01-2.083 0 1.947 1.947 0 01-.894-1.88 1.95 1.95 0 113.872 0zm-.632 0c0-1.189-.464-1.858-1.3-1.858-.835 0-1.281.641-1.281 1.848s.455 1.913 1.31 1.913c.853 0 1.262-.715 1.262-1.913l.01.01zm3.074 0c.362.724 1.18 2.098 1.18 2.098h-.679s-.473-.928-1.216-2.284h.158c.631 0 .928-.279.928-.827a.732.732 0 00-.826-.817H9.47v3.91h-.566s.046-1.635.046-2.489c0-.585-.046-1.662-.046-1.662h1.207c.697 0 1.077.353 1.077.928a1.077 1.077 0 01-.9 1.124l.009.019zm3.473 2.098h-1.3s.055-1.31.055-2.08-.065-2.09-.065-2.09h1.468c1.216 0 1.857.688 1.857 1.997a1.937 1.937 0 01-.51 1.549 1.937 1.937 0 01-1.515.606l.01.018zm-.121-3.918h-.585v3.593c.167.012.335.012.501 0 1.068 0 1.607-.668 1.607-1.857s-.51-1.736-1.523-1.736zm4.847 2.785c-.074-.353-.316-.575-.77-.826-.456-.25-.93-.576-.985-1.124A1.117 1.117 0 0117.94.929c.298-.001.595.04.882.12v.502a1.214 1.214 0 00-.854-.372.672.672 0 00-.752.641c0 .362.278.539.789.836.669.39 1.003.705 1.003 1.309a1.28 1.28 0 01-1.365 1.263 3.093 3.093 0 01-.882-.12v-.465c.252.235.583.368.928.371a.735.735 0 00.808-.937v-.038zm4.067-2.646a2.994 2.994 0 00-.789-.093h-.26v1.207c0 1.16.056 2.647.056 2.647h-.65s.055-1.486.055-2.647V1.3h-.26a2.984 2.984 0 00-.798.093v-.39h2.646v.39zm2.405 1.662c.372.724 1.18 2.099 1.18 2.099h-.669s-.483-.929-1.216-2.285h.148c.632 0 .929-.278.929-.826a.732.732 0 00-.789-.799 4.035 4.035 0 00-.381 0V3.77c0 .929.046 1.384.046 1.384h-.594s.046-1.635.046-2.489c0-.585-.046-1.662-.046-1.662h1.17c.696 0 1.086.353 1.086.928a1.086 1.086 0 01-.91 1.124zm5.73 0a1.95 1.95 0 11-3.873 0 1.95 1.95 0 113.873 0zm-.632 0c0-1.189-.473-1.857-1.31-1.857-.835 0-1.3.696-1.3 1.857 0 1.16.456 1.913 1.3 1.913.846 0 1.31-.706 1.31-1.904v-.009zm4.93 2.09s0-1.858-.11-2.944l-1.291 3.055s-.836-1.932-1.356-3.018c-.102 1.096-.14 2.916-.14 2.916h-.399s.205-2.192.26-4.151h.353s.975 2.182 1.43 3.138c.427-.984 1.3-3.138 1.3-3.138h.353s.065 1.857.232 4.15l-.631-.009zm5.145-4.142H37.96v21.784h2.182v-5.72l2.684-2.21 5.748 7.967h2.739l-6.825-9.471 6.583-5.739h-3.036l-7.893 6.927V1.003zm-25.23 6.184c-3.38 0-5.923 1.588-6.081 5.135v.204h2.191v-.185c.065-2.294 1.57-3.222 3.714-3.25 2.145-.028 3.64.538 3.659 2.841 0 1.532-.64 1.597-2.145 1.857a21.69 21.69 0 00-5.45 1.003 3.874 3.874 0 00-2.62 3.947 4.187 4.187 0 001.524 3.426 5.768 5.768 0 003.621 1.05h.046a5.656 5.656 0 005.2-2.675c.008.508.142 1.006.39 1.449.44.567 1.142.87 1.858.798.405.006.81-.035 1.207-.12h.158V20.67l-.27.111c-.157.059-.324.09-.492.093-.631 0-.836-.269-.863-.928v-7.81a4.503 4.503 0 00-1.858-4.02 6.769 6.769 0 00-3.797-.929h-.065m-1.365 14.17a2.879 2.879 0 01-3.092-2.786c0-1.346.835-1.977 2.144-2.405a39.493 39.493 0 014.541-.807c.472-.06.93-.208 1.347-.437V16.9c0 2.74-2.294 4.392-4.94 4.401M29.909 7.187c-4.643 0-7.15 3.714-7.159 8.014-.01 4.299 2.498 8.013 7.122 8.013 3.362 0 5.767-2.275 6.25-5.896v-.223h-2.146v.176a4.206 4.206 0 01-4.104 4.086c-3.315 0-4.958-3.008-4.968-6.11-.009-3.101 1.653-6.147 4.968-6.156 2.257 0 3.482 1.253 3.974 3.398v.158h2.173v-.223c-.399-3.454-2.925-5.237-6.11-5.237M7.16 7.43a5.57 5.57 0 00-5.116 3.064v-2.88H0v15.173h2.182V14.71a4.877 4.877 0 014.959-5.108h.52V7.43h-.502z"
-                    fill="#000" fill-rule="nonzero"></path>
-            </svg>
-        </div>
-        <label class="signup-label" class="signup-label" for="email">Email</label>
-        <br>
-        <p style="margin:10px;" id="login_user_email"> </p>
-        <br>
-
-        <label class="signup-label" for="password" style="margin-bottom:10px">Password<span class="material-icons"
-                style="font-size:20px;color:gray">help</span></label>
-        <br>
-        <input class="signup-input" type="password" id="password" />
-        <br>
-        <p class="error_message" id="error_message" style="font-size:12px;color:red;visibility:hidden;margin:10px">
-            Please enter correct password</p>
-        <a href="forgot.html" style="font-size:15px;color:black;margin-left: 10px;">Forgot password ? </a>
-
-        <div style="display:grid;grid-template-columns:auto 100%;gap:10px;margin:10px"><input type="checkbox"
-                id="keep_me_signed" /><label for="keep_me_signed"
-                style="text-align:left;margin-bottom: 5px;font-size: 15px;font-weight: 100;">Keep me signed In. <a
-                    href="details.html">Details</a></label></div>
-
-        <button class="signup-btn" onclick="login(event)">Sign In</button>
-
-
-
-
-    </div>
-
-    <iframe src="footer.html" style="width:100%;margin:0px;border:none;height: 350px;overflow:hidden;"></iframe>
-
-
-
-
-
-
-
-    <script>
-
-
-
-        if (localStorage.getItem('users') == null) {
-            localStorage.setItem('users', JSON.stringify([]));
-        }
-
-        /**
-                //below is code for setting users in localstorage for acess
-                var user ={
-                    name : "akhil",
-                    email : "akhilkamsala@gmail.com",
-                    age: 25,
-                    phone : '8790856040',
-                    pic_url : "",
-        
-                }
-        
-                var storage = JSON.parse(localStorage.getItem('users'));
-                console.log(storage);
-                //storage.push({});
-                localStorage.setItem('users',JSON.stringify(storage));
-        **/
-
-
-
-        function isRegisteredUser(email) {
-
-            var users = JSON.parse(localStorage.getItem('users'));
-
-            var userDetails = users.filter(function (user) {
-                //console.log(user);
-                return user.email == email;
-            });
-
-            console.log(userDetails);
-
-
-            if (userDetails.length == 0)
-                return false;
-            else
-                return true;
-
-
-        }
-
-
-        function validateEmail(email) {
-            const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            return re.test(String(email).toLowerCase());
-        }
-
-
-        //this method is called every time next is clicked and the email address parameter is passed dynamically
-        function checkUser(event) {
-
-            var email = document.getElementById('email').value;
-            if (email == '' || email == null) {
-                //alert("please enter a email id !");
-                document.getElementById('email').setAttribute('class', 'error');
-                document.getElementById('error_message').style.visibility = 'visible';
-                document.getElementById('error_message').style.color = 'red';
-            }
-            else if (validateEmail(email)) {
-
-                if (isRegisteredUser(email)) {
-                    document.getElementById('email').removeAttribute("class");
-                    document.getElementById('error_message').style.visibility = 'hidden';
-                    //document.getElementById('error_message').style.color = 'red';
-                    renderLogin();
-
-                    localStorage.setItem('tried_login_user', email);
-                }
-                else {
-
-                    localStorage.setItem('tried_login_user', email);
-                    window.location = "signup.html";
-                }
-
-            } else {
-                document.getElementById('email').setAttribute('class', 'error');
-                document.getElementById('error_message').style.visibility = 'visible';
-                document.getElementById('error_message').style.color = 'red';
-            }
-
-
-        }
-
-
-
-        function renderLogin() {
-            document.getElementById('email_container').remove();
-
-            document.getElementById('login_container').style.display = 'block';
-            document.getElementById('login_user_email').textContent = localStorage.getItem('tried_login_user');
-        }
-
-
-
-        function login(event) {
-
-            if (localStorage.getItem("bag") == null) {
-                localStorage.setItem("bag", JSON.stringify([]))
-            }
-
-            console.log(event);
-
-            var email = localStorage.getItem('tried_login_user');
-            var users = JSON.parse(localStorage.getItem('users'));
-            var filter_arr = users.filter(function (el) {
-                return el.email == email;
-            });
-            var password = filter_arr[0].password;
-            var user_pass = document.getElementById('password').value;
-            if (user_pass == password) {
-                // alert("Login success");
-                document.getElementById('error_message').style.visibility = "hidden";
-                document.getElementById('password').removeAttribute("class");
-                document.getElementById('password').setAttribute("class", "signup-input")
-                document.location = "landing_page.html";
-                var userDetails = JSON.parse(localStorage.getItem('users'));
-                var arr = userDetails.filter(function (el) {
-                    return el.email === email;
-                });
-                localStorage.setItem('logeduser', JSON.stringify(arr[0]));
-
-                if (localStorage.getItem('logeduser') != null) {
-                    var generic_bag = JSON.parse(localStorage.getItem('bag'));
-                    var logeduser = JSON.parse(localStorage.getItem('logeduser'));
-                    var key = `bag_${logeduser.email}`;
-
-                    if (JSON.parse(localStorage.getItem(key)) === null) {
-                        localStorage.setItem(key, JSON.stringify(generic_bag));
-                    }
-
-                    if (JSON.parse(localStorage.getItem(key)).length === 0) {
-                        window.location.href = 'landing_page.html';
-                    } else if (generic_bag != null) {
-                        window.location.href = 'shopping_bag.html';
-                        localStorage.setItem('bag', JSON.stringify([]));
-                    }
-                }
-
-            }
-            else {
-                document.getElementById('password').setAttribute("class", "error")
-                document.getElementById('error_message').style.visibility = "visible";
-
-            }
-
-        }
-
-        function dropDown(a) {
-
-            var show1 = document.querySelector("#main-content")
-            var show = document.querySelector(`.${a}-content`)
-            show1.style.display = "block";
-            // show.style.display="block";
-            show.style.height = "500px"
-
-            var rem = document.getElementsByClassName("navEle")
-
-            for (var i = 0; i < rem.length; i++) {
-                if (rem[i].textContent != a) {
-                    var remo = document.querySelector(`.${rem[i].textContent}-content`)
-                    remo.style.height = "0px";
-
-                    rem[i].style.color = "rgba(0, 0, 0, 0.3)"
-                    rem[i].style.textDecoration = "none"
-                } else {
-                    rem[i].style.color = "#393939"
-                    rem[i].style.textDecoration = "underline"
-                }
-            }
-        }
-
-        function searchBar() {
-            var bar = document.querySelector("#inputBox")
-            bar.style.height = "70px";
-        }
-
-        function removeBar() {
-            var bar = document.querySelector("#inputBox")
-            bar.style.height = "0px";
-        }
-
-        function signBar() {
-            var bar = document.querySelector("#signIN")
-            bar.style.display = "block";
-        }
-
-        function removeSignBar() {
-            var bar = document.querySelector("#signIN")
-            bar.style.display = "none";
-        }
-
-        function removeDropdown() {
-            var show = document.querySelector("#main-content")
-            show.style.display = "none";
-
-            var reset = document.getElementsByClassName("navEle")
-
-            for (var i = 0; i < reset.length; i++) {
-                if (reset[i].textContent != "Sale") {
-                    reset[i].style.color = "#393939"
-                }
-                reset[i].style.textDecoration = "none"
-            }
-        }
-
-        window.onload = calculateItemsInBag;
-
-        var bagIcon = document.getElementById('bag-icon-text');
-        var items = document.getElementById('itemsInBag');
-
-        function calculateItemsInBag() {
-            items.innerText = "";
-            if (localStorage.getItem('logeduser') != null) {
-                var logeduser = JSON.parse(localStorage.getItem('logeduser'));
-                var key = `bag_${logeduser.email}`;
-                var bag = JSON.parse(localStorage.getItem(key));
-                localStorage.setItem('bag', JSON.stringify([]));
-            } else if (localStorage.getItem('logeduser') === null) {
-                var bag = JSON.parse(localStorage.getItem('bag'));
-                key = 'bag';
-            }
-
-
-            var totalItems = 0;
-
-            bag.forEach(function (product) {
-                totalItems += product.quantity;
-            })
-
-            items.innerText = `(${totalItems})`;
-        }
-
-
-
-    </script>
-
-
-
-
-
-
-
-
-
 </body>
+
+<script>
+    function dropDown(a) {
+
+        var show1 = document.querySelector("#main-content")
+        var show = document.querySelector(`.${a}-content`)
+        show1.style.display = "block";
+        // show.style.display="block";
+        show.style.height = "500px"
+
+        var rem = document.getElementsByClassName("navEle")
+
+        for (var i = 0; i < rem.length; i++) {
+            if (rem[i].textContent != a) {
+                var remo = document.querySelector(`.${rem[i].textContent}-content`)
+                remo.style.height = "0px";
+
+                rem[i].style.color = "rgba(0, 0, 0, 0.3)"
+                rem[i].style.textDecoration = "none"
+            } else {
+                rem[i].style.color = "#393939"
+                rem[i].style.textDecoration = "underline"
+            }
+        }
+    }
+
+    function searchBar() {
+        var bar = document.querySelector("#inputBox")
+        bar.style.height = "70px";
+    }
+
+    function removeBar() {
+        var bar = document.querySelector("#inputBox")
+        bar.style.height = "0px";
+    }
+
+    function signBar() {
+        var bar = document.querySelector("#signIN")
+        bar.style.display = "block";
+    }
+
+    function removeSignBar() {
+        var bar = document.querySelector("#signIN")
+        bar.style.display = "none";
+    }
+
+    function removeDropdown() {
+        var show = document.querySelector("#main-content")
+        show.style.display = "none";
+
+        var reset = document.getElementsByClassName("navEle")
+
+        for (var i = 0; i < reset.length; i++) {
+            if (reset[i].textContent != "Sale") {
+                reset[i].style.color = "#393939"
+            }
+            reset[i].style.textDecoration = "none"
+        }
+    }
+
+
+
+    function pageContent() {
+
+        var completeDiv1 = document.createElement("div");
+        completeDiv1.setAttribute("id", "completeDiv")
+
+        var completeDiv2 = document.createElement("div");
+        completeDiv2.setAttribute("id", "completeDiv2")
+
+        var insideDiv1 = document.createElement("div");
+        var insideDiv2 = document.createElement("div");
+        var insideDiv3 = document.createElement("div");
+
+        var highlight = document.createElement("h3")
+        highlight.setAttribute("id", "highlight")
+
+        var line = document.createElement("p")
+
+        var linktext = document.createElement("a")
+        linktext.setAttribute("href", "")
+
+        var highlight_array = ["Get a $40 Bonus Note!", "Pick Up Today—in Store or Curbside"]
+        var line_array = ["An exclusive offer for new Nordstrom credit cardmembers. Restrictions apply", ""]
+        var link_array = ["Apply Now", "Set Your Store"]
+        var i = 0;
+
+
+        var images = ["https://n.nordstrommedia.com/id/2127fce3-8923-40ae-afb0-f792b13dfce8.jpeg?h=600&w=1608", "https://n.nordstrommedia.com/id/b518bc18-f2f8-41c1-b52c-53e56ff66053.jpeg?h=600&w=1608"]
+
+        var displayimage = document.createElement("img")
+
+        displayimage.setAttribute("id", "coverImg")
+
+
+        var insideline = document.createElement("p")
+
+        var insidelineDiv = document.createElement("div")
+
+        insideline_array = ["Global perspectives meet classic clothing. See American style through a whole new lens.", ""]
+
+        var insidetext1 = document.createElement("a")
+        insidetext1.setAttribute("href", "")
+
+        insidetext1_array = ["Explore", ""]
+
+        var insidetext2 = document.createElement("a")
+        insidetext2.setAttribute("href", "")
+
+
+        insidetext2_array = ["Shop", ""]
+
+        var insidetext = document.createElement("div")
+
+        insidelineDiv.append(insideline)
+        insidetext.append(insidetext1, insidetext2)
+
+
+        var divOverImage = document.createElement("div")
+        divOverImage.setAttribute("id", "divOverImage")
+
+        divOverImage.append(insidelineDiv, insidetext)
+
+        console.log(divOverImage)
+
+
+        var h3content = document.createElement("h2")
+        h3_array = ["", "Fall's Best Denim"]
+
+        var pcontent = document.createElement("p")
+        pcontent_array = ["", "Get into fresh silhouettes and washes from MOTHER, Good American and more."]
+
+        var acontent = document.createElement("a")
+        acontent_array = ["", "Jeans & Denim"]
+
+        var anotherDiv = document.createElement("div")
+
+        anotherDiv.append(h3content, pcontent, acontent)
+        anotherDiv.setAttribute("id", "anotherDiv")
+
+        function changeContent() {
+
+            highlight.textContent = highlight_array[i]
+            line.textContent = line_array[i]
+            linktext.textContent = link_array[i]
+            displayimage.src = images[i]
+
+
+            insideline.textContent = insideline_array[i]
+            insidetext1.textContent = insidetext1_array[i]
+            insidetext2.textContent = insidetext2_array[i]
+
+            h3content.textContent = h3_array[i]
+            pcontent.textContent = pcontent_array[i]
+            acontent.textContent = acontent_array[i]
+
+            if (i < highlight_array.length - 1) {
+                i++
+
+                if (line_array[i] == "") {
+                    highlight.style.marginTop = "10px"
+                } else {
+                    highlight.style.marginTop = "5px"
+                }
+            } else {
+                i = 0
+            }
+
+            setTimeout(changeContent, 3000)
+        }
+
+        changeContent();
+
+        var btn1 = document.createElement("button")
+        btn1.setAttribute("id", "leftArrowbtn")
+
+
+        btn1.addEventListener("mouseover", function () {
+            var select = document.querySelector("#leftArrowbtn")
+            select.setAttribute("class", "mouseIn")
+        })
+
+        btn1.addEventListener("mouseleave", function () {
+            var select = document.querySelector("#leftArrowbtn")
+            select.setAttribute("class", "mouseOut")
+        })
+
+        var btn2 = document.createElement("button")
+        btn2.setAttribute("id", "rightArrowbtn")
+
+        btn2.addEventListener("mouseover", function () {
+
+            var select = document.querySelector("#rightArrowbtn")
+            select.setAttribute("class", "mouseIn")
+        })
+
+        btn2.addEventListener("mouseleave", function () {
+            var select = document.querySelector("#rightArrowbtn")
+            select.setAttribute("class", "mouseOut")
+        })
+
+        var leftArrow = document.createElement("h1")
+        leftArrow.textContent = "<"
+        leftArrow.setAttribute("class", "arrow")
+
+        var rightArrow = document.createElement("h1")
+        rightArrow.textContent = ">"
+        rightArrow.setAttribute("class", "arrow")
+
+        btn1.append(leftArrow)
+        btn2.append(rightArrow)
+
+        insideDiv1.append(btn1)
+        insideDiv3.append(btn2)
+        insideDiv2.append(highlight, line, linktext)
+
+        completeDiv1.append(insideDiv1, insideDiv2, insideDiv3)
+        completeDiv2.append(displayimage, divOverImage, anotherDiv)
+
+        var mainDiv = document.createElement("div")
+        mainDiv.append(completeDiv1, completeDiv2)
+
+        mainDiv.setAttribute("id", "mainDiv")
+
+        insideDiv2.addEventListener("mouseover", function () {
+            var arrows = document.querySelectorAll(".arrow")
+
+            for (var i = 0; i < arrows.length; i++) {
+                arrows[i].style.color = "black"
+            }
+        })
+
+        insideDiv2.addEventListener("mouseleave", function () {
+            var arrows = document.querySelectorAll(".arrow")
+
+            for (var i = 0; i < arrows.length; i++) {
+                arrows[i].style.color = "rgb(245, 241, 241)"
+            }
+        })
+
+        document.body.append(mainDiv)
+
+
+        //section from boots 
+
+        var boots = document.createElement("div")
+        boots.setAttribute("id", "boots")
+
+
+        var boot1 = document.createElement("div")
+
+        var boot1_img = document.createElement("img")
+        boot1_img.src = "https://n.nordstrommedia.com/id/53ef2c80-f556-4df2-810c-3882cdff97a2.jpeg?h=600&w=804"
+
+        var boot1_content = document.createElement("div")
+
+        var boot1_h3 = document.createElement("h4")
+        boot1_h3.textContent = "Trending Now: Lug-Sole Boots"
+
+        var boot1_p = document.createElement("p")
+        boot1_p.textContent = "Instantly update your outfits with this hot style."
+
+        var boot1_a = document.createElement("a")
+        boot1_a.textContent = "Boots"
+
+        boot1_content.append(boot1_h3, boot1_p, boot1_a)
+
+        boot1.append(boot1_img, boot1_content)
+
+
+        var boot2 = document.createElement("div")
+
+        var boot2_img = document.createElement("img")
+        boot2_img.src = "https://n.nordstrommedia.com/id/ac185c19-10a1-49b3-ba83-6b384027020e.jpeg?h=600&w=804"
+
+        var boot2_content = document.createElement("div")
+
+        var boot2_h3 = document.createElement("h4")
+        boot2_h3.textContent = "Set the Tone for Fall"
+
+        var boot2_p = document.createElement("p")
+        boot2_p.textContent = "Embrace the new season by giving your home a cozy refresh with chic accent pieces."
+
+        var boot2_a = document.createElement("a")
+        boot2_a.textContent = "All Home"
+
+        boot2_content.append(boot2_h3, boot2_p, boot2_a)
+
+        boot2.append(boot2_img, boot2_content)
+
+        boots.append(boot1, boot2)
+
+        document.body.append(boots)
+
+        //black section
+
+        var black_main_div = document.createElement("div")
+        black_main_div.setAttribute("id", "black_main_div")
+
+        var black_div = document.createElement("div")
+        black_div.setAttribute("id", "black_div")
+
+        var black = document.createElement("img")
+        black.src = "https://n.nordstrommedia.com/id/dd10e890-214f-4c97-882a-5fc81d780eef.jpeg?h=200&w=1608"
+
+        var black_p = document.createElement("p")
+        black_p.textContent = "Shop the brands and get to know visionary creatives from the Black community."
+
+        var black_inside_div = document.createElement("div")
+
+        var black1_a = document.createElement("a")
+        black1_a.textContent = "Explore Diversity, Inclusion & Belonging"
+
+        var black2_a = document.createElement("a")
+        black2_a.textContent = "Shop Black-Owned & Black-Founded Brands"
+
+        black_inside_div.append(black1_a, black2_a)
+
+        black_div.append(black_p, black_inside_div)
+
+        black_main_div.append(black, black_div)
+
+        document.body.append(black_main_div)
+
+        //Nike section 
+
+        var nike_main_div = document.createElement("div")
+        nike_main_div.setAttribute("id", "nike_main_div")
+
+        var nike_div = document.createElement("div")
+        nike_div.setAttribute("id", "nike_div")
+
+        var nike = document.createElement("img")
+        nike.src = "https://n.nordstrommedia.com/id/86765119-fa40-4962-b532-c3367a388339.jpeg?h=600&w=1608"
+
+        var nike_p = document.createElement("p")
+        nike_p.textContent = "Y2K vibes have landed. Find exclusive styles, limited-quantity drops and more from the coolest brands in the game."
+
+        var nike_inside_div = document.createElement("div")
+
+        var nike1_a = document.createElement("a")
+        nike1_a.textContent = "Shop NxN"
+
+        var nike2_a = document.createElement("a")
+        nike2_a.textContent = "Explore NxN"
+
+        nike_inside_div.append(nike1_a, nike2_a)
+
+        nike_div.append(nike_p, nike_inside_div)
+
+        nike_main_div.append(nike, nike_div)
+
+        document.body.append(nike_main_div)
+
+        //orange lady
+
+        var orange_main_div = document.createElement("div")
+        orange_main_div.setAttribute("id", "orange_main_div")
+
+        var orange_div = document.createElement("div")
+        orange_div.setAttribute("id", "orange_div")
+
+        var orange = document.createElement("img")
+        orange.src = "https://n.nordstrommedia.com/id/0dbc4a07-61be-4801-b2c4-d7fb068f30f2.jpeg?h=600&w=1608"
+
+
+        var orange_h4_div = document.createElement("div")
+        orange_h4_div.setAttribute("id", "orange_h4_div")
+
+        var orange1_h4 = document.createElement("h4")
+        orange1_h4.textContent = "New Season,"
+        var orange2_h4 = document.createElement("h4")
+        var orange2_h4_strong = document.createElement("strong")
+        orange2_h4_strong.textContent = "New Mood"
+
+        orange2_h4.append(orange2_h4_strong)
+
+        orange_h4_div.append(orange1_h4, orange2_h4)
+
+        var orange_p = document.createElement("p")
+        orange_p.textContent = "Discover the most coveted designer styles for fall."
+
+        var orange_a = document.createElement("a")
+        orange_a.textContent = "Designer"
+
+        orange_div.append(orange_h4_div, orange_p, orange_a)
+
+        orange_main_div.append(orange, orange_div)
+
+        document.body.append(orange_main_div)
+
+
+        //hoody guy
+
+        var hoody_main_div = document.createElement("div")
+        hoody_main_div.setAttribute("id", "hoody_main_div")
+
+        var hoody_div = document.createElement("div")
+        hoody_div.setAttribute("id", "hoody_div")
+
+        var hoody = document.createElement("img")
+        hoody.src = "https://n.nordstrommedia.com/id/aa2b1579-becf-478a-81a9-dda1b019988d.jpeg?h=598&w=1606"
+
+        var hoody_h4_div = document.createElement("div")
+        hoody_h4_div.setAttribute("id", "hoody_h4_div")
+
+        var hoody_h4 = document.createElement("h4")
+        hoody_h4.textContent = "Sustainable Style"
+
+        var hoody_p = document.createElement("p")
+        hoody_p.textContent = "Discover tentree, Teva and more brands that prioritize our one and only earth. "
+
+        hoody_h4_div.append(hoody_h4, hoody_p)
+
+        var hoody_a_div = document.createElement("div")
+        hoody_a_div.setAttribute("id", "hoody_a_div")
+
+        var hoody_a1 = document.createElement("a")
+        hoody_a1.textContent = "Explore Sustainable Style"
+
+        var hoody_a2 = document.createElement("a")
+        hoody_a2.textContent = "tentree"
+
+        var hoody_a3 = document.createElement("a")
+        hoody_a3.textContent = "Teva"
+
+        hoody_a_div.append(hoody_a1, hoody_a2, hoody_a3)
+
+        hoody_div.append(hoody_h4_div, hoody_a_div)
+
+        hoody_main_div.append(hoody, hoody_div)
+
+        document.body.append(hoody_main_div)
+
+
+        //shop by category
+
+        var shop_main_div = document.createElement("div")
+        shop_main_div.setAttribute("id", "shop_main_div")
+
+        var shop_h4 = document.createElement("h4")
+
+        var shop_p = document.createElement("p")
+
+        var shop_strong = document.createElement("strong")
+        shop_strong.textContent="SHOP BY CATEGORY"
+
+        shop_p.append(shop_strong)
+
+        shop_h4.append(shop_p)
+
+
+        var shop_img_div = document.createElement("div")
+        shop_img_div.setAttribute("id", "shop_img_div")
+
+        var shop_1_div = document.createElement("div")
+
+        var shop_1img_div = document.createElement("img")
+        shop_1img_div.src="https://n.nordstrommedia.com/id/527b7d79-1633-4cad-a0b2-76a5fb208e61.jpeg?h=363&w=266"
+
+        var shop_1h5_div = document.createElement("h5")
+        shop_1h5_div.textContent="Women"
+        
+        shop_1_div.append(shop_1img_div, shop_1h5_div)
+
+
+        var shop_2_div = document.createElement("div")
+
+        var shop_2img_div = document.createElement("img")
+        shop_2img_div.src="https://n.nordstrommedia.com/id/21ecbf01-ee99-4915-8e9f-5fa539fb9389.jpeg?h=363&w=266"
+
+        var shop_2h5_div = document.createElement("h5")
+        shop_2h5_div.textContent="Designer"
+
+        shop_2_div.append(shop_2img_div, shop_2h5_div)
+
+
+        var shop_3_div = document.createElement("div")
+
+        var shop_3img_div = document.createElement("img")
+        shop_3img_div.src="https://n.nordstrommedia.com/id/ccc9698a-a156-482b-a3d7-68adc29af954.jpeg?h=365&w=268"
+
+        var shop_3h5_div = document.createElement("h5")
+        shop_3h5_div.textContent="Men"
+
+        shop_3_div.append(shop_3img_div, shop_3h5_div)
+
+
+        var shop_4_div = document.createElement("div")
+
+        var shop_4img_div = document.createElement("img")
+        shop_4img_div.src="https://n.nordstrommedia.com/id/f477f59e-065c-456f-b8b2-80f6a950775a.jpeg?h=365&w=268"
+
+        var shop_4h5_div = document.createElement("h5")
+        shop_4h5_div.textContent="Home"
+
+        shop_4_div.append(shop_4img_div, shop_4h5_div)
+
+
+        var shop_5_div = document.createElement("div")
+
+        var shop_5img_div = document.createElement("img")
+        shop_5img_div.src="https://n.nordstrommedia.com/id/2f21958a-5c74-4299-a4c4-a3819c693734.jpeg?h=365&w=268"
+
+        var shop_5h5_div = document.createElement("h5")
+        shop_5h5_div.textContent="Kids"
+
+        shop_5_div.append(shop_5img_div, shop_5h5_div)
+
+
+        var shop_6_div = document.createElement("div")
+
+        var shop_6img_div = document.createElement("img")
+        shop_6img_div.src="https://n.nordstrommedia.com/id/6a83c715-5219-4cea-925f-0a1b75afe0df.jpeg?h=365&w=268"
+
+        var shop_6h5_div = document.createElement("h5")
+        shop_6h5_div.textContent="Beauty & Fragrance"
+
+        shop_6_div.append(shop_6img_div, shop_6h5_div)
+
+
+        shop_img_div.append(shop_1_div,shop_2_div,shop_3_div,shop_4_div,shop_5_div,shop_6_div)
+
+        shop_main_div.append(shop_h4,shop_img_div)
+
+        document.body.append(shop_main_div)
+
+        //Stay in touch
+
+        var touch_main_div = document.createElement("div")
+        touch_main_div.setAttribute("id", "touch_main_div")
+
+        var touch_img_div = document.createElement("img")
+        touch_img_div.src="https://n.nordstrommedia.com/id/97312f94-3d15-428d-bf49-70656690cf33.jpeg?h=200&w=1608"
+
+        var touch_text_div = document.createElement("div")
+        touch_text_div.setAttribute("id", "touch_text_div")
+
+        var touch_h2 = document.createElement("h2")
+        touch_h2.textContent = "Stay in Touch"
+
+        var touch_p = document.createElement("p")
+        touch_p.textContent = "Sign up and stay in the know! Fashion, beauty, upcoming sales and events—we'll bring it all to you."
+
+        var touch_a = document.createElement("a")
+        touch_a.textContent = "Sign Up for Email"
+        touch_a.setAttribute("href","signup.html")
+
+        touch_text_div.append(touch_h2, touch_p, touch_a)
+
+        touch_main_div.append(touch_img_div, touch_text_div)
+
+        document.body.append(touch_main_div)
+
+    }
+
+    pageContent();
+
+    window.onload = calculateItemsInBag;
+
+    var bagIcon = document.getElementById('bag-icon-text');
+    var items = document.getElementById('itemsInBag');
+
+    function calculateItemsInBag() {
+        items.innerText = "";
+        if (localStorage.getItem('logeduser') != null) {
+            var logeduser = JSON.parse(localStorage.getItem('logeduser')); 
+            var key = `bag_${logeduser.email}`;
+            var bag = JSON.parse(localStorage.getItem(key));
+            localStorage.setItem('bag', JSON.stringify([]));
+        } else if(localStorage.getItem('logeduser') === null) {
+            var bag = JSON.parse(localStorage.getItem('bag'));
+            key = 'bag';
+        }
+
+        
+        var totalItems = 0;
+
+        bag.forEach(function(product) {
+            totalItems += product.quantity;
+        })
+
+        items.innerText = `(${totalItems})`;
+    }
+</script>
+
+<footer>
+    <div class="footer">
+        <div class="footer-col">
+            
+            <ul class="ul">
+                <li><label class="heading">Customer Service</label></li>
+                <li>Contact Us</li>
+                <li>Order Status</li>
+                <li>Shipping</li>
+                <li>Returns &amp; Exchanges</li>
+                <li>Shipping</li>
+                <li>Product recalls</li>
+            <ul>
+        </div>
+        <div class="footer-col">
+            <ul class="ul">
+                <li><label class="heading">Stores &amp; Events</label></li>
+                <li>Stores &amp; Events</li>
+                <li>Carrers</li>
+                <li>Corporate Responsibility</li>
+                <li>Diversity Inclusion &amp; Belonging</li>
+                <li>Get Email Updates</li>
+                <li>Nordstrom Blog</li>
+                
+            <ul>
+        </div>
+        <div class="footer-col">
+            <ul class="ul">
+                <li><label class="heading">Services</label></li>
+                <li>Personal Styling</li>
+                <li>Altration &amp; Tailoring</li>
+                <li>Spa Nordstrom</li>
+                <li>Nordstrom Restaurants</li>
+                <li>Gift Cards</li>
+                
+            <ul>
+        </div>
+        <div class="footer-col">
+            <ul class="ul">
+                <li><label class="heading">Nordstrom Card</label></li>
+                <li>Pay My Bill</li>
+                <li>Manage my Nordstrom Card</li>
+                
+            <ul>
+        </div>
+        <div class="footer-col">
+            <ul class="ul">
+                <li><label class="heading">Nordstrom Inc</label></li>
+                <li>Nordstrom Rack</li>
+                <li>Nordstrom Canada</li>
+                <li>Trunk Club</li>
+                <li>Investor Relations</li>
+                <li>Press Releases</li>
+                
+            <ul>
+        </div>
+    
+        <div class="footer-col">
+            <ul class="ul">
+                <li style="padding:5px"><img src="./images/mobile.svg" alt="facebook" style="width:18px;margin-right:0px;padding:5px"/>Get our apps</li>
+                <div style="display:flex;gap:15px;margin-top: 20px;">
+                    
+                    <img src="./images/insta.svg" alt="facebook" style="width:24px;"/>
+                    <img src="./images/pin.svg" alt="facebook" style="width:24px;"/>
+                    <img src="./images/twitter.svg" alt="facebook" style="width:24px;"/>
+                    <img src="./images/fb.svg" alt="facebook" style="width:24px;"/>
+                </div>
+            <ul>
+        </div>
+        
+    
+        
+        
+    </div>
+    
+    <div class="footer" >
+        <p>Your Privacy Rights</p>
+        <p>Dont Sell My Info</p>
+        <p>Terms &amp; Conditions</p>
+        <p>Intrest Based Ads</p>
+        <p>&copy;2021 Nordstrom,Inc</p>
+    </div>
+  </footer>
 
 </html>
