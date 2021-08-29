@@ -718,7 +718,7 @@
                                 </div>
                             </div>
                             <div class="center-text">
-                                <p>11–21 business days</p>
+                                <p>11–16 business days</p>
                             </div>
                             <div class="center-text">
                                 <a style="color: #2a9dcc;">Calculate</a>
@@ -891,6 +891,7 @@
         d.textContent = "SHOP MORE"
         modal.style.display = "none"
         blur_effect.removeAttribute("class", "blur")
+        window.location.href = "landing_page.html"
     })
 
     function placeOrder() {
@@ -1002,7 +1003,7 @@
         event.currentTarget.style.borderColor = "#2a9dcc"
 
         required_event = (event.currentTarget.children[0].children[1].children[0].textContent + "\n" + event.currentTarget.children[0].children[1].children[1].textContent + "\n" + event.currentTarget.children[1].children[0].textContent).toUpperCase();
-
+        
 
         var element = event.currentTarget.children[2]
 
@@ -1091,10 +1092,12 @@
                 console.log(required_event)
 
 
-                document.getElementById("imports").textContent = required_event
-
-
-
+                if(required_event==undefined){
+                    required_event="STANDARD IMPORT CHARGES COLLECTED UPON DELIVERY 11–21 BUSINESS DAYS"
+                }else{
+                    document.getElementById("imports").textContent = required_event
+                }
+                
                 var gone = document.getElementById("Gone")
                 var address_display = document.getElementById("address_display")
                 var credit_details = document.getElementById("credit-details")
