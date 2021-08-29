@@ -1,6 +1,6 @@
 
 
-![nord.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1630221484090/IBa0-nrLw.png)
+![nord.png](https://i2.wp.com/engageforgood.com/wp-content/uploads/2018/02/nordstrom-logo.png?resize=700%2C400&ssl=1)
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
