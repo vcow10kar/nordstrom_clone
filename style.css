@@ -743,3 +743,74 @@ ul{
 #main-content a:hover{
     border-bottom:2px solid black;
 }
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    position: relative;
+    background-color: white;
+    margin: 5% auto;
+    padding: 40px;
+    width: 21%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+    animation-name: modalopen;
+    animation-duration: 2s;
+    font-family: Lato, Arial, sans-serif;
+}
+
+#closeBtn {
+    position: absolute;
+    color: rgb(128, 122, 122);
+    top: 5px;
+    right: 10px;
+    font-size: 30px;
+    font-weight: 0;
+}
+
+#closeBtn:hover,
+#closeBtn:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.blur {
+    filter: blur(5px);
+}
+
+
+.modal-content a {
+    border-bottom:1px solid black;
+}
+
+.modal-content p {
+    width: 78%;
+}
+
+.modal-content li{
+    margin-bottom: 5px;
+    color: #393939;
+}
+
+
+@keyframes modalopen {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}

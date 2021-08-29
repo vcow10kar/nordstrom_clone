@@ -8,32 +8,31 @@
     <title>Nordstrom Online & In Store: Shoes, Jewelry, Clothing, Makeup, Dresses</title>
     <link rel="icon" href="https://n.nordstrommedia.com/id/c4fb2a09-3657-4161-9b79-6412897d9399.png"
         type="image/x-icon">
-        <script src="https://use.fontawesome.com/0d7192da0b.js"></script>
+    <script src="https://use.fontawesome.com/0d7192da0b.js"></script>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- <script src="landingPage.js"></script> -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;100&display=swap" rel="stylesheet">
     <script>
 
-        document.addEventListener("DOMContentLoaded",function(e){
-    
-            var p=document.getElementById("welcome_message");
-    
-            if(localStorage.getItem('logeduser')!=null)
-                {
-                    p.innerText= "Hi,\t" +JSON.parse(localStorage.getItem('logeduser')).fname ;
-                    document.getElementById("sign-in-btn").style.display="none";
-                    document.getElementById("sign-up-btn").style.display="none";
-                    var signout=document.getElementById("signout");
-                    signout.style.display="block"
-                    signout.addEventListener("click",function(ev){
-                        localStorage.removeItem("logeduser");
-                        document.location="landing_page.html";
-                    });
-                    
-                }
+        document.addEventListener("DOMContentLoaded", function (e) {
+
+            var p = document.getElementById("welcome_message");
+
+            if (localStorage.getItem('logeduser') != null) {
+                p.innerText = "Hi,\t" + JSON.parse(localStorage.getItem('logeduser')).fname;
+                document.getElementById("sign-in-btn").style.display = "none";
+                document.getElementById("sign-up-btn").style.display = "none";
+                var signout = document.getElementById("signout");
+                signout.style.display = "block"
+                signout.addEventListener("click", function (ev) {
+                    localStorage.removeItem("logeduser");
+                    document.location = "landing_page.html";
+                });
+
+            }
         });
-        
-    
+
+
     </script>
 </head>
 
@@ -45,9 +44,10 @@
                     <strong>Shipping outside of the U.S. or Canada?</strong>
                     <a title="Learn About International Shipping" href="">Learn About International Shipping</a>
 
-                    <button class="right" href=""><img src="https://n.nordstrommedia.com/alias/IN.gif"><span>India</span></button>
+                    <button class="right" href=""><img
+                            src="https://n.nordstrommedia.com/alias/IN.gif"><span>India</span></button>
                 </p>
-                
+
             </div>
             <div class="clear"></div>
         </div>
@@ -57,7 +57,8 @@
                     <a href="landing_page.html"><img src="https://n.nordstrommedia.com/alias/nordstrom-logo.svg"></a>
                 </div>
                 <div id="navs">
-                    <button id="red" class="navEle" onclick="dropDown('Sale')" onmouseover="dropDown('Sale')">Sale</button>
+                    <button id="red" class="navEle" onclick="dropDown('Sale')"
+                        onmouseover="dropDown('Sale')">Sale</button>
                     <button class="navEle" onclick="dropDown('Women')" onmouseover="dropDown('Women')">Women</button>
                     <button class="navEle" onclick="dropDown('Men')" onmouseover="dropDown('Men')">Men</button>
                     <button class="navEle" onclick="dropDown('Kids')" onmouseover="dropDown('Kids')">Kids</button>
@@ -113,9 +114,10 @@
                         </ul>
                     </div>
                     <div id="bag">
-                        <a  id = "bag-icon-text" href="shopping_bag.html">
-                            <div><span class="material-icons" style = "font-size: 36px; color: black">shopping_bag</span></div>
-                            <p id = "itemsInBag"></p>
+                        <a id="bag-icon-text" href="shopping_bag.html">
+                            <div><span class="material-icons" style="font-size: 36px; color: black">shopping_bag</span>
+                            </div>
+                            <p id="itemsInBag"></p>
                             <!-- <img class="bag-image" src="images/emptybag-icon.png"></img> -->
                         </a>
                     </div>
@@ -302,7 +304,8 @@
                             <div>
                                 <a href="">
                                     <div>
-                                        <img src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                        <img
+                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
                                     </div>
                                 </a>
                             </div>
@@ -314,8 +317,8 @@
                     </div>
                 </div>
             </div>
-    
-    
+
+
             <div class="Women-content">
                 <div>
                     <div class="firstDiv">
@@ -494,7 +497,8 @@
                             <div>
                                 <a href="">
                                     <div>
-                                        <img src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                        <img
+                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
                                     </div>
                                 </a>
                             </div>
@@ -506,7 +510,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="Men-content">
                 <div>
                     <div class="firstDiv">
@@ -685,7 +689,8 @@
                             <div>
                                 <a href="">
                                     <div>
-                                        <img src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                        <img
+                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
                                     </div>
                                 </a>
                             </div>
@@ -697,7 +702,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="Kids-content">
                 <div>
                     <div class="firstDiv">
@@ -876,7 +881,8 @@
                             <div>
                                 <a href="">
                                     <div>
-                                        <img src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                        <img
+                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
                                     </div>
                                 </a>
                             </div>
@@ -888,7 +894,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="YoungAdult-content">
                 <div>
                     <div class="firstDiv">
@@ -1067,7 +1073,8 @@
                             <div>
                                 <a href="">
                                     <div>
-                                        <img src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                        <img
+                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
                                     </div>
                                 </a>
                             </div>
@@ -1079,7 +1086,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="Activewear-content">
                 <div>
                     <div class="firstDiv">
@@ -1258,7 +1265,8 @@
                             <div>
                                 <a href="">
                                     <div>
-                                        <img src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                        <img
+                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
                                     </div>
                                 </a>
                             </div>
@@ -1270,7 +1278,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="Home-content">
                 <div>
                     <div class="firstDiv">
@@ -1530,7 +1538,8 @@
                             <div>
                                 <a href="">
                                     <div>
-                                        <img src="https://n.nordstrommedia.com/id/4e7d9382-fd6b-4697-b1f3-ceeddf0a63aa.jpg">
+                                        <img
+                                            src="https://n.nordstrommedia.com/id/4e7d9382-fd6b-4697-b1f3-ceeddf0a63aa.jpg">
                                     </div>
                                 </a>
                             </div>
@@ -1539,11 +1548,11 @@
                                 <hr>
                             </div>
                         </div>
-    
+
                     </div>
                 </div>
             </div>
-    
+
             <div class="Gifts-content">
                 <div>
                     <div class="firstDiv">
@@ -1722,7 +1731,8 @@
                             <div>
                                 <a href="">
                                     <div>
-                                        <img src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                        <img
+                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
                                     </div>
                                 </a>
                             </div>
@@ -1734,7 +1744,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="Beauty-content">
                 <div>
                     <div class="firstDiv">
@@ -1913,7 +1923,8 @@
                             <div>
                                 <a href="">
                                     <div>
-                                        <img src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                        <img
+                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
                                     </div>
                                 </a>
                             </div>
@@ -1925,7 +1936,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="Designer-content">
                 <div>
                     <div class="firstDiv">
@@ -2104,7 +2115,8 @@
                             <div>
                                 <a href="">
                                     <div>
-                                        <img src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                        <img
+                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
                                     </div>
                                 </a>
                             </div>
@@ -2116,7 +2128,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="Brands-content">
                 <div>
                     <div class="firstDiv">
@@ -2295,7 +2307,8 @@
                             <div>
                                 <a href="">
                                     <div>
-                                        <img src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
+                                        <img
+                                            src="https://n.nordstrommedia.com/id/faae0c02-a9a9-427d-b69e-ce5fbd38e500.png">
                                     </div>
                                 </a>
                             </div>
@@ -2311,9 +2324,45 @@
     </div>
 
 
+    <div id="simpleModal" class="modal">
+        <div class="modal-content">
+            <span id="closeBtn">&times;</span>
+            <p style="font-size: 25px; color:rgb(58, 55, 55); margin-bottom: 5px;">We Ship to India<p>
+            <h3 style="font-size: 12px; color:rgb(63, 59, 59);margin-bottom: 12px;">A few things to know:</h3>
+            <div style="margin-left:17px;">
+                <ul style="list-style-type:disc; font-size: 12px;">
+                    <li>Prices and payment are shown in INR.</li>
+                    <li>International shipping costs are based on your items, shipping method and destination.</li>
+                    <li>Not shipping to India? <a>Change your country</a></li>
+                </ul>
+            </div>
+            <p style="font-size: 12px;color: #393939; margin-top:12px"><a>Get more details</a> or <a>contact us</a> if you have questions about international shipping.</p>
+        </div>
+    </div>
+
 </body>
 
 <script>
+
+
+    var modal = document.getElementById("simpleModal")
+
+    var blur_effect = document.getElementById("LandingPage")
+
+    window.addEventListener("click", function (e) {
+        if (e.target == modal) {
+            modal.style.display = "none"
+            blur_effect.removeAttribute("class", "blur")
+        }
+    })
+
+    var closeBtn = document.getElementById("closeBtn")
+    closeBtn.addEventListener("click", function () {
+        modal.style.display = "none"
+        blur_effect.removeAttribute("class", "blur")
+    })
+
+
     function dropDown(a) {
 
         var show1 = document.querySelector("#main-content")
@@ -2552,7 +2601,9 @@
             }
         })
 
-        document.body.append(mainDiv)
+        // document.body.append(mainDiv)
+
+        blur_effect.append(mainDiv)
 
 
         //section from boots 
@@ -2604,7 +2655,7 @@
 
         boots.append(boot1, boot2)
 
-        document.body.append(boots)
+        blur_effect.append(boots)
 
         //black section
 
@@ -2634,7 +2685,7 @@
 
         black_main_div.append(black, black_div)
 
-        document.body.append(black_main_div)
+        blur_effect.append(black_main_div)
 
         //Nike section 
 
@@ -2664,7 +2715,7 @@
 
         nike_main_div.append(nike, nike_div)
 
-        document.body.append(nike_main_div)
+        blur_effect.append(nike_main_div)
 
         //orange lady
 
@@ -2701,7 +2752,7 @@
 
         orange_main_div.append(orange, orange_div)
 
-        document.body.append(orange_main_div)
+        blur_effect.append(orange_main_div)
 
 
         //hoody guy
@@ -2744,7 +2795,7 @@
 
         hoody_main_div.append(hoody, hoody_div)
 
-        document.body.append(hoody_main_div)
+        blur_effect.append(hoody_main_div)
 
 
         //shop by category
@@ -2757,7 +2808,7 @@
         var shop_p = document.createElement("p")
 
         var shop_strong = document.createElement("strong")
-        shop_strong.textContent="SHOP BY CATEGORY"
+        shop_strong.textContent = "SHOP BY CATEGORY"
 
         shop_p.append(shop_strong)
 
@@ -2770,21 +2821,21 @@
         var shop_1_div = document.createElement("div")
 
         var shop_1img_div = document.createElement("img")
-        shop_1img_div.src="https://n.nordstrommedia.com/id/527b7d79-1633-4cad-a0b2-76a5fb208e61.jpeg?h=363&w=266"
+        shop_1img_div.src = "https://n.nordstrommedia.com/id/527b7d79-1633-4cad-a0b2-76a5fb208e61.jpeg?h=363&w=266"
 
         var shop_1h5_div = document.createElement("h5")
-        shop_1h5_div.textContent="Women"
-        
+        shop_1h5_div.textContent = "Women"
+
         shop_1_div.append(shop_1img_div, shop_1h5_div)
 
 
         var shop_2_div = document.createElement("div")
 
         var shop_2img_div = document.createElement("img")
-        shop_2img_div.src="https://n.nordstrommedia.com/id/21ecbf01-ee99-4915-8e9f-5fa539fb9389.jpeg?h=363&w=266"
+        shop_2img_div.src = "https://n.nordstrommedia.com/id/21ecbf01-ee99-4915-8e9f-5fa539fb9389.jpeg?h=363&w=266"
 
         var shop_2h5_div = document.createElement("h5")
-        shop_2h5_div.textContent="Designer"
+        shop_2h5_div.textContent = "Designer"
 
         shop_2_div.append(shop_2img_div, shop_2h5_div)
 
@@ -2792,10 +2843,10 @@
         var shop_3_div = document.createElement("div")
 
         var shop_3img_div = document.createElement("img")
-        shop_3img_div.src="https://n.nordstrommedia.com/id/ccc9698a-a156-482b-a3d7-68adc29af954.jpeg?h=365&w=268"
+        shop_3img_div.src = "https://n.nordstrommedia.com/id/ccc9698a-a156-482b-a3d7-68adc29af954.jpeg?h=365&w=268"
 
         var shop_3h5_div = document.createElement("h5")
-        shop_3h5_div.textContent="Men"
+        shop_3h5_div.textContent = "Men"
 
         shop_3_div.append(shop_3img_div, shop_3h5_div)
 
@@ -2803,10 +2854,10 @@
         var shop_4_div = document.createElement("div")
 
         var shop_4img_div = document.createElement("img")
-        shop_4img_div.src="https://n.nordstrommedia.com/id/f477f59e-065c-456f-b8b2-80f6a950775a.jpeg?h=365&w=268"
+        shop_4img_div.src = "https://n.nordstrommedia.com/id/f477f59e-065c-456f-b8b2-80f6a950775a.jpeg?h=365&w=268"
 
         var shop_4h5_div = document.createElement("h5")
-        shop_4h5_div.textContent="Home"
+        shop_4h5_div.textContent = "Home"
 
         shop_4_div.append(shop_4img_div, shop_4h5_div)
 
@@ -2814,10 +2865,10 @@
         var shop_5_div = document.createElement("div")
 
         var shop_5img_div = document.createElement("img")
-        shop_5img_div.src="https://n.nordstrommedia.com/id/2f21958a-5c74-4299-a4c4-a3819c693734.jpeg?h=365&w=268"
+        shop_5img_div.src = "https://n.nordstrommedia.com/id/2f21958a-5c74-4299-a4c4-a3819c693734.jpeg?h=365&w=268"
 
         var shop_5h5_div = document.createElement("h5")
-        shop_5h5_div.textContent="Kids"
+        shop_5h5_div.textContent = "Kids"
 
         shop_5_div.append(shop_5img_div, shop_5h5_div)
 
@@ -2825,19 +2876,19 @@
         var shop_6_div = document.createElement("div")
 
         var shop_6img_div = document.createElement("img")
-        shop_6img_div.src="https://n.nordstrommedia.com/id/6a83c715-5219-4cea-925f-0a1b75afe0df.jpeg?h=365&w=268"
+        shop_6img_div.src = "https://n.nordstrommedia.com/id/6a83c715-5219-4cea-925f-0a1b75afe0df.jpeg?h=365&w=268"
 
         var shop_6h5_div = document.createElement("h5")
-        shop_6h5_div.textContent="Beauty & Fragrance"
+        shop_6h5_div.textContent = "Beauty & Fragrance"
 
         shop_6_div.append(shop_6img_div, shop_6h5_div)
 
 
-        shop_img_div.append(shop_1_div,shop_2_div,shop_3_div,shop_4_div,shop_5_div,shop_6_div)
+        shop_img_div.append(shop_1_div, shop_2_div, shop_3_div, shop_4_div, shop_5_div, shop_6_div)
 
-        shop_main_div.append(shop_h4,shop_img_div)
+        shop_main_div.append(shop_h4, shop_img_div)
 
-        document.body.append(shop_main_div)
+        blur_effect.append(shop_main_div)
 
         //Stay in touch
 
@@ -2845,7 +2896,7 @@
         touch_main_div.setAttribute("id", "touch_main_div")
 
         var touch_img_div = document.createElement("img")
-        touch_img_div.src="https://n.nordstrommedia.com/id/97312f94-3d15-428d-bf49-70656690cf33.jpeg?h=200&w=1608"
+        touch_img_div.src = "https://n.nordstrommedia.com/id/97312f94-3d15-428d-bf49-70656690cf33.jpeg?h=200&w=1608"
 
         var touch_text_div = document.createElement("div")
         touch_text_div.setAttribute("id", "touch_text_div")
@@ -2858,13 +2909,13 @@
 
         var touch_a = document.createElement("a")
         touch_a.textContent = "Sign Up for Email"
-        touch_a.setAttribute("href","signin.html")
+        touch_a.setAttribute("href", "signin.html")
 
         touch_text_div.append(touch_h2, touch_p, touch_a)
 
         touch_main_div.append(touch_img_div, touch_text_div)
 
-        document.body.append(touch_main_div)
+        blur_effect.append(touch_main_div)
 
     }
 
@@ -2878,30 +2929,37 @@
     function calculateItemsInBag() {
         items.innerText = "";
         if (localStorage.getItem('logeduser') != null) {
-            var logeduser = JSON.parse(localStorage.getItem('logeduser')); 
+            var logeduser = JSON.parse(localStorage.getItem('logeduser'));
             var key = `bag_${logeduser.email}`;
             var bag = JSON.parse(localStorage.getItem(key));
             localStorage.setItem('bag', JSON.stringify([]));
-        } else if(localStorage.getItem('logeduser') === null) {
+        } else if (localStorage.getItem('logeduser') === null) {
             var bag = JSON.parse(localStorage.getItem('bag'));
             key = 'bag';
         }
 
-        
+
         var totalItems = 0;
 
-        bag.forEach(function(product) {
+        bag.forEach(function (product) {
             totalItems += product.quantity;
         })
 
         items.innerText = `(${totalItems})`;
+    }
+
+    window.onload = function (e) {
+
+        modal.style.display = "block"
+        blur_effect.setAttribute("class", "blur")
+
     }
 </script>
 
 <footer>
     <div class="footer">
         <div class="footer-col">
-            
+
             <ul class="ul">
                 <li><label class="heading">Customer Service</label></li>
                 <li>Contact Us</li>
@@ -2910,7 +2968,7 @@
                 <li>Returns &amp; Exchanges</li>
                 <li>Shipping</li>
                 <li>Product recalls</li>
-            <ul>
+                <ul>
         </div>
         <div class="footer-col">
             <ul class="ul">
@@ -2921,8 +2979,8 @@
                 <li>Diversity Inclusion &amp; Belonging</li>
                 <li>Get Email Updates</li>
                 <li>Nordstrom Blog</li>
-                
-            <ul>
+
+                <ul>
         </div>
         <div class="footer-col">
             <ul class="ul">
@@ -2932,16 +2990,16 @@
                 <li>Spa Nordstrom</li>
                 <li>Nordstrom Restaurants</li>
                 <li>Gift Cards</li>
-                
-            <ul>
+
+                <ul>
         </div>
         <div class="footer-col">
             <ul class="ul">
                 <li><label class="heading">Nordstrom Card</label></li>
                 <li>Pay My Bill</li>
                 <li>Manage my Nordstrom Card</li>
-                
-            <ul>
+
+                <ul>
         </div>
         <div class="footer-col">
             <ul class="ul">
@@ -2951,35 +3009,36 @@
                 <li>Trunk Club</li>
                 <li>Investor Relations</li>
                 <li>Press Releases</li>
-                
-            <ul>
+
+                <ul>
         </div>
-    
+
         <div class="footer-col">
             <ul class="ul">
-                <li style="padding:5px"><img src="./images/mobile.svg" alt="facebook" style="width:18px;margin-right:0px;padding:5px"/>Get our apps</li>
+                <li style="padding:5px"><img src="./images/mobile.svg" alt="facebook"
+                        style="width:18px;margin-right:0px;padding:5px" />Get our apps</li>
                 <div style="display:flex;gap:15px;margin-top: 20px;">
-                    
-                    <img src="./images/insta.svg" alt="facebook" style="width:24px;"/>
-                    <img src="./images/pin.svg" alt="facebook" style="width:24px;"/>
-                    <img src="./images/twitter.svg" alt="facebook" style="width:24px;"/>
-                    <img src="./images/fb.svg" alt="facebook" style="width:24px;"/>
+
+                    <img src="./images/insta.svg" alt="facebook" style="width:24px;" />
+                    <img src="./images/pin.svg" alt="facebook" style="width:24px;" />
+                    <img src="./images/twitter.svg" alt="facebook" style="width:24px;" />
+                    <img src="./images/fb.svg" alt="facebook" style="width:24px;" />
                 </div>
-            <ul>
+                <ul>
         </div>
-        
-    
-        
-        
+
+
+
+
     </div>
-    
-    <div class="footer" >
+
+    <div class="footer">
         <p>Your Privacy Rights</p>
         <p>Dont Sell My Info</p>
         <p>Terms &amp; Conditions</p>
         <p>Intrest Based Ads</p>
         <p>&copy;2021 Nordstrom,Inc</p>
     </div>
-  </footer>
+</footer>
 
 </html>
