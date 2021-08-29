@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="https://n.nordstrommedia.com/id/c4fb2a09-3657-4161-9b79-6412897d9399.png"
         type="image/x-icon">
-    <title>Document</title>
+    <title>Nordstrom Online & In Store: Shoes, Jewelry, Clothing, Makeup, Dresses</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -457,10 +457,11 @@
 
         #Gone {
             display: block;
-            width:100%;
+            width: 100%;
         }
 
-        #Gone>div:nth-child(1)>input,#Gone>div:nth-child(3)>input{
+        #Gone>div:nth-child(1)>input,
+        #Gone>div:nth-child(3)>input {
             width: 98%;
         }
 
@@ -503,184 +504,330 @@
             margin-bottom: 12px;
         }
 
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            overflow: auto;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: white;
+            margin: 10% auto;
+            padding: 30px;
+            width: 40%;
+            box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+            animation-name: modalopen;
+            animation-duration: 3s;
+            text-align: center;
+        }
+
+        #closeBtn {
+            position: absolute;
+            color: #ccc;
+            top: 5px;
+            right: 10px;
+            font-size: 40px;
+        }
+
+        #closeBtn:hover,
+        #closeBtn:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .blur {
+            filter: blur(1px);
+        }
+
+
+        .modal-content img {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .modal-content button {
+            background-color: black;
+            margin: auto;
+            font-size: 20px;
+            padding: 10px 60px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .modal-content a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .modal-content p {
+            width: 78%;
+            margin: auto;
+        }
+
+        .modal-content hr,
+        .modal-content h1,
+        .modal-content h3,
+        .modal-content p {
+            margin-bottom: 10px;
+        }
+
+
+        @keyframes modalopen {
+            from {
+                opacity: 0
+            }
+
+            to {
+                opacity: 1
+            }
+        }
     </style>
 </head>
 
 <body>
-    <div id="Checkout-Nav">
-        <div id="logo">
-            <a href="landing_page.html"><img src="https://n.nordstrommedia.com/alias/nordstrom-logo.svg"></a>
-        </div>
-        <div id="bag">
-            <a  id = "bag-icon-text" href="shopping_bag.html">
-                <div><span class="material-icons" style = "font-size: 36px; color: black">shopping_bag</span></div>
-                <p id = "itemsInBag"></p>
-                <!-- <img class="bag-image" src="images/emptybag-icon.png"></img> -->
-            </a>
-        </div>
-    </div>
-    <div id="main-checkout">
-        <div id="address">
-            <div class="upper-div">
-                <div>1</div>
-                <div>
-                    <p>Delivery</p>
-                </div>
+    <div id="entire-body">
+        <div id="Checkout-Nav">
+            <div id="logo">
+                <a href="landing_page.html"><img src="https://n.nordstrommedia.com/alias/nordstrom-logo.svg"></a>
             </div>
-            <div id="Gone">
-                <div>
-                    <input type="email" id="emailInput" placeholder="Email">
-                    <label id="emaillabel">Email address is required</label>
-                </div>
-                <div>
-                    <input type="text" id="firstName" placeholder="First Name">
-                    <input type="text" id="lastName" placeholder="Last Name">
-                </div>
-                <div>
-                    <input type="text" id="addressInput" placeholder="Address">
-                    <label id="addresslabel">Address is required</label>
-                </div>
-                <div>
-                    <input type="text" id="address2" placeholder="Address2 (Optional)">
-                    <input type="text" id="Postal" placeholder="Postal Code">
-                </div>
-                <div>
-                    <input type="text" id="city" placeholder="City">
-                    <input type="text" id="region" placeholder="Region (Optional)">
-                </div>
-                <div>
-                    <input type="text" id="phone" placeholder="Phone">
-                    <input type="text" id="Country" placeholder="Country">
-                </div>
-                <div id="delivery">
-                    <div id="heading">
-                        <div>
-                            <p><strong>Delivery Method</strong></p>
-                        </div>
-                        <div>
-                            <p><strong>Estimated Arrival</strong></p>
-                        </div>
-                        <div>
-                            <p><strong>Shipping Cost</strong></p>
-                        </div>
+            <div id="bag">
+                <a id="bag-icon-text" href="shopping_bag.html">
+                    <div><span class="material-icons" style="font-size: 36px; color: black">shopping_bag</span></div>
+                    <p id="itemsInBag"></p>
+                    <!-- <img class="bag-image" src="images/emptybag-icon.png"></img> -->
+                </a>
+            </div>
+        </div>
+        <div id="main-checkout">
+            <div id="address">
+                <div class="upper-div">
+                    <div>1</div>
+                    <div>
+                        <p>Delivery</p>
                     </div>
-                    <div id="border-color" class="required" onclick="required(1)">
-                        <div class="blue-div">
-                            <div>
-                                <button>1</button>
-                            </div>
-                            <div>
-                                <p>Standard</p>
-                                <p style="font-style: italic;">No additional import charges at delivery</p>
-                            </div>
-                        </div>
-                        <div class="center-text">
-                            <p>11–21 business days</p>
-                        </div>
-                        <div class="center-text">
-                            <p>₹2,487</p>
-                        </div>
-                    </div>
-                    <div class="required border-color" onclick="required(2)">
-                        <div class="blue-div">
-                            <div>
-                                <button>2</button>
-                            </div>
-                            <div>
-                                <p>Standard</p>
-                                <p style="font-style: italic;">Import charges collected upon delivery</p>
-                            </div>
-                        </div>
-                        <div class="center-text">
-                            <p>11–21 business days</p>
-                        </div>
-                        <div class="center-text">
-                            <a style="color: #2a9dcc;">Calculate</a>
-                        </div>
-                    </div>
-                    <div class="required border-color" onclick="required(3)">
-                        <div class="blue-div">
-                            <div>
-                                <button>3</button>
-                            </div>
-                            <div>
-                                <p>Standard</p>
-                                <p style="font-style: italic;">No additional import charges at delivery</p>
-                            </div>
-                        </div>
-                        <div class="center-text">
-                            <p>11–16 business days</p>
-                        </div>
-                        <div class="center-text">
-                            <a style="color: #2a9dcc;">Calculate</a>
-                        </div>
-                    </div>
-                    <div class="required border-color" onclick="required(4)">
-                        <div class="blue-div">
-                            <div>
-                                <button>4</button>
-                            </div>
-                            <div>
-                                <p>Standard</p>
-                                <p style="font-style: italic;">Import charges collected upon delivery</p>
-                            </div>
-                        </div>
-                        <div class="center-text">
-                            <p>11–21 business days</p>
-                        </div>
-                        <div class="center-text">
-                            <a style="color: #2a9dcc;">Calculate</a>
-                        </div>
+                </div>
+                <div id="Gone">
+                    <div>
+                        <input type="email" id="emailInput" placeholder="Email">
+                        <label id="emaillabel">Email address is required</label>
                     </div>
                     <div>
-                        <button onclick="checkValues()">Continue>></button>
+                        <input type="text" id="firstName" placeholder="First Name">
+                        <input type="text" id="lastName" placeholder="Last Name">
+                    </div>
+                    <div>
+                        <input type="text" id="addressInput" placeholder="Address">
+                        <label id="addresslabel">Address is required</label>
+                    </div>
+                    <div>
+                        <input type="text" id="address2" placeholder="Address2 (Optional)">
+                        <input type="text" id="Postal" placeholder="Postal Code">
+                    </div>
+                    <div>
+                        <input type="text" id="city" placeholder="City">
+                        <input type="text" id="region" placeholder="Region (Optional)">
+                    </div>
+                    <div>
+                        <input type="text" id="phone" placeholder="Phone">
+                        <input type="text" id="Country" placeholder="Country">
+                    </div>
+                    <div id="delivery">
+                        <div id="heading">
+                            <div>
+                                <p><strong>Delivery Method</strong></p>
+                            </div>
+                            <div>
+                                <p><strong>Estimated Arrival</strong></p>
+                            </div>
+                            <div>
+                                <p><strong>Shipping Cost</strong></p>
+                            </div>
+                        </div>
+                        <div id="border-color" class="required" onclick="required(1)">
+                            <div class="blue-div">
+                                <div>
+                                    <button>1</button>
+                                </div>
+                                <div>
+                                    <p>Standard</p>
+                                    <p style="font-style: italic;">No additional import charges at delivery</p>
+                                </div>
+                            </div>
+                            <div class="center-text">
+                                <p>11–21 business days</p>
+                            </div>
+                            <div class="center-text">
+                                <p>₹2,487</p>
+                            </div>
+                        </div>
+                        <div class="required border-color" onclick="required(2)">
+                            <div class="blue-div">
+                                <div>
+                                    <button>2</button>
+                                </div>
+                                <div>
+                                    <p>Standard</p>
+                                    <p style="font-style: italic;">Import charges collected upon delivery</p>
+                                </div>
+                            </div>
+                            <div class="center-text">
+                                <p>11–21 business days</p>
+                            </div>
+                            <div class="center-text">
+                                <a style="color: #2a9dcc;">Calculate</a>
+                            </div>
+                        </div>
+                        <div class="required border-color" onclick="required(3)">
+                            <div class="blue-div">
+                                <div>
+                                    <button>3</button>
+                                </div>
+                                <div>
+                                    <p>Standard</p>
+                                    <p style="font-style: italic;">No additional import charges at delivery</p>
+                                </div>
+                            </div>
+                            <div class="center-text">
+                                <p>11–16 business days</p>
+                            </div>
+                            <div class="center-text">
+                                <a style="color: #2a9dcc;">Calculate</a>
+                            </div>
+                        </div>
+                        <div class="required border-color" onclick="required(4)">
+                            <div class="blue-div">
+                                <div>
+                                    <button>4</button>
+                                </div>
+                                <div>
+                                    <p>Standard</p>
+                                    <p style="font-style: italic;">Import charges collected upon delivery</p>
+                                </div>
+                            </div>
+                            <div class="center-text">
+                                <p>11–21 business days</p>
+                            </div>
+                            <div class="center-text">
+                                <a style="color: #2a9dcc;">Calculate</a>
+                            </div>
+                        </div>
+                        <div>
+                            <button onclick="checkValues()">Continue>></button>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div id="address_display">
-                <div>
+                <div id="address_display">
                     <div>
-                        <p class="highlightText">DELIVERY ADDRESS:</p>
+                        <div>
+                            <p class="highlightText">DELIVERY ADDRESS:</p>
+                        </div>
+                        <div>
+                            <p id="displayname">PRATIK JADHAV</p>
+                            <p id="displayAddress">
+                                B94 2ND FLOOR KALACHOWKI OLD POLICE
+                                MUMBAI, MAHARASHTRA 400033
+                                INDIA</p>
+                        </div>
                     </div>
                     <div>
-                        <p id="displayname">PRATIK JADHAV</p>
-                        <p id="displayAddress">
-                            B94 2ND FLOOR KALACHOWKI OLD POLICE
-                            MUMBAI, MAHARASHTRA 400033
-                            INDIA</p>
+                        <div>
+                            <p class="highlightText">DELIVERY METHOD:</p>
+                        </div>
+                        <div style="width:50%">
+                            <p id="imports">STANDARD
+                                IMPORT CHARGES COLLECTED UPON DELIVERY
+                                11–21 BUSINESS DAYS</p>
+                        </div>
                     </div>
                 </div>
-                <div>
+                <hr>
+                <div class="upper-div upper-div-2">
+                    <div>2</div>
                     <div>
-                        <p class="highlightText">DELIVERY METHOD:</p>
+                        <p>Payment</p>
                     </div>
-                    <div style="width:50%">
-                        <p id="imports">STANDARD
-                            IMPORT CHARGES COLLECTED UPON DELIVERY
-                            11–21 BUSINESS DAYS</p>
+                </div>
+                <div id="credit-details">
+                    <div id="firstDiv">
+                        <div id="creditDiv">
+                            <input type="checkbox" id="credit" checked>
+                            <label for="credit">Credit or Debit card</label>
+                        </div>
+                        <div>
+                            <img style="width: 50px"
+                                src="https://constant.myntassets.com/checkout/assets/img/footer-bank-visa.png" />
+                            <img style="width: 50px"
+                                src="https://constant.myntassets.com/checkout/assets/img/footer-bank-mc.png" />
+                        </div>
                     </div>
+                    <div id="card_div">
+                        <input id="card number" type="text" placeholder="Card Number">
+                        <div id="card_details">
+                            <input type="text" placeholder="MM / YY">
+                            <input type="text" placeholder="Security Code">
+                        </div>
+                    </div>
+                    <hr style="border-top: 2px dotted rgb(97, 94, 94);">
+                    <input type="checkbox" id="ele" checked>
+                    <label style="color:rgb(187, 179, 179);;" for="ele">Send me electronic or mail offers from
+                        Nordstrom. You may opt out at any time.</label><br>
+
+                    <button onclick="placeOrder()"
+                        style="width:40%; background-color: black; border:none; border-radius: 5px; padding:10px;color:white; margin-top: 35px; margin-left:200px; margin-bottom: 30px;">Place
+                        Order>></button>
+
+                    <p
+                        style="text-align: center; margin-top:10px; margin-bottom:30px;color:rgb(100, 97, 97);font-size: 18px;">
+                        This order total does not include duties or taxes. You will be required to pay those, along with
+                        any collection fees, to the shipping carrier upon receipt.</p>
+                </div>
+                <hr>
+                <div id="foot">
+                    <p>
+                        By placing your order, you agree to the <span><a href="">Terms & Conditions</a></span> and
+                        <span><a href="">Privacy Policy of Borderfree from Pitney Bowes</a></span>, Nordstrom’s
+                        international
+                        fulfillment service. Borderfree is an online merchant that is located at 27 Waterview Drive,
+                        Shelton, CT, 06484, US.
+                    </p>
                 </div>
             </div>
-            <hr>
-            <div class="upper-div upper-div-2">
-                <div>2</div>
+            <div id="payment-details">
                 <div>
-                    <p>Payment</p>
+                    <i style='font-size:25px' class="fa fa-shopping-cart"></i>
+                    <p>
+                        Your Order
+                    </p>
                 </div>
-            </div>
-            <div id="credit-details">
-                <div id="firstDiv">
-                    <div id="creditDiv">
-                        <input type="checkbox" id="credit" checked>
-                        <label for="credit">Credit or Debit card</label>
+                <button id="continue" onclick="checkValues()">Continue>></button>
+                <div id="product-prices">
+                    <div>
+                        <p>Items</p>
+                        <p id="items_price"></p>
                     </div>
                     <div>
-                        <img style="width: 50px"
-                            src="https://constant.myntassets.com/checkout/assets/img/footer-bank-visa.png" />
-                        <img style="width: 50px"
-                            src="https://constant.myntassets.com/checkout/assets/img/footer-bank-mc.png" />
+                        <p>Shipping</p>
+                        <p id="shipping_price">₹2,487</p>
                     </div>
+                    <div>
+                        <p>Duties & Taxes</p>
+                        <p>₹2,360</p>
+                    </div>
+                    <div>
+                        <h2>TOTAL</h2>
+                        <h2 id="total_price"></h2>
+
                 </div>
                 <div id="card_div" >
                     <input id="card number" type="text" placeholder="Card Number" >
@@ -689,61 +836,27 @@
                         <input type="text" placeholder="Security Code">
                     </div>
                 </div>
-                <hr style="border-top: 2px dotted rgb(97, 94, 94);">
-                <input type="checkbox" id="ele" checked>
-                <label style="color:rgb(187, 179, 179);;" for="ele">Send me electronic or mail offers from
-                    Nordstrom. You may opt out at any time.</label><br>
+                <hr>
+                <div id="checkout-image-div">
 
-                <button
-                    style="width:40%; background-color: black; border:none; border-radius: 5px; padding:10px;color:white; margin-top: 35px; margin-left:200px;">Place
-                    Order>></button>
-
-                <p
-                    style="text-align: center; margin-top:10px; margin-bottom:30px;color:rgb(100, 97, 97);font-size: 18px;">
-                    This order total does not include duties or taxes. You will be required to pay those, along with
-                    any collection fees, to the shipping carrier upon receipt.</p>
-            </div>
-            <hr>
-            <div id="foot">
-                <p>
-                    By placing your order, you agree to the <span><a href="">Terms & Conditions</a></span> and
-                    <span><a href="">Privacy Policy of Borderfree from Pitney Bowes</a></span>, Nordstrom’s
-                    international
-                    fulfillment service. Borderfree is an online merchant that is located at 27 Waterview Drive,
-                    Shelton, CT, 06484, US.
-                </p>
+                </div>
             </div>
         </div>
-        <div id="payment-details">
-            <div>
-                <i style='font-size:25px' class="fa fa-shopping-cart"></i>
-                <p>
-                    Your Order
-                </p>
-            </div>
-            <button onclick="checkValues()">Continue>></button>
-            <div id="product-prices">
-                <div>
-                    <p>Items</p>
-                    <p id="items_price"></p>
-                </div>
-                <div>
-                    <p>Shipping</p>
-                    <p id="shipping_price">₹2,487</p>
-                </div>
-                <div>
-                    <p>Duties & Taxes</p>
-                    <p>₹2,360</p>
-                </div>
-                <div>
-                    <h2>TOTAL</h2>
-                    <h2 id="total_price"></h2>
-                </div>
-            </div>
-            <hr>
-            <div id="checkout-image-div">
+    </div>
 
-            </div>
+    <div id="simpleModal" class="modal">
+        <div class="modal-content">
+            <span id="closeBtn">&times;</span>
+            <img src="https://n.nordstrommedia.com/alias/nordstrom-logo.svg">
+            <hr>
+            <h1>Congratulations!</h1>
+            <h3>Your order has been placed Successfully.</h3>
+            <h3>Thank you for Shopping in Nordstrom.</h3>
+            <h3 style="line-height: 1.4; font-size: 25px;">YOUR ORDER ID : <span id="orderId">1</span></h3>
+            <p style="line-height: 1.4; font-size: 17px;">We received your order and will begin processing it soon.
+                Please check your email and message for order
+                related details.</p>
+            <button style="margin-top:15px"><a href="landing_page.html">SHOP MORE</a></button>
         </div>
     </div>
 </body>
@@ -755,12 +868,61 @@
     var required_value;
     var total_price = document.getElementById('total_price')
     var required_event;
+    var d = document.getElementById("continue")
+    var ordernum = document.getElementById("orderId")
+    var to_check;
+
+
+    var modal = document.getElementById("simpleModal")
+
+    var blur_effect = document.getElementById("entire-body")
+
+    window.addEventListener("click", function (e) {
+        if (e.target == modal) {
+            d.textContent = "SHOP MORE"
+            d.addEventListener("click", function () {
+                window.location.href = "landing_page.html"
+            })
+            modal.style.display = "none"
+            blur_effect.removeAttribute("class", "blur")
+        }
+    })
+
+    var closeBtn = document.getElementById("closeBtn")
+    closeBtn.addEventListener("click", function () {
+        d.textContent = "SHOP MORE"
+        modal.style.display = "none"
+        blur_effect.removeAttribute("class", "blur")
+    })
+
+    function placeOrder() {
+
+        
+
+        if (event.target.textContent == "SHOP MORE") {
+            window.location.href = "landing_page.html"
+        } else {
+            var num = Math.round(Math.random() * 100000);
+            setTimeout(function () {
+                d.textContent = "Loading..."
+                modal.style.display = "block"
+                blur_effect.setAttribute("class", "blur")
+                ordernum.textContent = num
+
+                localStorage.setItem(to_check,JSON.stringify([]))
+            }, 3000)
+        }
+
+
+
+    }
+
 
     function shop_bag() {
 
         var logged_user = localStorage.getItem("tried_login_user")
 
-        var to_check = "bag_" + logged_user
+        to_check = "bag_" + logged_user
 
         for (var key in localStorage) {
             if (key == to_check) {
@@ -869,86 +1031,97 @@
 
     function checkValues() {
 
-        var eml = document.getElementById("emaillabel")
-        var add = document.getElementById("addresslabel")
+        if (event.target.textContent == "Continue>>") {
+            var eml = document.getElementById("emaillabel")
+            var add = document.getElementById("addresslabel")
 
-        var eml_input = document.getElementById("emailInput")
-        var add_input = document.getElementById("addressInput")
+            var eml_input = document.getElementById("emailInput")
+            var add_input = document.getElementById("addressInput")
 
-        if (document.getElementById("emailInput").value == "" || document.getElementById("addressInput").value == "") {
+            if (document.getElementById("emailInput").value == "" || document.getElementById("addressInput").value == "") {
 
-            if (document.getElementById("emailInput").value == "" && document.getElementById("addressInput").value == "") {
-                eml.style.display = "block"
-                add.style.display = "block"
-                eml_input.style.borderColor = "#d30c0c"
-                add_input.style.borderColor = "#d30c0c"
-            } else if (document.getElementById("emailInput").value == "") {
-                eml.style.display = "block"
-                add.style.display = "none"
+                if (document.getElementById("emailInput").value == "" && document.getElementById("addressInput").value == "") {
+                    eml.style.display = "block"
+                    add.style.display = "block"
+                    eml_input.style.borderColor = "#d30c0c"
+                    add_input.style.borderColor = "#d30c0c"
+                } else if (document.getElementById("emailInput").value == "") {
+                    eml.style.display = "block"
+                    add.style.display = "none"
 
-                eml_input.style.borderColor = "#d30c0c"
-                add_input.style.borderColor = "rgb(206, 198, 198)"
+                    eml_input.style.borderColor = "#d30c0c"
+                    add_input.style.borderColor = "rgb(206, 198, 198)"
+                } else {
+                    add.style.display = "block"
+                    eml.style.display = "none"
+
+                    add_input.style.borderColor = "#d30c0c"
+                    eml_input.style.borderColor = "rgb(206, 198, 198)"
+                }
             } else {
-                add.style.display = "block"
                 eml.style.display = "none"
-
-                add_input.style.borderColor = "#d30c0c"
+                add.style.display = "none"
+                add_input.style.borderColor = "rgb(206, 198, 198)"
                 eml_input.style.borderColor = "rgb(206, 198, 198)"
+
+
+                var firstName = document.getElementById("firstName").value
+                var lastName = document.getElementById("lastName").value
+                var addressInput = document.getElementById("addressInput").value
+                var address2 = document.getElementById("address2").value
+                var city = document.getElementById("city").value
+                var region = document.getElementById("region").value
+                var Country = document.getElementById("Country").value
+                var Postal = document.getElementById("Postal").value
+
+
+                document.getElementById("displayname").textContent = (firstName + " " + lastName).toUpperCase()
+                document.getElementById("displayAddress").textContent = (addressInput + "," + address2 + "," + city + "," + region + " " + Postal + " " + Country).toUpperCase()
+
+
+                document.getElementById("emailInput").value = ""
+                document.getElementById("firstName").value = ""
+                document.getElementById("lastName").value = ""
+                document.getElementById("addressInput").value = ""
+                document.getElementById("address2").value = ""
+                document.getElementById("city").value = ""
+                document.getElementById("region").value = ""
+                document.getElementById("Country").value = ""
+                document.getElementById("Postal").value = ""
+                document.getElementById("phone").value = ""
+
+                console.log(required_event)
+
+
+                document.getElementById("imports").textContent = required_event
+
+
+
+                var gone = document.getElementById("Gone")
+                var address_display = document.getElementById("address_display")
+                var credit_details = document.getElementById("credit-details")
+
+
+                if (gone.style.display === "none") {
+                    gone.style.display = "block";
+                } else {
+                    gone.style.display = "none"
+                    address_display.style.display = "flex"
+                    credit_details.style.display = "block"
+                }
+
+                d.textContent = "Place Order>>"
             }
         } else {
-            eml.style.display = "none"
-            add.style.display = "none"
-            add_input.style.borderColor = "rgb(206, 198, 198)"
-            eml_input.style.borderColor = "rgb(206, 198, 198)"
-
-
-            var firstName = document.getElementById("firstName").value
-            var lastName = document.getElementById("lastName").value
-            var addressInput = document.getElementById("addressInput").value
-            var address2 = document.getElementById("address2").value
-            var city = document.getElementById("city").value
-            var region = document.getElementById("region").value
-            var Country = document.getElementById("Country").value
-            var Postal = document.getElementById("Postal").value
-
-
-            document.getElementById("displayname").textContent = (firstName + " " + lastName).toUpperCase()
-            document.getElementById("displayAddress").textContent = (addressInput + "," + address2 + "," + city + "," + region + " " + Postal + " " + Country).toUpperCase()
-
-
-            document.getElementById("emailInput").value = ""
-            document.getElementById("firstName").value = ""
-            document.getElementById("lastName").value = ""
-            document.getElementById("addressInput").value = ""
-            document.getElementById("address2").value = ""
-            document.getElementById("city").value = ""
-            document.getElementById("region").value = ""
-            document.getElementById("Country").value = ""
-            document.getElementById("Postal").value = ""
-            document.getElementById("phone").value = ""
-
-            console.log(required_event)
-
-
-            document.getElementById("imports").textContent = required_event
-
-
-
-            var gone = document.getElementById("Gone")
-            var address_display = document.getElementById("address_display")
-            var credit_details = document.getElementById("credit-details")
-
-
-            if (gone.style.display === "none") {
-                gone.style.display = "block";
-            } else {
-                gone.style.display = "none"
-                address_display.style.display="flex"
-                credit_details.style.display="block"
-            }
-
+            placeOrder()
         }
+
+
     }
+
+
+
+
 
     // window.onload = calculateItemsInBag;
 
@@ -958,18 +1131,18 @@
     function calculateItemsInBag() {
         items.innerText = "";
         if (localStorage.getItem('logeduser') != null) {
-            var logeduser = JSON.parse(localStorage.getItem('logeduser')); 
+            var logeduser = JSON.parse(localStorage.getItem('logeduser'));
             var key = `bag_${logeduser.email}`;
             var bag = JSON.parse(localStorage.getItem(key));
             localStorage.setItem('bag', JSON.stringify([]));
-        } else if(localStorage.getItem('logeduser') === null) {
+        } else if (localStorage.getItem('logeduser') === null) {
             var bag = JSON.parse(localStorage.getItem('bag'));
             key = 'bag';
         }
-        
+
         var totalItems = 0;
 
-        bag.forEach(function(product) {
+        bag.forEach(function (product) {
             totalItems += product.quantity;
         })
 

@@ -14,6 +14,10 @@
 
 
     <style>
+        #main-content a:hover {
+            border-bottom: 2px solid black;
+        }
+
         #top {
             background-color: black;
             text-align: center;
@@ -573,9 +577,10 @@
                         </ul>
                     </div>
                     <div id="bag">
-                        <a id = "bag-icon-text" href="shopping_bag.html">
-                            <div><span class="material-icons" style = "font-size: 36px; color: black">shopping_bag</span></div>
-                            <p id = "itemsInBag"></p>
+                        <a id="bag-icon-text" href="shopping_bag.html">
+                            <div><span class="material-icons" style="font-size: 36px; color: black">shopping_bag</span>
+                            </div>
+                            <p id="itemsInBag"></p>
                             <!-- <img class="bag-image" src="images/emptybag-icon.png"></img> -->
                         </a>
                     </div>
@@ -2843,10 +2848,10 @@
     <iframe src="footer.html" style="width:100%;margin:0px;border:none;height: 350px;overflow:hidden;"></iframe>
 
 
-        
 
 
-        
+
+
 
     <script>
 
@@ -2977,19 +2982,19 @@
 
                 if (localStorage.getItem('logeduser') != null) {
                     var generic_bag = JSON.parse(localStorage.getItem('bag'));
-                    var logeduser = JSON.parse(localStorage.getItem('logeduser')); 
+                    var logeduser = JSON.parse(localStorage.getItem('logeduser'));
                     var key = `bag_${logeduser.email}`;
 
-                    if(JSON.parse(localStorage.getItem(key)) === null) {
+                    if (JSON.parse(localStorage.getItem(key)) === null) {
                         localStorage.setItem(key, JSON.stringify(generic_bag));
                     }
 
-                    if(JSON.parse(localStorage.getItem(key)).length === 0) {
+                    if (JSON.parse(localStorage.getItem(key)).length === 0) {
                         window.location.href = 'landing_page.html';
-                    } else if(generic_bag != null) {
+                    } else if (generic_bag != null) {
                         window.location.href = 'shopping_bag.html';
                         localStorage.setItem('bag', JSON.stringify([]));
-                    } 
+                    }
                 }
 
             }
@@ -3067,19 +3072,19 @@
         function calculateItemsInBag() {
             items.innerText = "";
             if (localStorage.getItem('logeduser') != null) {
-                var logeduser = JSON.parse(localStorage.getItem('logeduser')); 
+                var logeduser = JSON.parse(localStorage.getItem('logeduser'));
                 var key = `bag_${logeduser.email}`;
                 var bag = JSON.parse(localStorage.getItem(key));
                 localStorage.setItem('bag', JSON.stringify([]));
-            } else if(localStorage.getItem('logeduser') === null) {
+            } else if (localStorage.getItem('logeduser') === null) {
                 var bag = JSON.parse(localStorage.getItem('bag'));
                 key = 'bag';
             }
 
-            
+
             var totalItems = 0;
 
-            bag.forEach(function(product) {
+            bag.forEach(function (product) {
                 totalItems += product.quantity;
             })
 
