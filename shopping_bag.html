@@ -2937,8 +2937,6 @@ document.addEventListener("DOMContentLoaded",function(e){
                 <hr style = "width: 100%;"/>
                 <div><button onclick = "goToCheckout()" id = "shipping-bag-checkout-btn">Check Out</button></div>
             </div>
-
-
         </div>
         
     </div>
@@ -3114,15 +3112,19 @@ document.addEventListener("DOMContentLoaded",function(e){
         if(bag === null) {
             localStorage.setItem('bag', JSON.stringify([]));
             var text = document.createElement('p');
-            text.innerHTML = `Bag is empty. <a href = 'landing_page.html'>Start Shopping!</a>`;
+            text.innerHTML = `Your bag is empty. <a href = 'landing_page.html'>Click here to continue shopping!</a>`;
             text.setAttribute('id', 'shopping-bag-empty');
             bagData.append(text);
+            var checkout = document.getElementById('shopping-bag-summary');
+            checkout.style.display = 'none';
         } else if (bag.length === 0) {
             localStorage.setItem('bag', JSON.stringify([]));
             var text = document.createElement('p');
-            text.innerHTML = `Bag is empty. <a href = 'landing_page.html'>Start Shopping!</a>`;
+            text.innerHTML = `Bag is empty. <a href = 'landing_page.html'>Click here to continue shopping!</a>`;
             text.setAttribute('id', 'shopping-bag-empty');
             bagData.append(text);
+            var checkout = document.getElementById('shopping-bag-summary');
+            checkout.style.display = 'none';
         }else {
             bag.forEach(function(product) {
 
@@ -3294,16 +3296,26 @@ document.addEventListener("DOMContentLoaded",function(e){
     var shpgBagTotalPrice = document.getElementById('shipping-bag-subtotal');
     var totalPriceTag = document.createElement('p');
     window.onload = function() {
-        addShoppingBagDetails(bag);
 
-        items.innerText = "";
-        items.innerText = `(${quantityTotal})`;
+        // if(bag.length === 0) {
+        //     addShoppingBagDetails(bag);
+        //     var text = document.getElementById('shopping-bag-empty');
+        //     text.style.color = 'red';
 
-        totalPriceTag.innerText = `₹${shoppingBagTotal}`;
-        totalPriceTag.style.textAlign = 'right';
+        //     var subtotal = document.getElementById('shipping-bag-subtotal');
+        //     subtotal.style.display = 'none';
+        // } else {
+            addShoppingBagDetails(bag);
 
-        shpgBagTotalPrice.appendChild(totalPriceTag);
-        shpBagTag.innerText = `Shopping Bag (${quantityTotal})`;
+            items.innerText = "";
+            items.innerText = `(${quantityTotal})`;
+
+            totalPriceTag.innerText = `₹${shoppingBagTotal}`;
+            totalPriceTag.style.textAlign = 'right';
+
+            shpgBagTotalPrice.appendChild(totalPriceTag);
+            shpBagTag.innerText = `Shopping Bag (${quantityTotal})`;
+        
     }
 
     var shpBagTag = document.getElementById('shopping-bag-tag');
