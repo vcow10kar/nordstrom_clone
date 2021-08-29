@@ -2327,7 +2327,8 @@
     <div id="simpleModal" class="modal">
         <div class="modal-content">
             <span id="closeBtn">&times;</span>
-            <p style="font-size: 25px; color:rgb(58, 55, 55); margin-bottom: 5px;">We Ship to India<p>
+            <p style="font-size: 25px; color:rgb(58, 55, 55); margin-bottom: 5px;">We Ship to India
+            <p>
             <h3 style="font-size: 12px; color:rgb(63, 59, 59);margin-bottom: 12px;">A few things to know:</h3>
             <div style="margin-left:17px;">
                 <ul style="list-style-type:disc; font-size: 12px;">
@@ -2336,13 +2337,16 @@
                     <li>Not shipping to India? <a>Change your country</a></li>
                 </ul>
             </div>
-            <p style="font-size: 12px;color: #393939; margin-top:12px"><a>Get more details</a> or <a>contact us</a> if you have questions about international shipping.</p>
+            <p style="font-size: 12px;color: #393939; margin-top:12px"><a>Get more details</a> or <a>contact us</a> if
+                you have questions about international shipping.</p>
         </div>
     </div>
 
 </body>
 
 <script>
+
+
 
 
     var modal = document.getElementById("simpleModal")
@@ -2353,6 +2357,7 @@
         if (e.target == modal) {
             modal.style.display = "none"
             blur_effect.removeAttribute("class", "blur")
+            localStorage.setItem("flag", "false")
         }
     })
 
@@ -2360,8 +2365,12 @@
     closeBtn.addEventListener("click", function () {
         modal.style.display = "none"
         blur_effect.removeAttribute("class", "blur")
+        localStorage.setItem("flag", "false")
     })
 
+    // window.onclose = function (e) {
+    //     localStorage.removeItem("flag")
+    // };
 
     function dropDown(a) {
 
@@ -2948,11 +2957,16 @@
         items.innerText = `(${totalItems})`;
     }
 
+    if (!localStorage.getItem("flag")) {
+        localStorage.setItem("flag", "true")
+    }
+
     window.onload = function (e) {
 
-        modal.style.display = "block"
-        blur_effect.setAttribute("class", "blur")
-
+        if (localStorage.getItem("flag") == "true") {
+            modal.style.display = "block"
+            blur_effect.setAttribute("class", "blur")
+        }
     }
 </script>
 
