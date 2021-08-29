@@ -11,11 +11,14 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;100&display=swap" rel="stylesheet">
 
     <style>
         * {
             margin: 0px;
             padding: 0px;
+            font-family: Lato, Arial, sans-serif;
+
         }
 
         #Checkout-Nav {
@@ -760,9 +763,9 @@
                 </div>
                 <div id="credit-details">
                     <div id="firstDiv">
-                        <div id="creditDiv">
+                        <div id="creditDiv" style="display:flex">
                             <input type="checkbox" id="credit" checked>
-                            <label for="credit">Credit or Debit card</label>
+                            <label for="credit" style="padding-top: 10px;margin-left: 5px;">Credit or Debit card</label>
                         </div>
                         <div>
                             <img style="width: 50px"
@@ -771,18 +774,20 @@
                                 src="https://constant.myntassets.com/checkout/assets/img/footer-bank-mc.png" />
                         </div>
                     </div>
-                    <div id="card_div">
-                        <input id="card number" type="text" placeholder="Card Number">
+                    <div id="card_div" style="display:flex">
+                        <input id="card number" type="number" placeholder="Card Number" style="flex-basis: 300px;">
                         <div id="card_details">
                             <input type="text" placeholder="MM / YY">
-                            <input type="text" placeholder="Security Code">
+                            <input type="number" placeholder="Security Code">
                         </div>
                     </div>
                     <hr style="border-top: 2px dotted rgb(97, 94, 94);">
+                    <div style="display:flex">
                     <input type="checkbox" id="ele" checked>
-                    <label style="color:rgb(187, 179, 179);;" for="ele">Send me electronic or mail offers from
+                    
+                    <label  for="ele" style="color:rgb(187, 179, 179);padding-top: 10px;margin-left: 5px;">Send me electronic or mail offers from
                         Nordstrom. You may opt out at any time.</label><br>
-
+                    </div>
                     <button onclick="placeOrder()"
                         style="width:40%; background-color: black; border:none; border-radius: 5px; padding:10px;color:white; margin-top: 35px; margin-left:200px; margin-bottom: 30px;">Place
                         Order>></button>
