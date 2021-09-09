@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NordStorm Online & Indoor : Shoes,Jewlery,Clothing,Makeup,Dresses</title>                
+    <title>NordStorm Online & Indoor : Shoes,Jewlery,Clothing,Makeup,Dresses</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
@@ -2840,7 +2840,7 @@
         function keyPressed(event) {
 
             var pass = document.getElementById('password').value;
-            console.log(isValidPassword(pass));
+            //console.log(isValidPassword(pass));
         }
 
 
@@ -2853,11 +2853,11 @@
         function signupUser() {
             var fName = document.getElementById('fname').value;
             var lName = document.getElementById('lname').value;
-            var password =document.getElementById('password').value;
-            console.log("Name is "+password.length);
+            var password = document.getElementById('password').value;
+            //console.log("Name is " + password.length);
 
-            if ((fName.length==0 || lName.length==0 )|| password.length==0 ) {
-                console.log("error");
+            if ((fName.length == 0 || lName.length == 0) || password.length == 0) {
+                //console.log("error");
                 document.getElementById('fname').setAttribute('class', 'error')
                 document.getElementById('lname').setAttribute('class', 'error')
                 document.getElementById('password').setAttribute('class', 'error')
@@ -2865,7 +2865,7 @@
             }
             else {
 
-                
+
 
                 if (isValidPassword(password)) {
                     var user = {

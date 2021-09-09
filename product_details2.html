@@ -3364,7 +3364,7 @@
             about1.textContent = product.about
             var itemcode = document.createElement("p")
             itemcode.textContent = product.itemcode
-            console.log(itemcode);
+            //console.log(itemcode);
 
             var about2 = document.createElement("p")
             about2.setAttribute("class", "pro_det_p")
@@ -3407,8 +3407,8 @@
             span.setAttribute("class", "material-icons")
             span.innerText = "forum"
             have_que.append(span)
-            console.log(have_que.innerHTML);
-            console.log(have_que.innerHTML += "HAVE QUESTIONS?");
+            //console.log(have_que.innerHTML);
+            //console.log(have_que.innerHTML += "HAVE QUESTIONS?");
             // have_que.innerHTML+="HAVE QUESTIONS?" // innerhtml = innerhtml+"aHve a question""
 
             var para = document.createElement("p")
@@ -3525,7 +3525,7 @@
             discription_list.setAttribute("class", "disc");
             var product_details = document.createElement('ul');
             product_details.innerHTML = product.details;
-            console.log(product_details);
+            //console.log(product_details);
             discription_list.append(product_details);
             discription_list.append(seemore)
 
@@ -3567,7 +3567,7 @@
                         selectedProduct.quantity += Number(document.getElementById("quantity").value);
                     }
                     productPresent = true;
-                    console.log(bag[i]);
+                    //console.log(bag[i]);
                 }
             }
 
@@ -3576,9 +3576,9 @@
                 bag.push(selectedProduct);
             }
 
-            console.log(product);
+            //console.log(product);
 
-            console.log(selectedProduct);
+            //console.log(selectedProduct);
 
             openModal(selectedProduct, bag, key);
 
@@ -3596,11 +3596,11 @@
 
 
 
-            console.log(product);
+//            console.log(product);
 
             var wish_list1 = JSON.parse(localStorage.getItem('wish_list'));
 
-            console.log(wish_list1)
+            //console.log(wish_list1)
 
             if (wish_list1.length == 0) {
                 wish_list1.push(product);
@@ -3610,8 +3610,8 @@
 
 
                 for (var i = 0; i < (wish_list1).length; i++) {
-                    console.log((wish_list1)[i].name)
-                    console.log(product.name)
+                   // console.log((wish_list1)[i].name)
+                   // console.log(product.name)
 
                     if ((wish_list1)[i].name == product.name) {
                         alert("Product is Already Present in your list")
@@ -3742,7 +3742,7 @@
         }
 
         function openWishlistModal() {
-            console.log("hello");
+            //console.log("hello");
         }
 
         window.onload = calculateItemsInBag;
