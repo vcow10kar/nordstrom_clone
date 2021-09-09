@@ -24,6 +24,13 @@ To run this application on your local system, execute the following commands on 
 
 To start using the application, open the `landing.html` file using the Live Server
 
+## Features 
+<!-- --- -->
+- There is login and logout functionality.
+- Elegant navbar for easy navigation between pages and categories.
+- Customers can view the Products list of a particular category.
+- Complete product details page, showing various sizes and variants.
+- Checkout page which calculates the shipping prices dynamically.
 
 ## Steps to navigate the website:
 <!-- <hr> -->
@@ -43,15 +50,6 @@ To start using the application, open the `landing.html` file using the Live Serv
   - Enter their Credit/Debit card details
   - Place the Order
 - On placing the Order, a pop-up displays the order no. generated for the user and the shopping bag is also cleared.
-
-
-## Features 
-<!-- --- -->
-- There is login and logout functionality.
-- Elegant navbar for easy navigation between pages and categories.
-- Customers can view the Products list of a particular category.
-- Complete product details page, showing various sizes and variants.
-- Checkout page which calculates the shipping prices dynamically.
 
 ## Screenshots
 <!-- --- -->
@@ -73,22 +71,17 @@ A glimpse of our website
 
 
 ![Screenshot (121).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1630219125640/BuijpE4Q_.png)
-
-
 ---
 - Shopping bag page has all the items that are added to the cart/bag by the user.
 
 ![Screenshot (123).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1630219786505/W6oIrTvte.png)
-
-
 ---
 - On the checkout page, the user enters his shipping address and credit card details in order to place the order.
 
 ![Screenshot (122).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1630219352528/km3ZkSW82.png)
-
 ---
-## Demo
 
+## Demo
  [Demo link here](https://shark2killer-e7e79.web.app/) 
  
 
