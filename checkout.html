@@ -607,7 +607,6 @@
                 <a id="bag-icon-text" href="shopping_bag.html">
                     <div><span class="material-icons" style="font-size: 36px; color: black">shopping_bag</span></div>
                     <p id="itemsInBag"></p>
-                    <!-- <img class="bag-image" src="images/emptybag-icon.png"></img> -->
                 </a>
             </div>
         </div>
@@ -788,7 +787,7 @@
                     <label  for="ele" style="color:rgb(187, 179, 179);padding-top: 10px;margin-left: 5px;">Send me electronic or mail offers from
                         Nordstrom. You may opt out at any time.</label><br>
                     </div>
-                    <button onclick="placeOrder()"
+                    <button id="anotherbtn" onclick="placeOrder()"
                         style="width:40%; background-color: black; border:none; border-radius: 5px; padding:10px;color:white; margin-top: 35px; margin-left:200px; margin-bottom: 30px;">Place
                         Order>></button>
 
@@ -869,6 +868,7 @@
     var d = document.getElementById("continue")
     var ordernum = document.getElementById("orderId")
     var to_check;
+    var c = document.getElementById("anotherbtn")
 
 
     var modal = document.getElementById("simpleModal")
@@ -878,17 +878,23 @@
     window.addEventListener("click", function (e) {
         if (e.target == modal) {
             d.textContent = "SHOP MORE"
+            c.textContent = "SHOP MORE"
             d.addEventListener("click", function () {
+                window.location.href = "landing_page.html"
+            })
+            c.addEventListener("click", function () {
                 window.location.href = "landing_page.html"
             })
             modal.style.display = "none"
             blur_effect.removeAttribute("class", "blur")
+            window.location.href = "landing_page.html"
         }
     })
 
     var closeBtn = document.getElementById("closeBtn")
     closeBtn.addEventListener("click", function () {
         d.textContent = "SHOP MORE"
+        c.textContent = "SHOP MORE"
         modal.style.display = "none"
         blur_effect.removeAttribute("class", "blur")
         window.location.href = "landing_page.html"
@@ -896,18 +902,16 @@
 
     function placeOrder() {
 
-        
-
         if (event.target.textContent == "SHOP MORE") {
             window.location.href = "landing_page.html"
         } else {
+            d.textContent = "Loading..."
+            c.textContent = "Loading..."
             var num = Math.round(Math.random() * 100000);
             setTimeout(function () {
-                d.textContent = "Loading..."
                 modal.style.display = "block"
                 blur_effect.setAttribute("class", "blur")
                 ordernum.textContent = num
-
                 localStorage.setItem(to_check,JSON.stringify([]))
             }, 3000)
         }
