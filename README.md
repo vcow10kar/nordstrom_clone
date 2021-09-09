@@ -9,21 +9,50 @@ Nordstrom, Inc. (/ˈnɔːrdstrəm/) is an American luxury department store chain
 ---
 
 ## Technologies we used
-<hr>
+<!-- <hr> -->
 - HTML , CSS
 - JAVASCRIPT
 - Browser LocalStorage
 
-## features 
----
+## Installing and Running
+<!-- <hr> -->
+To run this application on your local system, execute the following commands on your terminal/command line:
+  
+  <code>git clone https://github.com/vcow10kar/construct_week.git</code>
+  
+  <code>cd construct_week</code> 
+
+To start using the application, open the `landing.html` file using the Live Server
+
+## Features 
+<!-- --- -->
 - There is login and logout functionality.
 - Elegant navbar for easy navigation between pages and categories.
 - Customers can view the Products list of a particular category.
 - Complete product details page, showing various sizes and variants.
 - Checkout page which calculates the shipping prices dynamically.
 
+## Steps to navigate the website:
+<!-- <hr> -->
+- On the Landing Page header, user can click on the 'Sign In' option to either Sign In or Create an Account
+- Once the user has logged in, they are taken back to the Landing Page.
+- On the top nav-bar, the user can navigate to the following categories: `Home > Home Decor > Art, Wall Decor & Mirrors`, to open the products list page
+- On the Products List Page 
+  - Hovering on each product will display a 'Quick View' button. Clicking on it, the user will be shown the details of the product along with the option to add the product to their Shopping Bag
+  - If the user clicks on the name of the product, they'll be taken to the Produt's details page
+- On the Product's details page, the user can view all the product specifications, change the quantity of the product they wish to buy and also add the product to their shopping bag
+- On the Shopping Bag page
+  - The user can remove a product from the shopping bag
+  - Change the quantity of the product
+- On proceeding to Checkout, the user is asked to
+  - Fill their address and contact details
+  - Select a Shipping Method
+  - Enter their Credit/Debit card details
+  - Place the Order
+- On placing the Order, a pop-up displays the order no. generated for the user and the shopping bag is also cleared.
+
 ## Screenshots
----
+<!-- --- -->
 A glimpse of our website
 
 - On this page users can signup/sign-in based on whether the user is already registered or not.
@@ -42,22 +71,17 @@ A glimpse of our website
 
 
 ![Screenshot (121).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1630219125640/BuijpE4Q_.png)
-
-
 ---
 - Shopping bag page has all the items that are added to the cart/bag by the user.
 
 ![Screenshot (123).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1630219786505/W6oIrTvte.png)
-
-
 ---
-- on the checkout page, the user enters his shipping address and credit card details in order to place the order.
+- On the checkout page, the user enters his shipping address and credit card details in order to place the order.
 
 ![Screenshot (122).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1630219352528/km3ZkSW82.png)
-
 ---
-## Demo
 
+## Demo
  [Demo link here](https://shark2killer-e7e79.web.app/) 
  
 
@@ -66,6 +90,6 @@ A glimpse of our website
 
   1. [Vaishnavi Kawthankar](https://github.com/vcow10kar) 
   2. [Pratik Jadhav](https://github.com/pratikjadhav080) 
-  3. [Akhil kamsala](https://github.com/akhilsdeportfolio) 
+  3. [Akhil Kamsala](https://github.com/akhilsdeportfolio) 
   4. [Nikhil CN ](https://github.com/nikhilcn94) 
 
