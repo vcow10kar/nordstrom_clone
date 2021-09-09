@@ -3575,7 +3575,11 @@
             }
         }
 
+<<<<<<< HEAD
         //console.log(currentArray);
+=======
+      //  console.log(currentArray);
+>>>>>>> baf60ed1877e3a305e272b1152d879c77628c8d3
 
         data_div.innerHTML = "";
         createProductCatalogue(currentArray);
@@ -3592,7 +3596,11 @@
             }
         }
 
+<<<<<<< HEAD
         //console.log(currentArray);
+=======
+       // console.log(currentArray);
+>>>>>>> baf60ed1877e3a305e272b1152d879c77628c8d3
 
         data_div.innerHTML = "";
         createProductCatalogue(currentArray);
@@ -3728,7 +3736,11 @@
             }
         }
 
+<<<<<<< HEAD
         //console.log("brand", brandfilters);
+=======
+      //  console.log("brand", brandfilters);
+>>>>>>> baf60ed1877e3a305e272b1152d879c77628c8d3
 
         if (brandfilters.length === 0) {
             data_div.innerHTML = "";
@@ -3761,7 +3773,11 @@
             }
         }
 
+<<<<<<< HEAD
         //console.log("color", colorfilters);
+=======
+       // console.log("color", colorfilters);
+>>>>>>> baf60ed1877e3a305e272b1152d879c77628c8d3
 
         if (colorfilters.length === 0) {
             data_div.innerHTML = "";
@@ -3794,7 +3810,11 @@
             }
         }
 
+<<<<<<< HEAD
         //console.log("type", typefilters);
+=======
+       // console.log("type", typefilters);
+>>>>>>> baf60ed1877e3a305e272b1152d879c77628c8d3
 
         if (typefilters.length === 0) {
             data_div.innerHTML = "";
@@ -3815,7 +3835,11 @@
     function createFilteredCatalogue(currentArray, filters, property) {
         var catalogue = [];
         for (let i = 0; i < filters.length; i++) {
+<<<<<<< HEAD
             //console.log(filters[i]);
+=======
+           // console.log(filters[i]);
+>>>>>>> baf60ed1877e3a305e272b1152d879c77628c8d3
             for (let j = 0; j < currentArray.length; j++) {
 
                 if (currentArray[j][property] === filters[i]) {
@@ -3853,7 +3877,11 @@
     var footer = document.getElementById('product-grid-footer');
 
     function openModal(product) {
+<<<<<<< HEAD
         //console.log(product);
+=======
+       // console.log(product);
+>>>>>>> baf60ed1877e3a305e272b1152d879c77628c8d3
         var image = document.createElement('img');
         image.src = product.image1;
         modalImage.appendChild(image);
@@ -3963,7 +3991,11 @@
         localStorage.setItem(key, JSON.stringify(bag));
 
         var element = document.getElementById('product-grid-modal-product-addToBag');
+<<<<<<< HEAD
     //        console.log(element);
+=======
+       // console.log(element);
+>>>>>>> baf60ed1877e3a305e272b1152d879c77628c8d3
         element.innerHTML = `<span class="material-icons">done</span><p>Added to bag</p>`;
 
         calculateItemsInBag();
