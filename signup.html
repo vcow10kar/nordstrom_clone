@@ -2840,7 +2840,7 @@
         function keyPressed(event) {
 
             var pass = document.getElementById('password').value;
-            console.log(isValidPassword(pass));
+           // console.log(isValidPassword(pass));
         }
 
 
@@ -2908,6 +2908,7 @@
 
             for (var i = 0; i < rem.length; i++) {
                 if (rem[i].textContent != a) {
+                    
                     var remo = document.querySelector(`.${rem[i].textContent}-content`)
                     remo.style.height = "0px";
 
