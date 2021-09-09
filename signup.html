@@ -2808,10 +2808,10 @@
 
         <label style="margin:10px;" class="signup-label" for="fname">FirstName<span style="color:red">*</span></label>
 
-        <input style="margin:10px;" class="signup-input" type="text" id="fname" required />
+        <input style="margin:10px;" class="signup-input" type="text" id="fname" />
         <label style="margin:10px;" class="signup-label" for="lname">LastName<span style="color:red">*</span></label>
 
-        <input style="margin:10px;" class="signup-input" type="text" id="lname" required />
+        <input style="margin:10px;" class="signup-input" type="text" id="lname" />
         <label style="margin:10px;" class="signup-label" for="password">Create password<span
                 style="color:red">*</span></label>
         <input style="margin:10px;" class="signup-input" type="password" id="password" onkeydown="keyPressed(event)"
@@ -2853,10 +2853,11 @@
         function signupUser() {
             var fName = document.getElementById('fname').value;
             var lName = document.getElementById('lname').value;
-            var password = document.getElementById('password').value;
+            var password =document.getElementById('password').value;
+            console.log("Name is "+password.length);
 
-
-            if (fname == '' || lname == '' || password == '') {
+            if ((fName.length==0 || lName.length==0 )|| password.length==0 ) {
+                console.log("error");
                 document.getElementById('fname').setAttribute('class', 'error')
                 document.getElementById('lname').setAttribute('class', 'error')
                 document.getElementById('password').setAttribute('class', 'error')
@@ -2864,8 +2865,7 @@
             }
             else {
 
-                //document.getElementById('fname').setAttribute('class','error')
-                //document.getElementById('lname').setAttribute('class','error')
+                
 
                 if (isValidPassword(password)) {
                     var user = {
@@ -2877,7 +2877,8 @@
                     var users = JSON.parse(localStorage.getItem('users'));
                     users.push(user);
                     localStorage.setItem('users', JSON.stringify(users));
-
+                    //console.log("cool");
+                    document.getElementById('error_message').style.visibility = 'hidden'
                     document.location = "signin.html";
 
 
@@ -2887,7 +2888,7 @@
                 else {
                     document.getElementById('password').setAttribute('class', 'error')
                     document.getElementById('error_message').style.visibility = 'visible'
-                    document.getElementById('error_message').innerText = "Password must have Atleast one Capital letter,one small letter, one number and one special character.";
+                    document.getElementById('error_message').innerText = "Password must have Atleast one Capital letter,one small letter, one number and one special character.password should be atleast 6 charcters long";
                 }
 
 
