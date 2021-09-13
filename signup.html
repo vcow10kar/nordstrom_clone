@@ -2846,7 +2846,7 @@
 
 
         function isValidPassword(string) {
-            const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*#?&]{6,}$/;
+            const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%#*?&])[A-Za-z\d@$!%*#?&]{6,}$/;
             return re.test(string);
         }
 
@@ -2865,7 +2865,7 @@
             }
             else {
 
-                console.log(isValidPassword(password) + password);
+                //console.log(isValidPassword(password) + password);
 
                 if (isValidPassword(password)) {
                     var user = {
