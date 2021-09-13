@@ -2814,7 +2814,7 @@
         <input style="margin:10px;" class="signup-input" type="text" id="lname" />
         <label style="margin:10px;" class="signup-label" for="password">Create password<span
                 style="color:red">*</span></label>
-        <input style="margin:10px;" class="signup-input" type="password" id="password" onkeydown="keyPressed(event)"
+        <input style="margin:10px;" class="signup-input" type="password" id="password" onchange="keyPressed(event)"
             required />
 
 
@@ -2846,7 +2846,7 @@
 
 
         function isValidPassword(string) {
-            const re = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+            const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
             return re.test(string);
         }
 
@@ -2865,7 +2865,7 @@
             }
             else {
 
-
+                console.log(isValidPassword(password) + password);
 
                 if (isValidPassword(password)) {
                     var user = {
