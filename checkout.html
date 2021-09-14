@@ -811,11 +811,18 @@
                                 src="https://constant.myntassets.com/checkout/assets/img/footer-bank-mc.png" />
                         </div>
                     </div>
+                    <div>
+                        <ol style = "list-style-type: circle; margin:20px">
+                            <li>Kindly make sure to mention the card details correctly.</li>
+                            <li>Do not include any spaces or characters other than numbers.</li>
+                            <li>If above conditions are not met, you will not be able to proceed further.</li>
+                        </ol>
+                    </div>
                     <div id="card_div" style="display:flex">
-                        <input id="cardnumber" type="number" placeholder="Card Number" style="flex-basis: 300px;">
+                        <input id="cardnumber" type="number" placeholder="Card Number" style="flex-basis: 200px;">
                         <div id="card_details">
                             <input id="month" type="text" placeholder="MM / YY">
-                            <input id="code" type="number" placeholder="Security Code">
+                            <input id="code" type="number" placeholder="CVV">
                         </div>
                     </div>
                     <hr style="border-top: 2px dotted rgb(97, 94, 94);">
@@ -939,6 +946,46 @@
         window.location.href = "landing_page.html"
     })
 
+
+
+    function card(cardNumber, k) {
+
+        var cardArray = cardNumber.split("")
+
+        for (let i = 0; i < cardArray.length; i++) {
+
+            if (cardArray[i].charCodeAt() > 57 || cardArray[i].charCodeAt() < 48) {
+                return false
+            }
+        }
+
+        if (k == 0) {
+            if (cardArray.length == 16) {
+                return true
+            }
+        } else if (k == 1) {
+            if (cardArray.length == 4) {
+
+                let month = Number(cardNumber.slice(0, 2))
+                let year = Number(cardNumber.slice(2, 4))
+
+                if (month >= 1 && month <= 12 && year > 21) {
+                    return true
+                }
+
+            }
+        } else if (k == 2) {
+            if (cardArray.length == 3) {
+                return true
+            }
+        }
+
+
+        return false
+    }
+
+
+
     function placeOrder() {
 
         if (event.target.textContent == "SHOP MORE") {
@@ -955,19 +1002,43 @@
                 code.style.borderColor = "#d30c0c"
             } else {
 
-                cardnumber.style.borderColor = "rgb(206, 198, 198)"
-                month.style.borderColor = "rgb(206, 198, 198)"
-                code.style.borderColor = "rgb(206, 198, 198)"
-                
-                d.textContent = "Loading..."
-                c.textContent = "Loading..."
-                var num = Math.round(Math.random() * 100000);
-                setTimeout(function () {
-                    modal.style.display = "block"
-                    blur_effect.setAttribute("class", "blur")
-                    ordernum.textContent = num
-                    localStorage.setItem(to_check, JSON.stringify([]))
-                }, 3000)
+
+                let creditArray = [cardnumber.value, month.value, code.value]
+
+                let flag = true;
+
+                for (let i = 0; i < 3; i++) {
+                    if (!card(creditArray[i].toString(), i)) {
+                        flag = false;
+                    }
+                }
+
+                if (flag) {
+
+                    cardnumber.style.borderColor = "rgb(206, 198, 198)"
+                    month.style.borderColor = "rgb(206, 198, 198)"
+                    code.style.borderColor = "rgb(206, 198, 198)"
+
+                    d.textContent = "Loading..."
+                    c.textContent = "Loading..."
+                    var num = Math.round(Math.random() * 100000);
+                    setTimeout(function () {
+                        modal.style.display = "block"
+                        blur_effect.setAttribute("class", "blur")
+                        ordernum.textContent = num
+                        localStorage.setItem(to_check, JSON.stringify([]))
+                    }, 3000)
+
+                } else {
+
+                    cardnumber.style.borderColor = "#d30c0c"
+                    month.style.borderColor = "#d30c0c"
+                    code.style.borderColor = "#d30c0c"
+
+                }
+
+
+
             }
         }
 
