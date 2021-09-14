@@ -235,6 +235,11 @@
             border: none;
         }
 
+
+        #delivery>div:nth-child(6) button:hover{
+            background-color: rgb(226, 19, 19);
+        }
+
         .upper-div>div:nth-child(1) {
             width: 32px !important;
             height: 27px;
@@ -600,6 +605,10 @@
         }
 
 
+        #continue:hover{
+            background-color: rgb(226, 19, 19);
+        }
+
         @keyframes modalopen {
             from {
                 opacity: 0
@@ -762,7 +771,7 @@
                             </div>
                         </div>
                         <div>
-                            <button onclick="checkValues()">Continue>></button>
+                            <button id="continueAnother" onclick="checkValues()">Continue>></button>
                         </div>
                     </div>
                 </div>
@@ -819,10 +828,10 @@
                         </ol>
                     </div>
                     <div id="card_div" style="display:flex">
-                        <input id="cardnumber" type="number" placeholder="Card Number" style="flex-basis: 200px;">
+                        <input id="cardnumber" type="number" placeholder="Card Number(16 digits)" style="flex-basis: 200px;">
                         <div id="card_details">
-                            <input id="month" type="text" placeholder="MM / YY">
-                            <input id="code" type="number" placeholder="CVV">
+                            <input id="month" type="text" placeholder="MMYY">
+                            <input id="code" type="number" placeholder="CVV(3 digits)">
                         </div>
                     </div>
                     <hr style="border-top: 2px dotted rgb(97, 94, 94);">
@@ -833,8 +842,7 @@
                             electronic or mail offers from
                             Nordstrom. You may opt out at any time.</label><br>
                     </div>
-                    <button id="anotherbtn" onclick="placeOrder()"
-                        style="width:40%; background-color: black; border:none; border-radius: 5px; padding:10px;color:white; margin-top: 35px; margin-left:200px; margin-bottom: 30px;">Place
+                    <button id="anotherbtn" onclick="placeOrder()"  onMouseOver="this.style.backgroundColor='rgb(226, 19, 19)'" onMouseOut="this.style.backgroundColor='black'" style="width:40%; background-color: black; border:none; border-radius: 5px; padding:10px;color:white; margin-top: 35px; margin-left:200px; margin-bottom: 30px;">Place
                         Order>></button>
 
                     <p
