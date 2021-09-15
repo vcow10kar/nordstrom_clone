@@ -2856,7 +2856,7 @@
             var password = document.getElementById('password').value;
             //console.log("Name is " + password.length);
 
-            if ((fName.length == 0 || lName.length == 0) || password.length == 0) {
+            if ((fName.trim().length == 0 || lName.trim().length == 0) || password.trim().length == 0) {
                 //console.log("error");
                 document.getElementById('fname').setAttribute('class', 'error')
                 document.getElementById('lname').setAttribute('class', 'error')
