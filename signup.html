@@ -2851,12 +2851,12 @@
         }
 
         function signupUser() {
-            var fName = document.getElementById('fname').value;
-            var lName = document.getElementById('lname').value;
-            var password = document.getElementById('password').value;
+            var fName = document.getElementById('fname').value.trim();
+            var lName = document.getElementById('lname').value.trim();
+            var password = document.getElementById('password').value.trim();
             //console.log("Name is " + password.length);
 
-            if ((fName.trim().length == 0 || lName.trim().length == 0) || password.trim().length == 0) {
+            if ((fName.length == 0 || lName.length == 0) || password.length == 0) {
                 //console.log("error");
                 document.getElementById('fname').setAttribute('class', 'error')
                 document.getElementById('lname').setAttribute('class', 'error')
